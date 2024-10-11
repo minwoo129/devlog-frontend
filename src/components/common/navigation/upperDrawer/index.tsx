@@ -19,7 +19,11 @@ export default function UpperDrawer(args: UpperDrawerProps) {
         }
       >
         <article className="relative w-screen px-4 flex flex-col space-y-6 overflow-y-scroll h-full">
-          <DrawerMenuBtn href={"/"} title="테스트1" />
+          <DrawerMenuBtn
+            href={"/testPage"}
+            title="테스트1"
+            onClick={() => setOpen(false)}
+          />
         </article>
       </section>
       <section

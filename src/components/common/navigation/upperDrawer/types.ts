@@ -9,4 +9,5 @@ export interface UpperDrawerProps {
 export interface DrawerMenuBtnProps {
   href: string | UrlObject;
   title: string;
+  onClick: () => void;
 }
