@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Lexend } from "next/font/google";
 import { SmallNavigation } from "./smallNavigation";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import UpperDrawer from "./upperDrawer";
 
 export default function Navigation({}) {
