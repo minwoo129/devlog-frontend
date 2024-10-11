@@ -1,3 +1,4 @@
+import DrawerMenuBtn from "./drawerMenuBtn";
 import { UpperDrawerProps } from "./types";
 
 export default function UpperDrawer(args: UpperDrawerProps) {
@@ -13,25 +14,12 @@ export default function UpperDrawer(args: UpperDrawerProps) {
     >
       <section
         className={
-          " w-screen absolute bg-white h-1/2 shadow-xl delay-400 duration-500 ease-in-out transition-all transform border-2 border-sky-400 " +
+          " w-screen absolute bg-zinc-600 h-1/2 shadow-xl delay-400 duration-500 ease-in-out transition-all transform border-2 border-sky-400 " +
           (isOpen ? " translate-y-0 " : " -translate-y-full ")
         }
       >
         <article className="relative w-screen px-4 flex flex-col space-y-6 overflow-y-scroll h-full">
-          {/* <header className="p-4 font-bold text-lg">Header</header>
-          {children} */}
-          <div className="border border-gray-300 shadow rounded-md p-4 w-full mx-auto">
-            <div className="animate-pulse flex space-x-4">
-              <div className="rounded-full bg-gray-400 h-12 w-12"></div>
-              <div className="flex-1 space-y-4 py-1">
-                <div className="h-4 bg-gray-400 rounded w-3/4"></div>
-                <div className="space-y-2">
-                  <div className="h-4 bg-gray-400 rounded"></div>
-                  <div className="h-4 bg-gray-400 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <DrawerMenuBtn href={"/"} title="테스트1" />
         </article>
       </section>
       <section
