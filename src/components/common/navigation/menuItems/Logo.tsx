@@ -7,7 +7,7 @@ export default function Logo(args: LogoProps) {
   if (navigationType === "small") {
     return (
       <div className="flex justify-center items-center size-full text-3xl text-white">
-        로고
+        Devlog
       </div>
     );
   }
@@ -15,7 +15,7 @@ export default function Logo(args: LogoProps) {
   return (
     <Link href={"/"} legacyBehavior>
       <div className="flex justify-center items-center w-full h-60 border-b-2 border-white text-3xl text-white">
-        로고
+        Devlog
       </div>
     </Link>
   );
