@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/common/navigation";
+import "dayjs/locale/ko";
+import dayjs from "dayjs";
+
+dayjs.locale("ko");
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-row min-w-screen min-h-screen sm:flex-col">
           <Navigation />
