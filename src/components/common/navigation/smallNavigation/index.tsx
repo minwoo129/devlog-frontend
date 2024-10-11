@@ -1,7 +1,7 @@
 "use client";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { SmallNavigationProps } from "./types";
-import Logo from "./Logo";
+import { Logo } from "../menuItems";
 
 export const SmallNavigation = (args: SmallNavigationProps) => {
   const { setOpen } = args;
@@ -10,7 +10,7 @@ export const SmallNavigation = (args: SmallNavigationProps) => {
       className="size-full bg-zinc-800 sm:basis-2 md:hidden lg:hidden xl:hidden"
       onClick={() => setOpen(true)}
     >
-      <Logo />
+      <Logo navigationType="small" />
     </button>
   );
 };

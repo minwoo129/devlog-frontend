@@ -1,4 +1,4 @@
-import DrawerMenuBtn from "./drawerMenuBtn";
+import { MenuBtn } from "../menuItems";
 import { UpperDrawerProps } from "./types";
 
 export default function UpperDrawer(args: UpperDrawerProps) {
@@ -19,10 +19,11 @@ export default function UpperDrawer(args: UpperDrawerProps) {
         }
       >
         <article className="relative w-screen px-4 flex flex-col space-y-6 overflow-y-scroll h-full">
-          <DrawerMenuBtn
+          <MenuBtn
             href={"/testPage"}
             title="테스트1"
             onClick={() => setOpen(false)}
+            navigationType="small"
           />
         </article>
       </section>

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { LargeMenuBtnProps } from "./types";
+import { MenuBtnProps, NavigationType } from "./types";
 
-export default function LargeMenuBtn(args: LargeMenuBtnProps) {
-  const { href, title, onClick } = args;
+export default function MenuBtn(args: MenuBtnProps) {
+  const { href, title, navigationType, onClick } = args;
+
   return (
     <Link href={href} legacyBehavior>
       <a

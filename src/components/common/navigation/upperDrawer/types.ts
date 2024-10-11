@@ -5,9 +5,3 @@ export interface UpperDrawerProps {
   //children: React.ReactNode;
   setOpen: (value: boolean) => void;
 }
-
-export interface DrawerMenuBtnProps {
-  href: string | UrlObject;
-  title: string;
-  onClick: () => void;
-}
