@@ -1,10 +1,15 @@
 import { UrlObject } from "url";
+import { PageNavDataType } from "../navDatas";
 
 export interface MenuBtnProps {
-  href: string | UrlObject;
-  title: string;
+  data: PageNavDataType;
   onClick?: () => void;
-  navigationType: NavigationType;
+}
+
+export interface DeepMenuBtnProps {
+  href: string;
+  title: string;
+  handleClick: (href: string) => void;
 }
 
 export type LogoProps = {

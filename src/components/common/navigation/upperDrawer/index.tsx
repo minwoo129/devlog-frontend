@@ -21,6 +21,11 @@ export default function UpperDrawer(args: UpperDrawerProps) {
       >
         <article className="relative w-screen px-4 flex flex-col space-y-6 overflow-y-scroll h-full">
           {PageNavDatas.map((data, idx) => {
+            return (
+              <MenuBtn data={data} onClick={() => setOpen(false)} key={idx} />
+            );
+          })}
+          {/* {PageNavDatas.map((data, idx) => {
             const { href, title } = data;
             return (
               <MenuBtn
@@ -31,7 +36,7 @@ export default function UpperDrawer(args: UpperDrawerProps) {
                 key={idx}
               />
             );
-          })}
+          })} */}
         </article>
       </section>
       <section

@@ -1,6 +1,6 @@
 export default function TestPage() {
   return (
-    <div className="basis-full min-h-full bg-white">
+    <div className="flex-1 flex-col overflow-scroll px-4 sm:basis-full">
       <h1>TestPage</h1>
     </div>
   );
