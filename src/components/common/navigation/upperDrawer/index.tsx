@@ -14,7 +14,7 @@ export default function UpperDrawer(args: UpperDrawerProps) {
     >
       <section
         className={
-          " w-screen absolute bg-zinc-600 h-1/2 shadow-xl delay-400 duration-500 ease-in-out transition-all transform border-2 border-sky-400 " +
+          " w-screen absolute bg-zinc-800 h-1/2 shadow-xl delay-400 duration-500 ease-in-out transition-all transform border-2 border-sky-400 " +
           (isOpen ? " translate-y-0 " : " -translate-y-full ")
         }
       >
