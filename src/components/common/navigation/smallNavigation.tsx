@@ -1,28 +1,15 @@
-export const SmallNavigation = () => {
+"use client";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { SmallNavigationProps } from "./types";
+
+export const SmallNavigation = (args: SmallNavigationProps) => {
+  const { setOpen } = args;
   return (
     <button
-      id="dropdownDefaultButton"
-      data-dropdown-toggle="dropdown"
-      className="size-full bg-zinc-800 flex flex-row justify-center items-center md:hidden lg:hidden xl:hidden"
-      type="button"
+      className="size-full bg-zinc-600 sm:basis-2 md:hidden lg:hidden xl:hidden"
+      onClick={() => setOpen(true)}
     >
-      <p className="text-white text-xl">Dropdown button</p>
-
-      <svg
-        className="w-2.5 h-2.5 ms-3"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 10 6"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m1 1 4 4 4-4"
-        />
-      </svg>
+      menu
     </button>
   );
   /* return (
