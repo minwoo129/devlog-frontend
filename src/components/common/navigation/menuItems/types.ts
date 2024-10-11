@@ -1,5 +1,7 @@
+import { UrlObject } from "url";
+
 export interface MenuBtnProps {
-  href: string;
+  href: string | UrlObject;
   title: string;
   onClick?: () => void;
   navigationType: NavigationType;
