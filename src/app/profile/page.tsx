@@ -1,6 +1,6 @@
 export default function Profile() {
   return (
-    <div className="basis-full min-h-full bg-white">
+    <div className="flex-1 flex-col overflow-scroll px-4 sm:basis-full">
       <h1>profile</h1>
     </div>
   );

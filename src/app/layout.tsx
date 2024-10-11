@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
       //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex flex-row w-screen max-h-screen overflow-hidden sm:flex-col border-2 border-red-500">
+        <div className="flex flex-row w-screen max-h-screen overflow-hidden sm:flex-col">
           <Navigation />
           {children}
         </div>
