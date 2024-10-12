@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/common/navigation";
 import "dayjs/locale/ko";
 import dayjs from "dayjs";
+import RecoilProvider from "./RecoilProvider";
 
 dayjs.locale("ko");
 
@@ -33,10 +34,12 @@ export default function RootLayout({
       <body
       //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex flex-row w-screen max-h-screen overflow-hidden sm:flex-col">
-          <Navigation />
-          {children}
-        </div>
+        <RecoilProvider>
+          <div className="flex flex-row w-screen max-h-screen overflow-hidden sm:flex-col">
+            <Navigation />
+            {children}
+          </div>
+        </RecoilProvider>
       </body>
     </html>
   );
