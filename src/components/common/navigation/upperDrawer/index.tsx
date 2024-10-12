@@ -3,7 +3,7 @@ import { PageNavDatas } from "../navDatas";
 import { UpperDrawerProps } from "./types";
 
 export default function UpperDrawer(args: UpperDrawerProps) {
-  const { isOpen, setOpen } = args;
+  const { isOpen, setOpen, openedDetailMenu, setOpenedDetailMenu } = args;
   return (
     <main
       className={
@@ -22,21 +22,15 @@ export default function UpperDrawer(args: UpperDrawerProps) {
         <article className="relative w-screen px-4 flex flex-col space-y-6 overflow-y-scroll h-full">
           {PageNavDatas.map((data, idx) => {
             return (
-              <MenuBtn data={data} onClick={() => setOpen(false)} key={idx} />
-            );
-          })}
-          {/* {PageNavDatas.map((data, idx) => {
-            const { href, title } = data;
-            return (
               <MenuBtn
-                href={href}
-                title={title}
+                data={data}
                 onClick={() => setOpen(false)}
-                navigationType="small"
+                openedDetailMenu={openedDetailMenu}
+                setOpenedDetailMenu={setOpenedDetailMenu}
                 key={idx}
               />
             );
-          })} */}
+          })}
         </article>
       </section>
       <section

@@ -1,5 +1,5 @@
-import { UrlObject } from "url";
+import { NavigationCommonProps } from "../types";
 
-export interface LargeNavigationProps {
+export interface LargeNavigationProps extends NavigationCommonProps {
   setOpen: (value: boolean) => void;
 }

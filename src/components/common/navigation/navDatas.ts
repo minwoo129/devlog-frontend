@@ -5,6 +5,7 @@ type PageNavMenuType = {
   type: "menu";
   title: string;
   menus: PageNavLinkType[];
+  menuKey: string;
 };
 type PageNavLinkType = {
   type: "link";
@@ -23,19 +24,23 @@ export const PageNavDatas: PageNavDataType[] = [
   {
     type: "menu",
     title: "dev.log",
+    menuKey: "devlog",
     menus: [
-      { type: "link", title: "React Native", href: "/" },
-      { type: "link", title: "React", href: "/" },
-      { type: "link", title: "Flutter", href: "/" },
-      { type: "link", title: "Next.js", href: "/" },
-      { type: "link", title: "Android", href: "/" },
-      { type: "link", title: "Firebase", href: "/" },
+      { type: "link", title: "전체보기", href: "/devlog" },
+      { type: "link", title: "React Native", href: "/devlog" },
+      { type: "link", title: "React", href: "/devlog" },
+      { type: "link", title: "Flutter", href: "/devlog" },
+      { type: "link", title: "Next.js", href: "/devlog" },
+      { type: "link", title: "Android", href: "/devlog" },
+      { type: "link", title: "Firebase", href: "/devlog" },
     ],
   },
   {
     type: "menu",
     title: "conference.log",
+    menuKey: "conferencelog",
     menus: [
+      { type: "link", title: "전체보기", href: "/" },
       { type: "link", title: "구글IO", href: "/" },
       { type: "link", title: "토스 SLASH", href: "/" },
     ],

@@ -10,11 +10,12 @@ import { useRouter } from "next/navigation";
 import { UrlObject } from "url";
 
 export default function MenuBtn(args: MenuBtnProps) {
-  const { data, onClick } = args;
+  const { data, onClick, openedDetailMenu, setOpenedDetailMenu } = args;
   const [isOpen, setOpen] = useState(false);
   const router = useRouter();
 
   const handleClick = (href: string) => {
+    setOpenedDetailMenu("");
     if (isOpen) setOpen(false);
     if (onClick) onClick();
     router.push(href);
@@ -39,9 +40,22 @@ export default function MenuBtn(args: MenuBtnProps) {
 
   const { title, menus } = data;
 
+  const handleAccordionChange = () => {
+    if (openedDetailMenu === data.menuKey) {
+      setOpenedDetailMenu("");
+      return;
+    }
+
+    setOpenedDetailMenu(data.menuKey);
+  };
+
   return (
     <div>
-      <Accordion className="bg-zinc-800 border-b-2 border-white">
+      <Accordion
+        className="bg-zinc-800 border-b-2 border-white"
+        expanded={openedDetailMenu === data.menuKey}
+        onChange={handleAccordionChange}
+      >
         <AccordionSummary
           className={`flex flex-row justify-center items-center text-2xl text-white font-bold hover:text-orange-600 `}
         >
