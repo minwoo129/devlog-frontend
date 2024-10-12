@@ -32,3 +32,20 @@ export type GithubProfile = {
   created_at: Date;
   updated_at: Date;
 };
+
+export type PostMatter = {
+  title: string;
+  description: string;
+  thumbnailURL: string;
+  category1: string;
+  category2?: string;
+  tags: string[];
+  draft: boolean;
+  date: string;
+};
+
+export type Post = PostMatter & {
+  slug: string;
+  content: string;
+  readingMinutes: number;
+};
