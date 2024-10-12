@@ -38,7 +38,8 @@ export type PostMatter = {
   description: string;
   thumbnailURL: string;
   category1: string;
-  category2?: string;
+  category2: string;
+  isTest: boolean;
   tags: string[];
   draft: boolean;
   date: string;
