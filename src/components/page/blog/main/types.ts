@@ -8,3 +8,11 @@ export interface CategoryListProps {
 export interface CategoryListItemProps {
   categoryData: PageNavLinkType;
 }
+
+export interface AllPostListProps {
+  posts: Post[];
+}
+
+export interface AllPostListItemProps {
+  post: Post;
+}

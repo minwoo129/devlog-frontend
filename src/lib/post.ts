@@ -27,7 +27,7 @@ const parsePost = (postPath: string) => {
     const postData: Post = {
       ...grayMatter,
       tags: grayMatter.tags.filter(Boolean),
-      date: dayjs(grayMatter.date).format("YYYY-MM-DD"),
+      date: dayjs(grayMatter.date).format("YYYY-MM-DD HH:mm:ss"),
       content,
       slug: postPath.slice(postPath.indexOf(BASE_PATH)).replace(".mdx", ""),
       readingMinutes: Math.ceil(readingTime(content).minutes),
