@@ -7,32 +7,85 @@ type PageNavMenuType = {
   menus: PageNavLinkType[];
   menuKey: string;
 };
-type PageNavLinkType = {
+export type PageNavLinkType = PageNavLinkAllType | PageNavLinkEashType;
+type PageNavLinkAllType = {
   type: "link";
+  linkType: "all";
   title: string;
   href: string;
+};
+type PageNavLinkEashType = {
+  type: "link";
+  linkType: "each";
+  title: string;
+  href: string;
+  linkKey: string;
 };
 
 export const TestPageNavData: PageNavDataType = {
   type: "link",
+  linkType: "each",
   title: "테스트",
   href: "/",
+  linkKey: "test",
 };
 
 export const PageNavDatas: PageNavDataType[] = [
-  { type: "link", title: "테스트", href: "/testPage" },
+  {
+    type: "link",
+    title: "테스트",
+    href: "/testPage",
+    linkType: "each",
+    linkKey: "test",
+  },
   {
     type: "menu",
     title: "dev.log",
     menuKey: "devlog",
     menus: [
-      { type: "link", title: "전체보기", href: "/devlog" },
-      { type: "link", title: "React Native", href: "/devlog" },
-      { type: "link", title: "React", href: "/devlog" },
-      { type: "link", title: "Flutter", href: "/devlog" },
-      { type: "link", title: "Next.js", href: "/devlog" },
-      { type: "link", title: "Android", href: "/devlog" },
-      { type: "link", title: "Firebase", href: "/devlog" },
+      { type: "link", linkType: "all", title: "전체보기", href: "/devlog" },
+      {
+        type: "link",
+        linkType: "each",
+        title: "React Native",
+        href: "/devlog",
+        linkKey: "react-native",
+      },
+      {
+        type: "link",
+        linkType: "each",
+        title: "React",
+        href: "/devlog",
+        linkKey: "react",
+      },
+      {
+        type: "link",
+        linkType: "each",
+        title: "Flutter",
+        href: "/devlog",
+        linkKey: "flutter",
+      },
+      {
+        type: "link",
+        linkType: "each",
+        title: "Next.js",
+        href: "/devlog",
+        linkKey: "nextjs",
+      },
+      {
+        type: "link",
+        linkType: "each",
+        title: "Android",
+        href: "/devlog",
+        linkKey: "android",
+      },
+      {
+        type: "link",
+        linkType: "each",
+        title: "Firebase",
+        href: "/devlog",
+        linkKey: "firebase",
+      },
     ],
   },
   {
@@ -40,9 +93,21 @@ export const PageNavDatas: PageNavDataType[] = [
     title: "conference.log",
     menuKey: "conferencelog",
     menus: [
-      { type: "link", title: "전체보기", href: "/" },
-      { type: "link", title: "구글IO", href: "/" },
-      { type: "link", title: "토스 SLASH", href: "/" },
+      { type: "link", linkType: "all", title: "전체보기", href: "/" },
+      {
+        type: "link",
+        linkType: "each",
+        title: "구글IO",
+        href: "/",
+        linkKey: "google-io",
+      },
+      {
+        type: "link",
+        linkType: "each",
+        title: "토스 SLASH",
+        href: "/",
+        linkKey: "toss-slash",
+      },
     ],
   },
 ];
