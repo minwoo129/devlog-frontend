@@ -5,7 +5,7 @@ export default function PageLayer(args: PageLayerProps) {
 
   return (
     <div
-      className={`flex-1 flex-col overflow-scroll px-4 sm:basis-full ${className}`}
+      className={`flex-1 flex-col overflow-scroll px-16 sm:basis-full ${className}`}
     >
       {children}
     </div>
