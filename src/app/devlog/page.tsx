@@ -5,7 +5,7 @@ import { CategoryList } from "@/components/page/blog/main";
 export default function Devlog() {
   return (
     <PageLayer>
-      <Title className="mt-10 border-2 border-red-300">dev.log</Title>
+      <Title className="text-5xl mt-10">dev.log</Title>
       <CategoryList />
     </PageLayer>
   );
