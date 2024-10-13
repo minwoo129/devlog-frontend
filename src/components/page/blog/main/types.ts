@@ -16,3 +16,12 @@ export interface AllPostListProps {
 export interface AllPostListItemProps {
   post: Post;
 }
+
+export interface AllPostListItemFooterProps {
+  tags: string[];
+  date: string;
+}
+
+export interface TagProps {
+  tag: string;
+}

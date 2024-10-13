@@ -11,6 +11,7 @@ export default function MainContentBody(args: MainContentBodyProps) {
       <CategoryList posts={posts} />
       <Title className="text-5xl mt-10">All Posts</Title>
       <AllPostList posts={posts} />
+      <div className="h-10" />
     </div>
   );
 }
