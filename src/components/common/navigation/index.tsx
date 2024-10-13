@@ -9,7 +9,7 @@ export default function Navigation({}) {
   const [openedDetailMenu, setOpenedDetailMenu] = useState("");
 
   return (
-    <div className="flex basis-60 h-screen sm:basis-20 overflow-y-hidden">
+    <div className="flex basis-60 h-screen sm:basis-20 md:basis-20 overflow-y-hidden">
       {/* <div className="size-full bg-zinc-600 sm:basis-2 md:hidden lg:hidden xl:hidden">
       </div> */}
       <SmallNavigation setOpen={setOpen} />

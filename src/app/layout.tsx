@@ -35,7 +35,7 @@ export default function RootLayout({
       //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <RecoilProvider>
-          <div className="flex flex-row w-screen max-h-screen overflow-hidden sm:flex-col">
+          <div className="flex flex-row w-screen max-h-screen overflow-hidden sm:flex-col md:flex-col">
             <Navigation />
             {children}
           </div>
