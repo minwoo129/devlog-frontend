@@ -13,14 +13,102 @@ type PageNavLinkAllType = {
   linkType: "all";
   title: string;
   href: string;
+  mainCategory: false;
 };
-type PageNavLinkEashType = {
+export type PageNavLinkEashType = {
   type: "link";
   linkType: "each";
   title: string;
   href: string;
   linkKey: string;
+  mainCategory: boolean;
 };
+
+/**
+ * - DevLog 영역 메뉴 네비게이션 데이터
+ * - 연결 페이지
+ *   1. React Native
+ *   2. React
+ *   3. Flutter
+ *   4. Next.js
+ *   5. Android
+ *   6. Firebase
+ */
+export const DevLogNavDatas: PageNavLinkType[] = [
+  {
+    type: "link",
+    linkType: "each",
+    title: "React Native",
+    href: "/devlog",
+    linkKey: "react-native",
+    mainCategory: true,
+  },
+  {
+    type: "link",
+    linkType: "each",
+    title: "React",
+    href: "/devlog",
+    linkKey: "react",
+    mainCategory: true,
+  },
+  {
+    type: "link",
+    linkType: "each",
+    title: "Flutter",
+    href: "/devlog",
+    linkKey: "flutter",
+    mainCategory: false,
+  },
+  {
+    type: "link",
+    linkType: "each",
+    title: "Next.js",
+    href: "/devlog",
+    linkKey: "nextjs",
+    mainCategory: false,
+  },
+  {
+    type: "link",
+    linkType: "each",
+    title: "Android",
+    href: "/devlog",
+    linkKey: "android",
+    mainCategory: false,
+  },
+  {
+    type: "link",
+    linkType: "each",
+    title: "Firebase",
+    href: "/devlog",
+    linkKey: "firebase",
+    mainCategory: true,
+  },
+];
+
+/**
+ * - ConferenceLog 영역 메뉴 네비게이션 데이터
+ * - 연결 페이지
+ *   1. 구글IO
+ *   2. 토스 SLASH
+ */
+export const ConferenceLogNavDatas: PageNavLinkType[] = [
+  {
+    type: "link",
+    linkType: "each",
+    title: "구글IO",
+    href: "/",
+    linkKey: "google-io",
+    mainCategory: true,
+  },
+  {
+    type: "link",
+    linkType: "each",
+    title: "토스 SLASH",
+    href: "/",
+    linkKey: "toss-slash",
+    mainCategory: true,
+  },
+];
 
 export const TestPageNavData: PageNavDataType = {
   type: "link",
@@ -28,8 +116,12 @@ export const TestPageNavData: PageNavDataType = {
   title: "테스트",
   href: "/",
   linkKey: "test",
+  mainCategory: false,
 };
 
+/**
+ * - 페이지 네비게이션 데이터(전체)
+ */
 export const PageNavDatas: PageNavDataType[] = [
   {
     type: "link",
@@ -37,55 +129,21 @@ export const PageNavDatas: PageNavDataType[] = [
     href: "/testPage",
     linkType: "each",
     linkKey: "test",
+    mainCategory: false,
   },
   {
     type: "menu",
     title: "dev.log",
     menuKey: "devlog",
     menus: [
-      { type: "link", linkType: "all", title: "전체보기", href: "/devlog" },
       {
         type: "link",
-        linkType: "each",
-        title: "React Native",
+        linkType: "all",
+        title: "전체보기",
         href: "/devlog",
-        linkKey: "react-native",
+        mainCategory: false,
       },
-      {
-        type: "link",
-        linkType: "each",
-        title: "React",
-        href: "/devlog",
-        linkKey: "react",
-      },
-      {
-        type: "link",
-        linkType: "each",
-        title: "Flutter",
-        href: "/devlog",
-        linkKey: "flutter",
-      },
-      {
-        type: "link",
-        linkType: "each",
-        title: "Next.js",
-        href: "/devlog",
-        linkKey: "nextjs",
-      },
-      {
-        type: "link",
-        linkType: "each",
-        title: "Android",
-        href: "/devlog",
-        linkKey: "android",
-      },
-      {
-        type: "link",
-        linkType: "each",
-        title: "Firebase",
-        href: "/devlog",
-        linkKey: "firebase",
-      },
+      ...DevLogNavDatas,
     ],
   },
   {
@@ -93,32 +151,14 @@ export const PageNavDatas: PageNavDataType[] = [
     title: "conference.log",
     menuKey: "conferencelog",
     menus: [
-      { type: "link", linkType: "all", title: "전체보기", href: "/" },
       {
         type: "link",
-        linkType: "each",
-        title: "구글IO",
+        linkType: "all",
+        title: "전체보기",
         href: "/",
-        linkKey: "google-io",
+        mainCategory: false,
       },
-      {
-        type: "link",
-        linkType: "each",
-        title: "토스 SLASH",
-        href: "/",
-        linkKey: "toss-slash",
-      },
+      ...ConferenceLogNavDatas,
     ],
   },
 ];
-
-/* export const PageNavDatas: PageNavDataType[] = [
-  {
-    href: "/testPage",
-    title: "테스트1",
-  },
-  {
-    href: "/profile",
-    title: "프로필",
-  },
-]; */
