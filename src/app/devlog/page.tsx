@@ -1,14 +1,17 @@
 import PageLayer from "@/components/common/pageLayer";
-import Title from "@/components/common/title";
-import { CategoryList } from "@/components/page/blog/main";
-import { getAllPosts, getFilteredPosts } from "@/lib/post";
+import { getFilteredPosts } from "@/lib/post";
+import MainEmptyBody from "./mainEmptyBody";
+import MainContentBody from "./mainContentBody";
 
 export default function Devlog() {
   const posts = getFilteredPosts({ section: "devlog", category: "all" });
   return (
     <PageLayer>
-      <Title className="text-5xl mt-10">dev.log</Title>
-      <CategoryList posts={posts} />
+      {posts.length === 0 ? (
+        <MainEmptyBody />
+      ) : (
+        <MainContentBody posts={posts} />
+      )}
     </PageLayer>
   );
 }
