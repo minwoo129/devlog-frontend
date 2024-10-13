@@ -1,0 +1,382 @@
+---
+title: "Jetpack Glance를 사용한 Android 위젯 구축"
+description: "테스트 포스트 4"
+thumbnailURL: "https://velog.velcdn.com/images/minwoo129/post/fbabfa60-573d-4087-9192-7992c8b4d900/image.jpg"
+category1: "conferencelog"
+category2: "google-io"
+isTest: true
+tags:
+  - Google I/O
+  - Android
+  - Jetpack Glance
+draft: false
+date: 2024-10-13 15:13:50
+---
+
+# Jetpack Glance를 사용한 Android 위젯 구축
+
+⇒ 링크: [https://io.google/2024/explore/4a516fcc-a325-45dd-a820-29cbddde3412/intl/ko/](https://io.google/2024/explore/4a516fcc-a325-45dd-a820-29cbddde3412/intl/ko/)
+
+---
+
+- 발표자
+  P1: André Labonté ⇒ Senior Product Manager - Android Widgets(He/Him)
+  P2: Summers Pittman ⇒ Developer Relations Engineer, Android(He/Him)
+
+## 1. What is a widget?(위젯이 무엇인가?)
+
+안드로이드 앱 밖에서 원격으로 렌더링할 수 있는 어플리케이션 UI의 한 조각
+
+→ 평상시에는 홈 화면에 존재하지만 경우에 따라 잠금화면, 이외에 다른화면에서 표시될수도 있음 ⇒ 휴대폰 제조사에 따라 다름
+
+위젯은 사용자를 사로잡고 앱의 시인성을 높이는 강력한 도구가 될 수 있다.
+
+위젯은 또한 사용자가 앱의 컨텐츠와 기능에 편리하게 접근할 수 있도록 함으로서 사용자의 경험성을 높이는데 도움이 될수 있다.
+
+`P1`의 기준에 widget에 신경써야 하는 이유
+
+- 앱에 대한 존재감과 시인성을 높이는데 도움
+- 앱의 기능에 사용자가 쉽게 접근하도록 함 ⇒ 사용자 참여 향상
+- 개인화된 컨텐츠 또는 프리미엄 기능 추천 ⇒ 앱 전환 전략의 큰 부분이 될 수 있음
+
+## 2. Why Widgets?(왜 위젯인가?)
+
+사람들은 정말 많은 다양한 이유로 인해 위젯을 사용한다.
+
+- 사용자 관점에서 위젯의 이점: 커스텀화
+  사용자가 앱의 컨텐츠로 홈화면을 정의하는 방법?
+  ex) Notion
+  → 사용자에게 가장 유용한 정보를 고정할 수 있는 기능 ⇒ 노션과 연결할 수 있도록
+- 사용자 관점에서 위젯의 이점: 효율성
+  → 자주 사용하는 기능에 효율적으로 접근할 수 있어서
+- 한눈에 소비할 수 있는 하위 집합.
+
+## 3. Tips for great widgets(좋은 위젯을 위한 팁)
+
+- 위젯이 유용하고 관련성이 있는지 확인
+  → 앱을 열지 않고도 위젯에서 가치있는 것을 얻을 수 있어야 함.
+- 위젯을 심플하고 사용하기 쉽게 만들 것
+  → 사람들은 위젯을 사용하는 방법을 아는데 많은 시간을 쓰고 싶어 하지 않음
+- 위젯의 적용성을 고려할 것
+  → 위젯이 스마트폰, 태블릿, 폴더블 폰 등 안드로이드 생태계 내에서 적절히 작동할 수 있도록
+- 시각적으로 응집력이 있는지 확인
+  → 사용자들은 보기 좋고 위젯이 전반적인 홈스크린 디자인에 잘 어울리는 지를 보게 될것
+  → 배경색, 텍스트, 아이콘 등등
+- 사용자가 위젯을 찾아내게 만들 것
+  → 위젯 선택 API를 통해 사용자에게 앱 내 모든 위젯을 안내
+
+## 4. What’s new?
+
+→ 위젯을 덜 복잡하고 시간을 덜 들이고, 기존 툴과의 통합성을 높인 방법으로 개발하는 새로운 기술
+
+### 4-1. Jetpack Glance 1.1
+
+- 유닛 테스트 기능
+- 컴포넌트 소개
+- canonical widget layouts
+  → Jetpack Glance 컴포넌트 위에 구축된 표준 위젯 개발 레이아웃
+  → 모범 사례와 일치하는 레이아웃 셋으로 빠르게 시작 가능
+  → 스마트폰, 태블릿, 폴더블 폰 등 확장성이 뛰어남
+  → 세련되고 위젯을 커스텀할 수 있음
+  - 첫번째 레이아웃 셋은 코드샘플과 Android UI Kit 안에 있는 피그마 라이브러리와 매칭시킬 수 있음
+  - 더 많은 레이아웃은 차후 공개
+- Text layouts
+  → 간결한 정보를 보여주기에 가장 이상적임
+  → 옆에 이미지를 추가함으로 위젯의 시각적 요소를 끌어올릴 수 있음
+- List layouts
+  → 여러개의 아이템을 명확하고 검색 가능한 형식으로 구성 가능
+  → 뉴스 헤드라인, To-do 리스트 등에 유용
+- Grid layout
+  → 작고, 유동적이고, 시각적으로 풍부한 이미지들을 배치할 수 있음
+  → 텍스트 라벨, 설명 포함 가능
+
+## 5. 위젯이란 무엇인가?(기술적으로)
+
+- 기본 앱 대신 호스트 앱 내부에서 보여주는 특별한 타입의 뷰
+- 주기적인 업데이트 존재
+
+### 5-1. 위젯 컴포넌트
+
+1. AppWidgetHost
+
+   → UI에 위젯을 내장한 앱
+
+   → 일반적인 홈화면이지만 반드시 홈화면일 필요는 없음
+
+2. AppWidgetProviderInfo
+
+   → 레이아웃, 크기, 업데이트 빈도, 구성 클래스 등 위젯 메타 데이터를 나타냄
+
+   → AppWidgetProvider로부터 제공된 XML 파일
+
+3. AppWidgetProvider
+
+   → AppWidgetHost에서 위젯이 업데이트, 활성화, 비활성화, 또는 삭제될 때 Android OS에서의 메세지를 듣는 브로드캐스트 리시버
+
+   → 위젯과 프로그래밍 방식의 인터페이스 할 수 있는 메서드 정의
+
+   → 위젯의 레이아웃을 위젯의 호스트에 제공하는 역할
+
+앱 위젯 레이아웃은 remote view들을 통해 작성된다.
+
+→ 분리된 프로세스에서 노출할 수 있는 특별한 뷰 클래스
+
+→ 이미 분리된 프로세스에서 노출되고 있기 때문에 remote view는 자체적인 API를 가지고 있다.
+
+```xml
+<receiver
+	android:name=".helloworld.HelloWorldWidgetReceiver"
+	android:exported="true"
+	android:label="Hello World">
+	<intent-filter>
+		<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+	</intent-filter>
+	<meta-data
+		android:name="android.appwidget.provider"
+		android:recource="@xml/hello_world_widget_info"
+	/>
+</receiver>
+```
+
+→ AppWidgetProvider: 브로드캐스트 리시버로 지정
+
+→ AppWidgetProviderInfo: 메타 데이터도 지정
+
+이 컴포넌트들을 한번 구성해놓으면 우리가 개발한 위젯은 이미 사용자의 홈화면에 추가될 준비를 마친것!!!
+
+사용자가 위젯을 홈화면에 추가하면 앱은 위젯이 주기적으로 업데이트를 수행하도록 처리할 준비가 된것!!
+
+그 다음 안드로이드 OS는 우리가 개발한 위젯에 업데이트가 발생했는지 여부를 요청할 것!!!
+
+## 6. What is Glance
+
+Jetpack Glance
+
+- 구글이 제안하는 새로운 위젯을 개발하는 방법.
+- Jetpack Compose Runtime을 기반으로 동작
+- Compose의 이점을 가져갈 수 있음
+  - 선언형 UI를 기존보다 적은 코드로 작성
+  - 직관적인 API 사용
+  - Kotlin을 사용한 위젯 작성
+- 위젯의 구성요소 위에 지원 및 빌드
+- 동일한 설정 및 구성 상속
+
+구성요소
+
+- GlanceAppWidgetReceiver
+  - 자체 AppWidgetProvider 클래스
+- GlanceAppWidget
+  - 위젯 레이아웃 정의
+  - 데이터 업데이트
+  - 사용자 상호작용 처리
+
+```kotlin
+class HelloWorldWidget: GlanceAppWidget() {
+	override suspend fun provideGlance(context: Context, id: GlanceId) {
+		provideContent {
+			HelloWorldContent()
+		}
+	}
+}
+```
+
+→ GlanceAppWidget 클래스 상속
+
+→ provideGlance 함수를 override
+
+→ 위젯이 필요로 하는 리소스를 할당해주는 함수
+
+→ 위젯의 컴포즈 요소들을 입력으로 provideContent를 호출
+
+→ ProvideGlance
+
+→ Glance 라이브러리에 의해 호출됨
+
+```kotlin
+GlanceTheme {
+	Row(
+		modifier = GlanceModifier
+				.fillMaxSize()
+				.padding(16.dp)
+				.background(GlanceTheme.colors.widgetBackground)
+				.appWidgetBackground(),
+		horizontalAlignment = Alignment.CenterHorizontally,
+		verticalAlignment = Alignment.CenterVertically
+	) {
+		Image(
+			provider = iconProvider,
+			contentDescription = iconDescription,
+			modifier = GlanceModifier.size(48.dp),
+			colorFilter = ColorFilter.tint(GlanceTheme.colors.primary)
+		)
+		Spacer(modifier = GlanceModifier.width(8.dp))
+		Column(verticalAlignment = Alignment.CenterVertically) {
+			Text(text = titleText, style = primaryTextStyle)
+			Text(text = supportingText, style = supportingTextStyle)
+		}
+	}
+}
+```
+
+**주의사항!!!!**
+
+Glance는 Glance 전용 UI 클래스 및 패키지가 따로 있기 때문에 import를 할 때 주의해야 함
+
+```kotlin
+import androidx.glance.layout.Column
+import androidx.glance.layout.Row
+import androidx.glance.text.FontWeight
+import androidx.glance.text.Text
+import androidx.glance.text.TextStyle
+import androidx.glance.Image
+import androidx.glance.Button
+```
+
+```kotlin
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Image
+import androidx.compose.material3.Text
+import androidx.compose.material3.Button
+```
+
+```kotlin
+class WidgetModelRepository constructor(val widgetModelDao: WidgetModelDao, val coroutineScope: CoroutineScope, val appContext: Context) {
+		fun updateWidgetModel(glanceId: GlanceId, widgetData: String) {
+			coroutineScope.launch {
+				val widgetId = GlanceAppWidgetManager(appContext).getAppWidgetId(glanceId)
+				val widgetModel = widgetModelDao.getWidgetModel(widgetId)
+				widgetModel.widgetData = widgetData
+				widgetModelDao.update(widgetModel)
+				HelloWorldWidget().update(appContext, glanceId)
+			}
+		}
+}
+```
+
+GlanceAppWidget이 작성되서 사용자 홈화면에 배치 ⇒ 앱이 이를 업데이트 처리해줘야 함.
+
+Glance ⇒ update, updateAll 함수 제공 ⇒ 위젯을 쉽게 업데이트하도록
+
+→ 앱 어디서든 호출할 수 있는 일시 중단 함수
+
+→ 이 함수가 호출되면 Glance는 WorkManager를 사용해 provideGlance 함수를 호출한다.
+
+→ 작업 시간제한 ⇒ 10분 ⇒ 10분안에 위젯으로 데이터 업데이트가 이루어져야 된다는 뜻
+
+→ provideGlance 함수가 호출되면 컨텐츠 구성은 45초간 돌게 된다 ⇒ 데이터 업데이트가 완료되고 45초 안에 위젯이 업데이트 된다는 뜻.
+
+worker 하나 당 위젯 하나에 대한 업데이트를 처리할 수 있음
+
+## 7. Glance를 사용해 위젯 개발(예시)
+
+1. 프로젝트에 Glance 추가
+
+   app/build.gradle 파일에 Glance 종속 항목 추가(문서작성 시점 기준 버전, 24/05/23)
+
+   ```groovy
+   implementation("androidx.glance:glance-appwidget:1.1.0-rc01")
+   implementation("androidx.glance:glance-material3:1.1.0-rc01")
+   ```
+
+2. GlanceAppWidget 클래스 상속 처리 ⇒ 위젯 추가
+
+   GlanceAppWidget 클래스를 상속하는 클래스 작성 후 provideGlance 함수 구성
+
+   ```kotlin
+   import android.content.Context
+   import androidx.glance.GlanceId
+   import androidx.glance.appwidget.GlanceAppWidget
+   import androidx.glance.appwidget.provideContent
+   import androidx.glance.text.Text
+
+   class HelloWorldWidget: GlanceAppWidget() {
+   	override suspend fun provideGlance(context: Context, id: GlanceId) {
+   		provideContent{
+   			Text("Hello, World")
+   		}
+   	}
+   }
+   ```
+
+3. GlanceAppWidgetReceiver 클래스 상속 처리 ⇒ 리시버 연결
+
+   GlanceAppWidgetReceiver 클래스를 상속하는 리시버 클래스 작성
+
+   ```kotlin
+   import androidx.glance.appwidget.GlanceAppWidget
+   import androidx.glance.appwidget.GlanceAppWidgetReceiver
+
+   class HelloWorldWidgetReceiver: GlanceAppWidgetReceiver() {
+   	override val glanceAppWidget: GlanceAppWidget
+   			get() = HelloWorldWidget()
+   }
+   ```
+
+4. AppWidgetProviderInfo xml 파일 추가
+
+   ```xml
+   <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+   	android:resizeMode="horizontal|vertical"
+   	android:minHeight="128dp"
+   	android:minWidth="128dp"
+   	android:description="@string/widget_names_hello_world"
+   	android:updatePeriodMillis="3600000"
+   	android:minResizeHeight="128dp"
+   	android:minResizeWidth="128dp"
+   	android:maxResizeHeight="512dp"
+   	android:maxResizeWidth="512dp"
+   	android:targetCallWidth="2"
+   	android:targetCallHeight="2"
+   	android:initialLayout="@layout/glance_default_loading_layout">
+   </appwidget-provider>
+   ```
+
+5. ProviderInfo 파일을 AndroidManifest.xml 파일에 연결
+
+   ```xml
+   <receiver
+   	android:name=".helloworld.HelloWorldWidgetReceiver"
+   	android:exported="true"
+   	android:label="Hello World">
+   	<intent-filter>
+   		<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+   	</intent-filter>
+   	<meta-data
+   		android:name="android.appwidget.provider"
+   		android:resource="@xml/hello_world_widget_info"
+   	/>
+   </receiver>
+   ```
+
+## 8. Design with Glance
+
+### 8-1. 디자인 가이드
+
+⇒ 안드로이드 디자인 가이드 링크: [https://developer.android.com/design/ui?hl=ko](https://developer.android.com/design/ui?hl=ko)
+
+⇒ Canonical widget layout 샘플(Github): [https://github.com/android/platform-samples](https://github.com/android/platform-samples)
+
+⇒ Figma Android UI kit: [https://www.figma.com/community/file/1237551184114564748/android-ui-kit](https://www.figma.com/community/file/1237551184114564748/android-ui-kit)
+
+## 9. Architecture with Glance
+
+대부분의 위젯
+
+- 초기화, 구성, 수정, 업데이트 등을 위한 몇가지의 상태 정보만 존재
+- 데이터가 이미 로드되어 있거나 에러 상태로 있을 수도 있음
+
+⇒ 우리의 위젯을 앱 안에서 어떻게 관리하고 어떻게 이 각각의 상태들을 어떻게 제어하는지를 알아봄
+
+- 위젯 업데이트
+- 에러 발생시 대응 방법
+
+Glance Testing API 제공
+
+```kotlin
+testImplementation("androidx.glance:glance-testing:1.1.0-rc01")
+testImplementation("androidx.glance:glance-appwidget-testing:1.1.0-rc01")
+```
+
+→ 유닛 테스트를 위한 더 많은 composed-style 옵션 제공
