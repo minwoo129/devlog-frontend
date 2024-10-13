@@ -5,6 +5,11 @@ import matter from "gray-matter";
 import { Post, PostMatter } from "./types";
 import dayjs from "dayjs";
 import readingTime from "reading-time";
+import {
+  NavigationConferenceLogCategoryType,
+  NavigationDevLogCategoryType,
+  NavigationSectionType,
+} from "@/components/common/navigation/navDatas";
 
 const BASE_PATH = "/posts";
 const POSTS_PATH = path.join(process.cwd(), BASE_PATH);
@@ -42,4 +47,23 @@ export function getAllPosts() {
     if (!post) return acc;
     return [...acc, post];
   }, []);
+}
+
+type getFilteredPostsArgs =
+  | {
+      section: "devlog";
+      category: "all" | NavigationDevLogCategoryType;
+    }
+  | {
+      section: "conferencelog";
+      category: "all" | NavigationConferenceLogCategoryType;
+    };
+export function getFilteredPosts(args: getFilteredPostsArgs) {
+  const { section, category } = args;
+  let posts = getAllPosts();
+  posts = posts.filter((post) => post.category1 === section);
+  if (category !== "all") {
+    posts = posts.filter((post) => post.category2 === category);
+  }
+  return posts;
 }

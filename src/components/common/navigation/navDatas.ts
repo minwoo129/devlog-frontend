@@ -23,6 +23,36 @@ export type PageNavLinkEashType = {
   linkKey: string;
   mainCategory: boolean;
 };
+type linkKeyType = NavigationDevLogCategoryType | NavigationDevLogCategoryType;
+
+/**
+ * 네비게이션 메뉴 섹션 타입
+ * - devlog: dev.log
+ * - conferencelog: conference.log
+ */
+export type NavigationSectionType = "devlog" | "conferencelog";
+/**
+ * 섹션 별 카테고리 타입(DevLog)
+ * - react-native: React Native
+ * - react: React
+ * - flutter: Flutter
+ * - nextjs: Next.js
+ * - android: Android
+ * - firebase: Firebase
+ */
+export type NavigationDevLogCategoryType =
+  | "react-native"
+  | "react"
+  | "flutter"
+  | "nextjs"
+  | "android"
+  | "firebase";
+/**
+ * 섹션 별 카테고리 타입(ConferenceLog)
+ * - google-io: 구글IO
+ * - toss-slash: 토스 SLASH
+ */
+export type NavigationConferenceLogCategoryType = "google-io" | "toss-slash";
 
 /**
  * - DevLog 영역 메뉴 네비게이션 데이터
