@@ -9,20 +9,21 @@ import FirebaseLogo from "../../../../assets/svgImages/firebase.svg";
 
 export default function SVGImage(args: SVGImageProps) {
   const { name, ...rest } = args;
+
   if (name === "ReactNativeLogo") {
-    return <Image {...rest} src={ReactNativeLogo} alt={name} />;
+    return <ReactNativeLogo {...rest} />;
   }
   if (name === "ReactLogo") {
-    return <Image {...rest} src={ReactLogo} alt={name} />;
+    return <ReactLogo {...rest} />;
   }
-  if (name === "FlutterLogo") {
-    return <Image {...rest} src={FlutterLogo} alt={name} />;
-  }
+  /* if (name === "FlutterLogo") {
+    return <FlutterLogo {...rest} />;
+  } */
   if (name === "NextjsLogo") {
-    return <Image {...rest} src={NextJSLogo} alt={name} />;
+    return <NextJSLogo {...rest} />;
   }
   if (name === "FirebaseLogo") {
-    return <Image {...rest} src={FirebaseLogo} alt={name} />;
+    return <FirebaseLogo {...rest} />;
   }
-  return <Image {...rest} src={AndroidLogo} alt={name} />;
+  return <AndroidLogo {...rest} />;
 }
