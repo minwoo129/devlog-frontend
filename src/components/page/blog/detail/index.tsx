@@ -1,0 +1,1 @@
+export { MDXRemoteUIComponent } from "./MDXComponents";
