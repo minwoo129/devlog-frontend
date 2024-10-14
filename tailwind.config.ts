@@ -23,6 +23,7 @@ const config: Config = {
   plugins: [
     require("tailwind-scrollbar-hide"),
     require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/typography"),
   ],
 };
 export default config;

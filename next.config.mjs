@@ -9,6 +9,7 @@ const nextConfig = {
       },
     ];
   },
+  transpilePackages: ["next-mdx-remote"],
   images: {
     remotePatterns: [
       {
