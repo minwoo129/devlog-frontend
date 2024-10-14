@@ -1,7 +1,6 @@
 import Title from "@/components/common/title";
-import { CategoryList } from "@/components/page/blog/main";
+import { AllPostList, CategoryList } from "@/components/page/blog/main";
 import { MainContentBodyProps } from "./types";
-import AllPostList from "@/components/page/blog/main/AllPostList";
 
 export default function MainContentBody(args: MainContentBodyProps) {
   const { posts } = args;
