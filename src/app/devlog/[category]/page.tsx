@@ -12,10 +12,11 @@ export default function DevLogPostsPage(params: DevLogPostsPageParams) {
     section: "devlog",
     category,
   });
+  const tags = Array.from(new Set(posts.map((post) => post.tags).flat()));
   return (
     <PageLayer>
-      <div className="border-2 border-red-400">
-        <IntroduceLayer category={category} />
+      <div className="">
+        <IntroduceLayer category={category} tags={tags} />
       </div>
     </PageLayer>
   );
