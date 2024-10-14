@@ -4,7 +4,7 @@ import { getFilteredPosts } from "@/lib/post";
 import { IntroduceLayer } from "@/components/page/blog/categoryList";
 import ReactNativeLogo from "../../../../assets/svgImages/react-native.svg";
 import Title from "@/components/common/title";
-import { AllPostList } from "@/components/page/blog/main";
+import CommonPostList from "@/components/common/CommonPostList";
 
 export default function DevLogPostsPage(params: DevLogPostsPageParams) {
   const {
@@ -20,7 +20,7 @@ export default function DevLogPostsPage(params: DevLogPostsPageParams) {
       <div className="">
         <IntroduceLayer category={category} tags={tags} />
         <Title className="text-5xl mt-10">Posts</Title>
-        <AllPostList posts={posts} />
+        <CommonPostList posts={posts} />
       </div>
     </PageLayer>
   );

@@ -1,8 +1,8 @@
 "use client";
 import { motion, Variants } from "framer-motion";
 import {
-  AllPostListItemFooterProps,
-  AllPostListItemProps,
+  CommonPostListItemFooterProps,
+  CommonPostListItemProps,
   TagProps,
 } from "./types";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
@@ -19,20 +19,20 @@ const item: Variants = {
   },
 };
 
-export default function AllPostListItem(args: AllPostListItemProps) {
+export default function CommonPostListItem(args: CommonPostListItemProps) {
   const { post } = args;
   return (
     <motion.div variants={item}>
       <div className=" min-w-52 h-fit min-h-20 border-2 shadow-lg px-4 py-4 rounded-lg mt-3 transition ease-in-out duration-300 hover:-translate-y-2 bg-slate-100">
         <h1 className="text-gray-600 text-2xl truncate">{post.title}</h1>
 
-        <AllPostListItemFooter tags={post.tags} date={post.date} />
+        <CommonPostListItemFooter tags={post.tags} date={post.date} />
       </div>
     </motion.div>
   );
 }
 
-const AllPostListItemFooter = (args: AllPostListItemFooterProps) => {
+const CommonPostListItemFooter = (args: CommonPostListItemFooterProps) => {
   const { tags, date } = args;
   return (
     <div className="grid grid-cols-4 mt-4">

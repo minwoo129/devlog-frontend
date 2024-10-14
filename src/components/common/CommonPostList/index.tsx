@@ -1,7 +1,7 @@
 "use client";
+import CommonPostListItem from "./CommonPostListItem";
+import { CommonPostListProps } from "./types";
 import { motion, Variants } from "framer-motion";
-import AllPostListItem from "./AllPostListItem";
-import { AllPostListProps } from "./types";
 
 const container: Variants = {
   hidden: {
@@ -14,18 +14,17 @@ const container: Variants = {
     },
   },
 };
-
-export default function AllPostList(args: AllPostListProps) {
-  const { posts } = args;
+export default function CommonPostList(args: CommonPostListProps) {
+  const { posts, className } = args;
   return (
     <motion.div
-      className="w-full min-h-20 mt-3 grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-x-8"
+      className={`w-full min-h-20 mt-3 grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-x-8 ${className}`}
       variants={container}
       initial="hidden"
       animate="show"
     >
       {posts.map((post, idx) => {
-        return <AllPostListItem post={post} key={idx} />;
+        return <CommonPostListItem post={post} key={idx} />;
       })}
     </motion.div>
   );
