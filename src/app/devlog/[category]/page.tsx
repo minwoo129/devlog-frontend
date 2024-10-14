@@ -2,7 +2,6 @@ import PageLayer from "@/components/common/pageLayer";
 import { DevLogPostsPageParams } from "./types";
 import { getFilteredPosts } from "@/lib/post";
 import { IntroduceLayer } from "@/components/page/blog/categoryList";
-import ReactNativeLogo from "../../../../assets/svgImages/react-native.svg";
 import Title from "@/components/common/title";
 import CommonPostList from "@/components/common/CommonPostList";
 
