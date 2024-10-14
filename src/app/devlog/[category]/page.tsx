@@ -3,6 +3,8 @@ import { DevLogPostsPageParams } from "./types";
 import { getFilteredPosts } from "@/lib/post";
 import { IntroduceLayer } from "@/components/page/blog/categoryList";
 import ReactNativeLogo from "../../../../assets/svgImages/react-native.svg";
+import Title from "@/components/common/title";
+import { AllPostList } from "@/components/page/blog/main";
 
 export default function DevLogPostsPage(params: DevLogPostsPageParams) {
   const {
@@ -17,6 +19,8 @@ export default function DevLogPostsPage(params: DevLogPostsPageParams) {
     <PageLayer>
       <div className="">
         <IntroduceLayer category={category} tags={tags} />
+        <Title className="text-5xl mt-10">Posts</Title>
+        <AllPostList posts={posts} />
       </div>
     </PageLayer>
   );
