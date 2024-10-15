@@ -154,14 +154,14 @@ export const TestPageNavData: PageNavDataType = {
  * - 페이지 네비게이션 데이터(전체)
  */
 export const PageNavDatas: PageNavDataType[] = [
-  {
+  /* {
     type: "link",
     title: "테스트",
     href: "/testPage",
     linkType: "each",
     linkKey: "test",
     mainCategory: false,
-  },
+  }, */
   {
     type: "menu",
     title: "dev.log",

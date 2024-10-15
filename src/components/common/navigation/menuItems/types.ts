@@ -1,10 +1,7 @@
-import { UrlObject } from "url";
 import { PageNavDataType } from "../navDatas";
-import { NavigationCommonProps } from "../types";
 
-export interface MenuBtnProps extends NavigationCommonProps {
+export interface MenuBtnProps {
   data: PageNavDataType;
-  onClick?: () => void;
 }
 
 export type LogoProps = {
