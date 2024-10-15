@@ -23,10 +23,6 @@ const config: Config = {
         desktop: { min: "1280px" },
       },
       fontFamily: {
-        NanumGothicCoding: ["NanumGothicCoding"],
-        NanumGothicCodingBold: ["NanumGothicCodingBold"],
-        NanumGothicCodingLigature: ["NanumGothicCodingLigature"],
-        NanumGothicCodingLigatureBold: ["NanumGothicCodingLigatureBold"],
         "nanumneo-l": ["NanumGothicNeo-Light"],
         "nanumneo-r": ["NanumGothicNeo-Regular"],
         "nanumneo-b": ["NanumGothicNeo-Bold"],
