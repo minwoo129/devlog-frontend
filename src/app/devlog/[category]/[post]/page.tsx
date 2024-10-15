@@ -33,13 +33,13 @@ export default async function DevLogPostDetailPage(
   console.log("data: ", data);
   return (
     <PageLayer className={`sm:px-10 md:px-20 lg:px-40 xl:px-40 `}>
-      <Image
+      {/*      <Image
         src={detailPost.thumbnailURL}
         alt="배경"
         width={2250}
         height={50}
         className="relative opacity-50"
-      />
+      /> */}
       <div className="w-full mb-[100px]">
         <DetailTitleLayer
           title={detailPost.title}
