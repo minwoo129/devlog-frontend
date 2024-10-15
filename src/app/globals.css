@@ -1,4 +1,5 @@
-@import "./detail_page.css";
+@import "./css/detail_page.css";
+@import "./css/mdx.css";
 
 @tailwind base;
 @tailwind components;
@@ -26,83 +27,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-.mdxArea aside {
-  width: "100%";
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: #eeeeeb;
-  border-radius: 6px;
-  margin-top: 4px;
-  flex: auto;
-  flex-direction: row;
-
-  ol li {
-    list-style-type: decimal;
-    margin-top: 5px;
-  }
-  ul li {
-    list-style-type: disc;
-    margin-top: 5px;
-  }
-}
-
-.mdxArea ol {
-  padding-left: 30px;
-  padding-right: 30px;
-  li {
-    list-style-type: decimal;
-    margin-top: 5px;
-  }
-}
-
-.mdxArea ul {
-  padding-left: 30px;
-  padding-right: 30px;
-  li {
-    list-style-type: disc;
-    margin-top: 5px;
-  }
-}
-
-.mdxArea a {
-  text-decoration: underline;
-  &:hover {
-    color: #10b981;
-  }
-}
-
-.mdxArea h1 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  color: #0f172a;
-  font-weight: 700;
-  margin-top: 5px;
-}
-
-.mdxArea h2 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  color: #0f172a;
-  font-weight: 700;
-  margin-top: 5px;
-}
-
-.mdxArea h3 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  color: #0f172a;
-  font-weight: 700;
-  margin-top: 5px;
-}
-
-.mdxArea h4 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  color: #0f172a;
-  font-weight: 700;
-  margin-top: 5px;
 }

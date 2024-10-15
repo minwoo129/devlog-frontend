@@ -1,0 +1,81 @@
+.mdxArea {
+  margin-top: 40px;
+  aside {
+    width: "100%";
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #eeeeeb;
+    border-radius: 6px;
+    margin-top: 4px;
+    flex: auto;
+    flex-direction: row;
+
+    ol li {
+      list-style-type: decimal;
+      margin-top: 5px;
+    }
+    ul li {
+      list-style-type: disc;
+      margin-top: 5px;
+    }
+  }
+
+  ol {
+    padding-left: 30px;
+    padding-right: 30px;
+    li {
+      list-style-type: decimal;
+      margin-top: 5px;
+    }
+  }
+
+  ul {
+    padding-left: 30px;
+    padding-right: 30px;
+    li {
+      list-style-type: disc;
+      margin-top: 5px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    &:hover {
+      color: #10b981;
+    }
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+}
