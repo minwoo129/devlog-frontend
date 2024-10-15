@@ -28,3 +28,29 @@ body {
     text-wrap: balance;
   }
 }
+
+@font-face {
+  font-family: "NanumGothicCoding";
+  src: url("./fonts/D2Coding.ttf") format("ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NanumGothicCodingBold";
+  src: url("./fonts/D2CodingBold.ttf") format("ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "NanumGothicCodingLigature";
+  src: url("./fonts/D2Codingligature.ttf") format("ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NanumGothicCodingLigatureBold";
+  src: url("./fonts/D2CodingBoldligature.ttf") format("ttf");
+  font-weight: 700;
+}

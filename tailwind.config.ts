@@ -22,6 +22,12 @@ const config: Config = {
         laptop: { min: "769px", max: "1279px" },
         desktop: { min: "1280px" },
       },
+      fontFamily: {
+        NanumGothicCoding: ["NanumGothicCoding"],
+        NanumGothicCodingBold: ["NanumGothicCodingBold"],
+        NanumGothicCodingLigature: ["NanumGothicCodingLigature"],
+        NanumGothicCodingLigatureBold: ["NanumGothicCodingLigatureBold"],
+      },
     },
   },
   plugins: [

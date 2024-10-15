@@ -12,8 +12,10 @@ export default function DetailTitleLayer(args: DetailTitleLayerProps) {
   const { title, description, date, tags } = args;
   return (
     <div className="flex flex-col justify-center items-center mt-20 border-2 border-blue-500">
-      <h1 className="text-6xl font-extrabold text-zinc-700">{title}</h1>
-      <h2 className="text-xl font-semibold text-zinc-600 mt-3">
+      <h1 className="text-6xl font-extrabold text-zinc-700 font-NanumGothicCodingBold">
+        {title}
+      </h1>
+      <h2 className="text-xl font-semibold text-zinc-600 mt-3 font-NanumGothicCodingLigature">
         {description}
       </h2>
       <DetailTitleLayerFooter tags={tags} date={date} />
@@ -34,19 +36,9 @@ const DetailTitleLayerFooter = (args: DetailTitleLayerFooterProps) => {
 
 const DetailTitleLayerTagLayer = (args: DetailTitleLayerTagLayerProps) => {
   const { tags } = args;
-  const testTags = [
-    ...tags,
-    ...tags,
-    ...tags,
-    ...tags,
-    ...tags,
-    ...tags,
-    ...tags,
-    ...tags,
-  ];
   return (
     <div className="detailTitleTagLayer border-2 border-purple-500">
-      {testTags.map((tag, idx) => {
+      {tags.map((tag, idx) => {
         return <Tag tag={tag} className="mb-2 mr-2" key={idx} />;
       })}
     </div>
@@ -56,9 +48,11 @@ const DetailTitleLayerTagLayer = (args: DetailTitleLayerTagLayerProps) => {
 const DetailTitleLayerDateLayer = (args: DetailTitleLayerDateLayerProps) => {
   const { date } = args;
   return (
-    <div className="flex flex-row justify-center items-center mr-7 border-2 border-orange-500">
+    <div className="flex flex-row justify-center items-center mr-7">
       <CalendarTodayIcon className="mr-2" />
-      <p>{dayjs(date).format("YY.MM.DD")}</p>
+      <p className="text-lg font-NanumGothicCodingLigature leading-4 mt-[6px]">
+        {dayjs(date).format("YY.MM.DD")}
+      </p>
     </div>
   );
 };
