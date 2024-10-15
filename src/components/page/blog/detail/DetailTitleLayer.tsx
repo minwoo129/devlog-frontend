@@ -12,10 +12,10 @@ export default function DetailTitleLayer(args: DetailTitleLayerProps) {
   const { title, description, date, tags } = args;
   return (
     <div className="flex flex-col justify-center items-center mt-20 border-2 border-blue-500">
-      <h1 className="text-6xl font-extrabold text-zinc-700 font-NanumGothicCodingBold">
+      <h1 className="text-6xl font-extrabold text-zinc-700 font-nanumneo-eb">
         {title}
       </h1>
-      <h2 className="text-xl font-semibold text-zinc-600 mt-3 font-NanumGothicCodingLigature">
+      <h2 className="text-xl font-semibold text-zinc-600 mt-3 font-nanumneo-b">
         {description}
       </h2>
       <DetailTitleLayerFooter tags={tags} date={date} />
@@ -50,7 +50,7 @@ const DetailTitleLayerDateLayer = (args: DetailTitleLayerDateLayerProps) => {
   return (
     <div className="flex flex-row justify-center items-center mr-7">
       <CalendarTodayIcon className="mr-2" />
-      <p className="text-lg font-NanumGothicCodingLigature leading-4 mt-[6px]">
+      <p className="text-lg font-nanumneo-r leading-4">
         {dayjs(date).format("YY.MM.DD")}
       </p>
     </div>
