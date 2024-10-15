@@ -18,6 +18,10 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "velog.velcdn.com",
+      },
     ],
   },
   webpack: (config) => {
