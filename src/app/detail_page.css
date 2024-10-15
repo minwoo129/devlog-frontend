@@ -1,0 +1,61 @@
+.detailTitleLayerFooter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 28px;
+  padding-right: 28px;
+  margin-top: 8px;
+
+  .detailTitleTagLayer {
+    display: flex;
+    flex-direction: row;
+    max-width: 640px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 799px) {
+  .detailTitleLayerFooter {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    .detailTitleTagLayer {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 800px) and (max-width: 999px) {
+  .detailTitleLayerFooter {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    .detailTitleTagLayer {
+      max-height: 75px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1279px) {
+  .detailTitleLayerFooter {
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    .detailTitleTagLayer {
+      max-height: 75px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+  }
+}
+@media (min-width: 1280px) {
+  .detailTitleLayerFooter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

@@ -5,6 +5,7 @@ import { getFilteredPosts } from "@/lib/post";
 import { serializeMdx } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote";
 import PostPage from "./PostPage";
+import { DetailTitleLayer } from "@/components/page/blog/detail";
 
 const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   const categoryPosts = getFilteredPosts({ category, section: "devlog" });
@@ -31,8 +32,14 @@ export default async function DevLogPostDetailPage(
   const data = await serializeMdx(detailPost.content);
   console.log("data: ", data);
   return (
-    <PageLayer className="sm:px-20 md:px-20 lg:px-40 xl:px-40">
+    <PageLayer className="sm:px-10 md:px-20 lg:px-40 xl:px-40">
       <div className="w-full border-2 border-red-500">
+        <DetailTitleLayer
+          title={detailPost.title}
+          description={detailPost.description}
+          date={detailPost.date}
+          tags={detailPost.tags}
+        />
         <PostPage data={data} />
       </div>
     </PageLayer>
