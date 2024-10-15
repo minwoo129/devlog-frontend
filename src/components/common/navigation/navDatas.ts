@@ -6,6 +6,7 @@ type PageNavMenuType = {
   title: string;
   menus: PageNavLinkType[];
   menuKey: string;
+  href: string;
 };
 export type PageNavLinkType = PageNavLinkAllType | PageNavLinkEashType;
 type PageNavLinkAllType = {
@@ -165,6 +166,7 @@ export const PageNavDatas: PageNavDataType[] = [
     type: "menu",
     title: "dev.log",
     menuKey: "devlog",
+    href: "/devlog",
     menus: [
       {
         type: "link",
@@ -180,6 +182,7 @@ export const PageNavDatas: PageNavDataType[] = [
     type: "menu",
     title: "conference.log",
     menuKey: "conferencelog",
+    href: "/",
     menus: [
       {
         type: "link",

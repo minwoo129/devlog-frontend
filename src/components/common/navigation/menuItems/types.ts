@@ -7,12 +7,6 @@ export interface MenuBtnProps extends NavigationCommonProps {
   onClick?: () => void;
 }
 
-export interface DeepMenuBtnProps {
-  href: string;
-  title: string;
-  handleClick: (href: string) => void;
-}
-
 export type LogoProps = {
   navigationType: NavigationType;
 };

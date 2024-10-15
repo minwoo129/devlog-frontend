@@ -1,20 +1,23 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { DeepMenuBtnProps, MenuBtnProps, NavigationType } from "./types";
+import { MenuBtnProps } from "./types";
 import Accordion from "@mui/material/Accordion";
 import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import { useRouter } from "next/navigation";
 import { UrlObject } from "url";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 export default function MenuBtn(args: MenuBtnProps) {
   const { data, onClick, openedDetailMenu, setOpenedDetailMenu } = args;
-  const [isOpen, setOpen] = useState(false);
-  const router = useRouter();
 
-  const handleClick = (href: string) => {
+  const { title, href } = data;
+
+  /* const handleClick = (href: string) => {
     setOpenedDetailMenu("");
     if (isOpen) setOpen(false);
     if (onClick) onClick();
@@ -51,42 +54,14 @@ export default function MenuBtn(args: MenuBtnProps) {
 
   return (
     <div>
-      <Accordion
-        className="bg-zinc-800 border-b-2 border-white"
-        expanded={openedDetailMenu === data.menuKey}
-        onChange={handleAccordionChange}
-      >
-        <AccordionSummary
-          className={`flex flex-row justify-center items-center text-2xl text-white font-bold hover:text-orange-600 `}
-        >
-          {title}
-        </AccordionSummary>
-        <AccordionDetails className="flex flex-col">
-          {menus.map((menuData, idx) => {
-            const { href, title } = menuData;
-            return (
-              <DeepMenuBtn
-                handleClick={handleClick}
-                href={href}
-                title={title}
-                key={idx}
-              />
-            );
-          })}
-        </AccordionDetails>
-      </Accordion>
     </div>
+  ); */
+
+  return (
+    <Link href={href} className="w-fit h-max">
+      <div className="flex flex-row size-full rounded-lg justify-center items-center text-xl font-nanumneo-r text-white px-4 py-2 hover:bg-zinc-600 ">
+        {title}
+      </div>
+    </Link>
   );
 }
-
-const DeepMenuBtn = (args: DeepMenuBtnProps) => {
-  const { handleClick, href, title } = args;
-  return (
-    <button
-      className="flex flex-row justify-start items-center w-full h-fit py-1"
-      onClick={() => handleClick(href)}
-    >
-      <p className="text-xl text-white hover:text-orange-600">{title}</p>
-    </button>
-  );
-};

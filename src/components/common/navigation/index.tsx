@@ -1,29 +1,43 @@
 "use client";
 import React, { useState } from "react";
-import { SmallNavigation } from "./smallNavigation";
-import UpperDrawer from "./upperDrawer";
-import LargeNavigation from "./largeNavigation";
+import { Logo, MenuBtn } from "./menuItems";
+import { PageNavDatas } from "./navDatas";
 
 export default function Navigation({}) {
   const [isOpen, setOpen] = useState(false);
   const [openedDetailMenu, setOpenedDetailMenu] = useState("");
 
   return (
-    <div className="flex basis-60 h-screen sm:basis-20 md:basis-20 overflow-y-hidden">
+    <div className="flex flex-row w-full min-h-16 justify-between items-center bg-zinc-800 px-4">
+      <Logo navigationType="large" />
+
+      <div className="flex flex-row w-fit h-full justify-center items-center space-x-4">
+        {PageNavDatas.map((data, idx) => {
+          return (
+            <MenuBtn
+              data={data}
+              openedDetailMenu={openedDetailMenu}
+              setOpenedDetailMenu={setOpenedDetailMenu}
+              onClick={() => setOpen(false)}
+              key={idx}
+            />
+          );
+        })}
+      </div>
       {/* <div className="size-full bg-zinc-600 sm:basis-2 md:hidden lg:hidden xl:hidden">
       </div> */}
-      <SmallNavigation setOpen={setOpen} />
+      {/* <SmallNavigation setOpen={setOpen} />
       <UpperDrawer
         isOpen={isOpen}
         setOpen={setOpen}
         openedDetailMenu={openedDetailMenu}
         setOpenedDetailMenu={setOpenedDetailMenu}
-      />
-      <LargeNavigation
+      /> */}
+      {/* <LargeNavigation
         setOpen={setOpen}
         openedDetailMenu={openedDetailMenu}
         setOpenedDetailMenu={setOpenedDetailMenu}
-      />
+      /> */}
     </div>
   );
 }
