@@ -8,7 +8,7 @@ export default function MainContentBody(args: MainContentBodyProps) {
   return (
     <div className="size-full">
       <Title className="text-5xl mt-10">dev.log</Title>
-      <CategoryList posts={posts} />
+      <CategoryList posts={posts} categoryType="devlog" />
       <Title className="text-5xl mt-10">All Posts</Title>
       <CommonPostList posts={posts} />
       <div className="h-10" />
