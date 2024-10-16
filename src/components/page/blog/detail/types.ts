@@ -14,3 +14,7 @@ export interface DetailTitleLayerTagLayerProps {
 export interface DetailTitleLayerDateLayerProps {
   date: string;
 }
+
+export interface ThumbnailImgProps {
+  thumbnailURL: string;
+}

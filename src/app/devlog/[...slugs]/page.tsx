@@ -6,6 +6,7 @@ import { serializeMdx } from "@/lib/mdx";
 import PostPage from "./PostPage";
 import { DetailTitleLayer } from "@/components/page/blog/detail";
 import Image from "next/image";
+import ThumbnailImg from "@/components/page/blog/detail/ThumbnailImg";
 
 const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   const categoryPosts = getFilteredPosts({ category, section: "devlog" });
@@ -42,15 +43,7 @@ export default async function DevLogPostDetailPage(
           date={detailPost.date}
           tags={detailPost.tags}
         />
-        <div className="flex flex-row justify-center items-center mt-5">
-          <Image
-            src={detailPost.thumbnailURL}
-            alt="thumbnail"
-            width={960}
-            height={540}
-            layout="relative"
-          />
-        </div>
+        <ThumbnailImg thumbnailURL={detailPost.thumbnailURL} />
         <PostPage data={data} />
       </div>
     </PageLayer>
