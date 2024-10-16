@@ -53,3 +53,5 @@ next-env.d.ts
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+__tests__/page/__snapshots__
