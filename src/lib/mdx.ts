@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 export const serializeMdx = (source: string) => {
   return serialize(source, {
@@ -12,6 +13,7 @@ export const serializeMdx = (source: string) => {
       remarkPlugins: [remarkTok, remarkGfm],
       rehypePlugins: [
         rehypeCodeTitles,
+        rehypeSlug,
         rehypePrism,
         [
           rehypeAutolinkHeadings,
