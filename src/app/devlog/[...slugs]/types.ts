@@ -3,8 +3,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface DevLogPostDetailPageProps {
   params: {
-    category: NavigationDevLogCategoryType;
-    post: string;
+    slugs: [NavigationDevLogCategoryType, string];
   };
 }
 

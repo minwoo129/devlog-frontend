@@ -24,7 +24,7 @@ export default function CommonPostListItem(args: CommonPostListItemProps) {
   const { post } = args;
   return (
     <motion.div variants={item}>
-      <Link href={`${post.slug}`}>
+      <Link as={`${post.slug1}`} href={"/devlog/[...slugs]"}>
         <div className=" min-w-52 h-fit min-h-20 border-2 shadow-lg px-4 py-4 rounded-lg mt-3 transition ease-in-out duration-300 hover:-translate-y-2 bg-slate-100">
           <h1 className="text-gray-600 text-2xl truncate">{post.title}</h1>
 

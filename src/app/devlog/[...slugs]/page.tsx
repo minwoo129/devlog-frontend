@@ -5,7 +5,6 @@ import { getFilteredPosts } from "@/lib/post";
 import { serializeMdx } from "@/lib/mdx";
 import PostPage from "./PostPage";
 import { DetailTitleLayer } from "@/components/page/blog/detail";
-import Image from "next/image";
 
 const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   const categoryPosts = getFilteredPosts({ category, section: "devlog" });
@@ -17,10 +16,10 @@ const getPost = (category: NavigationDevLogCategoryType, post: string) => {
 export default async function DevLogPostDetailPage(
   args: DevLogPostDetailPageProps
 ) {
-  console.log("args: ", args);
   const {
-    params: { category, post },
+    params: { slugs },
   } = args;
+  const [category, post] = slugs;
   const detailPost = getPost(category, post);
   if (!detailPost) {
     return (
@@ -30,16 +29,8 @@ export default async function DevLogPostDetailPage(
     );
   }
   const data = await serializeMdx(detailPost.content);
-  console.log("data: ", data);
   return (
     <PageLayer className={`sm:px-10 md:px-20 lg:px-40 xl:px-40 `}>
-      {/*      <Image
-        src={detailPost.thumbnailURL}
-        alt="배경"
-        width={2250}
-        height={50}
-        className="relative opacity-50"
-      /> */}
       <div className="w-full mb-[100px]">
         <DetailTitleLayer
           title={detailPost.title}

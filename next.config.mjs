@@ -1,14 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/posts/:mode/:section*",
-        destination: "/:section*",
-        permanent: false,
-      },
-    ];
-  },
   transpilePackages: ["next-mdx-remote"],
   images: {
     remotePatterns: [
