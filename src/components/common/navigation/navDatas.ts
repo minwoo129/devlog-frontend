@@ -15,6 +15,7 @@ type PageNavLinkAllType = {
   title: string;
   href: string;
   mainCategory: false;
+  testID: string;
 };
 export type PageNavLinkEashType = {
   type: "link";
@@ -23,6 +24,7 @@ export type PageNavLinkEashType = {
   href: string;
   linkKey: string;
   mainCategory: boolean;
+  testID: string;
 };
 type linkKeyType = NavigationDevLogCategoryType | NavigationDevLogCategoryType;
 
@@ -73,6 +75,7 @@ export const DevLogNavDatas: PageNavLinkType[] = [
     href: "/devlog/react-native",
     linkKey: "react-native",
     mainCategory: true,
+    testID: "react-native",
   },
   {
     type: "link",
@@ -81,6 +84,7 @@ export const DevLogNavDatas: PageNavLinkType[] = [
     href: "/devlog/react",
     linkKey: "react",
     mainCategory: true,
+    testID: "react",
   },
   {
     type: "link",
@@ -89,6 +93,7 @@ export const DevLogNavDatas: PageNavLinkType[] = [
     href: "/devlog/flutter",
     linkKey: "flutter",
     mainCategory: false,
+    testID: "flutter",
   },
   {
     type: "link",
@@ -97,6 +102,7 @@ export const DevLogNavDatas: PageNavLinkType[] = [
     href: "/devlog/nextjs",
     linkKey: "nextjs",
     mainCategory: false,
+    testID: "nextjs",
   },
   {
     type: "link",
@@ -105,6 +111,7 @@ export const DevLogNavDatas: PageNavLinkType[] = [
     href: "/devlog/android",
     linkKey: "android",
     mainCategory: false,
+    testID: "android",
   },
   {
     type: "link",
@@ -113,6 +120,7 @@ export const DevLogNavDatas: PageNavLinkType[] = [
     href: "/devlog/firebase",
     linkKey: "firebase",
     mainCategory: true,
+    testID: "firebase",
   },
 ];
 
@@ -130,6 +138,7 @@ export const ConferenceLogNavDatas: PageNavLinkType[] = [
     href: "/",
     linkKey: "google-io",
     mainCategory: true,
+    testID: "google-io",
   },
   {
     type: "link",
@@ -138,6 +147,7 @@ export const ConferenceLogNavDatas: PageNavLinkType[] = [
     href: "/",
     linkKey: "toss-slash",
     mainCategory: true,
+    testID: "toss-slash",
   },
 ];
 
@@ -148,6 +158,7 @@ export const TestPageNavData: PageNavDataType = {
   href: "/",
   linkKey: "test",
   mainCategory: false,
+  testID: "test",
 };
 
 /**
@@ -174,6 +185,7 @@ export const PageNavDatas: PageNavDataType[] = [
         title: "전체보기",
         href: "/devlog",
         mainCategory: false,
+        testID: "devlog-all",
       },
       ...DevLogNavDatas,
     ],
@@ -190,6 +202,7 @@ export const PageNavDatas: PageNavDataType[] = [
         title: "전체보기",
         href: "/",
         mainCategory: false,
+        testID: "conference-all",
       },
       ...ConferenceLogNavDatas,
     ],
