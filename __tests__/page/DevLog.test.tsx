@@ -1,19 +1,28 @@
 import { render, RenderResult, screen } from "@testing-library/react";
 import Devlog from "@/app/devlog/page";
 import "@testing-library/jest-dom";
+import { DevLogNavDatas } from "@/components/common/navigation/navDatas";
 
 describe("Devlog", () => {
   let renderElement: RenderResult;
   beforeEach(() => {
     renderElement = render(<Devlog />);
   });
-  it("렌더링 테스트(테스트)", () => {
+  it("화면 렌더링 테스트", () => {
     const { container } = renderElement;
     expect(container).toMatchSnapshot();
   });
 
   it("메인 카테고리들이 모두 노출되는지 여부", () => {
-    const element = screen.getByTestId("react-native");
-    expect(element).toBeInTheDocument();
+    // 화면에 노출되는 카테고리들의 테스트 ID
+    const visibleCategoryIds = DevLogNavDatas.filter(
+      (cat) => cat.mainCategory
+    ).map((cat) => cat.testID);
+
+    // 노출 여부 테스트 실행
+    for (let testId of visibleCategoryIds) {
+      const element = screen.getByTestId(testId);
+      expect(element).toBeInTheDocument();
+    }
   });
 });
