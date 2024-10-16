@@ -10,9 +10,11 @@ import {
   NavigationDevLogCategoryType,
   NavigationSectionType,
 } from "@/components/common/navigation/navDatas";
+import { differenceWith } from "es-toolkit/array";
 
 const BASE_PATH = "/posts";
 const POSTS_PATH = path.join(process.cwd(), BASE_PATH);
+const SlugFilterData = ["", "posts", "test", "blog"];
 
 const parsePost = (postPath: string) => {
   try {
@@ -24,12 +26,19 @@ const parsePost = (postPath: string) => {
       return null;
     }
 
+    const slug = postPath
+      .slice(postPath.indexOf(BASE_PATH))
+      .replace(".mdx", "");
+    const slugs = slug.split("/");
+    const newSlugs = differenceWith(slugs, SlugFilterData, (a, b) => a === b);
+
     const postData: Post = {
       ...grayMatter,
       tags: grayMatter.tags.filter(Boolean),
       date: dayjs(grayMatter.date).format("YYYY-MM-DD HH:mm:ss"),
       content,
-      slug: postPath.slice(postPath.indexOf(BASE_PATH)).replace(".mdx", ""),
+      slug,
+      slug1: newSlugs.join("/"),
       readingMinutes: Math.ceil(readingTime(content).minutes),
     };
 

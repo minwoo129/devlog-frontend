@@ -47,6 +47,7 @@ export type PostMatter = {
 
 export type Post = PostMatter & {
   slug: string;
+  slug1: string;
   content: string;
   readingMinutes: number;
 };
