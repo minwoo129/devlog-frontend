@@ -1,5 +1,4 @@
-import { GOOGLEIO_2024 } from "@/utils/images";
-import { ConfHistoryType, ConfLectureType } from "../defDatas";
+import { ConfLectureType } from "../../defDatas";
 
 export const GoogleIO2024_Lectures: ConfLectureType[] = [
   {
@@ -76,15 +75,5 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     thumbnailURL: "https://img.youtube.com/vi/W8bokbLn1G8/0.jpg",
     url: "https://youtu.be/W8bokbLn1G8?si=iIRyZSAa0pn6MSS9",
     createdAt: "2024-05-16",
-  },
-];
-
-export const GoogleIOHistorys: ConfHistoryType[] = [
-  {
-    title: "Google I/O 2024",
-    openedAt: "2024-05-14",
-    keyTags: ["Gemini", "생성형 AI", "Project Astra"],
-    thumbnailURL: GOOGLEIO_2024,
-    lectures: [...GoogleIO2024_Lectures],
   },
 ];
