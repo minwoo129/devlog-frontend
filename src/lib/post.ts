@@ -2,7 +2,7 @@ import { sync } from "glob";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { Post, PostMatter } from "./types";
+import { detailPostArgs, Post, PostMatter, sectionPostArgs } from "./types";
 import dayjs from "dayjs";
 import readingTime from "reading-time";
 import {
@@ -57,16 +57,10 @@ export function getAllPosts() {
     return [...acc, post];
   }, []);
 }
-
+// ===================================================================================
 type getFilteredPostsArgs =
-  | {
-      section: "devlog";
-      category: "all" | NavigationDevLogCategoryType;
-    }
-  | {
-      section: "conferencelog";
-      category: "all" | NavigationConferenceLogCategoryType;
-    };
+  | sectionPostArgs<"devlog", NavigationDevLogCategoryType>
+  | sectionPostArgs<"conferencelog", NavigationConferenceLogCategoryType>;
 export function getFilteredPosts(args: getFilteredPostsArgs) {
   const { section, category } = args;
   let posts = getAllPosts();
@@ -76,3 +70,14 @@ export function getFilteredPosts(args: getFilteredPostsArgs) {
   }
   return posts;
 }
+// ===================================================================================
+type getDetailPostArgs =
+  | detailPostArgs<"devlog", NavigationDevLogCategoryType>
+  | detailPostArgs<"conferencelog", NavigationConferenceLogCategoryType>;
+export const getDetailPost = (args: getDetailPostArgs) => {
+  const { section, category, post } = args;
+  const posts = getAllPosts();
+  const key = `/${section}/${category}/${post}`;
+  const detailPost = posts.find((post) => post.slug1 === key);
+  return detailPost;
+};

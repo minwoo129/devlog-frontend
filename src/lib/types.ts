@@ -51,3 +51,14 @@ export type Post = PostMatter & {
   content: string;
   readingMinutes: number;
 };
+
+export type sectionPostArgs<S, C> = {
+  section: S;
+  category: "all" | C;
+};
+
+export type detailPostArgs<S, C> = {
+  section: S;
+  category: C;
+  post: string;
+};
