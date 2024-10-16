@@ -50,7 +50,7 @@ const DetailTitleLayerTagLayer = (args: DetailTitleLayerTagLayerProps) => {
 const DetailTitleLayerDateLayer = (args: DetailTitleLayerDateLayerProps) => {
   const { date } = args;
   return (
-    <div className="flex flex-row justify-center items-center mr-7">
+    <div className="detailTitleDateLayer">
       <CalendarTodayIcon className="mr-2" />
       <p className="text-lg font-nanumneo-r leading-4">
         {dayjs(date).format("YY.MM.DD")}
