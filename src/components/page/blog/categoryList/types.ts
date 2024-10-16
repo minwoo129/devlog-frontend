@@ -1,8 +1,11 @@
-import { NavigationDevLogCategoryType } from "@/components/common/navigation/navDatas";
+import {
+  NavigationConferenceLogCategoryType,
+  NavigationDevLogCategoryType,
+} from "@/components/common/navigation/navDatas";
 import { SVGImageName } from "@/components/common/SVGImage/types";
 
 export interface IntroduceLayerProps {
-  category: NavigationDevLogCategoryType;
+  category: NavigationDevLogCategoryType | NavigationConferenceLogCategoryType;
   tags: string[];
 }
 

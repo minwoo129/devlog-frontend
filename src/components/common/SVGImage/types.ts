@@ -10,4 +10,6 @@ export type SVGImageName =
   | "FlutterLogo"
   | "NextjsLogo"
   | "AndroidLogo"
-  | "FirebaseLogo";
+  | "FirebaseLogo"
+  | "GoogleIOLogo"
+  | "TossLogo";
