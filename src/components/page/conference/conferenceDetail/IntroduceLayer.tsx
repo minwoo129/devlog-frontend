@@ -50,7 +50,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row w-full h-fit mt-10"
+      className="flex flex-row mobile:flex-col tablet:flex-col w-full h-fit mt-10"
     >
       <IntroduceLayerLogo thumbnailURL={thumbnailURL} />
       <IntroduceDetailLayer
@@ -68,7 +68,7 @@ const IntroduceLayerLogo = (args: IntroduceLayerLogoProps) => {
   return (
     <motion.div
       variants={logo}
-      className="flex justify-center items-center w-[240px] h-[240px] rounded-2xl shadow-xl bg-slate-200 mr-4"
+      className="flex justify-center items-center w-[260px] h-[260px] min-w-[400px] rounded-2xl shadow-xl bg-slate-200 mr-4 mobile:w-full tablet:w-full"
     >
       <SVGImage name={thumbnailURL} width={200} height={200} />
     </motion.div>
@@ -80,7 +80,7 @@ const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
   return (
     <motion.div
       variants={detail}
-      className=" flex flex-col justify-between items-start p-6 min-w-[400px] h-[240px] rounded-2xl shadow-xl bg-slate-200"
+      className=" flex flex-col justify-between items-start p-6 min-w-[400px] h-[260px] rounded-2xl shadow-xl bg-slate-200 mobile:mt-4 tablet:mt-4"
     >
       <div className="flex flex-col justify-center items-start">
         <h1 className="text-2xl text-slate-700 font-nanumneo-eb">{title}</h1>
