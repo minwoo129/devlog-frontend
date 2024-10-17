@@ -9,10 +9,6 @@ export default function ContentBody(args: ContentBodyProps) {
   return (
     <div className="size-full">
       <ConferenceList />
-      {/* <Title className="text-5xl mt-10">dev.log</Title>
-      <CategoryList posts={posts} categoryType="conferencelog" />
-      <Title className="text-5xl mt-10">All Posts</Title>
-      <CommonPostList posts={posts} /> */}
       <div className="h-10" />
     </div>
   );

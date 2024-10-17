@@ -20,7 +20,7 @@ export default function ConferenceList(args: ConferenceListProps) {
   const {} = args;
   return (
     <motion.div
-      className="flex flex-row h-fit justify-start items-center mt-10 py-4 overflow-x-scroll scrollbar-hide last:mr-0"
+      className="flex flex-row sm:flex-col md:flex-col h-fit justify-start items-center mt-10 py-4 overflow-x-scroll scrollbar-hide last:mr-0"
       variants={container}
       initial="hidden"
       animate="show"

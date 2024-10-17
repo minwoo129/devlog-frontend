@@ -25,7 +25,7 @@ export default function ConferenceListItem(args: ConferenceListItemProps) {
   return (
     <motion.div variants={item} initial="hidden" animate="show">
       <Link href={href}>
-        <div className=" flex flex-col w-[400px] max-h-[300px] rounded-lg mr-3 border-2 border-zinc-300 transition ease-in-out duration-300 hover:-translate-y-2">
+        <div className=" flex flex-col w-[400px] max-h-[300px] rounded-lg sm:mt-3 md:mt-3 lg:mr-3 xl:mr-3 border-2 border-zinc-300 transition ease-in-out duration-300 hover:-translate-y-2">
           <ThumbnailImg thumbnailURL={thumbnailURL} publisher={publisher} />
           <ConferenceListItemInfo title={title} description={description} />
         </div>
