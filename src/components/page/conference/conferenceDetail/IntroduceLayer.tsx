@@ -80,14 +80,18 @@ const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
   return (
     <motion.div
       variants={detail}
-      className=" flex flex-col justify-start items-start p-6 min-w-[400px] h-[240px] rounded-2xl shadow-xl bg-slate-200"
+      className=" flex flex-col justify-between items-start p-6 min-w-[400px] h-[240px] rounded-2xl shadow-xl bg-slate-200"
     >
-      <h1 className="text-2xl text-slate-700 font-nanumneo-eb mt-3">{title}</h1>
-      <h3 className="text-lg text-slate-500 font-nanumneo-b mt-1">
-        {description}
-      </h3>
-      <h4 className="text-lg text-slate-500 font-nanumneo-r mt-7">{`개최사: ${publisher}`}</h4>
-      <h4 className="text-lg text-slate-500 font-nanumneo-r">{`${date_개막시기} 개최`}</h4>
+      <div className="flex flex-col justify-center items-start">
+        <h1 className="text-2xl text-slate-700 font-nanumneo-eb">{title}</h1>
+        <h3 className="text-lg text-slate-500 font-nanumneo-b mt-1">
+          {description}
+        </h3>
+      </div>
+      <div className="flex flex-col justify-center items-start">
+        <h4 className=" text-slate-500 font-nanumneo-r">{`개최사: ${publisher}`}</h4>
+        <h4 className=" text-slate-500 font-nanumneo-r">{`${date_개막시기} 개최`}</h4>
+      </div>
     </motion.div>
   );
 };

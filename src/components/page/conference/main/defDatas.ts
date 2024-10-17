@@ -1,6 +1,7 @@
 import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
 import { SVGImageName } from "@/components/common/SVGImage/types";
 import { GoogleIOHistorys } from "./historys/google-io";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export type ConferenceDataType = {
   type: NavigationConferenceLogCategoryType;
@@ -16,7 +17,7 @@ export type ConferenceDataType = {
 
 export type ConfHistoryType = {
   title: string;
-  thumbnailURL: string;
+  thumbnailURL: string | StaticImport;
   openedAt: string;
   keyTags: string[];
   lectures: ConfLectureType[];

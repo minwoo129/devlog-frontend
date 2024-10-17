@@ -15,7 +15,7 @@ const container: Variants = {
   },
 };
 export default function CommonPostList(args: CommonPostListProps) {
-  const { posts, className } = args;
+  const { posts, className, isCategoryDetailPage = false } = args;
   return (
     <motion.div
       className={`w-full min-h-20 mt-3 grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-x-8 ${className}`}
@@ -24,7 +24,13 @@ export default function CommonPostList(args: CommonPostListProps) {
       animate="show"
     >
       {posts.map((post, idx) => {
-        return <CommonPostListItem post={post} key={idx} />;
+        return (
+          <CommonPostListItem
+            post={post}
+            isCategoryDetailPage={isCategoryDetailPage}
+            key={idx}
+          />
+        );
       })}
     </motion.div>
   );

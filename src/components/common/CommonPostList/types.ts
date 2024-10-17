@@ -3,10 +3,12 @@ import { Post } from "@/lib/types";
 export interface CommonPostListProps {
   posts: Post[];
   className?: string;
+  isCategoryDetailPage?: boolean;
 }
 
 export interface CommonPostListItemProps {
   post: Post;
+  isCategoryDetailPage: boolean;
 }
 
 export interface CommonPostListItemFooterProps {

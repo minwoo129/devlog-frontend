@@ -19,7 +19,7 @@ export default function DevLogPostsPage(params: DevLogPostsPageParams) {
       <div className="">
         <IntroduceLayer category={category} tags={tags} />
         <Title className="text-5xl mt-10">Posts</Title>
-        <CommonPostList posts={posts} />
+        <CommonPostList posts={posts} isCategoryDetailPage={true} />
       </div>
     </PageLayer>
   );

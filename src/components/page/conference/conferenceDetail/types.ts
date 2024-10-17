@@ -1,5 +1,7 @@
 import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
 import { SVGImageName } from "@/components/common/SVGImage/types";
+import { ConfHistoryType } from "../main/defDatas";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface IntroduceLayerProps {
   conference: NavigationConferenceLogCategoryType;
@@ -14,4 +16,22 @@ export interface IntroduceDetailLayerProps {
   description: string;
   date_개막시기: string;
   publisher: string;
+}
+
+export interface YearConfListProps {
+  conference: NavigationConferenceLogCategoryType;
+}
+
+export interface YearConfItemProps {
+  conf: ConfHistoryType;
+}
+
+export interface YearConfItemThumbnailProps {
+  thumbnailURL: string | StaticImport;
+}
+
+export interface YearConfItemDetailProps {
+  title: string;
+  openedAt: string;
+  keyTags: string[];
 }
