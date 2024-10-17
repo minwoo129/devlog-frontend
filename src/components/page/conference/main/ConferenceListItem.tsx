@@ -37,7 +37,7 @@ export default function ConferenceListItem(args: ConferenceListItemProps) {
 const ConferenceListItemInfo = (args: ConferenceListItemInfoProps) => {
   const { description, title } = args;
   return (
-    <div className="flex flex-col w-full h-full p-4 border-2 border-red-300">
+    <div className="flex flex-col w-full h-full p-4 border-t-2 border-zinc-200">
       <h3 className="text-xl font-semibold text-zinc-600 font-nanumneo-eb">
         {title}
       </h3>

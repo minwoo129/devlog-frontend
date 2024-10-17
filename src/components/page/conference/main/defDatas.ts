@@ -11,6 +11,7 @@ export type ConferenceDataType = {
   keyTags: string[];
   publisher: string;
   href: string;
+  date_개막시기: string;
 };
 
 export type ConfHistoryType = {
@@ -31,6 +32,10 @@ export type ConfLectureType = {
   presenter?: string[];
 };
 
+export type ConferenceObjDatasType = {
+  [key in NavigationConferenceLogCategoryType]: ConferenceDataType;
+};
+
 export const ConferenceDatas: ConferenceDataType[] = [
   {
     type: "google-io",
@@ -39,7 +44,24 @@ export const ConferenceDatas: ConferenceDataType[] = [
     thumbnailURL: "GoogleIOLogo",
     publisher: "Google",
     confHistory: [...GoogleIOHistorys],
-    href: "/conference/google-io",
+    href: "/conferencelog/google-io",
     keyTags: [],
+    date_개막시기: "매년 5월 경",
+  },
+  {
+    type: "toss-slash",
+    title: "토스 SLASH",
+    description: "토스의 개발자 컨퍼런스",
+    thumbnailURL: "TossLogo",
+    publisher: "비바리퍼블리카(토스)",
+    confHistory: [],
+    href: "/conferencelog/toss-slash",
+    keyTags: [],
+    date_개막시기: "매년 9, 10월 경",
   },
 ];
+
+export const ConferenceObjDatas: ConferenceObjDatasType = {
+  "google-io": ConferenceDatas[0],
+  "toss-slash": ConferenceDatas[1],
+};
