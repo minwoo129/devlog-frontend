@@ -30,11 +30,15 @@ const config: Config = {
         "nanumneo-h": ["NanumGothicNeo-Heavy"],
       },
     },
+    aspectRatio: {
+      video: "16 / 9",
+    },
   },
   plugins: [
     require("tailwind-scrollbar-hide"),
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography"),
+    require("@tailwindcss/aspect-ratio"),
   ],
 };
 export default config;

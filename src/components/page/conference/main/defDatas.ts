@@ -30,11 +30,12 @@ export type ConfLectureType = {
   title: string;
   description: string;
   thumbnailURL: string;
-  url: string;
+  youtubeLink: string;
   createdAt: string;
   keyTags?: string[];
   presenter?: string[];
   href: string;
+  conferenceId: string;
 };
 
 export type ConferenceObjDatasType = {

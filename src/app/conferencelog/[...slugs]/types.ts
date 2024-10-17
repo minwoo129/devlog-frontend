@@ -1,5 +1,12 @@
+import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
+import { ConfLectureType } from "@/components/page/conference/main/defDatas";
+
 export interface ConferenceLectureDetailPageProps {
   params: {
-    slugs: string[];
+    slugs: [NavigationConferenceLogCategoryType, string];
   };
+}
+
+export interface ContentBodyProps {
+  lecture: ConfLectureType | undefined;
 }

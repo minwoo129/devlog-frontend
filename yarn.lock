@@ -2663,6 +2663,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/aspect-ratio@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "@tailwindcss/aspect-ratio@npm:0.4.2"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  checksum: 10c0/c821a8061f80200b20db26f9cf2a711ffb17814adf847a72d4d4632804d1cabf6671df8e99e06cedfb2ba97b968d7843cd435d1201519c86acdde702efca418b
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/line-clamp@npm:^0.4.4":
   version: 0.4.4
   resolution: "@tailwindcss/line-clamp@npm:0.4.4"
@@ -4775,6 +4784,7 @@ __metadata:
     "@mui/icons-material": "npm:^6.1.3"
     "@mui/material": "npm:^6.1.3"
     "@svgr/webpack": "npm:^8.1.0"
+    "@tailwindcss/aspect-ratio": "npm:^0.4.2"
     "@tailwindcss/line-clamp": "npm:^0.4.4"
     "@tailwindcss/typography": "npm:^0.5.15"
     "@testing-library/dom": "npm:^10.4.0"
