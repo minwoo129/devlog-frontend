@@ -4,6 +4,7 @@ import { GoogleIO2024_Lectures } from "./google-io-2024";
 
 export const GoogleIOHistorys: ConfHistoryType[] = [
   {
+    id: "ch_2024_google",
     title: "Google I/O 2024",
     openedAt: "2024-05-14",
     keyTags: ["Gemini", "생성형 AI", "Project Astra"],

@@ -2,6 +2,7 @@ import { ConfLectureType } from "../../defDatas";
 
 export const GoogleIO2024_Lectures: ConfLectureType[] = [
   {
+    id: "ch_2024_google_1",
     title: "Google Keynote(Google I/O 2024)",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/XEzRZ35urlk/0.jpg",
@@ -9,6 +10,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     createdAt: "2024-05-14",
   },
   {
+    id: "ch_2024_google_2",
     title: "Google AI에 관한 새로운 소식",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/fH4xqeu7GT0/0.jpg",
@@ -17,6 +19,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     keyTags: ["AI", "Google AI"],
   },
   {
+    id: "ch_2024_google_3",
     title: "Android 개발 도구의 새로운 기능",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/2wOfYgIMf-A/0.jpg",
@@ -25,6 +28,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     keyTags: ["Android", "Android Studio", "Firebase"],
   },
   {
+    id: "ch_2024_google_4",
     title: "Flutter에 관한 새로운 소식",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/lpnKWK-KEYs/0.jpg",
@@ -33,6 +37,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     keyTags: ["Flutter", "Dart", "Gemini", "Impeller", "Macros", "WebAssembly"],
   },
   {
+    id: "ch_2024_google_5",
     title: "Gen AI 기능 구축을 위한 Firebase의 새로운 기능",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/2MvV-YX1eKw/0.jpg",
@@ -48,6 +53,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     ],
   },
   {
+    id: "ch_2024_google_6",
     title: "Google Play에 관한 새로운 소식",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/xry2mQbWrio/0.jpg",
@@ -56,6 +62,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     keyTags: ["Google Play"],
   },
   {
+    id: "ch_2024_google_7",
     title: "Chrome OS에 관한 새로운 소식",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/KFeuEMAaKfM/0.jpg",
@@ -63,6 +70,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     createdAt: "2024-05-16",
   },
   {
+    id: "ch_2024_google_8",
     title: "Angular에 관한 새로운 소식",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/srP2P6j4Cqw/0.jpg",
@@ -70,6 +78,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     createdAt: "2024-05-16",
   },
   {
+    id: "ch_2024_google_9",
     title: "웹에 관한 새로운 소식",
     description: "",
     thumbnailURL: "https://img.youtube.com/vi/W8bokbLn1G8/0.jpg",

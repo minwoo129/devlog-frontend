@@ -16,6 +16,7 @@ export type ConferenceDataType = {
 };
 
 export type ConfHistoryType = {
+  id: string;
   title: string;
   thumbnailURL: string | StaticImport;
   openedAt: string;
@@ -24,6 +25,7 @@ export type ConfHistoryType = {
 };
 
 export type ConfLectureType = {
+  id: string;
   title: string;
   description: string;
   thumbnailURL: string;
