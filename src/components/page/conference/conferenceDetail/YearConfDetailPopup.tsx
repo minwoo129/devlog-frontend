@@ -94,7 +94,7 @@ const ConfLectureItem = (args: ConfLectureItemProps) => {
   const { lecture } = args;
   const { thumbnailURL, createdAt, title } = lecture;
   return (
-    <div className=" flex flex-col justify-between items-center w-[300px] rounded-2xl shadow-xl mt-3 mr-3">
+    <div className=" flex flex-col justify-between items-center w-[300px] rounded-2xl shadow-xl mt-5 mr-5 transition ease-in-out duration-300 hover:-translate-y-2">
       <div className="w-full h-fit">
         <Image
           src={thumbnailURL}

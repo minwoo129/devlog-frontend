@@ -15,11 +15,6 @@ export default function ConferenceLogPostsPage(
   const tags = Array.from(new Set(posts.map((post) => post.tags).flat())); */
   return (
     <PageLayer>
-      {/* <div className=" size-full ">
-        <IntroduceLayer conference={category} />
-        <YearConfList conference={category} />
-        <div className="h-10" />
-      </div> */}
       <ContentBody category={category} />
     </PageLayer>
   );
