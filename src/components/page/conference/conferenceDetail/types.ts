@@ -18,12 +18,16 @@ export interface IntroduceDetailLayerProps {
   publisher: string;
 }
 
-export interface YearConfListProps {
+export interface YearConfListProps extends YearConfItemExtendProps {
   conference: NavigationConferenceLogCategoryType;
 }
 
-export interface YearConfItemProps {
+export interface YearConfItemProps extends YearConfItemExtendProps {
   conf: ConfHistoryType;
+}
+
+interface YearConfItemExtendProps {
+  onClick?: () => void;
 }
 
 export interface YearConfItemThumbnailProps {

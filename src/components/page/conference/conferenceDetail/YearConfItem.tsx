@@ -21,12 +21,13 @@ const item: Variants = {
 };
 
 export default function YearConfItem(args: YearConfItemProps) {
-  const { conf } = args;
+  const { conf, onClick } = args;
   const { thumbnailURL, title, keyTags, openedAt } = conf;
   return (
     <motion.div
       variants={item}
-      className="flex flex-col w-[400px] rounded-2xl shadow-xl mt-10 mr-8"
+      className="flex flex-col w-[400px] rounded-2xl shadow-xl mt-10 mr-8 "
+      onClick={onClick}
     >
       <YearConfItemThumbnail thumbnailURL={thumbnailURL} />
       <YearConfItemDetail title={title} openedAt={openedAt} keyTags={keyTags} />
@@ -53,7 +54,7 @@ const YearConfItemThumbnail = (args: YearConfItemThumbnailProps) => {
 const YearConfItemDetail = (args: YearConfItemDetailProps) => {
   const { title, keyTags, openedAt } = args;
   return (
-    <div className="flex flex-col border-t-2 border-zinc-200 p-4">
+    <div className="flex flex-col border-t-2 border-zinc-200 p-4 hover:bg-zinc-300 rounded-b-2xl">
       <h3 className="text-xl text-slate-700 font-nanumneo-b">{title}</h3>
       <h4 className=" text-sm text-slate-400 font-nanumneo-r mt-2">
         {dayjs(openedAt).format("YYYY년 MM월 DD일 개막")}

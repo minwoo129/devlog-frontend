@@ -5,3 +5,7 @@ export interface ConferenceLogPostsPageProps {
     category: NavigationConferenceLogCategoryType;
   };
 }
+
+export interface ContentBodyProps {
+  category: NavigationConferenceLogCategoryType;
+}
