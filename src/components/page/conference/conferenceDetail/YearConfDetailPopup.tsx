@@ -10,6 +10,7 @@ import { SxProps, Theme } from "@mui/material";
 import Image from "next/image";
 import Tag from "@/components/common/Tag";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 const boxStyle: SxProps<Theme> = {
   position: "absolute",
@@ -92,26 +93,28 @@ const ConfDetailPopupBody = (args: ConfDetailPopupBodyProps) => {
 
 const ConfLectureItem = (args: ConfLectureItemProps) => {
   const { lecture } = args;
-  const { thumbnailURL, createdAt, title } = lecture;
+  const { thumbnailURL, createdAt, title, href } = lecture;
   return (
-    <div className=" flex flex-col justify-between items-center w-[300px] rounded-2xl shadow-xl mt-5 mr-5 transition ease-in-out duration-300 hover:-translate-y-2">
-      <div className="w-full h-fit">
-        <Image
-          src={thumbnailURL}
-          width={300}
-          height={150}
-          alt="lecture-thumbnail"
-          className="rounded-t-2xl"
-        />
+    <Link as={href} href={"/conferencelog/[...slugs]"}>
+      <div className=" flex flex-col justify-between items-center w-[300px] rounded-2xl shadow-xl mt-5 mr-5 transition ease-in-out duration-300 hover:-translate-y-2">
+        <div className="w-full h-fit">
+          <Image
+            src={thumbnailURL}
+            width={300}
+            height={150}
+            alt="lecture-thumbnail"
+            className="rounded-t-2xl"
+          />
+        </div>
+        <div className="flex flex-col h-full border-t-2 border-zinc-200 p-4 ">
+          <h3 className="text-xl text-slate-700 font-nanumneo-b max-w-[260px] truncate">
+            {title}
+          </h3>
+          <h4 className=" text-sm text-slate-400 font-nanumneo-r mt-2">
+            {dayjs(createdAt).format("YYYY년 MM월 DD일 개막")}
+          </h4>
+        </div>
       </div>
-      <div className="flex flex-col h-full border-t-2 border-zinc-200 p-4 ">
-        <h3 className="text-xl text-slate-700 font-nanumneo-b max-w-[260px] truncate">
-          {title}
-        </h3>
-        <h4 className=" text-sm text-slate-400 font-nanumneo-r mt-2">
-          {dayjs(createdAt).format("YYYY년 MM월 DD일 개막")}
-        </h4>
-      </div>
-    </div>
+    </Link>
   );
 };

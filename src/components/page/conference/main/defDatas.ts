@@ -34,6 +34,7 @@ export type ConfLectureType = {
   createdAt: string;
   keyTags?: string[];
   presenter?: string[];
+  href: string;
 };
 
 export type ConferenceObjDatasType = {

@@ -8,6 +8,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     thumbnailURL: "https://img.youtube.com/vi/XEzRZ35urlk/0.jpg",
     url: "https://www.youtube.com/live/XEzRZ35urlk?si=VoUqOldemWGh7nVf",
     createdAt: "2024-05-14",
+    href: "/conferencelog/google-io/ch_2024_google_1",
   },
   {
     id: "ch_2024_google_2",
@@ -17,6 +18,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     url: "https://youtu.be/fH4xqeu7GT0?si=5vKWqZSGmy_JIdX4",
     createdAt: "2024-05-16",
     keyTags: ["AI", "Google AI"],
+    href: "/conferencelog/google-io/ch_2024_google_2",
   },
   {
     id: "ch_2024_google_3",
@@ -26,6 +28,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     url: "https://youtu.be/2wOfYgIMf-A?si=FXfg3QGgyb40tKoZ",
     createdAt: "2024-05-16",
     keyTags: ["Android", "Android Studio", "Firebase"],
+    href: "/conferencelog/google-io/ch_2024_google_3",
   },
   {
     id: "ch_2024_google_4",
@@ -35,6 +38,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     url: "https://youtu.be/lpnKWK-KEYs?si=Jfz4WsXZ49yp89iO",
     createdAt: "2024-05-16",
     keyTags: ["Flutter", "Dart", "Gemini", "Impeller", "Macros", "WebAssembly"],
+    href: "/conferencelog/google-io/ch_2024_google_4",
   },
   {
     id: "ch_2024_google_5",
@@ -51,6 +55,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
       "GenKit",
       "Vertex AI",
     ],
+    href: "/conferencelog/google-io/ch_2024_google_5",
   },
   {
     id: "ch_2024_google_6",
@@ -60,6 +65,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     url: "https://youtu.be/xry2mQbWrio?si=5_pe_0x1pKoVkrsE",
     createdAt: "2024-05-16",
     keyTags: ["Google Play"],
+    href: "/conferencelog/google-io/ch_2024_google_6",
   },
   {
     id: "ch_2024_google_7",
@@ -68,6 +74,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     thumbnailURL: "https://img.youtube.com/vi/KFeuEMAaKfM/0.jpg",
     url: "https://youtu.be/KFeuEMAaKfM?si=262bnwnCX7Z_w6YL",
     createdAt: "2024-05-16",
+    href: "/conferencelog/google-io/ch_2024_google_7",
   },
   {
     id: "ch_2024_google_8",
@@ -76,6 +83,7 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     thumbnailURL: "https://img.youtube.com/vi/srP2P6j4Cqw/0.jpg",
     url: "https://youtu.be/srP2P6j4Cqw?si=QFpP8pmklYBBYAQx",
     createdAt: "2024-05-16",
+    href: "/conferencelog/google-io/ch_2024_google_8",
   },
   {
     id: "ch_2024_google_9",
@@ -84,5 +92,6 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     thumbnailURL: "https://img.youtube.com/vi/W8bokbLn1G8/0.jpg",
     url: "https://youtu.be/W8bokbLn1G8?si=iIRyZSAa0pn6MSS9",
     createdAt: "2024-05-16",
+    href: "/conferencelog/google-io/ch_2024_google_9",
   },
 ];
