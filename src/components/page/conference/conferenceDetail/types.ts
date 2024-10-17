@@ -1,6 +1,6 @@
 import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
 import { SVGImageName } from "@/components/common/SVGImage/types";
-import { ConfHistoryType } from "../main/defDatas";
+import { ConfHistoryType, ConfLectureType } from "../main/defDatas";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface IntroduceLayerProps {
@@ -27,7 +27,7 @@ export interface YearConfItemProps extends YearConfItemExtendProps {
 }
 
 interface YearConfItemExtendProps {
-  onClick?: () => void;
+  onYearConfClick: (id: string) => void;
 }
 
 export interface YearConfItemThumbnailProps {
@@ -38,4 +38,22 @@ export interface YearConfItemDetailProps {
   title: string;
   openedAt: string;
   keyTags: string[];
+}
+
+export interface YearConfDetailPopupProps {
+  open: boolean;
+  onClose: () => void;
+  selectedConf: ConfHistoryType | null;
+}
+
+export interface ConfDetailPopupHeaderProps {
+  selectedConf: ConfHistoryType | null;
+}
+
+export interface ConfDetailPopupBodyProps {
+  selectedConf: ConfHistoryType | null;
+}
+
+export interface ConfLectureItemProps {
+  lecture: ConfLectureType;
 }

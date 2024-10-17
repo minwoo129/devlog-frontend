@@ -18,6 +18,7 @@ export type ConferenceDataType = {
 export type ConfHistoryType = {
   id: string;
   title: string;
+  description: string;
   thumbnailURL: string | StaticImport;
   openedAt: string;
   keyTags: string[];

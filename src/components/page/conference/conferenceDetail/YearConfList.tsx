@@ -17,7 +17,7 @@ const container: Variants = {
 };
 
 export default function YearConfList(args: YearConfListProps) {
-  const { conference, onClick } = args;
+  const { conference, onYearConfClick } = args;
   const historys = ConferenceObjDatas[conference].confHistory;
 
   return (
@@ -28,7 +28,9 @@ export default function YearConfList(args: YearConfListProps) {
       className="flex flex-row flex-wrap mt-10 "
     >
       {historys.map((history, idx) => {
-        return <YearConfItem onClick={onClick} conf={history} />;
+        return (
+          <YearConfItem onYearConfClick={onYearConfClick} conf={history} />
+        );
       })}
     </motion.div>
   );

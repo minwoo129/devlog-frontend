@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "velog.velcdn.com",
       },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
     ],
   },
   webpack: (config) => {

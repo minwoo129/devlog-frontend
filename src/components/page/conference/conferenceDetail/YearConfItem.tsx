@@ -21,13 +21,13 @@ const item: Variants = {
 };
 
 export default function YearConfItem(args: YearConfItemProps) {
-  const { conf, onClick } = args;
-  const { thumbnailURL, title, keyTags, openedAt } = conf;
+  const { conf, onYearConfClick } = args;
+  const { thumbnailURL, title, keyTags, openedAt, id } = conf;
   return (
     <motion.div
       variants={item}
       className="flex flex-col w-[400px] rounded-2xl shadow-xl mt-10 mr-8 "
-      onClick={onClick}
+      onClick={() => onYearConfClick(id)}
     >
       <YearConfItemThumbnail thumbnailURL={thumbnailURL} />
       <YearConfItemDetail title={title} openedAt={openedAt} keyTags={keyTags} />
