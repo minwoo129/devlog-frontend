@@ -84,7 +84,7 @@ const ConfDetailPopupBody = (args: ConfDetailPopupBodyProps) => {
   const { lectures } = selectedConf;
   const visibleLectures = lectures.filter((lect) => lect.visible);
   return (
-    <div className=" flex flex-row flex-wrap max-h-[600px] mobile:max-h-[400px] tablet:max-h-[400px] laptop:max-h-[400px] w-full mt-5 sm:justify-center mobile:justify-center laptop:justify-center overflow-y-scroll scrollbar-hide ">
+    <div className=" grid grid-cols-1 gap-8 justify-center max-h-[300px] px-12 py-4 mt-10 md:grid-cols-2 md:gap-6 md:px-5 lg:grid-cols-3 lg:gap-7 lg:px-2 xl:grid-cols-3 xl:gap-10 xl:px-2 xl:max-h-[400px] desktop:grid-cols-4 desktop:gap-8 desktop:max-h-[500px] desktop:px-5 overflow-y-scroll scrollbar-hide ">
       {visibleLectures.map((lecture, idx) => {
         return <ConfLectureItem lecture={lecture} key={idx} />;
       })}
@@ -97,18 +97,18 @@ const ConfLectureItem = (args: ConfLectureItemProps) => {
   const { thumbnailURL, createdAt, title, href } = lecture;
   return (
     <Link as={href} href={"/conferencelog/[...slugs]"}>
-      <div className=" flex flex-col justify-between items-center w-[300px] rounded-2xl shadow-xl mt-4 mb-4 mr-5 transition ease-in-out duration-300 hover:-translate-y-2">
-        <div className="w-full h-fit">
+      <div className=" flex flex-col justify-between items-center w-full rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2 ">
+        <div className=" w-full aspect-w-16 aspect-h-9">
           <Image
             src={thumbnailURL}
-            width={300}
-            height={150}
+            fill
+            objectFit="cover"
             alt="lecture-thumbnail"
             className="rounded-t-2xl"
           />
         </div>
         <div className="flex flex-col items-start w-full h-full border-t-2 border-zinc-200 p-4 ">
-          <h3 className="text-xl text-slate-700 font-nanumneo-b max-w-[260px] truncate">
+          <h3 className=" text-xl text-slate-700 font-nanumneo-b w-full truncate">
             {title}
           </h3>
           <h4 className=" text-sm text-slate-400 font-nanumneo-r mt-2 text-left">
