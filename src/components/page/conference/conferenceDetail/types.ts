@@ -52,6 +52,10 @@ export interface YearConfItemDetailProps {
   keyTags: string[];
 }
 
+export interface LatestReleaseBadgeProps {
+  openedAt: string;
+}
+
 export interface YearConfDetailPopupProps {
   open: boolean;
   onClose: () => void;

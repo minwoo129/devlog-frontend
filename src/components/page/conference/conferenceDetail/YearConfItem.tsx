@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import {
+  LatestReleaseBadgeProps,
   YearConfItemDetailProps,
   YearConfItemProps,
   YearConfItemThumbnailProps,
@@ -8,6 +9,7 @@ import {
 import { motion, Variants } from "framer-motion";
 import Tag from "@/components/common/Tag";
 import dayjs from "dayjs";
+import StarsIcon from "@mui/icons-material/Stars";
 
 const item: Variants = {
   hidden: {
@@ -62,9 +64,15 @@ const YearConfItemThumbnail = (args: YearConfItemThumbnailProps) => {
 
 const YearConfItemDetail = (args: YearConfItemDetailProps) => {
   const { title, keyTags, openedAt } = args;
+  const today = dayjs();
+  const openDate = dayjs(openedAt);
+  const openDayDiff = today.diff(openDate, "day");
   return (
     <div className=" flex flex-col border-t-2 bg-white  border-zinc-200 p-4 rounded-b-2xl z-10">
-      <h3 className="text-xl text-slate-700 font-nanumneo-b">{title}</h3>
+      <div className="flex flex-row justify-start items-center">
+        <h3 className="text-xl text-slate-700 font-nanumneo-b">{title}</h3>
+        <LatestReleaseBadge openedAt={openedAt} />
+      </div>
       <h4 className=" text-sm text-slate-400 font-nanumneo-r mt-2">
         {dayjs(openedAt).format("YYYY년 MM월 DD일 개막")}
       </h4>
@@ -75,4 +83,31 @@ const YearConfItemDetail = (args: YearConfItemDetailProps) => {
       </div>
     </div>
   );
+};
+
+const LatestReleaseBadge = (args: LatestReleaseBadgeProps) => {
+  const { openedAt } = args;
+  const today = dayjs();
+  const openDate = dayjs(openedAt);
+  const openDayDiff = today.diff(openDate, "day");
+
+  if (openDayDiff < 0) return null;
+  if (openDayDiff === 0) {
+    return (
+      <div className="flex flex-row justify-center items-center ml-4">
+        <StarsIcon color="warning" className="size-6 ml-3" />
+        <p className="text-zinc-500 font-nanumneo-b">👏👏 개막 👏👏</p>
+      </div>
+    );
+  }
+  if (openDayDiff < 30) {
+    return (
+      <div className="flex flex-row justify-center items-center ml-1">
+        <StarsIcon color="warning" className="size-6 ml-3" />
+        <p className="text-lg text-zinc-500 font-nanumneo-b">{`개막 ${openDayDiff}일 째`}</p>
+      </div>
+    );
+  }
+
+  return null;
 };
