@@ -21,6 +21,15 @@ export interface IntroduceDetailLayerProps {
   publisher: string;
 }
 
+export interface HeldImminentProps {
+  visible: boolean;
+}
+
+export interface HeldProps {
+  title: string;
+  visible: boolean;
+}
+
 export interface YearConfListProps extends YearConfItemExtendProps {
   conference: NavigationConferenceLogCategoryType;
 }

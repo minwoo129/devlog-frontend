@@ -21,7 +21,8 @@ export const ConferenceDatas: ConferenceDataType[] = [
     confHistory: [...GoogleIOHistorys],
     href: "/conferencelog/google-io",
     keyTags: [],
-    date_개막시기: "매년 5월 경",
+    date_개막시기: "매년 5월 경 개최",
+    introduceIcon: "none",
   },
   {
     type: "toss-slash",
@@ -32,7 +33,8 @@ export const ConferenceDatas: ConferenceDataType[] = [
     confHistory: [],
     href: "/conferencelog/toss-slash",
     keyTags: [],
-    date_개막시기: "매년 9, 10월 경",
+    date_개막시기: "해마다 달라질 수 있음",
+    introduceIcon: "none",
   },
 ];
 

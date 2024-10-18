@@ -33,6 +33,13 @@ export type ConferenceDataType = {
    *     - 토스 SLASH: 매년 9, 10월 경
    */
   date_개막시기: string;
+  /**
+   * 소개화면에 노출할 아이콘
+   * - none: 노출 안함
+   * - heldImminent: 개최임박
+   * - held: 컨퍼런스 개최
+   */
+  introduceIcon: "none" | "heldImminent" | "held";
 };
 
 /**
