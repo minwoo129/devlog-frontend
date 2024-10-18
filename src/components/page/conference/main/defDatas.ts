@@ -27,6 +27,7 @@ export type ConfHistoryType = {
 
 export type ConfLectureType = {
   id: string;
+  videoId?: string;
   title: string;
   description: string;
   thumbnailURL: string;
@@ -36,6 +37,7 @@ export type ConfLectureType = {
   presenter?: string[];
   href: string;
   conferenceId: string;
+  visible: boolean;
 };
 
 export type ConferenceObjDatasType = {

@@ -1,8 +1,9 @@
 import { ConferenceDatas, ConfHistoryType, ConfLectureType } from "../defDatas";
+import { GoogleIOTotalLectures } from "./google-io";
 import { GoogleIO2024_Lectures } from "./google-io/google-io-2024";
 
 export const TotalConferenceLectures: ConfLectureType[] = [
-  ...GoogleIO2024_Lectures,
+  ...GoogleIOTotalLectures,
 ];
 
 export const TotalConferences: ConfHistoryType[] = ConferenceDatas.reduce<
