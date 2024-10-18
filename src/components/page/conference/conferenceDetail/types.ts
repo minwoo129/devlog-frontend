@@ -1,6 +1,7 @@
 import {
   ConfHistoryType,
   ConfLectureType,
+  IntroduceIconType,
 } from "@/commonDatas/conferences/types";
 import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 import { SVGImageName } from "@/components/common/SVGImage/types";
@@ -19,6 +20,8 @@ export interface IntroduceDetailLayerProps {
   description: string;
   date_개막시기: string;
   publisher: string;
+  visibleIcon: IntroduceIconType;
+  badgeTitle: string;
 }
 
 export interface HeldImminentProps {

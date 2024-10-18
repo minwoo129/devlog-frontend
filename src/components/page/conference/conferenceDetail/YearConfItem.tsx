@@ -95,7 +95,7 @@ const LatestReleaseBadge = (args: LatestReleaseBadgeProps) => {
   if (openDayDiff === 0) {
     return (
       <div className="flex flex-row justify-center items-center ml-4">
-        <StarsIcon color="warning" className="size-6 ml-3" />
+        <StarsIcon color="warning" className="size-6 ml-3 mr-2" />
         <p className="text-zinc-500 font-nanumneo-b">👏👏 개막 👏👏</p>
       </div>
     );
@@ -103,7 +103,7 @@ const LatestReleaseBadge = (args: LatestReleaseBadgeProps) => {
   if (openDayDiff < 30) {
     return (
       <div className="flex flex-row justify-center items-center ml-1">
-        <StarsIcon color="warning" className="size-6 ml-3" />
+        <StarsIcon color="warning" className="size-6 ml-3 mr-2" />
         <p className="text-lg text-zinc-500 font-nanumneo-b">{`개막 ${openDayDiff}일 째`}</p>
       </div>
     );

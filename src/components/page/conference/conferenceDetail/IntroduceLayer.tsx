@@ -60,15 +60,8 @@ const icon: Variants = {
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { conference } = args;
   const confData = ConferenceObjDatas[conference];
-  const {
-    title,
-    description,
-    date_개막시기,
-    publisher,
-    thumbnailURL,
-    introduceIcon,
-    confHistory,
-  } = confData;
+  const { title, description, date_개막시기, publisher, thumbnailURL } =
+    confData;
 
   const { badgeTitle, visibleIcon } = checkIntroBadgeVisible({
     conferenceData: confData,
@@ -79,7 +72,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row sm:flex-col md:flex-col w-full h-fit mt-10 relative"
+      className="flex flex-row sm:flex-col md:flex-col w-full h-fit mt-10"
     >
       <IntroduceLayerLogo thumbnailURL={thumbnailURL} />
       <IntroduceDetailLayer
@@ -87,12 +80,9 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
         description={description}
         date_개막시기={date_개막시기}
         publisher={publisher}
-      />
-      <HeldImminentBadge
+        visibleIcon={visibleIcon}
         badgeTitle={badgeTitle}
-        visible={visibleIcon === "heldImminent"}
       />
-      <HeldBadge badgeTitle={badgeTitle} visible={visibleIcon === "held"} />
     </motion.div>
   );
 }
@@ -110,7 +100,14 @@ const IntroduceLayerLogo = (args: IntroduceLayerLogoProps) => {
 };
 
 const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
-  const { title, description, publisher, date_개막시기 } = args;
+  const {
+    title,
+    description,
+    publisher,
+    date_개막시기,
+    badgeTitle,
+    visibleIcon,
+  } = args;
   return (
     <motion.div
       variants={detail}
@@ -125,6 +122,11 @@ const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
       <div className="flex flex-col justify-center items-start">
         <h4 className=" text-slate-500 font-nanumneo-r">{`개최사: ${publisher}`}</h4>
         <h4 className=" text-slate-500 font-nanumneo-r">{`${date_개막시기}`}</h4>
+        <HeldImminentBadge
+          badgeTitle={badgeTitle}
+          visible={visibleIcon === "heldImminent"}
+        />
+        <HeldBadge badgeTitle={badgeTitle} visible={visibleIcon === "held"} />
       </div>
     </motion.div>
   );
@@ -134,16 +136,10 @@ const HeldImminentBadge = (args: HeldImminentProps) => {
   const { visible, badgeTitle } = args;
   if (!visible) return null;
   return (
-    <motion.div
-      variants={icon}
-      className="flex flex-row justify-center items-center border-2 border-red-400 absolute sm:-left-4 sm:-top-3 md:-left-4 md:-top-3 lg:left-5 lg:-bottom-10 xl:left-5 xl:-bottom-10"
-    >
-      <CampaignIcon
-        color="error"
-        className=" sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px] mr-2"
-      />
-      <p className="sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl font-nanumneo-eb text-red-600">{`${badgeTitle}`}</p>
-    </motion.div>
+    <div className="flex flex-row justify-center items-center mt-3 border-2 border-red-400">
+      <CampaignIcon color="error" className="w-10 h-10 mr-2" />
+      <p className="text-xl font-nanumneo-eb text-red-600">{`${badgeTitle}`}</p>
+    </div>
   );
 };
 
@@ -154,13 +150,10 @@ const HeldBadge = (args: HeldProps) => {
   return (
     <motion.div
       variants={icon}
-      className="flex flex-row justify-center items-center border-2 border-red-400 absolute sm:-left-4 sm:-top-3 md:-left-4 md:-top-3 lg:left-5 lg:-bottom-10 xl:left-5 xl:-bottom-10 "
+      className="flex flex-row justify-center items-center mt-3 border-2 border-red-400"
     >
-      <CelebrationIcon
-        color="warning"
-        className=" sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px] mr-2"
-      />
-      <p className=" sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl font-nanumneo-eb text-yellow-500">{`${badgeTitle}`}</p>
+      <CelebrationIcon color="warning" className=" w-10 h-10 mr-2" />
+      <p className=" text-xl font-nanumneo-eb text-yellow-500">{`${badgeTitle}`}</p>
     </motion.div>
   );
 };
