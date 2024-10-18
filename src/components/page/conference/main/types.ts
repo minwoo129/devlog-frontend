@@ -1,4 +1,4 @@
-import { ConferenceDataType } from "./defDatas";
+import { ConferenceDataType } from "@/commonDatas/conferences/types";
 import { SVGImageName } from "@/components/common/SVGImage/types";
 
 export interface ConferenceListProps {}

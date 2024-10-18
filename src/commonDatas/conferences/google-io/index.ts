@@ -1,7 +1,7 @@
 import { GOOGLEIO_2023, GOOGLEIO_2024 } from "@/utils/images";
-import { ConfHistoryType, ConfLectureType } from "../../defDatas";
-import { GoogleIO2024_Lectures } from "./google-io-2024";
+import { ConfHistoryType, ConfLectureType } from "../types";
 import { GoogleIO2023_Lectures } from "./google-io-2023";
+import { GoogleIO2024_Lectures } from "./google-io-2024";
 
 export const GoogleIOHistorys: ConfHistoryType[] = [
   {

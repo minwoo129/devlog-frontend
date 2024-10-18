@@ -1,12 +1,12 @@
 "use client";
 import SVGImage from "@/components/common/SVGImage";
-import { ConferenceObjDatas } from "../main/defDatas";
 import {
   IntroduceDetailLayerProps,
   IntroduceLayerLogoProps,
   IntroduceLayerProps,
 } from "./types";
 import { motion, Variants } from "framer-motion";
+import { ConferenceObjDatas } from "@/commonDatas/conferences";
 
 const container: Variants = {
   hidden: {

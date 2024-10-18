@@ -1,6 +1,9 @@
+import {
+  ConfHistoryType,
+  ConfLectureType,
+} from "@/commonDatas/conferences/types";
 import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
 import { SVGImageName } from "@/components/common/SVGImage/types";
-import { ConfHistoryType, ConfLectureType } from "../main/defDatas";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface IntroduceLayerProps {

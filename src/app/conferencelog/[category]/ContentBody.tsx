@@ -6,13 +6,8 @@ import {
   YearConfList,
 } from "@/components/page/conference/conferenceDetail";
 import { ContentBodyProps } from "./types";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import {
-  ConferenceDataType,
-  ConferenceObjDatas,
-  ConfHistoryType,
-} from "@/components/page/conference/main/defDatas";
+import { ConfHistoryType } from "@/commonDatas/conferences/types";
+import { ConferenceObjDatas } from "@/commonDatas/conferences";
 
 export default function ContentBody(args: ContentBodyProps) {
   const { category } = args;

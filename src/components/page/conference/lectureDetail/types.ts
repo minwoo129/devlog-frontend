@@ -1,5 +1,5 @@
+import { ConfLectureType } from "@/commonDatas/conferences/types";
 import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
-import { ConfLectureType } from "../main/defDatas";
 
 export interface IntroduceLayerProps {
   lecture: ConfLectureType;

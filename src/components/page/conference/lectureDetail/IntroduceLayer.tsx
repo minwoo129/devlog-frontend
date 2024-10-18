@@ -7,9 +7,8 @@ import {
 } from "./types";
 import Image from "next/image";
 import dayjs from "dayjs";
-import { ConferenceObjDatas } from "../main/defDatas";
-import { TotalConferences } from "../main/historys";
 import Tag from "@/components/common/Tag";
+import { TotalConferences } from "@/commonDatas/conferences";
 
 const container: Variants = {
   hidden: {

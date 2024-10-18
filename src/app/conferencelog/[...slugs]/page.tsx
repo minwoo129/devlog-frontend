@@ -1,7 +1,7 @@
-import { TotalConferenceLectures } from "@/components/page/conference/main/historys";
 import { ConferenceLectureDetailPageProps } from "./types";
 import PageLayer from "@/components/common/pageLayer";
 import ContentBody from "./ContentBody";
+import { TotalConferenceLectures } from "@/commonDatas/conferences";
 
 export default function ConferenceLectureDetailPage(
   args: ConferenceLectureDetailPageProps

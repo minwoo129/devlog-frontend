@@ -1,4 +1,4 @@
-import { ConfLectureType } from "../../defDatas";
+import { ConfLectureType } from "../types";
 
 export const GoogleIO2023_Lectures: ConfLectureType[] = [
   {

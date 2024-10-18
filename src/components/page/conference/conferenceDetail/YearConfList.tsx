@@ -2,7 +2,7 @@
 import { YearConfListProps } from "./types";
 import { motion, Variants } from "framer-motion";
 import YearConfItem from "./YearConfItem";
-import { ConferenceObjDatas } from "../main/defDatas";
+import { ConferenceObjDatas } from "@/commonDatas/conferences";
 
 const container: Variants = {
   hidden: {

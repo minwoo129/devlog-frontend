@@ -1,8 +1,8 @@
 "use client";
 import { motion, Variants } from "framer-motion";
 import { ConferenceListProps } from "./types";
-import { ConferenceDatas } from "./defDatas";
 import ConferenceListItem from "./ConferenceListItem";
+import { ConferenceDatas } from "@/commonDatas/conferences";
 
 const container: Variants = {
   hidden: {
