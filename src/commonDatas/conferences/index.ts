@@ -6,6 +6,11 @@ import {
   ConfLectureType,
 } from "./types";
 
+/**
+ * 등록된 컨퍼런스 데이터(Array형)
+ * 1. 구글 I/O
+ * 2. 토스 SLASH
+ */
 export const ConferenceDatas: ConferenceDataType[] = [
   {
     type: "google-io",
@@ -31,15 +36,26 @@ export const ConferenceDatas: ConferenceDataType[] = [
   },
 ];
 
+/**
+ * 등록된 컨퍼런스 데이터(Object형)
+ * 1. 구글 I/O
+ * 2. 토스 SLASH
+ */
 export const ConferenceObjDatas: ConferenceObjDatasType = {
   "google-io": ConferenceDatas[0],
   "toss-slash": ConferenceDatas[1],
 };
 
+/**
+ * 현재까지 등록된 모든 강연 데이터
+ */
 export const TotalConferenceLectures: ConfLectureType[] = [
   ...GoogleIOTotalLectures,
 ];
 
+/**
+ * 현재까지 등록된 모든 컨퍼런스의 연도별 데이터
+ */
 export const TotalConferences: ConfHistoryType[] = ConferenceDatas.reduce<
   ConfHistoryType[]
 >((acc, cur) => {

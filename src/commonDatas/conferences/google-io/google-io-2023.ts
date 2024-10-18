@@ -1,5 +1,10 @@
 import { ConfLectureType } from "../types";
 
+/**
+ * ================ 강의 데이터 ================
+ * 1. 컨퍼런스명: Google I/O 2023
+ * 2. 컨퍼런스 ID: ch_2023_google
+ */
 export const GoogleIO2023_Lectures: ConfLectureType[] = [
   {
     id: "ch_2023_google_1",
@@ -12,6 +17,9 @@ export const GoogleIO2023_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2023_google_1",
     conferenceId: "ch_2023_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2023/program/396cd2d5-9fe1-4725-a3dc-c01bb2e2f38a/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=cNfINi5CNbY",
   },
   {
     id: "ch_2023_google_2",
@@ -24,6 +32,9 @@ export const GoogleIO2023_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2023_google_2",
     conferenceId: "ch_2023_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2023/program/035d04f9-bc75-479e-8865-493151c867c4/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=qXhjN66O7Bk",
   },
   {
     id: "ch_2023_google_3",
@@ -36,6 +47,9 @@ export const GoogleIO2023_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2023_google_3",
     conferenceId: "ch_2023_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2023/program/d2aa0ce5-06e2-4f01-b67c-3a5dea8b9caa/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=emIxn-f9bK0",
   },
   {
     id: "ch_2023_google_4",
@@ -48,6 +62,9 @@ export const GoogleIO2023_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2023_google_4",
     conferenceId: "ch_2023_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2023/program/177fc76c-6c2c-4840-a423-e609faa51d55/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=36peNZUlgzU",
   },
   {
     id: "ch_2023_google_5",
@@ -60,6 +77,9 @@ export const GoogleIO2023_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2023_google_5",
     conferenceId: "ch_2023_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2023/program/16cd0363-98fa-4f1e-86f6-94268beef641/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=PsV-wSZ2BCo",
   },
   {
     id: "ch_2023_google_6",
@@ -73,5 +93,8 @@ export const GoogleIO2023_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2023_google_6",
     conferenceId: "ch_2023_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2023/program/0c9e010f-617a-426a-a4fb-bd1d19c91358/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=SF8ueIn2Nlc",
   },
 ];

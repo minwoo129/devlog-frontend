@@ -1,5 +1,10 @@
 import { ConfLectureType } from "../types";
 
+/**
+ * ================ 강의 데이터 ================
+ * 1. 컨퍼런스명: Google I/O 2024
+ * 2. 컨퍼런스 ID: ch_2024_google
+ */
 export const GoogleIO2024_Lectures: ConfLectureType[] = [
   {
     id: "ch_2024_google_1",
@@ -12,6 +17,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_1",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/a6eb8619-5c2e-4671-84cb-b938c27103be/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=XEzRZ35urlk",
   },
   {
     id: "ch_2024_google_2",
@@ -24,6 +32,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_2",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/af9317b5-1c42-471a-99db-1bc8108d06a8/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=ddcZnW1HKUY",
   },
   {
     id: "ch_2024_google_3",
@@ -36,6 +47,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_3",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/12782059-aef8-450d-acfd-e1d616fdb48e/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=_yWxUp86TGg",
   },
   {
     id: "ch_2024_google_4",
@@ -49,6 +63,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_4",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/a646262c-dafd-495c-b5f2-146fefad0df1/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=fH4xqeu7GT0",
   },
   {
     id: "ch_2024_google_5",
@@ -62,6 +79,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_5",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/9986e95b-c506-40f1-b233-54f7e7092fdb/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=2wOfYgIMf-A",
   },
   {
     id: "ch_2024_google_6",
@@ -75,6 +95,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_6",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/da049081-00e1-4476-80da-1cd039302ac6/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=lpnKWK-KEYs",
   },
   {
     id: "ch_2024_google_7",
@@ -95,6 +118,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_7",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/8c3a958c-52f6-4c07-8798-897b260c177c/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=2MvV-YX1eKw",
   },
   {
     id: "ch_2024_google_8",
@@ -108,6 +134,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_8",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/c6185b55-88e6-4b47-b31c-5b1f758a16a7/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=xry2mQbWrio",
   },
   {
     id: "ch_2024_google_9",
@@ -120,6 +149,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_9",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/6d6b2a35-ae3a-4f73-b40d-9dc4a8cf0df4/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=W8bokbLn1G8",
   },
   {
     id: "ch_2024_google_10",
@@ -132,6 +164,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_10",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/481d6f4d-7b94-4ab9-ac51-6c6783914e9a/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=N_l9038Fy8A",
   },
   {
     id: "ch_2024_google_11",
@@ -144,6 +179,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_11",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/6d7824f5-2190-41e9-8e28-a7debee55ce6/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=8Pl5dPja0UE",
   },
   {
     id: "ch_2024_google_12",
@@ -156,6 +194,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_12",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/e7eb329a-ce0e-48ec-9447-cb0c178bf297/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=rTx5nw3AgnY",
   },
   {
     id: "ch_2024_google_13",
@@ -168,6 +209,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_13",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/d347231e-4f66-4b2b-8c8b-f9090068bc79/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=0QbUYfTRJEY",
   },
   {
     id: "ch_2024_google_14",
@@ -180,6 +224,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_14",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/c469c529-be54-4013-8ddf-4c1dfbe347fc/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=qLCK0HO_tNQ",
   },
   {
     id: "ch_2024_google_15",
@@ -192,6 +239,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_15",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/d47ef4f0-2ca7-4b8f-b548-b3c5eeecc358/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=ELKKWDPCLXU",
   },
   {
     id: "ch_2024_google_16",
@@ -204,6 +254,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_16",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/c8b911cd-6c30-434f-a76e-6099f6a312d9/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=nOinQrCvZkM",
   },
   {
     id: "ch_2024_google_17",
@@ -216,6 +269,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_17",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/4ad3e7fe-ca50-4c24-8c48-5c04ee39e4d0/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=jS46zP8kQ3k",
   },
   {
     id: "ch_2024_google_18",
@@ -228,6 +284,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_18",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/f757438a-844f-4c59-8dd4-9a5580a5e23d/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=RccJYep2v5I",
   },
   {
     id: "ch_2024_google_19",
@@ -240,6 +299,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_19",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/aa629039-6d41-41bd-8446-3b0494a5a081/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=d1sRCa5k2Sg",
   },
   {
     id: "ch_2024_google_20",
@@ -252,6 +314,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_20",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/d455ee18-651c-417b-8e06-fca3aa8f1303/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=8sG2TGgyvtk",
   },
   {
     id: "ch_2024_google_21",
@@ -264,6 +329,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_21",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/8ebd5067-9e70-4b34-a885-af54bb84638a/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=LeKLGzpsz9I",
   },
   {
     id: "ch_2024_google_22",
@@ -276,6 +344,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_22",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/4a516fcc-a325-45dd-a820-29cbddde3412/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=jI1LKN7jBVk",
   },
   {
     id: "ch_2024_google_23",
@@ -288,6 +359,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_23",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/2dff9b4c-4069-4bde-ab9a-c5f53dc0fdb8/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=xPUZENis4gc",
   },
   {
     id: "ch_2024_google_24",
@@ -300,6 +374,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_24",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/adc2c02e-a8b6-4ab4-939a-a7afddc7cd8f/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=L2ORMj0yak8",
   },
   {
     id: "ch_2024_google_25",
@@ -312,6 +389,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_25",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/483685ac-92ff-43dc-91aa-0bda4cc18fec/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=fgTOeLShcrY",
   },
   {
     id: "ch_2024_google_26",
@@ -324,6 +404,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_26",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/7c08e61e-27d6-4f6a-93fd-590145e83b90/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=JvbyGcqdWBA",
   },
   {
     id: "ch_2024_google_27",
@@ -336,6 +419,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_27",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/efabefda-bc65-492b-acd6-48c7fade31e4/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=XQ_Hvu-s7JY",
   },
   {
     id: "ch_2024_google_28",
@@ -348,6 +434,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_28",
     conferenceId: "ch_2024_google",
     visible: true,
+    originalLectureURL:
+      "https://io.google/2024/explore/eb110bcc-2a95-4fa3-be3a-75af00d2f8ff/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=XaNqdlfVF-M",
   },
   {
     id: "ch_2024_google_29",
@@ -361,6 +450,9 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_29",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/b2f2298c-e0d9-4ee0-9f3c-e067c665e56f/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=4eARovV-Bq4",
   },
   {
     id: "ch_2024_google_30",
@@ -373,5 +465,8 @@ export const GoogleIO2024_Lectures: ConfLectureType[] = [
     href: "/conferencelog/google-io/ch_2024_google_30",
     conferenceId: "ch_2024_google",
     visible: false,
+    originalLectureURL:
+      "https://io.google/2024/explore/21b9116b-3c75-41bf-91c7-ffcaf2163970/intl/ko/",
+    youtubeAccessURL: "https://www.youtube.com/watch?v=eemS-UTjdb0",
   },
 ];
