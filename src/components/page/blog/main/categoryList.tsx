@@ -1,11 +1,8 @@
 "use client";
-import {
-  ConferenceLogNavDatas,
-  DevLogNavDatas,
-} from "@/components/common/navigation/navDatas";
 import { motion, Variants } from "framer-motion";
 import CategoryListItem from "./categoryListItem";
 import { CategoryListProps } from "./types";
+import { ConferenceLogNavDatas, DevLogNavDatas } from "@/commonDatas/routes";
 
 const container: Variants = {
   hidden: {

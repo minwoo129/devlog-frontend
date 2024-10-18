@@ -1,4 +1,4 @@
-import { PageNavLinkType } from "@/components/common/navigation/navDatas";
+import { PageNavLinkType } from "@/commonDatas/routes/types";
 import { Post } from "@/lib/types";
 
 export interface CategoryListProps {

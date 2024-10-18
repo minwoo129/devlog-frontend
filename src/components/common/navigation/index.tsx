@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo, MenuBtn } from "./menuItems";
-import { PageNavDatas } from "./navDatas";
+import { PageNavDatas } from "@/commonDatas/routes";
 
 export default function Navigation({}) {
   return (

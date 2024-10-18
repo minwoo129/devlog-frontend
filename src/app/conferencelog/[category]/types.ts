@@ -1,4 +1,4 @@
-import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
+import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 
 export interface ConferenceLogPostsPageProps {
   params: {

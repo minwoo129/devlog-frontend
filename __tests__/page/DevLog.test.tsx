@@ -1,7 +1,7 @@
 import { render, RenderResult, screen } from "@testing-library/react";
 import Devlog from "@/app/devlog/page";
 import "@testing-library/jest-dom";
-import { DevLogNavDatas } from "@/components/common/navigation/navDatas";
+import { DevLogNavDatas } from "@/commonDatas/routes";
 
 describe("Devlog", () => {
   let renderElement: RenderResult;
@@ -20,7 +20,7 @@ describe("Devlog", () => {
     ).map((cat) => cat.testID);
 
     // 노출 여부 테스트 실행
-    for (let testId of visibleCategoryIds) {
+    for (const testId of visibleCategoryIds) {
       const element = screen.getByTestId(testId);
       expect(element).toBeInTheDocument();
     }

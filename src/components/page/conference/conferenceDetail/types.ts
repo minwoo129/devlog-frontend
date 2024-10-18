@@ -2,7 +2,7 @@ import {
   ConfHistoryType,
   ConfLectureType,
 } from "@/commonDatas/conferences/types";
-import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
+import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 import { SVGImageName } from "@/components/common/SVGImage/types";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 

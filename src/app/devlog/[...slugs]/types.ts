@@ -1,4 +1,4 @@
-import { NavigationDevLogCategoryType } from "@/components/common/navigation/navDatas";
+import { NavigationDevLogCategoryType } from "@/commonDatas/routes/types";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface DevLogPostDetailPageProps {

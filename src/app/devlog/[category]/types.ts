@@ -1,4 +1,4 @@
-import { NavigationDevLogCategoryType } from "@/components/common/navigation/navDatas";
+import { NavigationDevLogCategoryType } from "@/commonDatas/routes/types";
 
 export interface DevLogPostsPageParams {
   params: {

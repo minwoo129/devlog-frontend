@@ -1,6 +1,6 @@
-import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
 import { SVGImageName } from "@/components/common/SVGImage/types";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { NavigationConferenceLogCategoryType } from "../routes/types";
 
 export type ConferenceDataType = {
   type: NavigationConferenceLogCategoryType;

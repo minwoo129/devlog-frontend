@@ -1,5 +1,5 @@
 import { ConfLectureType } from "@/commonDatas/conferences/types";
-import { NavigationConferenceLogCategoryType } from "@/components/common/navigation/navDatas";
+import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 
 export interface ConferenceLectureDetailPageProps {
   params: {

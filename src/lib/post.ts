@@ -5,12 +5,11 @@ import matter from "gray-matter";
 import { detailPostArgs, Post, PostMatter, sectionPostArgs } from "./types";
 import dayjs from "dayjs";
 import readingTime from "reading-time";
+import { differenceWith } from "es-toolkit/array";
 import {
   NavigationConferenceLogCategoryType,
   NavigationDevLogCategoryType,
-  NavigationSectionType,
-} from "@/components/common/navigation/navDatas";
-import { differenceWith } from "es-toolkit/array";
+} from "@/commonDatas/routes/types";
 
 const BASE_PATH = "/posts";
 const POSTS_PATH = path.join(process.cwd(), BASE_PATH);

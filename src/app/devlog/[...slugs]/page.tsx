@@ -1,12 +1,12 @@
 import PageLayer from "@/components/common/pageLayer";
 import { DevLogPostDetailPageProps } from "./types";
-import { NavigationDevLogCategoryType } from "@/components/common/navigation/navDatas";
 import { getFilteredPosts } from "@/lib/post";
 import { serializeMdx } from "@/lib/mdx";
 import PostPage from "./PostPage";
 import { DetailTitleLayer } from "@/components/page/blog/detail";
 import Image from "next/image";
 import ThumbnailImg from "@/components/page/blog/detail/ThumbnailImg";
+import { NavigationDevLogCategoryType } from "@/commonDatas/routes/types";
 
 const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   const categoryPosts = getFilteredPosts({ category, section: "devlog" });

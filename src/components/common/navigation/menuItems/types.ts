@@ -1,4 +1,4 @@
-import { PageNavDataType } from "../navDatas";
+import { PageNavDataType } from "@/commonDatas/routes/types";
 
 export interface MenuBtnProps {
   data: PageNavDataType;
