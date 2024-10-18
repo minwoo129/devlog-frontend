@@ -11,6 +11,9 @@ import { motion, Variants } from "framer-motion";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import dayjs from "dayjs";
+import { IntroduceIconType } from "@/commonDatas/conferences/types";
+import { checkIntroBadgeVisible } from "@/commonFunctions/conference";
 
 const container: Variants = {
   hidden: {
@@ -64,7 +67,12 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
     publisher,
     thumbnailURL,
     introduceIcon,
+    confHistory,
   } = confData;
+
+  const { badgeTitle, visibleIcon } = checkIntroBadgeVisible({
+    conferenceData: confData,
+  });
 
   return (
     <motion.div
@@ -80,8 +88,11 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
         date_개막시기={date_개막시기}
         publisher={publisher}
       />
-      <HeldImminent visible={introduceIcon === "heldImminent"} />
-      <Held title={title} visible={introduceIcon === "held"} />
+      <HeldImminentBadge
+        badgeTitle={badgeTitle}
+        visible={visibleIcon === "heldImminent"}
+      />
+      <HeldBadge badgeTitle={badgeTitle} visible={visibleIcon === "held"} />
     </motion.div>
   );
 }
@@ -119,22 +130,25 @@ const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
   );
 };
 
-const HeldImminent = (args: HeldImminentProps) => {
-  const { visible } = args;
+const HeldImminentBadge = (args: HeldImminentProps) => {
+  const { visible, badgeTitle } = args;
   if (!visible) return null;
   return (
     <motion.div
       variants={icon}
-      className="flex flex-row justify-center items-center border-2 border-red-400 absolute left-20 -bottom-10"
+      className="flex flex-row justify-center items-center border-2 border-red-400 absolute sm:-left-4 sm:-top-3 md:-left-4 md:-top-3 lg:left-5 lg:-bottom-10 xl:left-5 xl:-bottom-10"
     >
-      <CampaignIcon color="error" className=" w-[100px] h-[100px] mr-2" />
-      <p className="text-6xl font-nanumneo-eb text-red-600">개최임박</p>
+      <CampaignIcon
+        color="error"
+        className=" sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px] mr-2"
+      />
+      <p className="sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl font-nanumneo-eb text-red-600">{`${badgeTitle}`}</p>
     </motion.div>
   );
 };
 
-const Held = (args: HeldProps) => {
-  const { title, visible } = args;
+const HeldBadge = (args: HeldProps) => {
+  const { badgeTitle, visible } = args;
   if (!visible) return null;
 
   return (
@@ -146,7 +160,7 @@ const Held = (args: HeldProps) => {
         color="warning"
         className=" sm:w-[60px] sm:h-[60px] md:w-[60px] md:h-[60px] lg:w-[80px] lg:h-[80px] xl:w-[80px] xl:h-[80px] mr-2"
       />
-      <p className=" sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl font-nanumneo-eb text-yellow-500">{`${title} 개최!!!`}</p>
+      <p className=" sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl font-nanumneo-eb text-yellow-500">{`${badgeTitle}`}</p>
     </motion.div>
   );
 };

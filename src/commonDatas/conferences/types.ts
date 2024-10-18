@@ -39,8 +39,10 @@ export type ConferenceDataType = {
    * - heldImminent: 개최임박
    * - held: 컨퍼런스 개최
    */
-  introduceIcon: "none" | "heldImminent" | "held";
+  introduceIcon: IntroduceIconType;
 };
+
+export type IntroduceIconType = "none" | "heldImminent" | "held";
 
 /**
  * 컨퍼런스 연도별 데이터 타입

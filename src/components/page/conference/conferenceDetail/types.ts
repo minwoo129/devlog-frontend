@@ -22,11 +22,12 @@ export interface IntroduceDetailLayerProps {
 }
 
 export interface HeldImminentProps {
+  badgeTitle: string;
   visible: boolean;
 }
 
 export interface HeldProps {
-  title: string;
+  badgeTitle: string;
   visible: boolean;
 }
 

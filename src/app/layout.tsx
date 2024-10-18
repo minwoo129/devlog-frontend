@@ -5,8 +5,11 @@ import Navigation from "@/components/common/navigation";
 import "dayjs/locale/ko";
 import dayjs from "dayjs";
 import RecoilProvider from "./RecoilProvider";
+import isBetween from "dayjs/plugin/isBetween";
 
 dayjs.locale("ko");
+
+dayjs.extend(isBetween);
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

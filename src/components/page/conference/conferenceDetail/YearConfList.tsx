@@ -29,7 +29,11 @@ export default function YearConfList(args: YearConfListProps) {
     >
       {historys.map((history, idx) => {
         return (
-          <YearConfItem onYearConfClick={onYearConfClick} conf={history} />
+          <YearConfItem
+            onYearConfClick={onYearConfClick}
+            conf={history}
+            key={idx}
+          />
         );
       })}
     </motion.div>

@@ -10,6 +10,7 @@ import { motion, Variants } from "framer-motion";
 import Tag from "@/components/common/Tag";
 import dayjs from "dayjs";
 import StarsIcon from "@mui/icons-material/Stars";
+import { calculateDateDiff } from "@/commonFunctions/dates";
 
 const item: Variants = {
   hidden: {
@@ -25,6 +26,7 @@ const item: Variants = {
 export default function YearConfItem(args: YearConfItemProps) {
   const { conf, onYearConfClick } = args;
   const { thumbnailURL, title, keyTags, openedAt, id } = conf;
+
   return (
     <motion.div
       variants={item}
@@ -64,9 +66,6 @@ const YearConfItemThumbnail = (args: YearConfItemThumbnailProps) => {
 
 const YearConfItemDetail = (args: YearConfItemDetailProps) => {
   const { title, keyTags, openedAt } = args;
-  const today = dayjs();
-  const openDate = dayjs(openedAt);
-  const openDayDiff = today.diff(openDate, "day");
   return (
     <div className=" flex flex-col border-t-2 bg-white  border-zinc-200 p-4 rounded-b-2xl z-10">
       <div className="flex flex-row justify-start items-center">
@@ -87,9 +86,10 @@ const YearConfItemDetail = (args: YearConfItemDetailProps) => {
 
 const LatestReleaseBadge = (args: LatestReleaseBadgeProps) => {
   const { openedAt } = args;
-  const today = dayjs();
-  const openDate = dayjs(openedAt);
-  const openDayDiff = today.diff(openDate, "day");
+  const openDayDiff = calculateDateDiff({
+    fromDate: openedAt,
+    toDate: dayjs(),
+  });
 
   if (openDayDiff < 0) return null;
   if (openDayDiff === 0) {

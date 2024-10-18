@@ -31,7 +31,6 @@ export default async function DevLogPostDetailPage(
     );
   }
   const data = await serializeMdx(detailPost.content);
-  console.log(data);
   return (
     <PageLayer
       className={`mobile:px-[40px] tablet:px-[40px] laptop:px-[120px] desktop:px-[200px]`}
