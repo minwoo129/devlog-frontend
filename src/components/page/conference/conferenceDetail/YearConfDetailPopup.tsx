@@ -82,9 +82,10 @@ const ConfDetailPopupBody = (args: ConfDetailPopupBodyProps) => {
   }
 
   const { lectures } = selectedConf;
+  const visibleLectures = lectures.filter((lect) => lect.visible);
   return (
     <div className=" flex flex-row flex-wrap max-h-[600px] mobile:max-h-[400px] tablet:max-h-[400px] laptop:max-h-[400px] w-full mt-5 sm:justify-center mobile:justify-center laptop:justify-center overflow-y-scroll scrollbar-hide ">
-      {lectures.map((lecture, idx) => {
+      {visibleLectures.map((lecture, idx) => {
         return <ConfLectureItem lecture={lecture} key={idx} />;
       })}
     </div>
