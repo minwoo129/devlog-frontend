@@ -101,15 +101,11 @@ export type ConfLectureType = {
    * Youtube 동영상 ID
    * - 나중에 사용할 일이 있을 수 있어서 일단 추가해둠
    */
-  videoId?: string;
+  videoId: string;
   /** 강의 제목 */
   title: string;
   /** 강의 설명 */
   description: string;
-  /** Youtube 동영상 썸네일 URL */
-  thumbnailURL: string;
-  /** Youtube 동영상 링크(임베드용) */
-  youtubeLink: string;
   /**
    * 영상 등록날짜
    * - Youtube API를 통해 수집된 데이터
@@ -134,8 +130,44 @@ export type ConfLectureType = {
   visible: boolean;
   /** 강의 실제 사이트 */
   originalLectureURL?: string;
-  /** 유튜브 접속 링크 */
-  youtubeAccessURL?: string;
+  /** Youtube 동영상 상세정보 */
+  youtubeVideoInfo: YoutubeVideoInfoType;
+};
+
+export type YoutubeVideoDatasType = {
+  [key in string]: YoutubeVideoInfoType;
+};
+
+export type YoutubeVideoInfoType = {
+  /** Youtube 동영상 ID */
+  videoId: string;
+  /** 동영상 타이틀 */
+  title: string;
+  /** 강의 설명 */
+  description: string;
+  /** Youtube 동영상 썸네일 URL */
+  thumbnailURL: string;
+  /** Youtube 동영상 링크(임베드용) */
+  embedURL: string;
+  /**
+   * 유튜브 동영상 링크
+   * - 이 링크는 Youtube 사이트 접속을 통한 동영상 재생을 위한 URL
+   * - 이 링크를 iframe 태그에 연결하면 동영상 재생이 거부됨!!
+   */
+  accessURL: string;
+  /**
+   * 영상 업로드 날짜
+   * - Youtube API를 통해 수집된 데이터
+   */
+  publishedAt: string;
+  /**
+   * 동영상 유형
+   * - uploaded: 업로드된 동영상
+   * - live: 라이브
+   */
+  videoType: "uploaded" | "live";
+  /** 라이브 방송 시작날짜(예정) */
+  scheduledLiveStartDate?: string;
 };
 
 /**

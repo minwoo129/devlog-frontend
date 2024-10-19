@@ -94,7 +94,8 @@ const ConfDetailPopupBody = (args: ConfDetailPopupBodyProps) => {
 
 const ConfLectureItem = (args: ConfLectureItemProps) => {
   const { lecture } = args;
-  const { thumbnailURL, createdAt, title, href } = lecture;
+  const { createdAt, title, href, youtubeVideoInfo } = lecture;
+  const { thumbnailURL } = youtubeVideoInfo;
   return (
     <Link as={href} href={"/conferencelog/[...slugs]"}>
       <div className=" flex flex-col justify-between items-center w-full rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2 ">

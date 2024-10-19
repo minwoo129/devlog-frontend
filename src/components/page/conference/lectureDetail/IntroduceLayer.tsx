@@ -46,8 +46,15 @@ const info: Variants = {
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { lecture } = args;
-  const { title, description, createdAt, youtubeLink, conferenceId, keyTags } =
-    lecture;
+  const {
+    title,
+    description,
+    createdAt,
+    conferenceId,
+    keyTags,
+    youtubeVideoInfo,
+  } = lecture;
+  const { embedURL } = youtubeVideoInfo;
   return (
     <motion.div
       variants={container}
@@ -55,7 +62,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       animate="show"
       className="flex flex-col desktop:flex-row h-fit desktop:justify-between desktop:items-start mt-10 py-5"
     >
-      <IntroduceLayerLectureVideo youtubeLink={youtubeLink} />
+      <IntroduceLayerLectureVideo youtubeLink={embedURL} />
       <IntroduceLayerInfo
         title={title}
         createdAt={createdAt}
