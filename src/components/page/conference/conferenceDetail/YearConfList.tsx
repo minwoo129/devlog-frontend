@@ -19,7 +19,6 @@ const container: Variants = {
 export default function YearConfList(args: YearConfListProps) {
   const { conference, onYearConfClick } = args;
   const historys = ConferenceObjDatas[conference].confHistory;
-  console.log("historys: ", historys);
   return (
     <motion.div
       variants={container}

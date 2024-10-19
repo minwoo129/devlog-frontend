@@ -59,21 +59,3 @@ export interface YearConfItemDetailProps {
 export interface LatestReleaseBadgeProps {
   openedAt: string;
 }
-
-export interface YearConfDetailPopupProps {
-  open: boolean;
-  onClose: () => void;
-  selectedConf: ConfHistoryType | null;
-}
-
-export interface ConfDetailPopupHeaderProps {
-  selectedConf: ConfHistoryType | null;
-}
-
-export interface ConfDetailPopupBodyProps {
-  selectedConf: ConfHistoryType | null;
-}
-
-export interface ConfLectureItemProps {
-  lecture: ConfLectureType;
-}
