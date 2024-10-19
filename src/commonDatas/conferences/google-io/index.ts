@@ -1,7 +1,8 @@
-import { GOOGLEIO_2023, GOOGLEIO_2024 } from "@/utils/images";
+import { GOOGLEIO_2022, GOOGLEIO_2023, GOOGLEIO_2024 } from "@/utils/images";
 import { ConfHistoryType, ConfLectureType } from "../types";
 import { GoogleIO2023_Lectures } from "./google-io-2023";
 import { GoogleIO2024_Lectures } from "./google-io-2024";
+import { GoogleIO2022_Lectures } from "./google-io-2022";
 
 export const GoogleIOHistorys: ConfHistoryType[] = [
   {
@@ -25,6 +26,16 @@ export const GoogleIOHistorys: ConfHistoryType[] = [
     thumbnailURL: GOOGLEIO_2023,
     lectures: [...GoogleIO2023_Lectures],
     conferenceURL: "https://io.google/2023/intl/ko/",
+  },
+  {
+    id: "ch_2022_google",
+    title: "Google I/O 2022",
+    description: "아직 구글 AI의 원석을 보여준 것과 같았던 Google I/O 2022",
+    openedAt: "2022-05-12",
+    keyTags: ["LaMDA2", "지식(Knowledge)"],
+    thumbnailURL: GOOGLEIO_2022,
+    lectures: [...GoogleIO2022_Lectures],
+    conferenceURL: "https://io.google/2022/intl/ko/",
   },
 ];
 

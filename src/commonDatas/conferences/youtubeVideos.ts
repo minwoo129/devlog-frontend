@@ -343,7 +343,7 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
     accessURL: "https://www.youtube.com/watch?v=cNfINi5CNbY",
     videoType: "uploaded",
   },
-  qXhjN6607Bk: {
+  qXhjN66O7Bk: {
     videoId: "qXhjN66O7Bk",
     title: "Android에 관한 새로운 소식",
     description:
@@ -396,6 +396,81 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
     embedURL: "https://www.youtube.com/embed/SF8ueIn2Nlc",
     publishedAt: "2023-05-10T20:37:32Z",
     accessURL: "https://www.youtube.com/watch?v=SF8ueIn2Nlc",
+    videoType: "uploaded",
+  },
+  "nP-nMZpLM1A": {
+    videoId: "nP-nMZpLM1A",
+    title: "Google I/O 기조연설",
+    description:
+      "Google이 전 세계의 정보를 체계화하여 누구든 손쉽게 액세스하고 활용하도록 하기 위한 사명을 어떻게 실현하는지 알아보세요.",
+    thumbnailURL: "https://img.youtube.com/vi/nP-nMZpLM1A/0.jpg",
+    embedURL: "https://www.youtube.com/embed/nP-nMZpLM1A",
+    publishedAt: "2022-05-11T19:20:31Z",
+    accessURL: "https://www.youtube.com/watch?v=nP-nMZpLM1A",
+    videoType: "uploaded",
+  },
+  i0VNBvCqpgI: {
+    videoId: "i0VNBvCqpgI",
+    title: "Firebase에 관한 새로운 소식",
+    description:
+      "귀사의 모든 비즈니스 여정을 돕는 Firebase 플랫폼에서 사용자가 좋아할 만한 앱을 개발하고 실행하는 방법을 알아보세요.",
+    thumbnailURL: "https://img.youtube.com/vi/i0VNBvCqpgI/0.jpg",
+    embedURL: "https://www.youtube.com/embed/i0VNBvCqpgI",
+    publishedAt: "2022-05-11T20:59:17Z",
+    accessURL: "https://www.youtube.com/watch?v=i0VNBvCqpgI",
+    videoType: "uploaded",
+  },
+  K4Benk0SPE8: {
+    videoId: "K4Benk0SPE8",
+    title: "개발자를 위한 클라우드",
+    description:
+      "Google Cloud 및 Workspace 팀이 클라우드 서비스 개발을 통해 개발자들과 기술 전문가들의 혁신적인 애플리케이션 개발을 지원하는 방법을 알아보세요.",
+    thumbnailURL: "https://img.youtube.com/vi/K4Benk0SPE8/0.jpg",
+    embedURL: "https://www.youtube.com/embed/K4Benk0SPE8",
+    publishedAt: "2022-05-11T20:57:26Z",
+    accessURL: "https://www.youtube.com/watch?v=K4Benk0SPE8",
+    videoType: "uploaded",
+  },
+  "5b4YcLB4DVI": {
+    videoId: "5b4YcLB4DVI",
+    title: "웹 플랫폼에 관한 새로운 소식",
+    description: "Google이 웹 플랫폼에 어떻게 투자하는지 알아보세요.",
+    thumbnailURL: "https://img.youtube.com/vi/5b4YcLB4DVI/0.jpg",
+    embedURL: "https://www.youtube.com/embed/5b4YcLB4DVI",
+    publishedAt: "2022-05-11T20:36:36Z",
+    accessURL: "https://www.youtube.com/watch?v=5b4YcLB4DVI",
+    videoType: "uploaded",
+  },
+  khTTmnqqV8c: {
+    videoId: "khTTmnqqV8c",
+    title: "Cloud Code로 신속하게 Google Cloud Platform 개발하기",
+    description:
+      "Cloud Code IDE 확장 프로그램으로 빠르게 앱을 개발하고 테스트한 후, Google Cloud Platform에 배포하는 방법을 알아보세요.",
+    thumbnailURL: "https://img.youtube.com/vi/khTTmnqqV8c/0.jpg",
+    embedURL: "https://www.youtube.com/embed/khTTmnqqV8c",
+    publishedAt: "2022-05-12T18:10:37Z",
+    accessURL: "https://www.youtube.com/watch?v=khTTmnqqV8c",
+    videoType: "uploaded",
+  },
+  cIFLFpKTy7c: {
+    videoId: "cIFLFpKTy7c",
+    title: "Firebase Crashlytics로 앱 안정성 모니터링",
+    description: "Firebase Crashlytics로 앱 안정성 모니터링",
+    thumbnailURL: "https://img.youtube.com/vi/cIFLFpKTy7c/0.jpg",
+    embedURL: "https://www.youtube.com/embed/cIFLFpKTy7c",
+    publishedAt: "2022-05-12T22:06:17Z",
+    accessURL: "https://www.youtube.com/watch?v=cIFLFpKTy7c",
+    videoType: "uploaded",
+  },
+  PMMY23F0CFg: {
+    videoId: "PMMY23F0CFg",
+    title: "Jetpack Compose의 상태",
+    description:
+      "Jetpack Compose에서 상태를 사용하여 풍부하고 인터랙티브한 Android 앱을 구축하는 방법과 관련된 핵심 개념에 대해 알아보세요.",
+    thumbnailURL: "https://img.youtube.com/vi/PMMY23F0CFg/0.jpg",
+    embedURL: "https://www.youtube.com/embed/PMMY23F0CFg",
+    publishedAt: "2022-05-11T20:42:16Z",
+    accessURL: "https://www.youtube.com/watch?v=PMMY23F0CFg",
     videoType: "uploaded",
   },
 };

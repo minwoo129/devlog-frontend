@@ -57,7 +57,7 @@ const ConfDetailPopupHeader = (args: ConfDetailPopupHeaderProps) => {
       </div>
       <div className=" flex flex-col w-full h-full  mobile:mt-10 tablet:mt-10 laptop:mt-10">
         <h1 className="text-4xl text-zinc-700 font-nanumneo-eb">{title}</h1>
-        <p className="text-xl text-zinc-500 font-nanumneo-b mt-1">
+        <p className="text-lg text-zinc-500 font-nanumneo-r mt-1">
           {description}
         </p>
         <p className="text-sm text-zinc-500 font-nanumneo-r mt-1">
