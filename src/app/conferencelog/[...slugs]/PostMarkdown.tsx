@@ -8,10 +8,6 @@ export default function PostMarkdown(args: PostMarkdownProps) {
   const { data } = args;
   const containerStyle = classMerge([
     "w-full",
-    "sm1:w-full",
-    "sm2:w-full",
-    "md1:w-full",
-    "md2:w-full",
     "lg1:w-full",
     "lg2:w-full",
     "xl1:w-[1000px]",

@@ -12,20 +12,10 @@ export default async function ContentBody(args: ContentBodyProps) {
     containerStyle,
     "flex flex-col-reverse justify-between items-start",
     "px-6",
-    //"xl1:flex-row",
     "xl2:flex-row xl2:px-12",
     "vxl:flex-row vxl:px-12",
     "relative",
   ]);
-  /* const postCustomContainerStyle = classMerge([
-    containerStyle,
-    "flex flex-col-reverse justify-between items-start",
-    "px-12",
-    "tablet:flex-col-reverse",
-    "laptop:flex-col-reverse",
-    "desktop:flex-row",
-    "relative",
-  ]); */
 
   if (!lecture) {
     return <EmptyBody containerStyle={containerStyle} />;
