@@ -12,13 +12,12 @@ export default function ThumbnailImg(args: ThumbnailImgProps) {
     );
   }
   return (
-    <div className="flex flex-row justify-center items-center mt-5">
+    <div className="w-full aspect-w-16 aspect-h-9 max-w-[900px]">
       <Image
         src={thumbnailURL}
         alt="thumbnail"
-        width={960}
-        height={540}
-        layout="relative"
+        fill
+        objectFit="contain"
         onError={() => setError(true)}
       />
     </div>

@@ -6,7 +6,7 @@ import { MDXRemoteUIComponent } from "@/components/page/blog/detail";
 export default function PostPage(args: PostPageProps) {
   const { data } = args;
   return (
-    <div className="mdxArea">
+    <div className="prose mt-10">
       <MDXRemote {...data} components={MDXRemoteUIComponent} />
     </div>
   );

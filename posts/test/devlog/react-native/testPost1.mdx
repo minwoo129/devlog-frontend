@@ -11,9 +11,6 @@ tags:
 draft: false
 date: 2024-10-11 21:56:40
 ---
-
-# 공통사용 기능 코드 작성 규칙 도입
-
 ## 1. 계기
 
 - 만세력 시작 전 구르미랑 프로젝트 개발 당시 개발환경으로 인한 여러 문제점들이 확인됨
@@ -29,6 +26,21 @@ date: 2024-10-11 21:56:40
 - 위 문제점들을 바탕으로 코드를 작성할 때 규칙을 도입하고 모든 개발자가 따름으로서 개발환경을 개선할 수 있다고 생각하였고 이 중 일부에 대해 만세력 프로젝트에 처음 적용하게 됨.
 
 ## 2. 규칙 도입을 위한 진행과정
+
+```sql
+type User @table {
+  first: String!
+  last: String!
+  email: String!
+  country: String!
+}
+ 
+type Order @table {
+	customer: User!
+	total: Float!
+	name: String!
+}
+```
 
 1. 구르미랑 프로젝트 2년간의 Git 커밋 기록 분석
 2. 문제점 분석

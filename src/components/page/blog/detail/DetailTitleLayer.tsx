@@ -11,7 +11,7 @@ import Tag from "@/components/common/Tag";
 export default function DetailTitleLayer(args: DetailTitleLayerProps) {
   const { title, description, date, tags } = args;
   return (
-    <div className="flex flex-col justify-center items-center mt-20 border-b-2 border-gray-300">
+    <div className="flex flex-col justify-center items-center mt-20 border-b-2 border-gray-300 w-full">
       <div className="flex flex-col w-full h-full justify-center items-center ">
         <h1 className="text-6xl font-extrabold text-zinc-700 font-nanumneo-eb">
           {title}

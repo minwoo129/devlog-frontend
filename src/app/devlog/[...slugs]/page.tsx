@@ -31,11 +31,10 @@ export default async function DevLogPostDetailPage(
     );
   }
   const data = await serializeMdx(detailPost.content);
+  console.log("data: ", data);
   return (
-    <PageLayer
-      className={`mobile:px-[40px] tablet:px-[40px] laptop:px-[120px] desktop:px-[200px]`}
-    >
-      <div className="w-full mb-[100px]">
+    <PageLayer className={`px-[30px] desktop:px-[200px]`}>
+      <div className="w-full mb-[100px] flex flex-col items-center ">
         <DetailTitleLayer
           title={detailPost.title}
           description={detailPost.description}
