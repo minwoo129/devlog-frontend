@@ -94,4 +94,13 @@
     margin-top: 60px;
     font-family: "NanumGothicNeo-ExtraBold";
   }
+  img {
+    max-width: 800px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  pre {
+    /* background-color: aqua; */
+  }
 }

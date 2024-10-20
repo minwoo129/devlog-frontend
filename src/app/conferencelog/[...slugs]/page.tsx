@@ -1,9 +1,29 @@
-import { ConferenceLectureDetailPageProps } from "./types";
+import {
+  ConferenceLectureDetailPageProps,
+  getBlogPostArgs,
+  MarkdownData,
+} from "./types";
 import PageLayer from "@/components/common/pageLayer";
 import ContentBody from "./ContentBody";
 import { TotalConferenceLectures } from "@/commonDatas/conferences";
+import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
+import { getFilteredPosts } from "@/lib/post";
+import { serializeMdx } from "@/lib/mdx";
 
-export default function ConferenceLectureDetailPage(
+const getBlogPost = (args: getBlogPostArgs) => {
+  const { postPath, conferenceId, lecture } = args;
+  if (!lecture) return undefined;
+  const categoryPosts = getFilteredPosts({
+    category: conferenceId,
+    section: "conferencelog",
+  });
+  if (!lecture) return undefined;
+  const key = `${lecture.postPath}`;
+  const detailPost = categoryPosts.find((post) => post.slug.includes(key));
+  return detailPost;
+};
+
+export default async function ConferenceLectureDetailPage(
   args: ConferenceLectureDetailPageProps
 ) {
   const {
@@ -13,9 +33,19 @@ export default function ConferenceLectureDetailPage(
   const lecture = TotalConferenceLectures.find(
     (lecture) => lecture.id === lectureId
   );
+  const detailPost = getBlogPost({
+    postPath: lectureId,
+    conferenceId,
+    lecture,
+  });
+  let data: MarkdownData | undefined = undefined;
+  if (detailPost) {
+    data = await serializeMdx(detailPost.content);
+  }
+
   return (
     <PageLayer>
-      <ContentBody lecture={lecture} />
+      <ContentBody lecture={lecture} data={data} />
     </PageLayer>
   );
 }

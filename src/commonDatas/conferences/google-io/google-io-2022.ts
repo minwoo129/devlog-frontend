@@ -20,6 +20,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["nP-nMZpLM1A"],
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google_2",
@@ -34,6 +35,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["i0VNBvCqpgI"],
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google_3",
@@ -48,6 +50,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["K4Benk0SPE8"],
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google_4",
@@ -61,6 +64,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["5b4YcLB4DVI"],
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google_5",
@@ -75,6 +79,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["khTTmnqqV8c"],
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google_6",
@@ -88,6 +93,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["cIFLFpKTy7c"],
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google_7",
@@ -102,5 +108,6 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["PMMY23F0CFg"],
+    conferenceType: "google-io",
   },
 ];

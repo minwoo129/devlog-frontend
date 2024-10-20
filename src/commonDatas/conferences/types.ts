@@ -132,6 +132,10 @@ export type ConfLectureType = {
   originalLectureURL?: string;
   /** Youtube 동영상 상세정보 */
   youtubeVideoInfo: YoutubeVideoInfoType;
+  /** 포스트 저장 경로 */
+  postPath?: string;
+  /** 컨퍼런스 종류(Google I/O 또는 토스 Slash) */
+  conferenceType: NavigationConferenceLogCategoryType;
 };
 
 export type YoutubeVideoDatasType = {

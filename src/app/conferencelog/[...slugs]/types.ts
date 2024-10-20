@@ -1,5 +1,6 @@
 import { ConfLectureType } from "@/commonDatas/conferences/types";
 import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface ConferenceLectureDetailPageProps {
   params: {
@@ -9,4 +10,22 @@ export interface ConferenceLectureDetailPageProps {
 
 export interface ContentBodyProps {
   lecture: ConfLectureType | undefined;
+  data: MarkdownData | undefined;
 }
+
+export interface PostMarkdownProps {
+  data: MarkdownData;
+}
+
+export type MarkdownData = MDXRemoteSerializeResult<
+  Record<string, unknown>,
+  Record<string, unknown>
+>;
+
+// ============================================================================
+
+export type getBlogPostArgs = {
+  lecture?: ConfLectureType;
+  postPath?: string;
+  conferenceId: NavigationConferenceLogCategoryType;
+};
