@@ -8,16 +8,13 @@ export interface IntroduceLayerThumbnailProps {
   thumbnailURL: string;
 }
 
-export interface IntroduceLayerLectureVideoProps {
-  youtubeLink: string;
-}
-
 export interface IntroduceLayerInfoProps {
   title: string;
   description: string;
   createdAt: string;
   conferenceId: string;
   keyTags?: string[];
+  thumbnailURL: string;
 }
 
 export interface IntroduceLayerAtPostProps {

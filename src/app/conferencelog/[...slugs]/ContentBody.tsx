@@ -8,33 +8,15 @@ export default async function ContentBody(args: ContentBodyProps) {
   const { lecture, data } = args;
 
   const containerStyle = classMerge(["size-full"]);
-  const postCustomContainerStyle = classMerge([
+  const postCustomContainerStyle1 = classMerge([
     containerStyle,
-    "flex flex-col-reverse justify-between items-start",
-    "px-6",
-    "xl2:flex-row xl2:px-12",
-    "vxl:flex-row vxl:px-12",
-    "relative",
+    "flex flex-col justify-between items-start",
   ]);
 
   if (!lecture) {
     return <EmptyBody containerStyle={containerStyle} />;
   }
-  if (!data) {
-    return <Content containerStyle={containerStyle} lecture={lecture} />;
-  }
-
-  console.log("data: ", data);
   return (
-    <ContentWithPost
-      containerStyle={postCustomContainerStyle}
-      data={data}
-      conferenceId={lecture.conferenceId}
-      createdAt={lecture.createdAt}
-      description={lecture.description}
-      title={lecture.title}
-      keyTags={lecture.keyTags}
-      youtubeEmbedLink={lecture.youtubeVideoInfo.embedURL}
-    />
+    <Content containerStyle={postCustomContainerStyle1} lecture={lecture} />
   );
 }
