@@ -7,6 +7,11 @@ export const MDXRemoteUIComponent: React.ComponentProps<
   h2: (props) => <h2 {...props}>{props.children}</h2>,
   h3: (props) => <h3 {...props}>{props.children}</h3>,
   h4: (props) => <h4 {...props}>{props.children}</h4>,
+  a: (props) => (
+    <a {...props} target="_blank">
+      {props.children}
+    </a>
+  ),
 
   /*   aside: (props) => (
     <aside {...props} className="w-full px-5 py-3 rounded-md bg-gray-400">

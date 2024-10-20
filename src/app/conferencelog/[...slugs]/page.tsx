@@ -44,7 +44,7 @@ export default async function ConferenceLectureDetailPage(
   }
 
   return (
-    <PageLayer>
+    <PageLayer className="px-0">
       <ContentBody lecture={lecture} data={data} />
     </PageLayer>
   );

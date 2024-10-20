@@ -29,3 +29,23 @@ export type getBlogPostArgs = {
   postPath?: string;
   conferenceId: NavigationConferenceLogCategoryType;
 };
+
+export interface EmptyBodyProps extends ContentCommonProps {}
+
+export interface ContentProps extends ContentCommonProps {
+  lecture: ConfLectureType;
+}
+
+export interface ContentWithPostProps extends ContentCommonProps {
+  data: MarkdownData;
+  title: string;
+  description: string;
+  createdAt: string;
+  conferenceId: string;
+  keyTags?: string[];
+  youtubeEmbedLink: string;
+}
+
+interface ContentCommonProps {
+  containerStyle: string;
+}
