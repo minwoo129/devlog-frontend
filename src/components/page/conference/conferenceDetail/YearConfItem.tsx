@@ -11,6 +11,7 @@ import Tag from "@/components/common/Tag";
 import dayjs from "dayjs";
 import StarsIcon from "@mui/icons-material/Stars";
 import { calculateDateDiff } from "@/commonFunctions/dates";
+import Link from "next/link";
 
 const item: Variants = {
   hidden: {
@@ -28,13 +29,15 @@ export default function YearConfItem(args: YearConfItemProps) {
   const { thumbnailURL, title, keyTags, openedAt, id } = conf;
 
   return (
-    <motion.div
-      variants={item}
-      className=" mt-10 mr-8 overflow-hidden shadow-xl rounded-2xl hover:border-2 hover:border-orange-500 "
-      onClick={() => onYearConfClick(id)}
-    >
-      <div className="w-[400px] rounded-2xl  ">
-        <div className="flex flex-col ">
+    <motion.div variants={item} onClick={() => onYearConfClick(id)}>
+      <Link
+        href={"/"}
+        onClick={(e) => {
+          e.preventDefault();
+          onYearConfClick(id);
+        }}
+      >
+        <div className=" flex flex-col w-[400px] rounded-2xl mt-10 mr-8 overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <YearConfItemThumbnail thumbnailURL={thumbnailURL} />
           <YearConfItemDetail
             title={title}
@@ -42,7 +45,7 @@ export default function YearConfItem(args: YearConfItemProps) {
             keyTags={keyTags}
           />
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 }
