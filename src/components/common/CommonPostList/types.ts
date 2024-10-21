@@ -11,6 +11,10 @@ export interface CommonPostListItemProps {
   isCategoryDetailPage: boolean;
 }
 
+export interface CommonPostItemThumbnailProps {
+  thumbnailURL: string;
+}
+
 export interface CommonPostListItemFooterProps {
   tags: string[];
   date: string;

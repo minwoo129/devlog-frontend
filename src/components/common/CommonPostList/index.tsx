@@ -1,4 +1,5 @@
 "use client";
+import { classMerge } from "@/commonFunctions/tailwinds";
 import CommonPostListItem from "./CommonPostListItem";
 import { CommonPostListProps } from "./types";
 import { motion, Variants } from "framer-motion";
@@ -16,9 +17,18 @@ const container: Variants = {
 };
 export default function CommonPostList(args: CommonPostListProps) {
   const { posts, className, isCategoryDetailPage = false } = args;
+  const containerStyle = classMerge([
+    "grid grid-cols-1 gap-8 justify-center py-12 overflow-y-scroll scrollbar-hide",
+    "md:grid-cols-2 md:gap-6",
+    "lg:grid-cols-3 lg:gap-7",
+    "xl1:grid-cols-4 xl1:gap-10",
+    "xl2:grid-cols-4 xl2:gap-10",
+    "vxl:grid-cols-4 vxl:gap-10",
+    className,
+  ]);
   return (
     <motion.div
-      className={`w-full min-h-20 mt-3 grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-x-8 ${className}`}
+      className={containerStyle}
       variants={container}
       initial="hidden"
       animate="show"
