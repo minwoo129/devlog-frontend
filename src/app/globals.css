@@ -1,6 +1,7 @@
 @import "./css/detail_page.css";
 @import "./css/mdx.css";
 @import "./css/intellij-prism.css";
+@import "./css/prose.css";
 /* @import "./css/prism-vsc-dark-plus.css"; */
 
 @tailwind base;

@@ -207,24 +207,3 @@ code.language-css .token.selector > .token.pseudo-element {
   color: var(--prism-comment);
   content: attr(line);
 }
-
-.prose {
-  min-width: 100%;
-  padding: 0px 10px;
-}
-
-.prose pre {
-  color: var(--prism-foreground);
-  background-color: var(--prism-background);
-}
-
-.prose aside {
-  background-color: #eeeeeb;
-  padding: 10px;
-}
-
-.prose a {
-  &:hover {
-    color: #10b981;
-  }
-}
