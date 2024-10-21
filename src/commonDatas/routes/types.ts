@@ -14,16 +14,24 @@ type PageNavLinkAllType = {
   href: string;
   mainCategory: false;
   testID: string;
+  linkKey: PageLinkKey;
 };
 export type PageNavLinkEashType = {
   type: "link";
   linkType: "each";
   title: string;
   href: string;
-  linkKey: string;
+  linkKey: PageLinkKey;
   mainCategory: boolean;
   testID: string;
 };
+
+export type PageLinkKey =
+  | NavigationDevLogCategoryType
+  | NavigationConferenceLogCategoryType
+  | "devlog-all"
+  | "conference-all"
+  | "test";
 
 /**
  * 네비게이션 메뉴 섹션 타입
