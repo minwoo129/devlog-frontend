@@ -2,6 +2,7 @@ import {
   ConfHistoryType,
   ConfLectureType,
   IntroduceIconType,
+  YoutubeLiveScheduleType,
 } from "@/commonDatas/conferences/types";
 import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 import { SVGImageName } from "@/components/common/SVGImage/types";
@@ -32,6 +33,14 @@ export interface HeldImminentProps {
 export interface HeldProps {
   badgeTitle: string;
   visible: boolean;
+}
+
+export interface IntroduceDetailMoreInfoLayerProps {
+  type: NavigationConferenceLogCategoryType;
+}
+
+export interface YoutubeLiveButtonProps {
+  liveData?: YoutubeLiveScheduleType;
 }
 
 export interface YearConfListProps extends YearConfItemExtendProps {

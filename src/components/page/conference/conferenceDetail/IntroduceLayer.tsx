@@ -4,8 +4,10 @@ import {
   HeldImminentProps,
   HeldProps,
   IntroduceDetailLayerProps,
+  IntroduceDetailMoreInfoLayerProps,
   IntroduceLayerLogoProps,
   IntroduceLayerProps,
+  YoutubeLiveButtonProps,
 } from "./types";
 import { motion, Variants } from "framer-motion";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
@@ -14,6 +16,10 @@ import CelebrationIcon from "@mui/icons-material/Celebration";
 import dayjs from "dayjs";
 import { IntroduceIconType } from "@/commonDatas/conferences/types";
 import { checkIntroBadgeVisible } from "@/commonFunctions/conference";
+import { checkYoutubeLiveStatus } from "./convertDataFunctions";
+import Link from "next/link";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { red, common } from "@mui/material/colors";
 
 const container: Variants = {
   hidden: {
@@ -56,6 +62,27 @@ const icon: Variants = {
     y: 0,
   },
 };
+const moreInfo: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+const youtubelive: Variants = {
+  hidden: {
+    opacity: 0,
+    x: 50,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+  },
+};
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { conference } = args;
@@ -72,7 +99,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row sm:flex-col md:flex-col w-full h-fit mt-10"
+      className="flex flex-row sm:flex-col md:flex-col lg:flex-col w-full h-fit mt-10"
     >
       <IntroduceLayerLogo thumbnailURL={thumbnailURL} />
       <IntroduceDetailLayer
@@ -83,6 +110,8 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
         visibleIcon={visibleIcon}
         badgeTitle={badgeTitle}
       />
+
+      <IntroduceDetailMoreInfoLayer type={conference} />
     </motion.div>
   );
 }
@@ -92,7 +121,7 @@ const IntroduceLayerLogo = (args: IntroduceLayerLogoProps) => {
   return (
     <motion.div
       variants={logo}
-      className="flex justify-center items-center w-[260px] h-[260px] min-w-[400px] rounded-2xl shadow-xl bg-slate-200 mr-4 sm:w-full md:w-full"
+      className="flex justify-center items-center w-[260px] h-[260px] min-w-[400px] rounded-2xl shadow-xl bg-slate-200 mr-4 "
     >
       <SVGImage name={thumbnailURL} width={200} height={200} />
     </motion.div>
@@ -111,7 +140,7 @@ const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
   return (
     <motion.div
       variants={detail}
-      className=" flex flex-col justify-between items-start p-6 min-w-[400px] h-[260px] rounded-2xl shadow-xl bg-slate-200 sm:mt-4 md:mt-4"
+      className=" flex flex-col justify-between items-start w-[260px] h-[260px] min-w-[400px] p-6 rounded-2xl shadow-xl bg-slate-200 mr-4 sm:mt-4 md:mt-4 lg:mt-4 sm:mr-0 md:mr-0 lg:mr-0"
     >
       <div className="flex flex-col justify-center items-start">
         <h1 className="text-2xl text-slate-700 font-nanumneo-eb">{title}</h1>
@@ -154,6 +183,46 @@ const HeldBadge = (args: HeldProps) => {
     >
       <CelebrationIcon color="warning" className=" w-10 h-10 mr-2" />
       <p className=" text-xl font-nanumneo-eb text-yellow-500">{`${badgeTitle}`}</p>
+    </motion.div>
+  );
+};
+
+const IntroduceDetailMoreInfoLayer = (
+  args: IntroduceDetailMoreInfoLayerProps
+) => {
+  const { type } = args;
+  const liveData = checkYoutubeLiveStatus(type);
+
+  return (
+    <motion.div
+      variants={moreInfo}
+      className="flex flex-col justify-between items-start p-6 w-fit h-fit sm:mt-4 md:mt-4 lg:mt-4 "
+    >
+      <YoutubeLiveButton liveData={liveData} />
+    </motion.div>
+  );
+};
+
+const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
+  const { liveData } = args;
+
+  if (!liveData) return null;
+
+  return (
+    <motion.div variants={youtubelive}>
+      <Link
+        href={"/"}
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <div className="px-3 py-2 border-2 border-[#ff0000] rounded-full flex flex-row justify-center items-center transition ease-in-out duration-300 hover:-translate-y-2">
+          <YouTubeIcon sx={{ color: "#ff0000", width: 30, height: 30 }} />
+          <p className="text-lg font-nanumneo-b ml-1 text-[#ff0000]">
+            라이브 방송 중
+          </p>
+        </div>
+      </Link>
     </motion.div>
   );
 };

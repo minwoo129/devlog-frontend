@@ -1,5 +1,9 @@
-import { YoutubeVideoDatasType } from "./types";
+import { YoutubeLiveScheduleType, YoutubeVideoDatasType } from "./types";
 
+/**
+ * 각 영상 ID별 Youtube 영상 데이터
+ * - Youtube API를 통해 수집된 데이터
+ */
 export const YoutubeVideoDatas: YoutubeVideoDatasType = {
   XEzRZ35urlk: {
     videoId: "XEzRZ35urlk",
@@ -474,3 +478,17 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
     videoType: "uploaded",
   },
 };
+
+export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
+  {
+    videoId: "bgqblTVFpWo",
+    title: "라면 먹방과 빵 먹방  241021/Mukbang, eating show",
+    channelTitle: "입짧은햇님",
+    thumbnailURL: "https://img.youtube.com/vi/bgqblTVFpWo/0.jpg",
+    embedURL: "https://www.youtube.com/embed/bgqblTVFpWo",
+    accessURL: "https://www.youtube.com/watch?v=bgqblTVFpWo",
+    scheduledLiveStartDate: "2024-10-21T12:51:53Z",
+    isLiveStart: true,
+    visibleArea: ["google-io"],
+  },
+];
