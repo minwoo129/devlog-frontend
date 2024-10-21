@@ -22,7 +22,7 @@ export default function CategoryList(args: CategoryListProps) {
     categoryType === "devlog" ? DevLogNavDatas : ConferenceLogNavDatas;
   return (
     <motion.div
-      className="flex flex-row h-fit justify-start items-center mt-10 py-4 overflow-x-scroll scrollbar-hide last:mr-0"
+      className="flex flex-row h-fit justify-start items-center mt-10 py-4 flex-wrap scrollbar-hide last:mr-0"
       variants={container}
       initial="hidden"
       animate="show"

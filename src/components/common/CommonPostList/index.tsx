@@ -18,7 +18,7 @@ const container: Variants = {
 export default function CommonPostList(args: CommonPostListProps) {
   const { posts, className, isCategoryDetailPage = false } = args;
   const containerStyle = classMerge([
-    "grid grid-cols-1 gap-8 justify-center py-12 overflow-y-scroll scrollbar-hide",
+    "grid grid-cols-1 gap-8 justify-center py-12 overflow-y-scroll scrollbar-hide ",
     "md:grid-cols-2 md:gap-6",
     "lg:grid-cols-3 lg:gap-7",
     "xl1:grid-cols-4 xl1:gap-10",

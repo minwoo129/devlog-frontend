@@ -28,7 +28,7 @@ export default function CategoryListItem(args: CategoryListItemProps) {
       <Link href={href}>
         <div
           data-testid={testID}
-          className=" flex flex-col w-[400px] max-h-[300px] rounded-lg sm:mt-3 md:mt-3 lg:mr-3 xl:mr-3 border-2 border-zinc-300 transition ease-in-out duration-300 hover:-translate-y-2"
+          className=" flex flex-col w-[400px] max-h-[300px] rounded-lg mr-4 mt-4 border-2 border-zinc-300 transition ease-in-out duration-300 hover:-translate-y-2"
         >
           <CategoryListItemThumbnail linkKey={linkKey} />
           <CategoryListItemDetail title={title} />

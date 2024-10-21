@@ -66,7 +66,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row sm:flex-col md:flex-col justify-start items-start w-full h-fit mt-10 rounded-xl px-4 py-7 shadow-xl bg-slate-100"
+      className="flex flex-row justify-start items-center w-full h-fit mt-10 sm:flex-col md:flex-col sm:items-start md:items-start"
     >
       <IntroduceLayerLogoLayout image={image} />
       <IntroduceLayerContentLayout
@@ -85,7 +85,7 @@ const IntroduceLayerLogoLayout = (args: IntroduceLayerLogoLayoutProps) => {
       variants={logo}
       initial="hidden"
       animate="show"
-      className="flex justify-center items-center w-[200px] h-[200px] sm:w-full md:w-full"
+      className="flex justify-center items-center w-[250px] h-[250px] p-10 shadow-xl rounded-3xl bg-white mr-3"
     >
       <SVGImage name={image} width={200} height={200} />
     </motion.div>
@@ -101,7 +101,7 @@ const IntroduceLayerContentLayout = (
       variants={contentLayout}
       initial="hidden"
       animate="show"
-      className="flex flex-col w-[600px] sm:w-full md:w-full sm:mt-4 md:mt-4 lg:ml-1 xl:ml-1"
+      className="flex flex-col w-fill min-h-[250px] max-w-[700px] rounded-3xl p-10 shadow-xl bg-green-100 sm:mt-5 md:mt-5"
     >
       <motion.h1
         variants={contentItem}

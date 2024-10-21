@@ -37,7 +37,7 @@ export default function CommonPostListItem(args: CommonPostListItemProps) {
   return (
     <motion.div variants={item}>
       <Link as={as} href={href}>
-        <div className=" flex flex-col justify-between items-start w-full rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2 ">
+        <div className=" flex flex-col justify-between items-start w-full rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2 min-w-[340px]">
           <CommonPostItemThumbnail thumbnailURL={post.thumbnailURL} />
           <div className="flex flex-col px-4 py-4 justify-between items-start w-full">
             <h1 className="text-gray-600 text-2xl truncate font-nanumneo-b">

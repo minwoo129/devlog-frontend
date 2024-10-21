@@ -28,11 +28,23 @@ export const introduceDatas: IntroduceDatas = {
         React Native로 개발한 앱은 Android와 iOS 운영체제에서 동작이 가능하며 Electron과 같은 기술을 사용하여 Window 또는 Mac OS용 앱으로도 개발할 수 있습니다.`,
     image: "ReactNativeLogo",
   },
+  react: {
+    title: "React",
+    description: `React는 페이스북에서 개발한 오픈 소스 자바스크립트 라이브러리입니다.
+        React는 사용자 인터페이스를 만들기 위한 라이브러리로, 컴포넌트 기반으로 동작하며, 데이터가 변경되면 자동으로 화면을 갱신해줍니다.
+        React는 React Native, Next.js 등 여러 기술들과 함께 사용되며, React를 기반으로 한 기술들은 React 생태계라고 불립니다.`,
+    image: "ReactLogo",
+  },
   "google-io": {
     title: "Google I/O",
     description: `Google I/O는 구글에서 매년 5월 개최하는 개발자 컨퍼런스입니다. 
     Google I/O에서는 주로 Firebase, ChromeOS, Flutter, Android 등 구글에서 개발한 개발기술과 일부 HTML, CSS, JavaScript 프레임워크 등 다양한 주제를 가지고 행사를 진행하고 있으며, 2023년 부터는 주로 Gemini, PaLM(구글의 LLM 모델 중 하나) 등 주로 AI와 관련한 발표가 주를 이루고 있습니다.`,
     image: "GoogleIOLogo",
+  },
+  firebase: {
+    title: "Firebase",
+    description: `Firebase는 구글에서 제공하는 모바일 및 웹 애플리케이션 개발 플랫폼입니다.`,
+    image: "FirebaseLogo",
   },
   "toss-slash": {
     title: "토스 SLASH",
