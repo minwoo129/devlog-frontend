@@ -19,6 +19,21 @@ const container: Variants = {
 export default function YearConfList(args: YearConfListProps) {
   const { conference, onYearConfClick } = args;
   const historys = ConferenceObjDatas[conference].confHistory;
+
+  if (historys.length === 0) {
+    return (
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="flex flex-row justify-center items-center mt-20 py-[80px] sm:mt-10 md:mt-10 "
+      >
+        <h1 className="text-5xl font-nanumneo-eb text-slate-700 sm:text-2xl md:text-3xl">
+          등록된 데이터가 없습니다.
+        </h1>
+      </motion.div>
+    );
+  }
   return (
     <motion.div
       variants={container}

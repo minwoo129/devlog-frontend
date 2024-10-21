@@ -26,6 +26,19 @@ export default function CommonPostList(args: CommonPostListProps) {
     "vxl:grid-cols-4 vxl:gap-10",
     className,
   ]);
+
+  if (posts.length === 0) {
+    return (
+      <motion.div
+        variants={container}
+        className="w-full flex flex-row justify-center items-center py-[80px] mt-20 sm:mt-0 md:mt-10"
+      >
+        <h1 className="text-5xl font-nanumneo-eb text-slate-700 sm:text-2xl md:text-3xl">
+          등록된 포스트가 없습니다.
+        </h1>
+      </motion.div>
+    );
+  }
   return (
     <motion.div
       className={containerStyle}
