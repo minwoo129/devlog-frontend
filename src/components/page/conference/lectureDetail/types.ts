@@ -1,4 +1,9 @@
-import { ConfLectureType } from "@/commonDatas/conferences/types";
+import {
+  ConfHistoryType,
+  ConfLectureType,
+  YoutubeVideoInfoType,
+} from "@/commonDatas/conferences/types";
+import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 
 export interface IntroduceLayerProps {
   lecture: ConfLectureType;
@@ -9,14 +14,45 @@ export interface IntroduceLayerThumbnailProps {
 }
 
 export interface IntroduceLayerInfoProps {
-  title: string;
-  description: string;
-  createdAt: string;
-  conferenceId: string;
-  keyTags?: string[];
-  thumbnailURL: string;
+  lecture: ConfLectureType;
 }
 
+export interface IntroduceLayerSecondInfoGridProps {
+  lecture: ConfLectureType;
+  conferenceName: string;
+  conferenceData?: ConfHistoryType;
+}
+
+export interface IntroduceLayerSecondInfoProps {
+  lecture: ConfLectureType;
+  conferenceName: string;
+}
+
+export interface IntroduceLayerButtonsGroupProps {
+  lecture: ConfLectureType;
+  conferenceData?: ConfHistoryType;
+}
+
+export type LayerButtonGroupBtnProps =
+  | YoutubeLinkBtnType
+  | ConferenceLinkBtnType
+  | OriginalLectureBtnType;
+type YoutubeLinkBtnType = {
+  type: "youtube";
+  youtubeVideoInfo: YoutubeVideoInfoType;
+  className?: string;
+};
+type ConferenceLinkBtnType = {
+  type: "conference";
+  conferenceData?: ConfHistoryType;
+  conferenceType: NavigationConferenceLogCategoryType;
+  className?: string;
+};
+type OriginalLectureBtnType = {
+  type: "lecture";
+  originalLectureURL?: string;
+  className?: string;
+};
 export interface IntroduceLayerAtPostProps {
   title: string;
   description: string;
