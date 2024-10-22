@@ -8,6 +8,7 @@ import Image from "next/image";
 import ThumbnailImg from "@/components/page/blog/detail/ThumbnailImg";
 import { NavigationDevLogCategoryType } from "@/commonDatas/routes/types";
 import { Metadata } from "next";
+import { introduceDatas } from "@/lib/introduceData";
 
 const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   const categoryPosts = getFilteredPosts({ category, section: "devlog" });
@@ -27,9 +28,10 @@ export function generateMetadata(args: DevLogPostDetailPageProps): Metadata {
       title: "존재하지 않는 게시글",
     };
   }
+  const categoryData = introduceDatas[category];
   return {
     title: {
-      absolute: `${detailPost.title} | DevLog`,
+      absolute: `${detailPost.title} | ${categoryData?.title ?? "DevLog"}`,
     },
   };
 }
@@ -40,7 +42,6 @@ export default async function DevLogPostDetailPage(
   const {
     params: { slugs },
   } = args;
-  console.log("args: ", args);
   const [category, post] = slugs;
   const detailPost = getPost(category, post);
   if (!detailPost) {
