@@ -1,6 +1,7 @@
 import { GoogleIOHistorys, GoogleIOTotalLectures } from "./google-io";
 import {
   ConferenceDataType,
+  ConferenceHistoryObjDatasType,
   ConferenceObjDatasType,
   ConfHistoryType,
   ConfLectureType,
@@ -63,3 +64,9 @@ export const TotalConferences: ConfHistoryType[] = ConferenceDatas.reduce<
 >((acc, cur) => {
   return [...acc, ...cur.confHistory];
 }, []);
+
+/** 현재까지 등록된 모든 컨퍼런스의 연도별 데이터(obj) */
+export const TotalConferencesObj =
+  TotalConferences.reduce<ConferenceHistoryObjDatasType>((acc, cur) => {
+    return { ...acc, [cur.id]: cur };
+  }, {});

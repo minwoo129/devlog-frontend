@@ -7,6 +7,7 @@ import { DetailTitleLayer } from "@/components/page/blog/detail";
 import Image from "next/image";
 import ThumbnailImg from "@/components/page/blog/detail/ThumbnailImg";
 import { NavigationDevLogCategoryType } from "@/commonDatas/routes/types";
+import { Metadata } from "next";
 
 const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   const categoryPosts = getFilteredPosts({ category, section: "devlog" });
@@ -15,12 +16,31 @@ const getPost = (category: NavigationDevLogCategoryType, post: string) => {
   return detailPost;
 };
 
+export function generateMetadata(args: DevLogPostDetailPageProps): Metadata {
+  const {
+    params: { slugs },
+  } = args;
+  const [category, post] = slugs;
+  const detailPost = getPost(category, post);
+  if (!detailPost) {
+    return {
+      title: "존재하지 않는 게시글",
+    };
+  }
+  return {
+    title: {
+      absolute: `${detailPost.title} | DevLog`,
+    },
+  };
+}
+
 export default async function DevLogPostDetailPage(
   args: DevLogPostDetailPageProps
 ) {
   const {
     params: { slugs },
   } = args;
+  console.log("args: ", args);
   const [category, post] = slugs;
   const detailPost = getPost(category, post);
   if (!detailPost) {
@@ -31,7 +51,6 @@ export default async function DevLogPostDetailPage(
     );
   }
   const data = await serializeMdx(detailPost.content);
-  console.log("data: ", data);
   return (
     <PageLayer className={`px-[30px] desktop:px-[200px]`}>
       <div className="w-full mb-[100px] flex flex-col items-center ">

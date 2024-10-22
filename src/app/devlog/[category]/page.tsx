@@ -4,6 +4,26 @@ import { getFilteredPosts } from "@/lib/post";
 import { IntroduceLayer } from "@/components/page/blog/categoryList";
 import Title from "@/components/common/title";
 import CommonPostList from "@/components/common/CommonPostList";
+import { introduceDatas } from "@/lib/introduceData";
+
+export function generateMetadata(args: DevLogPostsPageParams) {
+  const {
+    params: { category },
+  } = args;
+
+  const devCatData = introduceDatas[category];
+  if (!devCatData) {
+    return {
+      title: "존재하지 않는 게시글",
+    };
+  }
+  const { title } = devCatData;
+  return {
+    title: {
+      absolute: `${title} | DevLog`,
+    },
+  };
+}
 
 export default function DevLogPostsPage(params: DevLogPostsPageParams) {
   const {

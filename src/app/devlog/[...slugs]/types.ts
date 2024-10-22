@@ -5,6 +5,9 @@ export interface DevLogPostDetailPageProps {
   params: {
     slugs: [NavigationDevLogCategoryType, string];
   };
+  searchParams: {
+    title?: string;
+  };
 }
 
 export interface PostPageProps {

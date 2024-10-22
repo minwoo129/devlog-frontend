@@ -212,3 +212,10 @@ export type YoutubeLiveVisibleAreaType =
 export type ConferenceObjDatasType = {
   [key in NavigationConferenceLogCategoryType]: ConferenceDataType;
 };
+
+/**
+ * 컨퍼런스 데이터(Object형)
+ */
+export type ConferenceHistoryObjDatasType = {
+  [key in string]: ConfHistoryType;
+};

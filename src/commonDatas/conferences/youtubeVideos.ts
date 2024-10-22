@@ -480,7 +480,7 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
 };
 
 export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
-  {
+  /* {
     videoId: "vbgXqpVBn-E",
     title: "[LIVE] CEO • 카나나엑스 리더 키노트 | if(kakaoAI)2024 Day1",
     description: "라이브 테스트",
@@ -491,5 +491,5 @@ export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
     scheduledLiveStartDate: "2024-10-21T03:33:15Z",
     isLiveStart: true,
     visibleArea: ["google-io"],
-  },
+  }, */
 ];

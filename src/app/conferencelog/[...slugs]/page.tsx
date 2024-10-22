@@ -5,10 +5,15 @@ import {
 } from "./types";
 import PageLayer from "@/components/common/pageLayer";
 import ContentBody from "./ContentBody";
-import { TotalConferenceLectures } from "@/commonDatas/conferences";
+import {
+  TotalConferenceLectures,
+  TotalConferencesObj,
+} from "@/commonDatas/conferences";
 import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 import { getFilteredPosts } from "@/lib/post";
 import { serializeMdx } from "@/lib/mdx";
+import { title } from "process";
+import { Metadata } from "next";
 
 const getBlogPost = (args: getBlogPostArgs) => {
   const { postPath, conferenceId, lecture } = args;
@@ -22,6 +27,37 @@ const getBlogPost = (args: getBlogPostArgs) => {
   const detailPost = categoryPosts.find((post) => post.slug.includes(key));
   return detailPost;
 };
+const getConferenceData = (lectureId: string) => {
+  const lecture = TotalConferenceLectures.find(
+    (lecture) => lecture.id === lectureId
+  );
+  if (!lecture) return { lecture: undefined, conference: undefined };
+  const { conferenceId } = lecture;
+  const conference = TotalConferencesObj[conferenceId];
+
+  return { lecture, conference };
+};
+
+export function generateMetadata(
+  args: ConferenceLectureDetailPageProps
+): Metadata {
+  const {
+    params: { slugs },
+  } = args;
+  const [_, lectureId] = slugs;
+  const { lecture, conference } = getConferenceData(lectureId);
+
+  if (!lecture || !conference) {
+    return {
+      title: "존재하지 않는 게시글",
+    };
+  }
+  return {
+    title: {
+      absolute: `${lecture.title} - ${conference.title}`,
+    },
+  };
+}
 
 export default async function ConferenceLectureDetailPage(
   args: ConferenceLectureDetailPageProps

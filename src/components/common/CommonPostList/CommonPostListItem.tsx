@@ -11,6 +11,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import Image from "next/image";
 import { DevLogNavDatas } from "@/commonDatas/routes";
+import { useRouter } from "next/navigation";
 
 const item: Variants = {
   hidden: {
@@ -25,6 +26,7 @@ const item: Variants = {
 
 export default function CommonPostListItem(args: CommonPostListItemProps) {
   const { post, isCategoryDetailPage } = args;
+  const router = useRouter();
   const href = isCategoryDetailPage ? "/[...slugs]" : "/devlog/[...slugs]";
   const { category2 } = post;
   const [_, slugn1, slugn2] = post.slug1.split("/");
