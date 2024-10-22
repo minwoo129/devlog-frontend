@@ -85,7 +85,7 @@ const youtubelive: Variants = {
 };
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
-  const { conference } = args;
+  const { conference, onPressYoutubeLiveBtn } = args;
   const confData = ConferenceObjDatas[conference];
   const { title, description, date_개막시기, publisher, thumbnailURL } =
     confData;
@@ -111,7 +111,10 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
         badgeTitle={badgeTitle}
       />
 
-      <IntroduceDetailMoreInfoLayer type={conference} />
+      <IntroduceDetailMoreInfoLayer
+        type={conference}
+        onPressYoutubeLiveBtn={onPressYoutubeLiveBtn}
+      />
     </motion.div>
   );
 }
@@ -190,7 +193,7 @@ const HeldBadge = (args: HeldProps) => {
 const IntroduceDetailMoreInfoLayer = (
   args: IntroduceDetailMoreInfoLayerProps
 ) => {
-  const { type } = args;
+  const { type, onPressYoutubeLiveBtn } = args;
   const liveData = checkYoutubeLiveStatus(type);
 
   return (
@@ -198,13 +201,16 @@ const IntroduceDetailMoreInfoLayer = (
       variants={moreInfo}
       className="flex flex-col justify-between items-start p-6 w-fit h-fit sm:mt-4 md:mt-4 lg:mt-4 "
     >
-      <YoutubeLiveButton liveData={liveData} />
+      <YoutubeLiveButton
+        liveData={liveData}
+        onPressYoutubeLiveBtn={onPressYoutubeLiveBtn}
+      />
     </motion.div>
   );
 };
 
 const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
-  const { liveData } = args;
+  const { liveData, onPressYoutubeLiveBtn } = args;
 
   if (!liveData) return null;
 
@@ -214,9 +220,10 @@ const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
         href={"/"}
         onClick={(e) => {
           e.preventDefault();
+          onPressYoutubeLiveBtn(liveData);
         }}
       >
-        <div className="px-3 py-2 border-2 border-[#ff0000] rounded-full flex flex-row justify-center items-center transition ease-in-out duration-300 hover:-translate-y-2">
+        <div className="px-3 py-1 border-2 border-[#ff0000] rounded-full flex flex-row justify-center items-center transition ease-in-out duration-300 hover:-translate-y-2">
           <YouTubeIcon sx={{ color: "#ff0000", width: 30, height: 30 }} />
           <p className="text-lg font-nanumneo-b ml-1 text-[#ff0000]">
             라이브 방송 중

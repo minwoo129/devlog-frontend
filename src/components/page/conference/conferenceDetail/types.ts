@@ -10,6 +10,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface IntroduceLayerProps {
   conference: NavigationConferenceLogCategoryType;
+  onPressYoutubeLiveBtn: (data: YoutubeLiveScheduleType) => void;
 }
 
 export interface IntroduceLayerLogoProps {
@@ -37,10 +38,12 @@ export interface HeldProps {
 
 export interface IntroduceDetailMoreInfoLayerProps {
   type: NavigationConferenceLogCategoryType;
+  onPressYoutubeLiveBtn: (data: YoutubeLiveScheduleType) => void;
 }
 
 export interface YoutubeLiveButtonProps {
   liveData?: YoutubeLiveScheduleType;
+  onPressYoutubeLiveBtn: (data: YoutubeLiveScheduleType) => void;
 }
 
 export interface YearConfListProps extends YearConfItemExtendProps {

@@ -6,15 +6,21 @@ import {
   YearConfList,
 } from "@/components/page/conference/conferenceDetail";
 import { ContentBodyProps } from "./types";
-import { ConfHistoryType } from "@/commonDatas/conferences/types";
+import {
+  ConfHistoryType,
+  YoutubeLiveScheduleType,
+} from "@/commonDatas/conferences/types";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
+import YoutubeLivePopup from "@/components/common/YoutubeLivePopup";
 
 export default function ContentBody(args: ContentBodyProps) {
   const { category } = args;
   const [open, setOpen] = useState(false);
+  const [liveOpen, setLiveOpen] = useState(false);
   const [selectedConf, setSelectedConf] = useState<ConfHistoryType | null>(
     null
   );
+  const [liveData, setLiveData] = useState<YoutubeLiveScheduleType>();
 
   const onYearConfClick = (id: string) => {
     const historys = ConferenceObjDatas[category].confHistory;
@@ -25,7 +31,13 @@ export default function ContentBody(args: ContentBodyProps) {
   };
   return (
     <div className=" size-full ">
-      <IntroduceLayer conference={category} />
+      <IntroduceLayer
+        conference={category}
+        onPressYoutubeLiveBtn={(data) => {
+          setLiveData(data);
+          setLiveOpen(true);
+        }}
+      />
       <YearConfList conference={category} onYearConfClick={onYearConfClick} />
       <div className="h-10" />
 
@@ -36,6 +48,14 @@ export default function ContentBody(args: ContentBodyProps) {
           setSelectedConf(null);
         }}
         selectedConf={selectedConf}
+      />
+      <YoutubeLivePopup
+        open={liveOpen}
+        onClose={() => {
+          setLiveData(undefined);
+          setLiveOpen(false);
+        }}
+        liveData={liveData}
       />
     </div>
   );

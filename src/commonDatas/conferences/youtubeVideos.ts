@@ -481,13 +481,14 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
 
 export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
   {
-    videoId: "bgqblTVFpWo",
-    title: "라면 먹방과 빵 먹방  241021/Mukbang, eating show",
-    channelTitle: "입짧은햇님",
-    thumbnailURL: "https://img.youtube.com/vi/bgqblTVFpWo/0.jpg",
-    embedURL: "https://www.youtube.com/embed/bgqblTVFpWo",
-    accessURL: "https://www.youtube.com/watch?v=bgqblTVFpWo",
-    scheduledLiveStartDate: "2024-10-21T12:51:53Z",
+    videoId: "vbgXqpVBn-E",
+    title: "[LIVE] CEO • 카나나엑스 리더 키노트 | if(kakaoAI)2024 Day1",
+    description: "라이브 테스트",
+    channelTitle: "카카오",
+    thumbnailURL: "https://img.youtube.com/vi/vbgXqpVBn-E/0.jpg",
+    embedURL: "https://www.youtube.com/embed/vbgXqpVBn-E",
+    accessURL: "https://www.youtube.com/watch?v=vbgXqpVBn-E",
+    scheduledLiveStartDate: "2024-10-21T03:33:15Z",
     isLiveStart: true,
     visibleArea: ["google-io"],
   },

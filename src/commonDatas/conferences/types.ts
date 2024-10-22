@@ -180,6 +180,8 @@ export type YoutubeLiveScheduleType = {
   videoId: string;
   /** Youtube 동영상 타이틀 */
   title: string;
+  /** 영상 설명 */
+  description: string;
   /** 채널명 */
   channelTitle: string;
   /** 동영상 썸네일 */
