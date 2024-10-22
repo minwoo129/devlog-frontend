@@ -77,6 +77,8 @@ export type ConfHistoryType = {
   lectures: ConfLectureType[];
   /** 컨퍼런스 웹사이트 */
   conferenceURL?: string;
+  /** 컨퍼런스 종류(Google I/O 또는 토스 Slash) */
+  conferenceType: NavigationConferenceLogCategoryType;
 };
 
 /**

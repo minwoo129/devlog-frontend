@@ -15,6 +15,7 @@ export const GoogleIOHistorys: ConfHistoryType[] = [
     thumbnailURL: GOOGLEIO_2024,
     lectures: [...GoogleIO2024_Lectures],
     conferenceURL: "https://io.google/2024/intl/ko/",
+    conferenceType: "google-io",
   },
   {
     id: "ch_2023_google",
@@ -26,6 +27,7 @@ export const GoogleIOHistorys: ConfHistoryType[] = [
     thumbnailURL: GOOGLEIO_2023,
     lectures: [...GoogleIO2023_Lectures],
     conferenceURL: "https://io.google/2023/intl/ko/",
+    conferenceType: "google-io",
   },
   {
     id: "ch_2022_google",
@@ -36,6 +38,7 @@ export const GoogleIOHistorys: ConfHistoryType[] = [
     thumbnailURL: GOOGLEIO_2022,
     lectures: [...GoogleIO2022_Lectures],
     conferenceURL: "https://io.google/2022/intl/ko/",
+    conferenceType: "google-io",
   },
 ];
 
