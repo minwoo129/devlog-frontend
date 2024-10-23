@@ -26,6 +26,9 @@ const nextConfig = {
     });
     return config;
   },
+  env: {
+    TEST: process.env.NEXT_PUBLIC_TEST,
+  },
 };
 
 export default nextConfig;
