@@ -4,7 +4,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export interface ConferenceLectureDetailPageProps {
   params: {
-    slugs: [NavigationConferenceLogCategoryType, string];
+    slugs: [string, NavigationConferenceLogCategoryType, string];
   };
 }
 

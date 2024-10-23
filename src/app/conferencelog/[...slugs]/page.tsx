@@ -44,7 +44,7 @@ export function generateMetadata(
   const {
     params: { slugs },
   } = args;
-  const [_, lectureId] = slugs;
+  const [__, _, lectureId] = slugs;
   const { lecture, conference } = getConferenceData(lectureId);
 
   if (!lecture || !conference) {
@@ -65,7 +65,7 @@ export default async function ConferenceLectureDetailPage(
   const {
     params: { slugs },
   } = args;
-  const [conferenceId, lectureId] = slugs;
+  const [_, conferenceId, lectureId] = slugs;
   const lecture = TotalConferenceLectures.find(
     (lecture) => lecture.id === lectureId
   );

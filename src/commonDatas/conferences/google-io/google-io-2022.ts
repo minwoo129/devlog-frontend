@@ -16,7 +16,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/8e80903f-955f-4a5b-9118-b0ce4acdb0e6/intl/ko/",
     createdAt: "2022-05-11T19:20:31Z",
-    href: "/conferencelog/google-io/ch_2022_google_1",
+    href: "/conferencelog/detail/google-io/ch_2022_google_1",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["nP-nMZpLM1A"],
@@ -31,7 +31,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/4b4d658d-9682-4573-9ebe-0a48e7ff75df/intl/ko/",
     createdAt: "2022-05-11T20:59:17Z",
-    href: "/conferencelog/google-io/ch_2022_google_2",
+    href: "/conferencelog/detail/google-io/ch_2022_google_2",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["i0VNBvCqpgI"],
@@ -46,7 +46,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/3af70a34-1be2-4040-b873-7549ba4e7b48/intl/ko/",
     createdAt: "2022-05-11T20:57:26Z",
-    href: "/conferencelog/google-io/ch_2022_google_3",
+    href: "/conferencelog/detail/google-io/ch_2022_google_3",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["K4Benk0SPE8"],
@@ -60,7 +60,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/3c60e411-5340-4c54-a037-3aceb2825b16/intl/ko/",
     createdAt: "2022-05-11T20:36:36Z",
-    href: "/conferencelog/google-io/ch_2022_google_4",
+    href: "/conferencelog/detail/google-io/ch_2022_google_4",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["5b4YcLB4DVI"],
@@ -75,7 +75,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/3c60e411-5340-4c54-a037-3aceb2825b16/intl/ko/",
     createdAt: "2022-05-12T18:10:37Z",
-    href: "/conferencelog/google-io/ch_2022_google_5",
+    href: "/conferencelog/detail/google-io/ch_2022_google_5",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["khTTmnqqV8c"],
@@ -89,7 +89,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/4b4e3ec7-9de0-468f-82f0-0603e11c0a14/intl/ko/",
     createdAt: "2022-05-12T22:06:17Z",
-    href: "/conferencelog/google-io/ch_2022_google_6",
+    href: "/conferencelog/detail/google-io/ch_2022_google_6",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["cIFLFpKTy7c"],
@@ -104,7 +104,7 @@ export const GoogleIO2022_Lectures: ConfLectureType[] = [
     originalLectureURL:
       "https://io.google/2022/program/c9768969-9e81-4865-9dff-29a2ab1201ea/intl/ko/",
     createdAt: "2022-05-11T20:42:16Z",
-    href: "/conferencelog/google-io/ch_2022_google_7",
+    href: "/conferencelog/detail/google-io/ch_2022_google_7",
     conferenceId: "ch_2022_google",
     visible: true,
     youtubeVideoInfo: YoutubeVideoDatas["PMMY23F0CFg"],
