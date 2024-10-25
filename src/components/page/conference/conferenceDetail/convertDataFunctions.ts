@@ -14,3 +14,7 @@ export const checkYoutubeLiveStatus = (area: YoutubeLiveVisibleAreaType) => {
 
   return liveDataAtArea;
 };
+
+export const getYoutubeLiveData = (id: string) => {
+  return YoutubeLiveSchedules.find((data) => data.videoId === id);
+};

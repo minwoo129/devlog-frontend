@@ -25,7 +25,7 @@ const item: Variants = {
 };
 
 export default function YearConfItem(args: YearConfItemProps) {
-  const { conf, onYearConfClick } = args;
+  const { conf } = args;
   const { thumbnailURL, title, keyTags, openedAt, id, conferenceType } = conf;
 
   return (

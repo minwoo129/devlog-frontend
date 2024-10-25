@@ -54,9 +54,7 @@ export interface YearConfItemProps extends YearConfItemExtendProps {
   conf: ConfHistoryType;
 }
 
-interface YearConfItemExtendProps {
-  onYearConfClick: (id: string) => void;
-}
+interface YearConfItemExtendProps {}
 
 export interface YearConfItemThumbnailProps {
   thumbnailURL: string | StaticImport;

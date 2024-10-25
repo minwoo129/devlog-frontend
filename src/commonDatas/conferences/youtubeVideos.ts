@@ -480,16 +480,17 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
 };
 
 export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
-  /* {
-    videoId: "vbgXqpVBn-E",
-    title: "[LIVE] CEO • 카나나엑스 리더 키노트 | if(kakaoAI)2024 Day1",
+  {
+    videoId: "xZivYJZNjjo",
+    title:
+      "식민지 조선에 몰아닥친 '황금광(狂) 열풍' | 한국사 탐 [반복재생]/YTN 사이언스",
     description: "라이브 테스트",
-    channelTitle: "카카오",
-    thumbnailURL: "https://img.youtube.com/vi/vbgXqpVBn-E/0.jpg",
-    embedURL: "https://www.youtube.com/embed/vbgXqpVBn-E",
-    accessURL: "https://www.youtube.com/watch?v=vbgXqpVBn-E",
-    scheduledLiveStartDate: "2024-10-21T03:33:15Z",
+    channelTitle: "YTN 사이언스",
+    thumbnailURL: "https://img.youtube.com/vi/xZivYJZNjjo/0.jpg",
+    embedURL: "https://www.youtube.com/embed/xZivYJZNjjo",
+    accessURL: "https://www.youtube.com/watch?v=xZivYJZNjjo",
+    scheduledLiveStartDate: "2024-10-24T23:04:35Z",
     isLiveStart: true,
     visibleArea: ["google-io"],
-  }, */
+  },
 ];

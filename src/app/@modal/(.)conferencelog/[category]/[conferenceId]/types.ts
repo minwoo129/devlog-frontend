@@ -7,7 +7,3 @@ export interface YearConfDetailInterceptPageProps {
     conferenceId: string;
   };
 }
-
-export interface ModalProps {
-  children: React.ReactNode;
-}

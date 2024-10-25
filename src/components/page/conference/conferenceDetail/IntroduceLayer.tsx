@@ -216,13 +216,7 @@ const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
 
   return (
     <motion.div variants={youtubelive}>
-      <Link
-        href={"/"}
-        onClick={(e) => {
-          e.preventDefault();
-          onPressYoutubeLiveBtn(liveData);
-        }}
-      >
+      <Link href={`/youtubeLive?id=${liveData.videoId}`}>
         <div className="px-3 py-1 border-2 border-[#ff0000] rounded-full flex flex-row justify-center items-center transition ease-in-out duration-300 hover:-translate-y-2">
           <YouTubeIcon sx={{ color: "#ff0000", width: 30, height: 30 }} />
           <p className="text-lg font-nanumneo-b ml-1 text-[#ff0000]">
