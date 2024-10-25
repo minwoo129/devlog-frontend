@@ -27,8 +27,7 @@ export default function ConferenceLogPostsPage(
   const {
     params: { category },
   } = args;
-  /* const posts = getFilteredPosts({ section: "conferencelog", category });
-  const tags = Array.from(new Set(posts.map((post) => post.tags).flat())); */
+
   return (
     <PageLayer>
       <ContentBody category={category} />

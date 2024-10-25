@@ -1,5 +1,9 @@
 "use client";
-import { classMerge } from "@/commonFunctions/tailwinds";
+import {
+  classMerge,
+  testBackground,
+  TestBackground3,
+} from "@/commonFunctions/tailwinds";
 import CommonPostListItem from "./CommonPostListItem";
 import { CommonPostListProps } from "./types";
 import { motion, Variants } from "framer-motion";
@@ -18,12 +22,17 @@ const container: Variants = {
 export default function CommonPostList(args: CommonPostListProps) {
   const { posts, className, isCategoryDetailPage = false } = args;
   const containerStyle = classMerge([
-    "grid grid-cols-1 gap-8 justify-center py-12 overflow-y-scroll scrollbar-hide ",
-    "md:grid-cols-2 md:gap-6",
-    "lg:grid-cols-3 lg:gap-7",
-    "xl1:grid-cols-4 xl1:gap-10",
-    "xl2:grid-cols-4 xl2:gap-10",
-    "vxl:grid-cols-4 vxl:gap-10",
+    "grid grid-cols-1 justify-center max-h-[300px] px-4 py-4 mt-10 overflow-y-scroll scrollbar-hide",
+    "vsm:grid-cols-1 vsm:gap-8 ",
+    "sm1:grid-cols-1 sm1:gap-8 sm1:px-8",
+    "sm2:grid-cols-1 sm2:gap-8 sm2:px-14",
+    "md1:grid-cols-2 md1:gap-6",
+    "md2:grid-cols-2 md2:gap-6",
+    "lg1:grid-cols-2 lg1:gap-10",
+    "lg2:grid-cols-3 lg2:gap-7",
+    "xl1:grid-cols-3 xl1:gap-7 xl1:max-h-[400px]",
+    "xl2:grid-cols-3 xl2:gap-7 xl2:max-h-[400px]",
+    "vxl:grid-cols-4 vxl:gap-10 vxl:max-h-[400px]",
     className,
   ]);
 

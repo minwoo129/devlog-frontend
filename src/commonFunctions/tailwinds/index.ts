@@ -38,3 +38,42 @@ export const classMergeBySC: classMergeBySCFuncType = (classes) => {
 
   return twMerge(clsx(classes1));
 };
+
+export const testBackground = (type: "type1" | "type2" | "type3") => {
+  if (type === "type1") {
+    return classMerge([
+      "sm:bg-red-400",
+      "md:bg-blue-400",
+      "lg:bg-green-400",
+      "xl:bg-yellow-400",
+    ]);
+  }
+  if (type === "type2") {
+    return classMerge([
+      "mobile:bg-red-400",
+      "tablet:bg-blue-400",
+      "laptop:bg-green-400",
+      "desktop:bg-yellow-400",
+    ]);
+  }
+
+  return classMerge([
+    "vsm:bg-red-400",
+    "sm1:bg-blue-300",
+    "sm2:bg-blue-600",
+    "md1:bg-green-300",
+    "md2:bg-green-600",
+    "lg1:bg-yellow-300",
+    "lg2:bg-yellow-600",
+    "xl1:bg-orange-300",
+    "xl2:bg-orange-600",
+    "vxl:bg-emerald-400",
+  ]);
+};
+
+export const TestBackground1 =
+  "sm:bg-red-400 md:bg-blue-400 lg:bg-green-400 xl:bg-yellow-400";
+export const TestBackground2 =
+  "mobile:bg-red-400 tablet:bg-blue-400 laptop:bg-green-400 desktop:bg-yellow-400";
+export const TestBackground3 =
+  "vsm:bg-red-400 sm1:bg-blue-300 sm2:bg-blue-600 md1:bg-green-300 md2:bg-green-600 lg1:bg-yellow-300 lg2:bg-yellow-600 xl1:bg-orange-300 xl2:bg-orange-600 vxl:bg-emerald-400";
