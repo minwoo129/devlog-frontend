@@ -21,7 +21,7 @@ export default function Navigation({}) {
       </div>
       <Button
         onClick={() => setDrawerOpen(true)}
-        className=" rounded-xl p-2 hidden vsm:block sm1:block sm2:block transition ease-in-out duration-300 hover:bg-gray-600"
+        className=" rounded-xl p-2 transition ease-in-out duration-300 hover:bg-gray-600 vsm:block sm1:block sm2:block md1:hidden md2:hidden lg1:hidden lg2:hidden xl1:hidden xl2:hidden vxl:hidden"
       >
         <MenuIcon sx={{ color: common["white"] }} />
       </Button>

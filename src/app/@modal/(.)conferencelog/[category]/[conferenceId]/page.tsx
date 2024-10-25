@@ -1,6 +1,6 @@
 import { YearConfDetailInterceptPageProps } from "./types";
-import ConfDetailPopupHeader from "@/components/page/conference/conferenceDetail/YearConfDetailPopup/ConfDetailPopupHeader";
-import ConfDetailPopupBody from "@/components/page/conference/conferenceDetail/YearConfDetailPopup/ConfDetailPopupBody";
+import ConfDetailPopupHeader from "@/app/@modal/(.)conferencelog/[category]/[conferenceId]/ConfDetailPopupHeader";
+import ConfDetailPopupBody from "@/app/@modal/(.)conferencelog/[category]/[conferenceId]/ConfDetailPopupBody";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
 import PageModal from "@/components/common/PageModal";
 import { Metadata } from "next";

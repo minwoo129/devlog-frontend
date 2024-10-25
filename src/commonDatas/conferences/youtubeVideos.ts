@@ -480,7 +480,7 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
 };
 
 export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
-  {
+  /* {
     videoId: "xZivYJZNjjo",
     title:
       "식민지 조선에 몰아닥친 '황금광(狂) 열풍' | 한국사 탐 [반복재생]/YTN 사이언스",
@@ -492,5 +492,5 @@ export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
     scheduledLiveStartDate: "2024-10-24T23:04:35Z",
     isLiveStart: true,
     visibleArea: ["google-io"],
-  },
+  }, */
 ];

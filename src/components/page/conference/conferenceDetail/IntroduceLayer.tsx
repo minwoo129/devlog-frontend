@@ -85,7 +85,7 @@ const youtubelive: Variants = {
 };
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
-  const { conference, onPressYoutubeLiveBtn } = args;
+  const { conference } = args;
   const confData = ConferenceObjDatas[conference];
   const { title, description, date_개막시기, publisher, thumbnailURL } =
     confData;
@@ -111,10 +111,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
         badgeTitle={badgeTitle}
       />
 
-      <IntroduceDetailMoreInfoLayer
-        type={conference}
-        onPressYoutubeLiveBtn={onPressYoutubeLiveBtn}
-      />
+      <IntroduceDetailMoreInfoLayer type={conference} />
     </motion.div>
   );
 }
@@ -193,7 +190,7 @@ const HeldBadge = (args: HeldProps) => {
 const IntroduceDetailMoreInfoLayer = (
   args: IntroduceDetailMoreInfoLayerProps
 ) => {
-  const { type, onPressYoutubeLiveBtn } = args;
+  const { type } = args;
   const liveData = checkYoutubeLiveStatus(type);
 
   return (
@@ -201,16 +198,13 @@ const IntroduceDetailMoreInfoLayer = (
       variants={moreInfo}
       className="flex flex-col justify-between items-start p-6 w-fit h-fit sm:mt-4 md:mt-4 lg:mt-4 "
     >
-      <YoutubeLiveButton
-        liveData={liveData}
-        onPressYoutubeLiveBtn={onPressYoutubeLiveBtn}
-      />
+      <YoutubeLiveButton liveData={liveData} />
     </motion.div>
   );
 };
 
 const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
-  const { liveData, onPressYoutubeLiveBtn } = args;
+  const { liveData } = args;
 
   if (!liveData) return null;
 

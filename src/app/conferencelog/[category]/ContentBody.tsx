@@ -6,7 +6,6 @@ import {
 } from "@/components/page/conference/conferenceDetail";
 import { ContentBodyProps } from "./types";
 import { YoutubeLiveScheduleType } from "@/commonDatas/conferences/types";
-import YoutubeLivePopup from "@/components/common/YoutubeLivePopup";
 
 export default function ContentBody(args: ContentBodyProps) {
   const { category } = args;
@@ -15,23 +14,9 @@ export default function ContentBody(args: ContentBodyProps) {
 
   return (
     <div className=" size-full ">
-      <IntroduceLayer
-        conference={category}
-        onPressYoutubeLiveBtn={(data) => {
-          setLiveData(data);
-          setLiveOpen(true);
-        }}
-      />
+      <IntroduceLayer conference={category} />
       <YearConfList conference={category} />
       <div className="h-10" />
-      <YoutubeLivePopup
-        open={liveOpen}
-        onClose={() => {
-          setLiveData(undefined);
-          setLiveOpen(false);
-        }}
-        liveData={liveData}
-      />
     </div>
   );
 }

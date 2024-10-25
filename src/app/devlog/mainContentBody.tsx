@@ -8,7 +8,7 @@ import { DevLogCategorys } from "@/commonDatas/categorys";
 export default function MainContentBody(args: MainContentBodyProps) {
   const { posts } = args;
   return (
-    <div className="size-full border-2 border-green-400">
+    <div className="size-full">
       <Title className="text-5xl mt-10">dev.log</Title>
       <CommonCategoryList
         categorys={DevLogCategorys}
