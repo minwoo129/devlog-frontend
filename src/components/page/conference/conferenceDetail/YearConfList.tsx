@@ -39,7 +39,7 @@ export default function YearConfList(args: YearConfListProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row flex-wrap mt-10 border-2 border-red-400"
+      className="flex flex-row flex-wrap mt-10 "
     >
       {historys.map((history, idx) => {
         return (

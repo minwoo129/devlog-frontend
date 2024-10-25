@@ -11,7 +11,7 @@ export interface YearConfDetailPopupProps {
 }
 
 export interface ConfDetailPopupHeaderProps {
-  selectedConf: ConfHistoryType | null;
+  selectedConf?: ConfHistoryType | null;
 }
 
 export interface PopupHeaderThumbnailProps {
@@ -27,9 +27,11 @@ export interface PopupHeaderDetailProps {
 }
 
 export interface ConfDetailPopupBodyProps {
-  selectedConf: ConfHistoryType | null;
+  selectedConf?: ConfHistoryType | null;
+  onClickItem?: (href: string) => void;
 }
 
 export interface ConfLectureItemProps {
   lecture: ConfLectureType;
+  onClickItem?: (href: string) => void;
 }

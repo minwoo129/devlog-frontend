@@ -26,17 +26,11 @@ const item: Variants = {
 
 export default function YearConfItem(args: YearConfItemProps) {
   const { conf, onYearConfClick } = args;
-  const { thumbnailURL, title, keyTags, openedAt, id } = conf;
+  const { thumbnailURL, title, keyTags, openedAt, id, conferenceType } = conf;
 
   return (
-    <motion.div variants={item} onClick={() => onYearConfClick(id)}>
-      <Link
-        href={"/"}
-        onClick={(e) => {
-          e.preventDefault();
-          onYearConfClick(id);
-        }}
-      >
+    <motion.div variants={item}>
+      <Link href={`/conferencelog/${conferenceType}/${id}`}>
         <div className=" flex flex-col w-[400px] rounded-2xl mt-10 mr-8 overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <YearConfItemThumbnail thumbnailURL={thumbnailURL} />
           <YearConfItemDetail

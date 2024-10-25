@@ -23,7 +23,10 @@ export default function YearConfDetailPopup(args: YearConfDetailPopupProps) {
     <Modal open={open} onClose={onClose}>
       <Box sx={boxStyle}>
         <ConfDetailPopupHeader selectedConf={selectedConf} />
-        <ConfDetailPopupBody selectedConf={selectedConf} />
+        <ConfDetailPopupBody
+          selectedConf={selectedConf}
+          onClickItem={() => {}}
+        />
       </Box>
     </Modal>
   );
