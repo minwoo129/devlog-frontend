@@ -7,8 +7,8 @@ import { ConferenceLogCagetorys } from "@/commonDatas/categorys";
 export default function ContentBody(args: ContentBodyProps) {
   // const { posts } = args;
   return (
-    <div className="size-full">
-      <Title className="text-5xl mt-10">Conference.log</Title>
+    <div className="size-full ">
+      <Title className="text-5xl mt-10 text-orange-600">Conference.log</Title>
       <CommonCategoryList
         categorys={ConferenceLogCagetorys}
         className="mt-10 py-4"

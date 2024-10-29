@@ -9,12 +9,12 @@ export default function MainContentBody(args: MainContentBodyProps) {
   const { posts } = args;
   return (
     <div className="size-full">
-      <Title className="text-5xl mt-10">dev.log</Title>
+      <Title className="text-5xl mt-10 text-orange-600">dev.log</Title>
       <CommonCategoryList
         categorys={DevLogCategorys}
         className=" mt-10 py-4 "
       />
-      <Title className="text-5xl mt-10">All Posts</Title>
+      <Title className="text-5xl mt-10 text-orange-600">All Posts</Title>
       <CommonPostList posts={posts} />
       <div className="h-10" />
     </div>

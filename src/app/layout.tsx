@@ -24,11 +24,11 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: " %s | Mwoo의 개발 블로그",
-    default: "Mwoo의 개발 블로그",
+    template: " %s | Mwoo Devlog",
+    default: "Mwoo Devlog",
   },
   description:
-    "개발, 해외 컨퍼런스 등 제가 관심을 가지고 있는 주제들을 다루는 블로그입니다.",
+    "개발, 국내외 개발 컨퍼런스 등 제가 관심을 가지고 있는 주제들을 다루는 블로그입니다.",
 };
 
 export default function RootLayout({

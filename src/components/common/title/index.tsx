@@ -1,10 +1,8 @@
+import { classMerge } from "@/commonFunctions/tailwinds";
 import { TitleProps } from "./types";
 
 export default function Title(args: TitleProps) {
   const { children, className } = args;
-  return (
-    <h1 className={`text-3xl font-bold font-mono text-orange-600 ${className}`}>
-      {children}
-    </h1>
-  );
+  const style = classMerge(["basicStyles title", className]);
+  return <h1 className={style}>{children}</h1>;
 }
