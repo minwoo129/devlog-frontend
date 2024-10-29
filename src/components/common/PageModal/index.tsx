@@ -5,7 +5,7 @@ import { ElementRef, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 export default function PageModal(args: PageModalProps) {
-  const { children } = args;
+  const { children, backdropAdditionalElement } = args;
   const router = useRouter();
   const dialogRef = useRef<ElementRef<"dialog">>(null);
 
@@ -24,6 +24,7 @@ export default function PageModal(args: PageModalProps) {
       <dialog ref={dialogRef} className="modal" onClose={onDismiss}>
         {children}
       </dialog>
+      {backdropAdditionalElement}
     </div>,
     document.getElementById("modal-root")!
   );

@@ -16,4 +16,5 @@ export interface LiveStreamingDetailProps {
 
 export interface OnAirTagProps {
   isLiveStart: boolean;
+  className?: string;
 }

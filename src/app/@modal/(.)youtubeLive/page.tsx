@@ -36,7 +36,6 @@ export default function YoutubeLivePopupPage(args: YoutubeLivePopupPageProps) {
   const liveData = getYoutubeLiveData(id);
   return (
     <PageModal>
-      <h1 className="text-2xl font-nanumneo-eb text-zinc-600"></h1>
       {liveData ? (
         <YoutubeLiveStreamingLayer liveData={liveData} />
       ) : (

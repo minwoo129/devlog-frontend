@@ -6,8 +6,7 @@ import {
 } from "./types";
 import Image from "next/image";
 import Tag from "@/components/common/Tag";
-import { classMerge } from "@/commonFunctions/tailwinds";
-import SpeedDial from "@mui/material/SpeedDial";
+import Title from "@/components/common/title";
 
 const ConfDetailPopupHeader = (args: ConfDetailPopupHeaderProps) => {
   const { selectedConf } = args;
@@ -18,15 +17,8 @@ const ConfDetailPopupHeader = (args: ConfDetailPopupHeaderProps) => {
   const { thumbnailURL, title, description, keyTags, openedAt, conferenceURL } =
     selectedConf;
 
-  const className = classMerge([
-    "flex flex-row w-full ",
-    "sm:flex-col",
-    "md:flex-col",
-    "lg:flex-col",
-    "xl:items-center",
-  ]);
   return (
-    <div className={className}>
+    <div className="confDetailPopup header containerLayer">
       <PopupHeaderThumbnail thumbnailURL={thumbnailURL} />
       <PopupHeaderDetail
         title={title}
@@ -41,13 +33,13 @@ const ConfDetailPopupHeader = (args: ConfDetailPopupHeaderProps) => {
 const PopupHeaderThumbnail = (args: PopupHeaderThumbnailProps) => {
   const { thumbnailURL } = args;
   return (
-    <div className="rounded-2xl xl:mr-6">
+    <div className="confDetailPopup header thumbnail">
       <Image
         src={thumbnailURL}
         width={480}
         height={270}
         alt="conf-thumbnail"
-        className="rounded-2xl "
+        className="confDetailPopup header thumbnailImg"
       />
     </div>
   );
@@ -56,22 +48,16 @@ const PopupHeaderThumbnail = (args: PopupHeaderThumbnailProps) => {
 const PopupHeaderDetail = (args: PopupHeaderDetailProps) => {
   const { title, description, openedAt, keyTags, conferenceURL } = args;
 
-  const container = classMerge([
-    "flex flex-col w-fit h-full ",
-    "mobile:mt-10",
-    "tablet:mt-10",
-    "laptop:mt-10",
-  ]);
   return (
-    <div className={container}>
-      <h1 className="text-4xl text-zinc-700 font-nanumneo-eb">{title}</h1>
-      <p className="text-lg text-zinc-500 font-nanumneo-r mt-2">
+    <div className={"confDetailPopup header detail containerLayer"}>
+      <Title className="confDetailPopup header detail titleTxt">{title}</Title>
+      <p className=" confDetailPopup header detail contentTxt text-lg ">
         {description}
       </p>
-      <p className="text-sm text-zinc-500 font-nanumneo-r mt-2">
+      <p className=" confDetailPopup header detail contentTxt text-sm ">
         {dayjs(openedAt).format("개막일: YYYY년 MM월 DD일")}
       </p>
-      <div className="flex flex-row w-full flex-wrap mt-5">
+      <div className="confDetailPopup header detail tagGrid">
         {keyTags.map((tag, idx) => {
           return <Tag tag={tag} className="mt-2 mr-2" key={idx} />;
         })}

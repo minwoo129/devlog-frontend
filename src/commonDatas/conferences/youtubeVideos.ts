@@ -480,17 +480,16 @@ export const YoutubeVideoDatas: YoutubeVideoDatasType = {
 };
 
 export const YoutubeLiveSchedules: YoutubeLiveScheduleType[] = [
-  /* {
-    videoId: "xZivYJZNjjo",
-    title:
-      "식민지 조선에 몰아닥친 '황금광(狂) 열풍' | 한국사 탐 [반복재생]/YTN 사이언스",
+  {
+    videoId: "eVvrrP382Ss",
+    title: "[라이브]  학동을산책하는 벌초맨(X) 라이브맨(O)",
     description: "라이브 테스트",
-    channelTitle: "YTN 사이언스",
-    thumbnailURL: "https://img.youtube.com/vi/xZivYJZNjjo/0.jpg",
-    embedURL: "https://www.youtube.com/embed/xZivYJZNjjo",
-    accessURL: "https://www.youtube.com/watch?v=xZivYJZNjjo",
-    scheduledLiveStartDate: "2024-10-24T23:04:35Z",
+    channelTitle: "채널십오야",
+    thumbnailURL: "https://img.youtube.com/vi/eVvrrP382Ss/0.jpg",
+    embedURL: "https://www.youtube.com/embed/eVvrrP382Ss",
+    accessURL: "https://www.youtube.com/watch?v=eVvrrP382Ss",
+    scheduledLiveStartDate: "2024-10-22T11:01:39Z",
     isLiveStart: true,
     visibleArea: ["google-io"],
-  }, */
+  },
 ];

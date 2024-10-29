@@ -1,0 +1,200 @@
+@tailwind components;
+@tailwind utilities;
+
+.modal-root {
+  position: relative;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 90%;
+  height: fit-content;
+  box-shadow: 24;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border: none;
+  border-radius: 15px; /* Circular shape */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 24px; /* Adjust font size as needed */
+}
+
+.close-button:hover {
+  background-color: #eee;
+}
+
+.close-button:after {
+  content: "x";
+  color: black;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #eee;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  font-weight: 500;
+  max-width: 200px;
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+
+@layer components {
+  .confDetailPopup.header.containerLayer {
+    @apply flex flex-row w-full;
+    @apply sm:flex-col;
+    @apply md:flex-col;
+    @apply lg:flex-col;
+    @apply xl:items-center;
+  }
+  .confDetailPopup.header.thumbnail {
+    @apply rounded-2xl;
+    @apply xl:mr-6;
+  }
+  .confDetailPopup.header.thumbnailImg {
+    @apply rounded-2xl;
+  }
+  .confDetailPopup.header.detail.containerLayer {
+    @apply flex flex-col w-fit h-full justify-start items-start;
+    @apply mobile:mt-10;
+    @apply tablet:mt-10;
+    @apply laptop:mt-10;
+  }
+  .confDetailPopup.header.detail.titleTxt {
+    @apply text-zinc-700;
+  }
+  .confDetailPopup.header.detail.contentTxt {
+    @apply text-zinc-500 font-nanumneo-r mt-2;
+  }
+  .confDetailPopup.header.detail.tagGrid {
+    @apply flex flex-row w-full mt-5;
+  }
+  .confDetailPopup.bodyGrid.containerLayer {
+    @apply grid grid-cols-1 gap-8 justify-center max-h-[300px] px-12 py-4 mt-10 overflow-y-scroll scrollbar-hide;
+    @apply md:grid-cols-2 md:gap-6 md:px-5;
+    @apply lg:grid-cols-3 lg:gap-7 lg:px-2;
+    @apply xl:grid-cols-4 xl:gap-10 xl:px-2 xl:max-h-[400px];
+  }
+  .confDetailPopup.lectureItem.containerGrid {
+    @apply flex flex-col justify-between items-center w-full rounded-2xl shadow-xl;
+    @apply transition ease-in-out duration-300 hover:-translate-y-2;
+  }
+  .confDetailPopup.lectureItem.thumbnailGrid {
+    @apply w-full aspect-w-16 aspect-h-9;
+  }
+  .confDetailPopup.lectureItem.detail.gridLayer {
+    @apply flex flex-col items-start w-full h-full border-t-2 border-zinc-200 p-4;
+  }
+  .confDetailPopup.lectureItem.detail.title {
+    @apply text-xl text-slate-700 font-nanumneo-b w-full truncate;
+  }
+  .confDetailPopup.lectureItem.detail.createdAt {
+    @apply text-sm text-slate-400 font-nanumneo-r mt-2 text-left;
+  }
+
+  /* ============================== Youtube 라이브 팝업 ============================== */
+  .youtubeLivePopup.emptyLayer.containerLayer {
+    @apply rounded-xl w-full flex justify-center items-center h-full;
+  }
+  .youtubeLivePopup.emptyLayer.titleTxt {
+    @apply text-5xl font-nanumneo-eb text-slate-700;
+  }
+  .youtubeLivePopup.streamingLayer.containerLayer {
+    @apply flex flex-col justify-start items-start w-full h-full overflow-y-hidden;
+    @apply vxl:flex-row;
+  }
+  .youtubeLivePopup.streamingLayer.videoLayer {
+    @apply w-full aspect-video;
+    @apply vxl:w-[950px] vxl:mt-10;
+  }
+  .youtubeLivePopup.streamingLayer.detail.detailLayer {
+    @apply w-full flex-col justify-start items-start mt-5 py-5 overflow-y-scroll scrollbar-hide;
+    @apply vsm:max-h-[250px] vsm:overflow-y-scroll vsm:scrollbar-hide;
+    @apply sm1:max-h-[250px] sm1:overflow-y-scroll sm1:scrollbar-hide;
+    @apply sm2:max-h-[250px] sm2:overflow-y-scroll sm2:scrollbar-hide;
+    @apply md1:max-h-[250px] md1:overflow-y-scroll md1:scrollbar-hide;
+    @apply md2:max-h-[250px] md2:overflow-y-scroll md2:scrollbar-hide;
+    @apply vxl:mt-10 vxl:w-fit vxl:ml-3;
+  }
+  .youtubeLivePopup.streamingLayer.detail.videoInfoLayer {
+    @apply max-w-[500px] rounded-2xl flex flex-col justify-start items-start p-6 bg-green-200 shadow-xl;
+    @apply vxl:w-full;
+  }
+  /* .youtubeLivePopup.streamingLayer.detail.onairTag.onairTagLayer {
+    @apply border-2 border-[#ff0000] rounded-full px-3 py-1 mb-4 flex flex-row justify-center items-center w-fit;
+  }
+  .youtubeLivePopup.streamingLayer.detail.onairTag.titleTxt {
+    @apply text-[#ff0000] text-lg font-nanumneo-eb ml-1;
+  } */
+  .youtubeLivePopup.streamingLayer.detail.titleTxt {
+    @apply text-xl font-nanumneo-eb text-zinc-800;
+  }
+  .youtubeLivePopup.streamingLayer.detail.channelTitle {
+    @apply text-lg font-nanumneo-b mt-1 text-zinc-600;
+  }
+  .youtubeLivePopup.streamingLayer.detail.description {
+    @apply font-nanumneo-r mt-5 text-zinc-600;
+  }
+  .youtubeLivePopup.streamingLayer.detail.infoLayer.containerGrid {
+    @apply max-w-[500px] rounded-2xl flex flex-col justify-start items-start p-6 bg-gray-300 shadow-xl mt-3;
+    @apply vxl:w-full;
+  }
+  .youtubeLivePopup.streamingLayer.detail.infoLayer.infoTxt {
+    @apply font-nanumneo-r text-zinc-400 flex flex-row justify-center items-center;
+  }
+  .onAirTag {
+    @apply border-2 border-[#ff0000] rounded-full px-3 py-1 flex flex-row justify-center items-center;
+    @apply w-fit;
+  }
+  .onAirTagTxt {
+    @apply text-[#ff0000] text-lg font-nanumneo-eb ml-1;
+  }
+}
