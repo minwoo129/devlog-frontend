@@ -12,4 +12,6 @@ export type SVGImageName =
   | "AndroidLogo"
   | "FirebaseLogo"
   | "GoogleIOLogo"
-  | "TossLogo";
+  | "TossLogo"
+  | "VelogIcon"
+  | "GithubIcon";

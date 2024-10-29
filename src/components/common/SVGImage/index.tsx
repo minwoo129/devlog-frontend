@@ -8,6 +8,8 @@ import AndroidLogo from "../../../../assets/svgImages/android.svg";
 import FirebaseLogo from "../../../../assets/svgImages/firebase.svg";
 import GoogleIOLogo from "../../../../assets/svgImages/Google_IO.svg";
 import TossLogo from "../../../../assets/svgImages/toss.svg";
+import VelogIcon from "../../../../assets/svgImages/Velog.svg";
+import GithubIcon from "../../../../assets/svgImages/Github.svg";
 
 export default function SVGImage(args: SVGImageProps) {
   const { name, ...rest } = args;
@@ -32,6 +34,12 @@ export default function SVGImage(args: SVGImageProps) {
   }
   if (name === "TossLogo") {
     return <TossLogo {...rest} />;
+  }
+  if (name === "VelogIcon") {
+    return <VelogIcon {...rest} />;
+  }
+  if (name === "GithubIcon") {
+    return <GithubIcon {...rest} />;
   }
   return <AndroidLogo {...rest} />;
 }
