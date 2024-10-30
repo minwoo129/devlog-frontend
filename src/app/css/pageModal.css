@@ -156,24 +156,21 @@
     @apply vxl:w-[950px] vxl:mt-10;
   }
   .youtubeLivePopup.streamingLayer.detail.detailLayer {
-    @apply w-full flex-col justify-start items-start mt-5 py-5 overflow-y-scroll scrollbar-hide;
-    @apply vsm:max-h-[250px] vsm:overflow-y-scroll vsm:scrollbar-hide;
-    @apply sm1:max-h-[250px] sm1:overflow-y-scroll sm1:scrollbar-hide;
-    @apply sm2:max-h-[250px] sm2:overflow-y-scroll sm2:scrollbar-hide;
-    @apply md1:max-h-[250px] md1:overflow-y-scroll md1:scrollbar-hide;
-    @apply md2:max-h-[250px] md2:overflow-y-scroll md2:scrollbar-hide;
-    @apply vxl:mt-10 vxl:w-fit vxl:ml-3;
+    @apply w-full flex flex-row justify-start items-start py-5 overflow-y-scroll scrollbar-hide h-[200px];
+    @apply vsm:flex-col;
+    @apply sm1:flex-col;
+    @apply sm2:flex-col;
+    @apply md1:flex-col;
+    @apply vxl:mt-10 vxl:w-fit vxl:ml-3 vxl:flex-col vxl:h-fit vxl:max-h-max;
   }
   .youtubeLivePopup.streamingLayer.detail.videoInfoLayer {
-    @apply max-w-[500px] rounded-2xl flex flex-col justify-start items-start p-6 bg-green-200 shadow-xl;
-    @apply vxl:w-full;
+    @apply w-full rounded-2xl flex flex-col justify-start items-start p-6 bg-green-200 shadow-xl mr-1;
+    @apply vsm:mr-0;
+    @apply sm1:mr-0;
+    @apply sm2:mr-0;
+    @apply md1:mr-0;
+    @apply vxl:mr-0;
   }
-  /* .youtubeLivePopup.streamingLayer.detail.onairTag.onairTagLayer {
-    @apply border-2 border-[#ff0000] rounded-full px-3 py-1 mb-4 flex flex-row justify-center items-center w-fit;
-  }
-  .youtubeLivePopup.streamingLayer.detail.onairTag.titleTxt {
-    @apply text-[#ff0000] text-lg font-nanumneo-eb ml-1;
-  } */
   .youtubeLivePopup.streamingLayer.detail.titleTxt {
     @apply text-xl font-nanumneo-eb text-zinc-800;
   }
@@ -184,8 +181,12 @@
     @apply font-nanumneo-r mt-5 text-zinc-600;
   }
   .youtubeLivePopup.streamingLayer.detail.infoLayer.containerGrid {
-    @apply max-w-[500px] rounded-2xl flex flex-col justify-start items-start p-6 bg-gray-300 shadow-xl mt-3;
-    @apply vxl:w-full;
+    @apply w-full rounded-2xl flex flex-col justify-start items-start p-6 bg-gray-300 shadow-xl ml-1;
+    @apply vsm:mt-3 vsm:ml-0;
+    @apply sm1:mt-3 sm1:ml-0;
+    @apply sm2:mt-3 sm2:ml-0;
+    @apply md1:mt-3 md1:ml-0;
+    @apply vxl:mt-3 vxl:ml-0;
   }
   .youtubeLivePopup.streamingLayer.detail.infoLayer.infoTxt {
     @apply font-nanumneo-r text-zinc-400 flex flex-row justify-center items-center;
@@ -196,5 +197,23 @@
   }
   .onAirTagTxt {
     @apply text-[#ff0000] text-lg font-nanumneo-eb ml-1;
+  }
+  .youtubebackdropLayerInfo.blGrid {
+    @apply absolute bottom-5 flex flex-col justify-center items-center;
+    @apply lg1:hidden;
+    @apply lg2:hidden;
+    @apply xl1:hidden;
+    @apply xl2:hidden;
+    @apply vxl:hidden;
+    @apply border-2 border-red-400;
+  }
+  .youtubebackdropLayerInfo.insideGrid {
+    width: 90%;
+    height: fit-content;
+    box-shadow: 24;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
   }
 }
