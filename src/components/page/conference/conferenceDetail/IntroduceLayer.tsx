@@ -13,13 +13,12 @@ import { motion, Variants } from "framer-motion";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import CelebrationIcon from "@mui/icons-material/Celebration";
-import dayjs from "dayjs";
-import { IntroduceIconType } from "@/commonDatas/conferences/types";
 import { checkIntroBadgeVisible } from "@/commonFunctions/conference";
 import { checkYoutubeLiveStatus } from "./convertDataFunctions";
 import Link from "next/link";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { red, common } from "@mui/material/colors";
+import { classMerge } from "@/commonFunctions/tailwinds";
+import { useState } from "react";
 
 const container: Variants = {
   hidden: {
@@ -87,28 +86,21 @@ const youtubelive: Variants = {
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { conference } = args;
   const confData = ConferenceObjDatas[conference];
-  const { title, description, date_개막시기, publisher, thumbnailURL } =
-    confData;
-
-  const { badgeTitle, visibleIcon } = checkIntroBadgeVisible({
-    conferenceData: confData,
+  const detailClassName = convertClassNameByScreenSize({
+    componentName: "detailLayer_썸네일_밖",
   });
-
   return (
     <motion.div
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row sm:flex-col md:flex-col lg:flex-col w-full h-fit mt-10"
+      className="flex flex-row flex-wrap w-full h-fit mt-10 "
     >
-      <IntroduceLayerLogo thumbnailURL={thumbnailURL} />
+      <IntroduceLayerLogo confData={confData} />
       <IntroduceDetailLayer
-        title={title}
-        description={description}
-        date_개막시기={date_개막시기}
-        publisher={publisher}
-        visibleIcon={visibleIcon}
-        badgeTitle={badgeTitle}
+        confData={confData}
+        className={detailClassName}
+        variants={detail}
       />
 
       <IntroduceDetailMoreInfoLayer type={conference} />
@@ -117,40 +109,77 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
 }
 
 const IntroduceLayerLogo = (args: IntroduceLayerLogoProps) => {
-  const { thumbnailURL } = args;
+  const { confData } = args;
+  const { thumbnailURL } = confData;
+  const [dimVisible, setDimVisible] = useState(false);
+  const width = window.innerWidth;
+  const detailClassName = convertClassNameByScreenSize({
+    componentName: "detailLayer_썸네일_안",
+  });
   return (
     <motion.div
       variants={logo}
-      className="flex justify-center items-center w-[260px] h-[260px] min-w-[400px] rounded-2xl shadow-xl bg-slate-200 mr-4 "
+      className="flex justify-center items-center w-full max-w-[400px] h-[260px] rounded-2xl shadow-xl bg-slate-200 mx-2 my-3  relative"
+      onClick={() => setDimVisible(!dimVisible)}
+      aria-disabled={width >= 768}
     >
       <SVGImage name={thumbnailURL} width={200} height={200} />
+      <IntroduceDetailLayer
+        visible={dimVisible}
+        confData={confData}
+        className={detailClassName}
+        isDimScreen={true}
+      />
     </motion.div>
   );
 };
 
 const IntroduceDetailLayer = (args: IntroduceDetailLayerProps) => {
   const {
-    title,
-    description,
-    publisher,
-    date_개막시기,
-    badgeTitle,
-    visibleIcon,
+    visible = true,
+    confData,
+    className,
+    variants,
+    isDimScreen = false,
   } = args;
+  const { title, description, publisher, date_개막시기 } = confData;
+  const { badgeTitle, visibleIcon } = checkIntroBadgeVisible({
+    conferenceData: confData,
+  });
+  const style = classMerge([
+    " flex flex-col justify-between items-start w-full max-w-[400px] h-[260px] p-6 rounded-2xl ",
+    className,
+  ]);
+  if (!visible) return null;
   return (
-    <motion.div
-      variants={detail}
-      className=" flex flex-col justify-between items-start w-[260px] h-[260px] min-w-[400px] p-6 rounded-2xl shadow-xl bg-slate-200 mr-4 sm:mt-4 md:mt-4 lg:mt-4 sm:mr-0 md:mr-0 lg:mr-0"
-    >
+    <motion.div variants={variants} className={style}>
       <div className="flex flex-col justify-center items-start">
-        <h1 className="text-2xl text-slate-700 font-nanumneo-eb">{title}</h1>
-        <h3 className="text-lg text-slate-500 font-nanumneo-b mt-1">
+        <h1
+          className={`text-2xl ${
+            isDimScreen ? "text-slate-900" : "text-slate-700"
+          } font-nanumneo-eb`}
+        >
+          {title}
+        </h1>
+        <h3
+          className={`text-lg ${
+            isDimScreen ? "text-white" : "text-slate-500"
+          } font-nanumneo-b mt-1`}
+        >
           {description}
         </h3>
       </div>
       <div className="flex flex-col justify-center items-start">
-        <h4 className=" text-slate-500 font-nanumneo-r">{`개최사: ${publisher}`}</h4>
-        <h4 className=" text-slate-500 font-nanumneo-r">{`${date_개막시기}`}</h4>
+        <h4
+          className={` ${
+            isDimScreen ? "text-white" : "text-slate-500"
+          } font-nanumneo-r`}
+        >{`개최사: ${publisher}`}</h4>
+        <h4
+          className={` ${
+            isDimScreen ? "text-white" : "text-slate-500"
+          } font-nanumneo-r`}
+        >{`${date_개막시기}`}</h4>
         <HeldImminentBadge
           badgeTitle={badgeTitle}
           visible={visibleIcon === "heldImminent"}
@@ -196,7 +225,7 @@ const IntroduceDetailMoreInfoLayer = (
   return (
     <motion.div
       variants={moreInfo}
-      className="flex flex-col justify-between items-start p-6 w-fit h-fit sm:mt-4 md:mt-4 lg:mt-4 "
+      className="flex flex-col justify-between items-start w-fit h-fit mx-2 my-3 "
     >
       <YoutubeLiveButton liveData={liveData} />
     </motion.div>
@@ -220,4 +249,33 @@ const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
       </Link>
     </motion.div>
   );
+};
+
+type convertClassNameByScreenSizeArgs = {
+  componentName: "detailLayer_썸네일_밖" | "detailLayer_썸네일_안";
+};
+const mediaQueryLimit = {
+  detailLayer_썸네일_밖: ["vsm", "sm1", "sm2"],
+  detailLayer_썸네일_안: ["md1", "md2", "lg1", "lg2", "xl1", "xl2", "vxl"],
+};
+const attemptClassName = {
+  detailLayer_썸네일_밖: ["hidden"],
+  detailLayer_썸네일_안: ["hidden"],
+};
+const defaultClassName = {
+  detailLayer_썸네일_밖: " shadow-xl bg-slate-200 mx-2 my-3 ",
+  detailLayer_썸네일_안: " absolute bg-black/45 ",
+};
+const convertClassNameByScreenSize = (
+  args: convertClassNameByScreenSizeArgs
+) => {
+  const { componentName } = args;
+  let className = "";
+  className += defaultClassName[componentName];
+  for (let mq of mediaQueryLimit[componentName]) {
+    for (let cn of attemptClassName[componentName]) {
+      className += ` ${mq}:${cn}`;
+    }
+  }
+  return className;
 };

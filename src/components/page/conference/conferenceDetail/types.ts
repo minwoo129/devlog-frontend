@@ -1,11 +1,10 @@
 import {
+  ConferenceDataType,
   ConfHistoryType,
-  ConfLectureType,
-  IntroduceIconType,
   YoutubeLiveScheduleType,
 } from "@/commonDatas/conferences/types";
 import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
-import { SVGImageName } from "@/components/common/SVGImage/types";
+import { Variants } from "framer-motion";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface IntroduceLayerProps {
@@ -13,16 +12,15 @@ export interface IntroduceLayerProps {
 }
 
 export interface IntroduceLayerLogoProps {
-  thumbnailURL: SVGImageName;
+  confData: ConferenceDataType;
 }
 
 export interface IntroduceDetailLayerProps {
-  title: string;
-  description: string;
-  date_개막시기: string;
-  publisher: string;
-  visibleIcon: IntroduceIconType;
-  badgeTitle: string;
+  visible?: boolean;
+  confData: ConferenceDataType;
+  className?: string;
+  variants?: Variants;
+  isDimScreen?: boolean;
 }
 
 export interface HeldImminentProps {
