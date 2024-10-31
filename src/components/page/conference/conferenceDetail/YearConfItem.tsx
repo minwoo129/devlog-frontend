@@ -31,7 +31,7 @@ export default function YearConfItem(args: YearConfItemProps) {
   return (
     <motion.div variants={item}>
       <Link href={`/conferencelog/${conferenceType}/${id}`}>
-        <div className=" flex flex-col w-[400px] rounded-2xl mt-10 mr-8 overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
+        <div className=" flex flex-col rounded-2xl w-full overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <YearConfItemThumbnail thumbnailURL={thumbnailURL} />
           <YearConfItemDetail
             title={title}
@@ -48,14 +48,13 @@ const YearConfItemThumbnail = (args: YearConfItemThumbnailProps) => {
   const { thumbnailURL } = args;
 
   return (
-    <div className="flex flex-row w-full h-[200px] justify-center items-center rounded-t-2xl -z-10">
+    <div className="w-full aspect-w-16 aspect-h-9">
       <Image
         src={thumbnailURL}
-        width={400}
-        height={200}
+        fill
+        objectFit="cover"
         alt="thumbnail"
-        className="rounded-t-2xl -z-10"
-        layout="responsive"
+        className="rounded-t-2xl"
       />
     </div>
   );
@@ -63,6 +62,7 @@ const YearConfItemThumbnail = (args: YearConfItemThumbnailProps) => {
 
 const YearConfItemDetail = (args: YearConfItemDetailProps) => {
   const { title, keyTags, openedAt } = args;
+  const tags = keyTags.slice(0, 2);
   return (
     <div className=" flex flex-col border-t-2 bg-white  border-zinc-200 p-4 rounded-b-2xl z-10">
       <div className="flex flex-row justify-start items-center">
@@ -72,8 +72,8 @@ const YearConfItemDetail = (args: YearConfItemDetailProps) => {
       <h4 className=" text-sm text-slate-400 font-nanumneo-r mt-2">
         {dayjs(openedAt).format("YYYY년 MM월 DD일 개막")}
       </h4>
-      <div className="flex flex-row overflow-x-hidden mt-2">
-        {keyTags.map((tag, idx) => {
+      <div className="flex flex-row overflow-x-scroll scrollbar-hide line-clamp-1 mt-2">
+        {tags.map((tag, idx) => {
           return <Tag tag={tag} className="mt-2 mr-2" key={idx} />;
         })}
       </div>

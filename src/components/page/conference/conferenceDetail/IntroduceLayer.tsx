@@ -121,7 +121,7 @@ const IntroduceLayerLogo = (args: IntroduceLayerLogoProps) => {
       variants={logo}
       className="flex justify-center items-center w-full max-w-[400px] h-[260px] rounded-2xl shadow-xl bg-slate-200 mx-2 my-3  relative"
       onClick={() => setDimVisible(!dimVisible)}
-      aria-disabled={width >= 768}
+      aria-disabled={width >= 880}
     >
       <SVGImage name={thumbnailURL} width={200} height={200} />
       <IntroduceDetailLayer
@@ -255,8 +255,8 @@ type convertClassNameByScreenSizeArgs = {
   componentName: "detailLayer_썸네일_밖" | "detailLayer_썸네일_안";
 };
 const mediaQueryLimit = {
-  detailLayer_썸네일_밖: ["vsm", "sm1", "sm2"],
-  detailLayer_썸네일_안: ["md1", "md2", "lg1", "lg2", "xl1", "xl2", "vxl"],
+  detailLayer_썸네일_밖: ["vsm", "sm1", "sm2", "md1"],
+  detailLayer_썸네일_안: ["md2", "lg1", "lg2", "xl1", "xl2", "vxl"],
 };
 const attemptClassName = {
   detailLayer_썸네일_밖: ["hidden"],

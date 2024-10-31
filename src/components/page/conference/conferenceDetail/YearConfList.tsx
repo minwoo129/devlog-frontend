@@ -3,6 +3,7 @@ import { YearConfListProps } from "./types";
 import { motion, Variants } from "framer-motion";
 import YearConfItem from "./YearConfItem";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
+import { classMerge } from "@/commonFunctions/tailwinds";
 
 const container: Variants = {
   hidden: {
@@ -34,12 +35,21 @@ export default function YearConfList(args: YearConfListProps) {
       </motion.div>
     );
   }
+
+  const styles = classMerge([
+    "grid grid-cols-1 gap-8 justify-center mt-10",
+    "sm2:grid-cols-1 sm2:gap-8",
+    "md1:grid-cols-2 md1:gap-8",
+    "md2:grid-cols-2 md2:gap-8",
+    "lg:grid-cols-3 lg:gap-7",
+    "xl:grid-cols-4 xl:gap-6",
+  ]);
   return (
     <motion.div
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row flex-wrap mt-10 "
+      className={styles}
     >
       {historys.map((history, idx) => {
         return <YearConfItem conf={history} key={idx} />;
