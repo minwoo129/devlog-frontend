@@ -1,0 +1,1 @@
+export { getGithubUserData } from "./github";
