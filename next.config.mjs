@@ -27,7 +27,7 @@ const nextConfig = {
     return config;
   },
   env: {
-    TEST: process.env.NEXT_PUBLIC_TEST,
+    SERVER_ENVRIOMENT: process.env.NEXT_PUBLIC_SERVER_ENVRIOMENT,
   },
 };
 
