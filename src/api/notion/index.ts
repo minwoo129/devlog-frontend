@@ -4,6 +4,7 @@ import {
   getNotionCategory1DataFuncType,
   getNotionCategory2DataFuncType,
   getNotionConferenceDataFuncType,
+  getNotionConferenceHistoryDataFuncType,
   NotionDatabaseNames,
 } from "./types";
 import { NotionAPIInfo } from "@/config";
@@ -11,6 +12,7 @@ import {
   convertCategory1Data,
   convertCategory2Data,
   convertConferenceData,
+  convertConferenceHistoryData,
 } from "./objectDataConvert";
 
 const notion = new Client({
@@ -91,3 +93,18 @@ export const getNotionConferenceData: getNotionConferenceDataFuncType = async (
     throw e;
   }
 };
+
+export const getNotionConferenceHistoryData: getNotionConferenceHistoryDataFuncType =
+  async (args) => {
+    const { databaseName } = args;
+    const { databaseId } = getDBInfo(databaseName);
+    try {
+      const result = await notion.databases.query({
+        database_id: databaseId,
+        page_size: 100,
+      });
+      return convertConferenceHistoryData({ result });
+    } catch (e) {
+      throw e;
+    }
+  };
