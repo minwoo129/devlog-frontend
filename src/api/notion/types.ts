@@ -1,5 +1,9 @@
 import { Category1 } from "./notionDBDTO/category1";
-import { convertCategory1DataExtendArgs } from "./objectDataConvert/types";
+import { Category2 } from "./notionDBDTO/category2";
+import {
+  convertCategory1DataExtendArgs,
+  convertCategory2DataExtendArgs,
+} from "./objectDataConvert/types";
 
 export type NotionDatabaseNames =
   | "Category1"
@@ -41,7 +45,8 @@ export interface getNotionCategory1DataArgs
     convertCategory1DataExtendArgs {}
 
 export interface getNotionCategory2DataArgs
-  extends getNotionDBDatasCommonArgs<"Category2"> {}
+  extends getNotionDBDatasCommonArgs<"Category2">,
+    convertCategory2DataExtendArgs {}
 
 export interface getNotionConferenceDataArgs
   extends getNotionDBDatasCommonArgs<"ConferenceData"> {}
@@ -56,11 +61,23 @@ export interface getNotionYoutubeVideoDataArgs
   extends getNotionDBDatasCommonArgs<"YoutubeVideoData"> {}
 
 // ============================================================
-export type getNotionDBDatasFuncType = getNotionCategory1DataFuncType;
+type getNotionDataByDBCommonFuncType<A, T> = (args: A) => Promise<T>;
 
-export type getNotionCategory1DataFuncType = (
+export type getNotionDBDatasFuncType =
+  | getNotionCategory1DataFuncType
+  | getNotionCategory2DataFuncType;
+
+export type getNotionCategory1DataFuncType = getNotionDataByDBCommonFuncType<
+  getNotionCategory1DataArgs,
+  Category1[]
+>;
+/* export type getNotionCategory1DataFuncType = (
   args: getNotionCategory1DataArgs
-) => Promise<Category1[]>;
-export type getNotionCategory2DataFuncType = (
+) => Promise<Category1[]>; */
+export type getNotionCategory2DataFuncType = getNotionDataByDBCommonFuncType<
+  getNotionCategory2DataArgs,
+  Category2[]
+>;
+/* export type getNotionCategory2DataFuncType = (
   args: getNotionCategory2DataArgs
-) => Promise<Category1[]>;
+) => Promise<Category2[]>; */
