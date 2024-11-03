@@ -1,5 +1,5 @@
 import { serialize } from "next-mdx-remote/serialize";
-import remarkTok from "remark-toc";
+import remarkToc from "remark-toc";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
@@ -10,7 +10,7 @@ export const serializeMdx = (source: string) => {
   return serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
-      remarkPlugins: [remarkTok, remarkGfm],
+      remarkPlugins: [remarkToc, remarkGfm],
       rehypePlugins: [
         rehypeCodeTitles,
         rehypeSlug,

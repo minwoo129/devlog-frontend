@@ -1,8 +1,10 @@
 import { Category1 } from "./notionDBDTO/category1";
 import { Category2 } from "./notionDBDTO/category2";
+import { ConferenceData } from "./notionDBDTO/conferenceData";
 import {
   convertCategory1DataExtendArgs,
   convertCategory2DataExtendArgs,
+  convertConferenceDataExtendArgs,
 } from "./objectDataConvert/types";
 
 export type NotionDatabaseNames =
@@ -49,7 +51,8 @@ export interface getNotionCategory2DataArgs
     convertCategory2DataExtendArgs {}
 
 export interface getNotionConferenceDataArgs
-  extends getNotionDBDatasCommonArgs<"ConferenceData"> {}
+  extends getNotionDBDatasCommonArgs<"ConferenceData">,
+    convertConferenceDataExtendArgs {}
 
 export interface getNotionConferenceHistoryDataArgs
   extends getNotionDBDatasCommonArgs<"ConferenceHistory"> {}
@@ -71,13 +74,12 @@ export type getNotionCategory1DataFuncType = getNotionDataByDBCommonFuncType<
   getNotionCategory1DataArgs,
   Category1[]
 >;
-/* export type getNotionCategory1DataFuncType = (
-  args: getNotionCategory1DataArgs
-) => Promise<Category1[]>; */
 export type getNotionCategory2DataFuncType = getNotionDataByDBCommonFuncType<
   getNotionCategory2DataArgs,
   Category2[]
 >;
-/* export type getNotionCategory2DataFuncType = (
-  args: getNotionCategory2DataArgs
-) => Promise<Category2[]>; */
+
+export type getNotionConferenceDataFuncType = getNotionDataByDBCommonFuncType<
+  getNotionConferenceDataArgs,
+  ConferenceData[]
+>;

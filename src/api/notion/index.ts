@@ -2,15 +2,15 @@ import { Client } from "@notionhq/client";
 import {
   getNotionCategory1DataArgs,
   getNotionCategory1DataFuncType,
-  getNotionCategory2DataArgs,
   getNotionCategory2DataFuncType,
-  getNotionDBDatasFuncType,
+  getNotionConferenceDataFuncType,
   NotionDatabaseNames,
 } from "./types";
 import { NotionAPIInfo } from "@/config";
 import {
   convertCategory1Data,
   convertCategory2Data,
+  convertConferenceData,
 } from "./objectDataConvert";
 
 const notion = new Client({
@@ -71,6 +71,22 @@ export const getNotionCategory2Data: getNotionCategory2DataFuncType = async (
       page_size: 100,
     });
     return convertCategory2Data({ result });
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const getNotionConferenceData: getNotionConferenceDataFuncType = async (
+  args
+) => {
+  const { databaseName } = args;
+  const { databaseId } = getDBInfo(databaseName);
+  try {
+    const result = await notion.databases.query({
+      database_id: databaseId,
+      page_size: 100,
+    });
+    return convertConferenceData({ result });
   } catch (e) {
     throw e;
   }

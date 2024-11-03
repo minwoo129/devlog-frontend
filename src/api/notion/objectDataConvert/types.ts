@@ -4,6 +4,7 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import { Category1 } from "../notionDBDTO/category1";
 import { Category2 } from "../notionDBDTO/category2";
+import { ConferenceData } from "../notionDBDTO/conferenceData";
 
 type convertDataCommonArgs<A, T> = (args: A) => T;
 
@@ -42,5 +43,24 @@ export interface convertCategory2DataExtendArgs {}
 export type flatCategory2PropertiesArgs = {
   properties: PageObjectResponse["properties"];
   curResult: Category2;
+  idx: number;
+};
+
+// ======================================= ConferenceData =======================================
+export type convertConferenceDataFuncType = convertDataCommonArgs<
+  convertConferenceDataArgs,
+  ConferenceData[]
+>;
+
+export interface convertConferenceDataArgs
+  extends convertConferenceDataExtendArgs {
+  result: QueryDatabaseResponse;
+}
+
+export interface convertConferenceDataExtendArgs {}
+
+export type flatConferenceDataPropertiesArgs = {
+  properties: PageObjectResponse["properties"];
+  curResult: ConferenceData;
   idx: number;
 };

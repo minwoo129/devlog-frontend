@@ -1,31 +1,34 @@
 import { isFullPage } from "@notionhq/client";
-import { Category2 } from "../notionDBDTO/category2";
+import { ConferenceData } from "../notionDBDTO/conferenceData";
 import {
-  convertCategory2DataFuncType,
-  flatCategory2PropertiesArgs,
+  convertConferenceDataFuncType,
+  flatConferenceDataPropertiesArgs,
 } from "./types";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { extractRichText } from "../extractFromObject/page";
 
-const dataKeys: (keyof Category2)[] = [
+const dataKeys: (keyof ConferenceData)[] = [
   "key",
   "title",
   "description",
   "href",
+  "introduceIcon",
   "visible",
 ];
 
-export const convertCategory2Data: convertCategory2DataFuncType = (args) => {
+export const convertConferenceData: convertConferenceDataFuncType = (args) => {
   const { result } = args;
-  let newDatas: Category2[] = [];
+  let newDatas: ConferenceData[] = [];
   const { results } = result;
   for (const resultItem of results) {
     if (!isFullPage(resultItem)) continue;
     const { properties } = resultItem;
-    let result: Category2 = {
+    let result: ConferenceData = {
       key: "",
       title: "",
       description: "",
       href: "",
+      publisher: "",
+      introduceIcon: "none",
       upperCategory: "",
       visible: false,
     };
@@ -35,7 +38,7 @@ export const convertCategory2Data: convertCategory2DataFuncType = (args) => {
   return newDatas;
 };
 
-const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
+const flatPropertiesData = (args: flatConferenceDataPropertiesArgs) => {
   const { properties, idx } = args;
   let { curResult } = args;
 
@@ -49,11 +52,8 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
     const value = extractRichText(property);
     if (key === "href") {
       curResult.href = value;
-      if (value.indexOf("/devlog") !== -1) {
-        curResult.upperCategory = "devlog";
-      } else {
-        curResult.upperCategory = "conferencelog";
-      }
+      const [_, __, upperCategory] = value.split("/");
+      curResult.upperCategory = upperCategory;
     } else if (key === "title") {
       curResult.title = value;
     } else if (key === "description") {
@@ -61,9 +61,15 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  if (property.type === "title") {
-    const value = property.title[0].plain_text;
-    curResult.key = value;
+  if (property.type === "select") {
+    const oriValue = property.select?.name ?? "none";
+    if (oriValue === "none") {
+      curResult.introduceIcon = "none";
+    } else if (oriValue === "개최임박") {
+      curResult.introduceIcon = "heldImminent";
+    } else {
+      curResult.introduceIcon = "held";
+    }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
@@ -73,18 +79,10 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  return curResult;
-};
-
-const extractRichText = (
-  property: Extract<
-    PageObjectResponse["properties"][string],
-    { type: "rich_text" }
-  >
-) => {
-  const item = property.rich_text[0];
-  if (item.type !== "text") {
-    return "";
+  if (property.type === "title") {
+    const value = property.title[0].plain_text;
+    curResult.key = value;
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  return item.text.content;
+  return curResult;
 };
