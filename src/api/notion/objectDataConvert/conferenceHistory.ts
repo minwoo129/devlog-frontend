@@ -4,7 +4,14 @@ import {
   convertConferenceHistoryDataFuncType,
   flatConferenceHistoryPropertiesArgs,
 } from "./types";
-import { extractRichText } from "../extractFromObject/page";
+import {
+  extractCheckbox,
+  extractDate,
+  extractMultiSelect,
+  extractRichText,
+  extractTitle,
+  extractURL,
+} from "../extractFromObject";
 
 const dataKeys: (keyof ConferenceHistory)[] = [
   "id",
@@ -53,7 +60,7 @@ const flatPropertiesData = (args: flatConferenceHistoryPropertiesArgs) => {
   const property = properties[key];
 
   if (property.type === "rich_text") {
-    const value = extractRichText(property);
+    const value = extractRichText({ property });
     if (key === "title") {
       curResult.title = value;
     } else if (key === "description") {
@@ -62,7 +69,7 @@ const flatPropertiesData = (args: flatConferenceHistoryPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "title") {
-    const value = property.title[0].plain_text;
+    const value = extractTitle({ property });
     if (key === "id") {
       curResult.id = value;
     }
@@ -75,22 +82,26 @@ const flatPropertiesData = (args: flatConferenceHistoryPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "date") {
-    const value = property.date?.start ?? "2000-01-01";
+    const value = extractDate({
+      property,
+      type: "date",
+      defaultDate: "2020-01-01",
+    });
     curResult.openedAt = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "multi_select") {
-    const value = property.multi_select.map((item) => item.name);
+    const value = extractMultiSelect({ property });
     curResult.keyTags = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "url") {
-    const value = property.url;
+    const value = extractURL({ property });
     curResult.conferenceURL = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
-    const value = property.checkbox;
+    const value = extractCheckbox({ property });
     curResult.visible = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }

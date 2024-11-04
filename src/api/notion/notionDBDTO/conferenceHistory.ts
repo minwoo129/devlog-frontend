@@ -4,7 +4,7 @@ export type ConferenceHistory = {
   description: string;
   openedAt: string;
   keyTags: string[];
-  conferenceURL: string | null;
+  conferenceURL: string;
   conferenceType: string;
   visible: boolean;
 };

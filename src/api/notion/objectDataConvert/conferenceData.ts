@@ -4,7 +4,12 @@ import {
   convertConferenceDataFuncType,
   flatConferenceDataPropertiesArgs,
 } from "./types";
-import { extractRichText } from "../extractFromObject/page";
+import {
+  extractCheckbox,
+  extractRichText,
+  extractSelect,
+  extractTitle,
+} from "../extractFromObject";
 
 const dataKeys: (keyof ConferenceData)[] = [
   "key",
@@ -49,7 +54,7 @@ const flatPropertiesData = (args: flatConferenceDataPropertiesArgs) => {
   const property = properties[key];
 
   if (property.type === "rich_text") {
-    const value = extractRichText(property);
+    const value = extractRichText({ property });
     if (key === "href") {
       curResult.href = value;
       const [_, __, upperCategory] = value.split("/");
@@ -62,7 +67,7 @@ const flatPropertiesData = (args: flatConferenceDataPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "select") {
-    const oriValue = property.select?.name ?? "none";
+    const oriValue = extractSelect({ property, defaultValue: "none" });
     if (oriValue === "none") {
       curResult.introduceIcon = "none";
     } else if (oriValue === "개최임박") {
@@ -73,14 +78,14 @@ const flatPropertiesData = (args: flatConferenceDataPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
-    const value = property.checkbox;
+    const value = extractCheckbox({ property });
     if (key === "visible") {
       curResult.visible = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "title") {
-    const value = property.title[0].plain_text;
+    const value = extractTitle({ property });
     curResult.key = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }

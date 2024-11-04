@@ -4,8 +4,13 @@ import {
   convertLectureDataFuncType,
   flatLectureDataPropertiesArgs,
 } from "./types";
-import { extractRichText } from "../extractFromObject/page";
-import dayjs from "dayjs";
+import {
+  extractCheckbox,
+  extractDate,
+  extractRichText,
+  extractTitle,
+  extractURL,
+} from "../extractFromObject";
 
 const dataKeys: (keyof LectureData)[] = [
   "id",
@@ -57,7 +62,7 @@ const flatPropertiesData = (args: flatLectureDataPropertiesArgs) => {
   const property = properties[key];
 
   if (property.type === "rich_text") {
-    const value = extractRichText(property);
+    const value = extractRichText({ property });
     if (key === "href") {
       curResult.href = value;
     } else if (key === "title") {
@@ -70,30 +75,28 @@ const flatPropertiesData = (args: flatLectureDataPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
-    const value = property.checkbox;
+    const value = extractCheckbox({ property });
     if (key === "visible") {
       curResult.visible = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "url") {
-    const value = property.url;
+    const value = extractURL({ property });
     if (key === "originalLectureURL") {
       curResult.originalLectureURL = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "date") {
-    const value = dayjs(property.date?.start ?? "").format(
-      "YYYY-MM-DDTHH:mm:ss"
-    );
+    const value = extractDate({ property, type: "dateTime" });
     if (key === "createdAt") {
       curResult.createdAt = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "title") {
-    const value = property.title[0].plain_text;
+    const value = extractTitle({ property });
     if (key === "id") {
       curResult.id = value;
     }

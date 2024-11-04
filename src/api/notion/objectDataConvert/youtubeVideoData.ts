@@ -4,8 +4,14 @@ import {
   convertYoutubeVideoDataFuncType,
   flatYoutubeVideoDataPropertiesArgs,
 } from "./types";
-import { extractRichText } from "../extractFromObject/page";
-import dayjs from "dayjs";
+import {
+  extractCheckbox,
+  extractDate,
+  extractRichText,
+  extractSelect,
+  extractTitle,
+  extractURL,
+} from "../extractFromObject";
 
 const dataKeys: (keyof YoutubeVideoData)[] = [
   "youtubeVideoId",
@@ -62,7 +68,7 @@ const flatPropertiesData = (args: flatYoutubeVideoDataPropertiesArgs) => {
   const property = properties[key];
 
   if (property.type === "rich_text") {
-    const value = extractRichText(property);
+    const value = extractRichText({ property });
     if (key === "title") {
       curResult.title = value;
     } else if (key === "description") {
@@ -71,30 +77,28 @@ const flatPropertiesData = (args: flatYoutubeVideoDataPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
-    const value = property.checkbox;
+    const value = extractCheckbox({ property });
     if (key === "visible") {
       curResult.visible = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "select") {
-    const value = property.select?.name ?? "uploaded";
+    const value = extractSelect({ property, defaultValue: "uploaded" });
     if (key === "videoType") {
       curResult.videoType = value === "uploaded" ? "uploaded" : "live";
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "date") {
-    const value = dayjs(property.date?.start ?? "").format(
-      "YYYY-MM-DDTHH:mm:ss"
-    );
+    const value = extractDate({ property, type: "dateTime" });
     if (key === "publishedAt") {
       curResult.publishedAt = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "url") {
-    const value = property.url ?? "";
+    const value = extractURL({ property });
     if (key === "accessURL") {
       curResult.accessURL = value;
     } else if (key === "thumbnailURL") {
@@ -105,7 +109,7 @@ const flatPropertiesData = (args: flatYoutubeVideoDataPropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "title") {
-    const value = property.title[0].plain_text;
+    const value = extractTitle({ property });
     if (key === "youtubeVideoId") {
       curResult.youtubeVideoId = value;
     }

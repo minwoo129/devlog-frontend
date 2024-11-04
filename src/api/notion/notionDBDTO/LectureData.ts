@@ -3,7 +3,7 @@ export type LectureData = {
   title: string;
   description: string;
   conferenceType: string;
-  originalLectureURL: string | null;
+  originalLectureURL: string;
   createdAt: string;
   videoId: string;
   href: string;

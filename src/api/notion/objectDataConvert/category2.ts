@@ -4,7 +4,11 @@ import {
   convertCategory2DataFuncType,
   flatCategory2PropertiesArgs,
 } from "./types";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  extractCheckbox,
+  extractRichText,
+  extractTitle,
+} from "../extractFromObject";
 
 const dataKeys: (keyof Category2)[] = [
   "key",
@@ -46,7 +50,7 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
   const property = properties[key];
 
   if (property.type === "rich_text") {
-    const value = extractRichText(property);
+    const value = extractRichText({ property });
     if (key === "href") {
       curResult.href = value;
       if (value.indexOf("/devlog") !== -1) {
@@ -62,29 +66,16 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "title") {
-    const value = property.title[0].plain_text;
+    const value = extractTitle({ property });
     curResult.key = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
-    const value = property.checkbox;
+    const value = extractCheckbox({ property });
     if (key === "visible") {
       curResult.visible = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   return curResult;
-};
-
-const extractRichText = (
-  property: Extract<
-    PageObjectResponse["properties"][string],
-    { type: "rich_text" }
-  >
-) => {
-  const item = property.rich_text[0];
-  if (item.type !== "text") {
-    return "";
-  }
-  return item.text.content;
 };
