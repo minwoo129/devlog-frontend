@@ -5,6 +5,7 @@ import {
   getNotionCategory2DataFuncType,
   getNotionConferenceDataFuncType,
   getNotionConferenceHistoryDataFuncType,
+  getNotionLectureDataFuncType,
   NotionDatabaseNames,
 } from "./types";
 import { NotionAPIInfo } from "@/config";
@@ -13,6 +14,7 @@ import {
   convertCategory2Data,
   convertConferenceData,
   convertConferenceHistoryData,
+  convertLectureData,
 } from "./objectDataConvert";
 
 const notion = new Client({
@@ -108,3 +110,19 @@ export const getNotionConferenceHistoryData: getNotionConferenceHistoryDataFuncT
       throw e;
     }
   };
+
+export const getNotionLectureData: getNotionLectureDataFuncType = async (
+  args
+) => {
+  const { databaseName } = args;
+  const { databaseId } = getDBInfo(databaseName);
+  try {
+    const result = await notion.databases.query({
+      database_id: databaseId,
+      page_size: 100,
+    });
+    return convertLectureData({ result });
+  } catch (e) {
+    throw e;
+  }
+};

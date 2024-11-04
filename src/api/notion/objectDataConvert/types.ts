@@ -6,6 +6,7 @@ import { Category1 } from "../notionDBDTO/category1";
 import { Category2 } from "../notionDBDTO/category2";
 import { ConferenceData } from "../notionDBDTO/conferenceData";
 import { ConferenceHistory } from "../notionDBDTO/conferenceHistory";
+import { LectureData } from "../notionDBDTO/LectureData";
 
 type convertDataCommonArgs<A, T> = (args: A) => T;
 
@@ -82,5 +83,23 @@ export interface convertConferenceHistoryDataExtendArgs {}
 export type flatConferenceHistoryPropertiesArgs = {
   properties: PageObjectResponse["properties"];
   curResult: ConferenceHistory;
+  idx: number;
+};
+
+// ======================================= LectureData =======================================
+export type convertLectureDataFuncType = convertDataCommonArgs<
+  convertLectureDataArgs,
+  LectureData[]
+>;
+
+export interface convertLectureDataArgs extends convertLectureDataExtendArgs {
+  result: QueryDatabaseResponse;
+}
+
+export interface convertLectureDataExtendArgs {}
+
+export type flatLectureDataPropertiesArgs = {
+  properties: PageObjectResponse["properties"];
+  curResult: LectureData;
   idx: number;
 };
