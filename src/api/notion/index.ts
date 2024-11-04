@@ -6,6 +6,7 @@ import {
   getNotionConferenceDataFuncType,
   getNotionConferenceHistoryDataFuncType,
   getNotionLectureDataFuncType,
+  getNotionYoutubeVideoDataFuncType,
   NotionDatabaseNames,
 } from "./types";
 import { NotionAPIInfo } from "@/config";
@@ -15,6 +16,7 @@ import {
   convertConferenceData,
   convertConferenceHistoryData,
   convertLectureData,
+  convertYoutubeVideoData,
 } from "./objectDataConvert";
 
 const notion = new Client({
@@ -126,3 +128,18 @@ export const getNotionLectureData: getNotionLectureDataFuncType = async (
     throw e;
   }
 };
+
+export const getNotionYoutubeVideoData: getNotionYoutubeVideoDataFuncType =
+  async (args) => {
+    const { databaseName } = args;
+    const { databaseId } = getDBInfo(databaseName);
+    try {
+      const result = await notion.databases.query({
+        database_id: databaseId,
+        page_size: 100,
+      });
+      return convertYoutubeVideoData({ result });
+    } catch (e) {
+      throw e;
+    }
+  };

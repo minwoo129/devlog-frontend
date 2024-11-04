@@ -3,12 +3,14 @@ import { Category2 } from "./notionDBDTO/category2";
 import { ConferenceData } from "./notionDBDTO/conferenceData";
 import { ConferenceHistory } from "./notionDBDTO/conferenceHistory";
 import { LectureData } from "./notionDBDTO/LectureData";
+import { YoutubeVideoData } from "./notionDBDTO/youtubeVideoData";
 import {
   convertCategory1DataExtendArgs,
   convertCategory2DataExtendArgs,
   convertConferenceDataExtendArgs,
   convertConferenceHistoryDataExtendArgs,
   convertLectureDataExtendArgs,
+  convertYoutubeVideoDataExtendArgs,
 } from "./objectDataConvert/types";
 
 export type NotionDatabaseNames =
@@ -67,7 +69,8 @@ export interface getNotionLectureDataArgs
     convertLectureDataExtendArgs {}
 
 export interface getNotionYoutubeVideoDataArgs
-  extends getNotionDBDatasCommonArgs<"YoutubeVideoData"> {}
+  extends getNotionDBDatasCommonArgs<"YoutubeVideoData">,
+    convertYoutubeVideoDataExtendArgs {}
 
 // ============================================================
 type getNotionDataByDBCommonFuncType<A, T> = (args: A) => Promise<T>;
@@ -99,4 +102,9 @@ export type getNotionConferenceHistoryDataFuncType =
 export type getNotionLectureDataFuncType = getNotionDataByDBCommonFuncType<
   getNotionLectureDataArgs,
   LectureData[]
+>;
+
+export type getNotionYoutubeVideoDataFuncType = getNotionDataByDBCommonFuncType<
+  getNotionYoutubeVideoDataArgs,
+  YoutubeVideoData[]
 >;

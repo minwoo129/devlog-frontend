@@ -7,6 +7,7 @@ import { Category2 } from "../notionDBDTO/category2";
 import { ConferenceData } from "../notionDBDTO/conferenceData";
 import { ConferenceHistory } from "../notionDBDTO/conferenceHistory";
 import { LectureData } from "../notionDBDTO/LectureData";
+import { YoutubeVideoData } from "../notionDBDTO/youtubeVideoData";
 
 type convertDataCommonArgs<A, T> = (args: A) => T;
 
@@ -101,5 +102,24 @@ export interface convertLectureDataExtendArgs {}
 export type flatLectureDataPropertiesArgs = {
   properties: PageObjectResponse["properties"];
   curResult: LectureData;
+  idx: number;
+};
+
+// ======================================= YoutubeVideoData =======================================
+export type convertYoutubeVideoDataFuncType = convertDataCommonArgs<
+  convertYoutubeVideoDataArgs,
+  YoutubeVideoData[]
+>;
+
+export interface convertYoutubeVideoDataArgs
+  extends convertYoutubeVideoDataExtendArgs {
+  result: QueryDatabaseResponse;
+}
+
+export interface convertYoutubeVideoDataExtendArgs {}
+
+export type flatYoutubeVideoDataPropertiesArgs = {
+  properties: PageObjectResponse["properties"];
+  curResult: YoutubeVideoData;
   idx: number;
 };
