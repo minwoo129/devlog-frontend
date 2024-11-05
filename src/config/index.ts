@@ -96,3 +96,8 @@ export const NotionAPIInfo: NotionAPIInfoType = {
     },
   },
 };
+
+export const GithubAPIInfo = {
+  /** Github API 키 */
+  APIKey: process.env.NEXT_PUBLIC_GITHUB_AUTH_TOKEN,
+};
