@@ -7,19 +7,26 @@ import {
 import {
   extractCheckbox,
   extractDate,
+  extractMultiSelect,
+  extractNumber,
   extractRichText,
   extractTitle,
+  extractUniqueId,
   extractURL,
 } from "../extractFromObject";
 
 const dataKeys: (keyof LectureData)[] = [
-  "id",
+  "lectureId",
+  "key",
   "title",
   "description",
+  "conferenceId",
+  "upperConferenceId",
   "originalLectureURL",
   "createdAt",
   "videoId",
   "href",
+  "keyTags",
   "visible",
 ];
 
@@ -33,15 +40,16 @@ export const convertLectureData: convertLectureDataFuncType = (args) => {
     if (!isFullPage(resultItem)) continue;
     const { properties } = resultItem;
     let result: LectureData = {
-      id: "",
+      lectureId: -1,
+      key: "",
       title: "",
       description: "",
-      conferenceType: "",
+      conferenceId: -1,
+      upperConferenceId: -1,
       originalLectureURL: "",
       createdAt: "",
       videoId: "",
       href: "",
-      conferenceId: "",
       visible: false,
     };
     result = flatPropertiesData({ properties, curResult: result, idx: 0 });
@@ -71,6 +79,8 @@ const flatPropertiesData = (args: flatLectureDataPropertiesArgs) => {
       curResult.videoId = value;
     } else if (key === "description") {
       curResult.description = value;
+    } else if (key === "key") {
+      curResult.key = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
@@ -95,21 +105,27 @@ const flatPropertiesData = (args: flatLectureDataPropertiesArgs) => {
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  if (property.type === "title") {
-    const value = extractTitle({ property });
-    if (key === "id") {
-      curResult.id = value;
+  if (property.type === "unique_id") {
+    const value = extractUniqueId({ property, defaultValue: -1 });
+    curResult.lectureId = value;
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "number") {
+    const value = extractNumber({ property, defaultValue: -1 });
+    if (key === "conferenceId") {
+      curResult.conferenceId = value;
+    } else if (key === "upperConferenceId") {
+      curResult.upperConferenceId = value;
     }
-    const [_, year, publisher, id] = value.split("_");
-    let conferenceType = "";
-    let conferenceId = `ch_${year}_${publisher}`;
-    if (publisher === "google") {
-      conferenceType = "google-io";
-    } else {
-      conferenceType = "toss-slash";
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "multi_select") {
+    const value = extractMultiSelect({ property });
+    if (key === "keyTags") {
+      if (value.length > 0) {
+        curResult.keyTags = value;
+      }
     }
-    curResult.conferenceType = conferenceType;
-    curResult.conferenceId = conferenceId;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
 

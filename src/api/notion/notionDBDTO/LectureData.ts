@@ -1,12 +1,14 @@
 export type LectureData = {
-  id: string;
+  lectureId: number;
+  key: string;
   title: string;
   description: string;
-  conferenceType: string;
+  conferenceId: number;
+  upperConferenceId: number;
   originalLectureURL: string;
   createdAt: string;
   videoId: string;
   href: string;
-  conferenceId: string;
+  keyTags?: string[];
   visible: boolean;
 };
