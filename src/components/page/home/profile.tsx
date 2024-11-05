@@ -5,14 +5,12 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Title from "@/components/common/title";
 import { useEffect } from "react";
 import { getGithubUserData } from "@/api";
-import { getNotionDatabaseData } from "@/api/notion";
 
 export const dynamic = "force-dynamic";
 
 export default function Profile(args: ProfileProps) {
   useEffect(() => {
     //_getGithubUserData();
-    //_getNotionDatabaseData();
   }, []);
   const _getGithubUserData = async () => {
     try {

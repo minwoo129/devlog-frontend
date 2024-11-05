@@ -1,144 +1,237 @@
-import { Client } from "@notionhq/client";
 import {
   getNotionCategory1DataArgs,
   getNotionCategory1DataFuncType,
   getNotionCategory2DataFuncType,
   getNotionConferenceDataFuncType,
   getNotionConferenceHistoryDataFuncType,
+  getNotionDBDataSort,
   getNotionLectureDataFuncType,
   getNotionYoutubeVideoDataFuncType,
-  NotionDatabaseNames,
 } from "./types";
-import { NotionAPIInfo } from "@/config";
-import {
-  convertCategory1Data,
-  convertCategory2Data,
-  convertConferenceData,
-  convertConferenceHistoryData,
-  convertLectureData,
-  convertYoutubeVideoData,
-} from "./objectDataConvert";
+import { convertDBData } from "./objectDataConvert";
+import { requestNotionAPI } from "./requestNotionAPI";
+import { Category1 } from "./notionDBDTO/category1";
+import { Category2 } from "./notionDBDTO/category2";
+import { ConferenceData } from "./notionDBDTO/conferenceData";
+import { ConferenceHistory } from "./notionDBDTO/conferenceHistory";
+import { YoutubeVideoData } from "./notionDBDTO/youtubeVideoData";
 
-const notion = new Client({
-  auth: process.env.NEXT_PUBLIC_NOTION_API_KEY,
-});
-
-export const getNotionDatabaseData = async (
-  databaseName: NotionDatabaseNames
-) => {
-  const { databaseId } = NotionAPIInfo.databases[databaseName];
-  try {
-    const result = await notion.databases.query({
-      database_id: databaseId,
-      page_size: 100,
-    });
-    return result;
-  } catch (e) {
-    throw e;
-  }
-};
-
-const getDBInfo = (databaseName: NotionDatabaseNames) => {
-  return NotionAPIInfo.databases[databaseName];
-};
-
-/* export const getNotionDBDatas: getNotionDBDatasFuncType = (args) => {
-  const { databaseName } = args;
-  const {} = args
-  if(databaseName === 'Category1') 
-    return getNotionCategory1Data(args)
-  return getNotionCategory2Data(args);
-}; */
-
-export const getNotionCategory1Data: getNotionCategory1DataFuncType = async (
+export const getNotionDBCategory1Table: getNotionCategory1DataFuncType = async (
   args: getNotionCategory1DataArgs
 ) => {
-  const { databaseName } = args;
-  const { databaseId } = getDBInfo(databaseName);
+  const { sorts = [] } = args;
+
+  const _sorts: getNotionDBDataSort[] = [
+    {
+      property: "categoryId",
+      direction: "ascending",
+    },
+    ...sorts,
+  ];
   try {
-    const result = await notion.databases.query({
-      database_id: databaseId,
-      page_size: 100,
+    const result = await requestNotionAPI({
+      type: "database",
+      databaseName: "Category1",
+      sorts: _sorts,
     });
-    return convertCategory1Data({ result });
+
+    return convertDBData<Category1>({
+      result,
+      initResult: {
+        categoryId: -1,
+        href: "",
+        key: "",
+        title: "",
+        visible: false,
+      },
+    });
   } catch (e) {
     throw e;
   }
 };
 
-export const getNotionCategory2Data: getNotionCategory2DataFuncType = async (
+export const getNotionDBCategory2Table: getNotionCategory2DataFuncType = async (
   args
 ) => {
-  const { databaseName } = args;
-  const { databaseId } = getDBInfo(databaseName);
+  const { sorts = [] } = args;
+
+  const _sorts: getNotionDBDataSort[] = [
+    {
+      property: "categoryId",
+      direction: "ascending",
+    },
+    ...sorts,
+  ];
   try {
-    const result = await notion.databases.query({
-      database_id: databaseId,
-      page_size: 100,
+    const result = await requestNotionAPI({
+      type: "database",
+      databaseName: "Category2",
+      sorts: _sorts,
     });
-    return convertCategory2Data({ result });
+    return convertDBData<Category2>({
+      result,
+      initResult: {
+        categoryId: -1,
+        key: "",
+        title: "",
+        description: "",
+        href: "",
+        upperCategoryId: -1,
+        visible: false,
+      },
+    });
   } catch (e) {
     throw e;
   }
 };
 
-export const getNotionConferenceData: getNotionConferenceDataFuncType = async (
-  args
-) => {
-  const { databaseName } = args;
-  const { databaseId } = getDBInfo(databaseName);
-  try {
-    const result = await notion.databases.query({
-      database_id: databaseId,
-      page_size: 100,
-    });
-    return convertConferenceData({ result });
-  } catch (e) {
-    throw e;
-  }
-};
-
-export const getNotionConferenceHistoryData: getNotionConferenceHistoryDataFuncType =
+export const getNotionDBConferenceDataTable: getNotionConferenceDataFuncType =
   async (args) => {
-    const { databaseName } = args;
-    const { databaseId } = getDBInfo(databaseName);
+    const { sorts = [] } = args;
+
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "conferenceId",
+        direction: "ascending",
+      },
+      ...sorts,
+    ];
     try {
-      const result = await notion.databases.query({
-        database_id: databaseId,
-        page_size: 100,
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "ConferenceData",
+        sorts: _sorts,
       });
-      return convertConferenceHistoryData({ result });
+      return convertDBData<ConferenceData>({
+        result,
+        initResult: {
+          conferenceId: -1,
+          key: "",
+          title: "",
+          description: "",
+          href: "",
+          publisher: "",
+          introduceIcon: "none",
+          upperCategoryId: -1,
+          visible: false,
+        },
+      });
     } catch (e) {
       throw e;
     }
   };
 
-export const getNotionLectureData: getNotionLectureDataFuncType = async (
+export const getNotionDBConferenceHistoryTable: getNotionConferenceHistoryDataFuncType =
+  async (args) => {
+    const { sorts = [] } = args;
+
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "conferenceId",
+        direction: "ascending",
+      },
+      ...sorts,
+    ];
+
+    try {
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "ConferenceHistory",
+        sorts: _sorts,
+      });
+      return convertDBData<ConferenceHistory>({
+        result,
+        initResult: {
+          conferenceId: -1,
+          key: "",
+          title: "",
+          description: "",
+          openedAt: "",
+          keyTags: [],
+          conferenceURL: "",
+          conferenceType: "",
+          visible: false,
+          upperConferenceId: -1,
+        },
+      });
+    } catch (e) {
+      throw e;
+    }
+  };
+
+export const getNotionDBLectureDataTable: getNotionLectureDataFuncType = async (
   args
 ) => {
-  const { databaseName } = args;
-  const { databaseId } = getDBInfo(databaseName);
+  const { sorts = [] } = args;
+
+  const _sorts: getNotionDBDataSort[] = [
+    {
+      property: "lectureId",
+      direction: "ascending",
+    },
+    ...sorts,
+  ];
   try {
-    const result = await notion.databases.query({
-      database_id: databaseId,
-      page_size: 100,
+    const result = await requestNotionAPI({
+      type: "database",
+      databaseName: "LectureData",
+      sorts: _sorts,
     });
-    return convertLectureData({ result });
+    return convertDBData({
+      result,
+      initResult: {
+        lectureId: -1,
+        key: "",
+        title: "",
+        description: "",
+        conferenceId: -1,
+        upperConferenceId: -1,
+        originalLectureURL: "",
+        createdAt: "",
+        videoId: "",
+        href: "",
+        keyTags: [],
+        visible: false,
+      },
+    });
   } catch (e) {
     throw e;
   }
 };
 
-export const getNotionYoutubeVideoData: getNotionYoutubeVideoDataFuncType =
+export const getNotionDBYoutubeVideoDataTable: getNotionYoutubeVideoDataFuncType =
   async (args) => {
-    const { databaseName } = args;
-    const { databaseId } = getDBInfo(databaseName);
+    const { sorts = [] } = args;
+
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "id",
+        direction: "ascending",
+      },
+      ...sorts,
+    ];
+
     try {
-      const result = await notion.databases.query({
-        database_id: databaseId,
-        page_size: 100,
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "YoutubeVideoData",
+        sorts: _sorts,
       });
-      return convertYoutubeVideoData({ result });
+      return convertDBData<YoutubeVideoData>({
+        result,
+        initResult: {
+          id: -1,
+          youtubeVideoId: "",
+          title: "",
+          description: "",
+          thumbnailURL: "",
+          embedURL: "",
+          publishedAt: "",
+          accessURL: "",
+          videoType: "uploaded",
+          visible: false,
+        },
+      });
     } catch (e) {
       throw e;
     }

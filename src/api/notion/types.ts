@@ -36,6 +36,13 @@ export type NotionDatabaseInfoType = {
 };
 
 // ============================================================
+export type requestNotionApiArgs = {
+  type: "database";
+  databaseName: NotionDatabaseNames;
+  sorts: getNotionDBDataSort[];
+  pageSize?: number;
+};
+// ============================================================
 export type getNotionDBDatasArgs =
   | getNotionCategory1DataArgs
   | getNotionCategory2DataArgs
@@ -44,32 +51,39 @@ export type getNotionDBDatasArgs =
   | getNotionLectureDataArgs
   | getNotionYoutubeVideoDataArgs;
 
-interface getNotionDBDatasCommonArgs<N = NotionDatabaseNames> {
-  databaseName: N;
+interface getNotionDBDatasCommonArgs {
+  sorts?: getNotionDBDataSort[];
 }
 
+export type getNotionDBDataSort =
+  | { property: string; direction: "ascending" | "descending" }
+  | {
+      timestamp: "created_time" | "last_edited_time";
+      direction: "ascending" | "descending";
+    };
+
 export interface getNotionCategory1DataArgs
-  extends getNotionDBDatasCommonArgs<"Category1">,
+  extends getNotionDBDatasCommonArgs,
     convertCategory1DataExtendArgs {}
 
 export interface getNotionCategory2DataArgs
-  extends getNotionDBDatasCommonArgs<"Category2">,
+  extends getNotionDBDatasCommonArgs,
     convertCategory2DataExtendArgs {}
 
 export interface getNotionConferenceDataArgs
-  extends getNotionDBDatasCommonArgs<"ConferenceData">,
+  extends getNotionDBDatasCommonArgs,
     convertConferenceDataExtendArgs {}
 
 export interface getNotionConferenceHistoryDataArgs
-  extends getNotionDBDatasCommonArgs<"ConferenceHistory">,
+  extends getNotionDBDatasCommonArgs,
     convertConferenceHistoryDataExtendArgs {}
 
 export interface getNotionLectureDataArgs
-  extends getNotionDBDatasCommonArgs<"LectureData">,
+  extends getNotionDBDatasCommonArgs,
     convertLectureDataExtendArgs {}
 
 export interface getNotionYoutubeVideoDataArgs
-  extends getNotionDBDatasCommonArgs<"YoutubeVideoData">,
+  extends getNotionDBDatasCommonArgs,
     convertYoutubeVideoDataExtendArgs {}
 
 // ============================================================

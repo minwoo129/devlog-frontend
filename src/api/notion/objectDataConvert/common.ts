@@ -1,5 +1,4 @@
 import { isFullPage } from "@notionhq/client";
-import { convertDBDataArgs, flatPropertiesArgs } from "./types";
 import {
   extractCheckbox,
   extractDate,
@@ -11,15 +10,9 @@ import {
   extractUniqueId,
   extractURL,
 } from "../extractFromObject";
+import { convertDBDataArgs, flatPropertiesArgs } from "./types";
 
-export { convertCategory1Data } from "./category1";
-export { convertCategory2Data } from "./category2";
-export { convertConferenceData } from "./conferenceData";
-export { convertConferenceHistoryData } from "./conferenceHistory";
-export { convertLectureData } from "./LectureData";
-export { convertYoutubeVideoData } from "./youtubeVideoData";
-
-export const convertDBData = <T>(args: convertDBDataArgs<T>) => {
+const convertDBData = <T>(args: convertDBDataArgs<T>) => {
   const {
     result: { results },
     initResult,

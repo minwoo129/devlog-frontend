@@ -10,6 +10,20 @@ import { LectureData } from "../notionDBDTO/LectureData";
 import { YoutubeVideoData } from "../notionDBDTO/youtubeVideoData";
 
 type convertDataCommonArgs<A, T> = (args: A) => T;
+// ======================================= Common =======================================
+export type convertDBDataArgs<T> = {
+  result: QueryDatabaseResponse;
+  initResult: T;
+};
+
+export type flatPropertiesArgs<T> = {
+  properties: PageObjectResponse["properties"];
+  curResult: T;
+  idx: number;
+  defaultItemValues?: {
+    [key in keyof T]?: T[keyof T];
+  };
+};
 
 // ======================================= Category1 =======================================
 export type convertCategory1DataFuncType = convertDataCommonArgs<

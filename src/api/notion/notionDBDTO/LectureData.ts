@@ -9,6 +9,6 @@ export type LectureData = {
   createdAt: string;
   videoId: string;
   href: string;
-  keyTags?: string[];
+  keyTags: string[];
   visible: boolean;
 };
