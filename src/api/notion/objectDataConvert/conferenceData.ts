@@ -6,18 +6,23 @@ import {
 } from "./types";
 import {
   extractCheckbox,
+  extractNumber,
   extractRichText,
   extractSelect,
   extractTitle,
+  extractUniqueId,
 } from "../extractFromObject";
 
 const dataKeys: (keyof ConferenceData)[] = [
+  "conferenceId",
   "key",
   "title",
   "description",
+  "publisher",
   "href",
   "introduceIcon",
   "visible",
+  "upperCategoryId",
 ];
 
 export const convertConferenceData: convertConferenceDataFuncType = (args) => {
@@ -28,13 +33,14 @@ export const convertConferenceData: convertConferenceDataFuncType = (args) => {
     if (!isFullPage(resultItem)) continue;
     const { properties } = resultItem;
     let result: ConferenceData = {
+      conferenceId: -1,
       key: "",
       title: "",
       description: "",
       href: "",
       publisher: "",
       introduceIcon: "none",
-      upperCategory: "",
+      upperCategoryId: -1,
       visible: false,
     };
     result = flatPropertiesData({ properties, curResult: result, idx: 0 });
@@ -57,12 +63,14 @@ const flatPropertiesData = (args: flatConferenceDataPropertiesArgs) => {
     const value = extractRichText({ property });
     if (key === "href") {
       curResult.href = value;
-      const [_, __, upperCategory] = value.split("/");
-      curResult.upperCategory = upperCategory;
     } else if (key === "title") {
       curResult.title = value;
     } else if (key === "description") {
       curResult.description = value;
+    } else if (key === "key") {
+      curResult.key = value;
+    } else if (key === "publisher") {
+      curResult.publisher = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
@@ -84,9 +92,18 @@ const flatPropertiesData = (args: flatConferenceDataPropertiesArgs) => {
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  if (property.type === "title") {
-    const value = extractTitle({ property });
-    curResult.key = value;
+  if (property.type === "number") {
+    const value = extractNumber({ property, defaultValue: -1 });
+    if (key === "upperCategoryId") {
+      curResult.upperCategoryId = value;
+    }
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "unique_id") {
+    const value = extractUniqueId({ property, defaultValue: -1 });
+    if (key === "conferenceId") {
+      curResult.conferenceId = value;
+    }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   return curResult;

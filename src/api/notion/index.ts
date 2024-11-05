@@ -55,7 +55,6 @@ export const getNotionCategory1Data: getNotionCategory1DataFuncType = async (
 ) => {
   const { databaseName } = args;
   const { databaseId } = getDBInfo(databaseName);
-  console.log("databaseId:", databaseId);
   try {
     const result = await notion.databases.query({
       database_id: databaseId,
@@ -72,7 +71,6 @@ export const getNotionCategory2Data: getNotionCategory2DataFuncType = async (
 ) => {
   const { databaseName } = args;
   const { databaseId } = getDBInfo(databaseName);
-  console.log("databaseId:", databaseId);
   try {
     const result = await notion.databases.query({
       database_id: databaseId,
