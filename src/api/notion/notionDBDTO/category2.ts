@@ -1,8 +1,9 @@
 export type Category2 = {
+  categoryId: number;
   key: string;
   title: string;
   description: string;
   href: string;
-  upperCategory: string;
+  upperCategoryId: number;
   visible: boolean;
 };

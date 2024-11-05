@@ -4,17 +4,13 @@ import {
   extractCheckboxArgs,
   extractDateArgs,
   extractMultiSelectArgs,
+  extractNumberArgs,
   extractRichTextArgs,
   extractSelectArgs,
   extractTitleArgs,
   extractUniqueIdArgs,
   extractURLArgs,
 } from "./types";
-
-type ExtractPropertyType<T> = Extract<
-  PageObjectResponse["properties"][string],
-  { type: T }
->;
 
 export const extractRichText = (args: extractRichTextArgs) => {
   const { property } = args;
@@ -69,4 +65,9 @@ export const extractUniqueIdForStr = (args: extractUniqueIdArgs) => {
     return `${number ?? defaultValue}`;
   }
   return `${prefix}-${number ?? defaultValue}`;
+};
+
+export const extractNumber = (args: extractNumberArgs) => {
+  const { property, defaultValue = 0 } = args;
+  return property.number ?? defaultValue;
 };

@@ -37,3 +37,7 @@ export interface extractUniqueIdArgs
   extends commonExtractFuncArgs<"unique_id"> {
   defaultValue?: number;
 }
+
+export interface extractNumberArgs extends commonExtractFuncArgs<"number"> {
+  defaultValue?: number;
+}

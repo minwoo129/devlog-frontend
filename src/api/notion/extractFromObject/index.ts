@@ -8,4 +8,5 @@ export {
   extractSelect,
   extractUniqueId,
   extractUniqueIdForStr,
+  extractNumber,
 } from "./page";

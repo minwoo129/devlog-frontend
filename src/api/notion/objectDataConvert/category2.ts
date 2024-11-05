@@ -6,16 +6,20 @@ import {
 } from "./types";
 import {
   extractCheckbox,
+  extractNumber,
   extractRichText,
   extractTitle,
+  extractUniqueId,
 } from "../extractFromObject";
 
 const dataKeys: (keyof Category2)[] = [
+  "categoryId",
   "key",
   "title",
   "description",
   "href",
   "visible",
+  "upperCategoryId",
 ];
 
 export const convertCategory2Data: convertCategory2DataFuncType = (args) => {
@@ -26,11 +30,12 @@ export const convertCategory2Data: convertCategory2DataFuncType = (args) => {
     if (!isFullPage(resultItem)) continue;
     const { properties } = resultItem;
     let result: Category2 = {
+      categoryId: 0,
       key: "",
       title: "",
       description: "",
       href: "",
-      upperCategory: "",
+      upperCategoryId: 0,
       visible: false,
     };
     result = flatPropertiesData({ properties, curResult: result, idx: 0 });
@@ -53,21 +58,13 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
     const value = extractRichText({ property });
     if (key === "href") {
       curResult.href = value;
-      if (value.indexOf("/devlog") !== -1) {
-        curResult.upperCategory = "devlog";
-      } else {
-        curResult.upperCategory = "conferencelog";
-      }
     } else if (key === "title") {
       curResult.title = value;
     } else if (key === "description") {
       curResult.description = value;
+    } else if (key === "key") {
+      curResult.key = value;
     }
-    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
-  }
-  if (property.type === "title") {
-    const value = extractTitle({ property });
-    curResult.key = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   if (property.type === "checkbox") {
@@ -75,6 +72,16 @@ const flatPropertiesData = (args: flatCategory2PropertiesArgs) => {
     if (key === "visible") {
       curResult.visible = value;
     }
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "number") {
+    const value = extractNumber({ property, defaultValue: -1 });
+    curResult.upperCategoryId = value;
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "unique_id") {
+    const value = extractUniqueId({ property });
+    curResult.categoryId = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   return curResult;
