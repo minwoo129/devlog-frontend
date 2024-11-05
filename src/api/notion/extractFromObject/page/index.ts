@@ -7,6 +7,7 @@ import {
   extractRichTextArgs,
   extractSelectArgs,
   extractTitleArgs,
+  extractUniqueIdArgs,
   extractURLArgs,
 } from "./types";
 
@@ -54,4 +55,16 @@ export const extractMultiSelect = (args: extractMultiSelectArgs) => {
 export const extractSelect = (args: extractSelectArgs) => {
   const { property, defaultValue = "" } = args;
   return property.select?.name ?? defaultValue;
+};
+
+export const extractUniqueId = (args: extractUniqueIdArgs) => {
+  const { property } = args;
+  return property.unique_id.number;
+};
+
+export const extractUniqueIdForStr = (args: extractUniqueIdArgs) => {
+  const { property } = args;
+  const { prefix, number } = property.unique_id;
+  if (!prefix) return `${number}`;
+  return `${prefix}-${number}`;
 };

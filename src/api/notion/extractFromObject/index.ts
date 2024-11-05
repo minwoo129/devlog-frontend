@@ -6,4 +6,6 @@ export {
   extractTitle,
   extractURL,
   extractSelect,
+  extractUniqueId,
+  extractUniqueIdForStr,
 } from "./page";
