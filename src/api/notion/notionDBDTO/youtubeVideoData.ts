@@ -1,4 +1,5 @@
 export type YoutubeVideoData = {
+  id: number;
   youtubeVideoId: string;
   title: string;
   description: string;

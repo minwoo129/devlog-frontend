@@ -10,10 +10,12 @@ import {
   extractRichText,
   extractSelect,
   extractTitle,
+  extractUniqueId,
   extractURL,
 } from "../extractFromObject";
 
 const dataKeys: (keyof YoutubeVideoData)[] = [
+  "id",
   "youtubeVideoId",
   "title",
   "description",
@@ -38,6 +40,7 @@ export const convertYoutubeVideoData: convertYoutubeVideoDataFuncType = (
     const { properties } = resultItem;
 
     let result: YoutubeVideoData = {
+      id: -1,
       youtubeVideoId: "",
       title: "",
       description: "",
@@ -73,6 +76,8 @@ const flatPropertiesData = (args: flatYoutubeVideoDataPropertiesArgs) => {
       curResult.title = value;
     } else if (key === "description") {
       curResult.description = value;
+    } else if (key === "youtubeVideoId") {
+      curResult.youtubeVideoId = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
@@ -108,11 +113,9 @@ const flatPropertiesData = (args: flatYoutubeVideoDataPropertiesArgs) => {
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  if (property.type === "title") {
-    const value = extractTitle({ property });
-    if (key === "youtubeVideoId") {
-      curResult.youtubeVideoId = value;
-    }
+  if (property.type === "unique_id") {
+    const value = extractUniqueId({ property, defaultValue: -1 });
+    curResult.id = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   return curResult;
