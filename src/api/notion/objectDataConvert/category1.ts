@@ -8,9 +8,16 @@ import {
   extractCheckbox,
   extractRichText,
   extractTitle,
+  extractUniqueId,
 } from "../extractFromObject";
 
-const dataKeys: (keyof Category1)[] = ["href", "key", "title", "visible"];
+const dataKeys: (keyof Category1)[] = [
+  "categoryId",
+  "href",
+  "key",
+  "title",
+  "visible",
+];
 
 export const convertCategory1Data: convertCategory1DataFuncType = (args) => {
   const { result } = args;
@@ -22,6 +29,7 @@ export const convertCategory1Data: convertCategory1DataFuncType = (args) => {
     const { properties } = resultItem;
 
     let result: Category1 = {
+      categoryId: 0,
       href: "",
       key: "",
       title: "",
@@ -43,9 +51,11 @@ const flatPropertiesData = (args: flatCategory1PropertiesArgs) => {
   }
   const key = dataKeys[idx];
   const property = properties[key];
-
   if (property.type === "rich_text") {
     const value = extractRichText({ property });
+    if (key === "key") {
+      curResult.key = value;
+    }
     if (key === "href") {
       curResult.href = value;
     } else if (key === "title") {
@@ -60,9 +70,9 @@ const flatPropertiesData = (args: flatCategory1PropertiesArgs) => {
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
-  if (property.type === "title") {
-    const value = extractTitle({ property });
-    curResult.key = value;
+  if (property.type === "unique_id") {
+    const value = extractUniqueId({ property });
+    curResult.categoryId = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
 

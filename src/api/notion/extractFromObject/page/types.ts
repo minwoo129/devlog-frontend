@@ -34,4 +34,6 @@ export interface extractSelectArgs extends commonExtractFuncArgs<"select"> {
 }
 
 export interface extractUniqueIdArgs
-  extends commonExtractFuncArgs<"unique_id"> {}
+  extends commonExtractFuncArgs<"unique_id"> {
+  defaultValue?: number;
+}

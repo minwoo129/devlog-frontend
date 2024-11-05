@@ -58,13 +58,15 @@ export const extractSelect = (args: extractSelectArgs) => {
 };
 
 export const extractUniqueId = (args: extractUniqueIdArgs) => {
-  const { property } = args;
-  return property.unique_id.number;
+  const { property, defaultValue = 0 } = args;
+  return property.unique_id.number ?? defaultValue;
 };
 
 export const extractUniqueIdForStr = (args: extractUniqueIdArgs) => {
-  const { property } = args;
+  const { property, defaultValue = 0 } = args;
   const { prefix, number } = property.unique_id;
-  if (!prefix) return `${number}`;
-  return `${prefix}-${number}`;
+  if (!prefix) {
+    return `${number ?? defaultValue}`;
+  }
+  return `${prefix}-${number ?? defaultValue}`;
 };
