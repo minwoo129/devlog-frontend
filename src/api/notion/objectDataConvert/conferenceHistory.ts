@@ -8,19 +8,24 @@ import {
   extractCheckbox,
   extractDate,
   extractMultiSelect,
+  extractNumber,
   extractRichText,
   extractTitle,
+  extractUniqueId,
   extractURL,
 } from "../extractFromObject";
 
 const dataKeys: (keyof ConferenceHistory)[] = [
-  "id",
+  "conferenceId",
+  "key",
   "title",
   "description",
   "openedAt",
   "keyTags",
   "conferenceURL",
   "visible",
+  "conferenceType",
+  "upperConferenceId",
 ];
 
 export const convertConferenceHistoryData: convertConferenceHistoryDataFuncType =
@@ -33,7 +38,8 @@ export const convertConferenceHistoryData: convertConferenceHistoryDataFuncType 
       const { properties } = resultItem;
 
       let result: ConferenceHistory = {
-        id: "",
+        conferenceId: -1,
+        key: "",
         title: "",
         description: "",
         openedAt: "",
@@ -41,6 +47,7 @@ export const convertConferenceHistoryData: convertConferenceHistoryDataFuncType 
         conferenceURL: "",
         conferenceType: "",
         visible: false,
+        upperConferenceId: -1,
       };
 
       result = flatPropertiesData({ properties, curResult: result, idx: 0 });
@@ -65,19 +72,10 @@ const flatPropertiesData = (args: flatConferenceHistoryPropertiesArgs) => {
       curResult.title = value;
     } else if (key === "description") {
       curResult.description = value;
-    }
-    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
-  }
-  if (property.type === "title") {
-    const value = extractTitle({ property });
-    if (key === "id") {
-      curResult.id = value;
-    }
-    const [_, __, conferenceTypeOri] = value.split("_");
-    if (conferenceTypeOri === "google") {
-      curResult.conferenceType = "google-io";
-    } else {
-      curResult.conferenceType = "toss-slash";
+    } else if (key === "conferenceType") {
+      curResult.conferenceType = value;
+    } else if (key === "key") {
+      curResult.key = value;
     }
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
@@ -103,6 +101,16 @@ const flatPropertiesData = (args: flatConferenceHistoryPropertiesArgs) => {
   if (property.type === "checkbox") {
     const value = extractCheckbox({ property });
     curResult.visible = value;
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "unique_id") {
+    const value = extractUniqueId({ property, defaultValue: -1 });
+    curResult.conferenceId = value;
+    return flatPropertiesData({ properties, curResult, idx: idx + 1 });
+  }
+  if (property.type === "number") {
+    const value = extractNumber({ property, defaultValue: -1 });
+    curResult.upperConferenceId = value;
     return flatPropertiesData({ properties, curResult, idx: idx + 1 });
   }
   return curResult;

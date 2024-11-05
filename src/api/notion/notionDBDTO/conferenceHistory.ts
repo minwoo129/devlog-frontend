@@ -1,10 +1,12 @@
 export type ConferenceHistory = {
-  id: string;
+  conferenceId: number;
+  key: string;
   title: string;
   description: string;
   openedAt: string;
   keyTags: string[];
   conferenceURL: string;
   conferenceType: string;
+  upperConferenceId: number;
   visible: boolean;
 };
