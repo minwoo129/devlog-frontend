@@ -1,6 +1,7 @@
 import { NotionAPIInfo } from "@/config";
-import { NotionDatabaseNames, requestNotionApiArgs } from "./types";
+import { requestNotionApiArgs } from "./types";
 import NotionAPI from "@/utils/NotionAPI";
+import { NotionDatabaseNames } from "./APIRequestFunctions/database/types";
 
 const getDBInfo = (databaseName: NotionDatabaseNames) => {
   return NotionAPIInfo.databases[databaseName];

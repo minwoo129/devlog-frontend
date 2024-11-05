@@ -12,13 +12,6 @@ import {
   extractURL,
 } from "../extractFromObject";
 
-export { convertCategory1Data } from "./category1";
-export { convertCategory2Data } from "./category2";
-export { convertConferenceData } from "./conferenceData";
-export { convertConferenceHistoryData } from "./conferenceHistory";
-export { convertLectureData } from "./LectureData";
-export { convertYoutubeVideoData } from "./youtubeVideoData";
-
 export const convertDBData = <T>(args: convertDBDataArgs<T>) => {
   const {
     result: { results },
@@ -31,14 +24,14 @@ export const convertDBData = <T>(args: convertDBDataArgs<T>) => {
     const { properties } = resultItem;
 
     let result = { ...initResult };
-    result = flatProperties<T>({ properties, curResult: result, idx: 0 });
+    result = flatProperties<T>({ properties, curResult: result });
     newDatas.push(result);
   }
   return newDatas;
 };
 
 const flatProperties = <T>(args: flatPropertiesArgs<T>) => {
-  const { properties, idx, defaultItemValues } = args;
+  const { properties, defaultItemValues } = args;
   let { curResult } = args;
 
   for (const key in curResult) {
