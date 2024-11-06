@@ -14,4 +14,5 @@ export type SVGImageName =
   | "GoogleIOLogo"
   | "TossLogo"
   | "VelogIcon"
-  | "GithubIcon";
+  | "GithubIcon"
+  | "GithubLockupDark";
