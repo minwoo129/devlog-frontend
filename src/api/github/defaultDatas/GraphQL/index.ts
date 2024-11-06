@@ -27,6 +27,7 @@ const USER = `query userInfo($username: String!) {
             nodes {
                 name
                 createdAt
+                updatedAt
                 languages(first: 2) {
                     edges {
                         node {

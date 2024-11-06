@@ -1,0 +1,16 @@
+import { User } from "@/api/github/dataObjects/VO/GraphQL";
+import dayjs from "dayjs";
+import { GithubUserContributionStatus } from "./types";
+
+export const extractContributionStatus = (data: User) => {
+  const { contributionsCollection } = data;
+  const { months, totalContributions, weeks } =
+    contributionsCollection.contributionCalendar;
+
+  const result: GithubUserContributionStatus = {
+    totalContributions,
+    weeks,
+  };
+
+  return result;
+};
