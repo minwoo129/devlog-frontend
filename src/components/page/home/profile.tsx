@@ -9,18 +9,6 @@ import { getGithubUserData } from "@/api";
 export const dynamic = "force-dynamic";
 
 export default function Profile(args: ProfileProps) {
-  useEffect(() => {
-    //_getGithubUserData();
-  }, []);
-  const _getGithubUserData = async () => {
-    try {
-      const res = await getGithubUserData({ username: "minwoo129" });
-      console.log("getGithubUserData res", res);
-    } catch (e) {
-      console.log("getGithubUserData error", e);
-    }
-  };
-
   return (
     <div className="w-full h-fit mt-4 py-4 px-6 border-2 border-black rounded-xl">
       <Title className="">프론트엔드 개발자 류민우입니다.</Title>
