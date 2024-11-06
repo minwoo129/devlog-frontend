@@ -1,7 +1,7 @@
 import { LanguageConnection } from "./LanguageConnection";
 
 export type Repository = {
-  name: string | null | undefined;
+  name: string;
   createdAt: string;
   languages: LanguageConnection;
 };

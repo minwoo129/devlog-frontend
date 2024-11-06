@@ -1,4 +1,7 @@
+export type { ContributionCalendarDay } from "./ContributinCalendarDay";
 export type { ContributionCalendar } from "./ContributionCalendar";
+export type { ContributionCalendarMonth } from "./ContributionCalendarMonth";
+export type { ContributionCalendarWeek } from "./ContributionCalendarWeek";
 export type { ContributionsCollection } from "./ContributionsCollection";
 export type { Language } from "./Language";
 export type { LanguageConnection } from "./LanguageConnection";
