@@ -1,6 +1,4 @@
-import { convertQueryDataFuncType } from "./types";
-
-export const REQUEST_GITHUB_USER_DATA_QUERY = `query userInfo($username: String!) {
+const USER = `query userInfo($username: String!) {
     user(login: $username) {
         name
         login
@@ -8,6 +6,21 @@ export const REQUEST_GITHUB_USER_DATA_QUERY = `query userInfo($username: String!
         contributionsCollection {
             contributionCalendar {
                 totalContributions
+                months {
+                    name
+                    firstDay
+                    totalWeeks
+                    year
+                }
+                weeks {
+                    firstDay
+                    contributionDays {
+                        date
+                        weekday
+                        color
+                        contributionCount
+                    }
+                }
             }
         }
         repositories(first:100, orderBy: {field: CREATED_AT, direction: DESC}) {
@@ -29,12 +42,6 @@ export const REQUEST_GITHUB_USER_DATA_QUERY = `query userInfo($username: String!
     }
 }`;
 
-export const convertQueryData: convertQueryDataFuncType = (args) => {
-  const { queryType, username } = args;
-  return {
-    query: REQUEST_GITHUB_USER_DATA_QUERY,
-    variables: {
-      username,
-    },
-  };
+export const GITHUB_GRAPHQL_QUERY = {
+  USER,
 };
