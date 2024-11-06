@@ -8,18 +8,24 @@ const GraphQLObj = {
     args: GraphQLQueryGetAPIArgs<Q>
   ) => {
     const { query, variables } = args;
-    return fetch("https://api.github.com/graphql", {
-      method: "post",
-      next: {
-        revalidate: 6 * 60 * 60,
-      },
-      headers: {
-        Authorization: `Bearer ${GithubAPIInfo.APIKey}`,
-      },
-      body: JSON.stringify(
-        convertGithubGraphQLQuery({ queryType: query, variables })
-      ),
-    }).then((res) => res.json()) as Promise<T>;
+    try {
+      const resullt = fetch("https://api.github.com/graphql", {
+        method: "post",
+        next: {
+          revalidate: 6 * 60 * 60,
+        },
+        headers: {
+          Authorization: `Bearer ${GithubAPIInfo.APIKey}`,
+        },
+        body: JSON.stringify(
+          convertGithubGraphQLQuery({ queryType: query, variables })
+        ),
+      });
+
+      return resullt.then((res) => res.json()) as Promise<T>;
+    } catch (e) {
+      return null;
+    }
   },
 };
 
