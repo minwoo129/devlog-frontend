@@ -5,7 +5,7 @@ import {
   ConferenceHistory,
   LectureData,
   YoutubeVideoData,
-} from "../../DTO";
+} from "../../dataObjects";
 
 export type NotionDatabaseNames =
   | "Category1"

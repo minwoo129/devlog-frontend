@@ -10,7 +10,7 @@ import {
   extractTitle,
   extractUniqueId,
   extractURL,
-} from "../extractFromObject";
+} from "../convertNotionOriginalData";
 
 export const convertDBData = <T>(args: convertDBDataArgs<T>) => {
   const {

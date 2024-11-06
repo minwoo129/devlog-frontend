@@ -4,9 +4,9 @@ import {
   ConferenceData,
   ConferenceHistory,
   YoutubeVideoData,
-} from "../../DTO";
-import { convertDBData } from "../../objectDataConvert";
-import { requestNotionAPI } from "../../requestNotionAPI";
+} from "../../dataObjects";
+import { convertDBData } from "../../functions/convertDatabaseData";
+import { requestNotionAPI } from "../request";
 import {
   getNotionCategory1DataFuncType,
   getNotionCategory2DataFuncType,

@@ -5,7 +5,7 @@ import {
   getNotionDBConferenceHistoryTable,
   getNotionDBLectureDataTable,
   getNotionDBYoutubeVideoDataTable,
-} from "./APIRequestFunctions/database";
+} from "./API/database";
 
 const Notion = {
   DataBase: {

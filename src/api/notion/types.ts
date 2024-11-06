@@ -1,7 +1,4 @@
-import {
-  getNotionDBDataSort,
-  NotionDatabaseNames,
-} from "./APIRequestFunctions/database/types";
+import { getNotionDBDataSort, NotionDatabaseNames } from "./API/database/types";
 
 export type NotionAPIInfoType = {
   APIKey: string;
@@ -19,10 +16,5 @@ export type NotionDatabaseInfoType = {
 };
 
 // ============================================================
-export type requestNotionApiArgs = {
-  type: "database";
-  databaseName: NotionDatabaseNames;
-  sorts: getNotionDBDataSort[];
-  pageSize?: number;
-};
+
 // ============================================================
