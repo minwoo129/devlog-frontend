@@ -4,7 +4,7 @@ import { GithubUserContributionStatus } from "./types";
 
 export const extractContributionStatus = (data: User) => {
   const { contributionsCollection } = data;
-  const { months, totalContributions, weeks } =
+  const { totalContributions, weeks } =
     contributionsCollection.contributionCalendar;
 
   const result: GithubUserContributionStatus = {

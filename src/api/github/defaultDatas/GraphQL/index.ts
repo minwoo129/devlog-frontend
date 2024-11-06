@@ -6,12 +6,6 @@ const USER = `query userInfo($username: String!) {
         contributionsCollection {
             contributionCalendar {
                 totalContributions
-                months {
-                    name
-                    firstDay
-                    totalWeeks
-                    year
-                }
                 weeks {
                     firstDay
                     contributionDays {
