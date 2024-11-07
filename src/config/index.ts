@@ -101,3 +101,24 @@ export const GithubAPIInfo = {
   /** Github API 키 */
   APIKey: process.env.NEXT_PUBLIC_GITHUB_AUTH_TOKEN,
 };
+
+export const FirebaseSecureInfo = {
+  secureData: {
+    APIKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
+    AuthDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    ProjectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
+    StorageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    MessagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    AppId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
+    MeasurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  },
+  config: {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  },
+};

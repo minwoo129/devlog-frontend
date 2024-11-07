@@ -17,7 +17,7 @@ namespace NodeJS {
      * 노션 API 키
      */
     NEXT_PUBLIC_NOTION_API_KEY: string;
-    // 노션 데이터베이스 ID
+    // ======================== 노션 데이터베이스 ID ========================
     /**
      * ==================== 노션 데이터베이스 ID ====================
      * 1. DB명: Category1
@@ -73,5 +73,49 @@ namespace NodeJS {
      * 3. 키 정보: 실행환경에 따라서 API 키가 자동으로 바뀌게 됨(연결되는 DB가 바뀐다는 의미!!!)
      */
     NEXT_PUBLIC_NOTION_DATABASE_ID_YOUTUBEVIDEODATA: string;
+
+    // ========================== Firebase API Secure Data ==========================
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): apiKey
+     */
+    NEXT_PUBLIC_FIREBASE_APIKEY: string;
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): authDomain
+     */
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: string;
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): projectId
+     */
+    NEXT_PUBLIC_FIREBASE_PROJECTID: string;
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): storageBucket
+     */
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: string;
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): messagingSenderId
+     */
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: string;
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): appId
+     */
+    NEXT_PUBLIC_FIREBASE_APPID: string;
+    /**
+     * ========================== Firebase API Secure Data ==========================
+     * 1. Firebase API 연동시 사용하게 될 보안정보
+     * 2. 연결 데이터(Firebase): measurementId
+     */
+    NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: string;
   }
 }
