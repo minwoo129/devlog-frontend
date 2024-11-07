@@ -1,4 +1,4 @@
-import { RepositoryConnection } from "@/api/github/dataObjects/VO/GraphQL";
+import { RepositoryConnection } from "@/lib/github/dataObjects/VO/GraphQL";
 import { GithubUserRepositoryStatus } from "./types";
 
 export const extractRepositoryData = (repositorys: RepositoryConnection) => {

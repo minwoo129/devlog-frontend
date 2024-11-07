@@ -1,4 +1,3 @@
-import { getGithubUserData, Notion } from "@/api";
 import { classMerge } from "@/commonFunctions/tailwinds";
 import PageLayer from "@/components/common/pageLayer";
 import { Profile } from "@/components/page/home";
@@ -8,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   //const result = await Notion.DataBase.Category1({});
-  const user = await getGithubUserData({ username: "minwoo129" });
+  //const user = await getGithubUserData({ username: "minwoo129" });
   /*   console.log("result: ", result);
   console.log("user: ", user.data.user.repositories);
   const repositories = user.data.user.repositories?.nodes ?? [];
@@ -25,7 +24,7 @@ export default async function Home() {
       <div className={style}>
         <Profile />
       </div>
-      <SideBar gitUserData={user} />
+      {/* <SideBar gitUserData={user} /> */}
     </PageLayer>
   );
 }

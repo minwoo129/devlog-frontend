@@ -1,4 +1,4 @@
-import { User } from "@/api/github/dataObjects/VO/GraphQL";
+import { User } from "@/lib/github/dataObjects/VO/GraphQL";
 import dayjs from "dayjs";
 import { GithubUserContributionStatus } from "./types";
 

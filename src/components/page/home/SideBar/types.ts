@@ -1,4 +1,4 @@
-import { GithubUserDataResponseType } from "@/api/github/dataObjects/DTO/GraphQL";
+import { GithubUserDataResponseType } from "@/lib/github/dataObjects/DTO/GraphQL";
 
 export interface SideBarProps {
   gitUserData: GithubUserDataResponseType | null;

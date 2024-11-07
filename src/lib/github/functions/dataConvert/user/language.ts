@@ -1,7 +1,7 @@
 import {
   Language,
   RepositoryConnection,
-} from "@/api/github/dataObjects/VO/GraphQL";
+} from "@/lib/github/dataObjects/VO/GraphQL";
 import { GithubUserLanguageStatus, UsedLanguages } from "./types";
 
 export const extractLanguageStatus = (repositories: RepositoryConnection) => {

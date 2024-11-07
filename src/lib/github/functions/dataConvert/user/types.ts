@@ -1,7 +1,7 @@
 import {
   ContributionCalendarWeek,
   Repository,
-} from "@/api/github/dataObjects/VO/GraphQL";
+} from "@/lib/github/dataObjects/VO/GraphQL";
 
 export interface GithubTotalUserData {
   user: GithubUserInfo;

@@ -1,4 +1,4 @@
-import { GraphQLQueryDatasObjKeys } from "@/api/github/dataObjects/DTO/GraphQL";
+import { GraphQLQueryDatasObjKeys } from "@/lib/github/dataObjects/DTO/GraphQL";
 import { GraphQLQueryGetAPIArgs } from "./types";
 import { GithubAPIInfo } from "@/config";
 import { convertGithubGraphQLQuery } from "./GraphQLQuerys";

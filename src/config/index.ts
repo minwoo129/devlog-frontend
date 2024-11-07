@@ -1,4 +1,4 @@
-import { NotionAPIInfoType } from "@/api/notion/types";
+import { NotionAPIInfoType } from "@/lib/notion/types";
 
 const NotionDatabaseID = {
   /**
