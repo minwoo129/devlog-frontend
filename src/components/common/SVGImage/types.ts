@@ -15,4 +15,5 @@ export type SVGImageName =
   | "TossLogo"
   | "VelogIcon"
   | "GithubIcon"
-  | "GithubLockupDark";
+  | "GithubLockupDark"
+  | "GithubInvertocatDark";

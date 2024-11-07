@@ -2,6 +2,7 @@ import { getGithubUserData, Notion } from "@/api";
 import { classMerge } from "@/commonFunctions/tailwinds";
 import PageLayer from "@/components/common/pageLayer";
 import { Profile } from "@/components/page/home";
+import SideBar from "@/components/page/home/SideBar";
 
 export const dynamic = "force-dynamic";
 
@@ -20,10 +21,11 @@ export default async function Home() {
   ]);
 
   return (
-    <PageLayer className="px-0 flex justify-start items-center size-full ">
+    <PageLayer className="px-0 flex justify-start items-center size-full">
       <div className={style}>
         <Profile />
       </div>
+      <SideBar gitUserData={user} />
     </PageLayer>
   );
 }

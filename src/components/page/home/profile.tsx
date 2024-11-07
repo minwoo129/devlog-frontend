@@ -1,12 +1,7 @@
-"use client";
 import { ProfileProps } from "./types";
 import Link from "next/link";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Title from "@/components/common/title";
-import { useEffect } from "react";
-import { getGithubUserData } from "@/api";
-
-export const dynamic = "force-dynamic";
 
 export default function Profile(args: ProfileProps) {
   return (
