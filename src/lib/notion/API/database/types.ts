@@ -28,7 +28,9 @@ export interface getNotionCategory2DataArgs
   extends getNotionDBDatasCommonArgs {}
 
 export interface getNotionMenuCategoryDataArgs
-  extends getNotionDBDatasCommonArgs {}
+  extends getNotionDBDatasCommonArgs {
+  upperCategoryId?: number;
+}
 export interface getNotionConferenceDataArgs
   extends getNotionDBDatasCommonArgs {}
 

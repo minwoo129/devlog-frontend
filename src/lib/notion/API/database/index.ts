@@ -92,7 +92,7 @@ export const getNotionDBCategory2Table: getNotionCategory2DataFuncType = async (
 
 export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
   async (args) => {
-    const { sorts = [] } = args;
+    const { sorts = [], upperCategoryId } = args;
 
     const _sorts: getNotionDBDataSort[] = [
       {
@@ -121,7 +121,10 @@ export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
           visible: false,
         },
       });
-      return extractUpperData<MenuCategoryNotionOriginal, MenuCategory>({
+      let convertedDatas = extractUpperData<
+        MenuCategoryNotionOriginal,
+        MenuCategory
+      >({
         primaryKey: "categoryId",
         foreignKey: "upperCategoryId",
         key_삽입_데이터: "upperCategory",
@@ -137,6 +140,14 @@ export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
           upperCategory: null,
         },
       });
+
+      if (upperCategoryId) {
+        convertedDatas = convertedDatas.filter(
+          (data) => data.upperCategoryId === upperCategoryId
+        );
+      }
+
+      return convertedDatas;
     } catch (e) {
       throw e;
     }
