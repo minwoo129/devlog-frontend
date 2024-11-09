@@ -4,12 +4,14 @@ import {
   ConferenceData,
   ConferenceHistory,
   LectureData,
+  MenuCategory,
   YoutubeVideoData,
 } from "../../dataObjects";
 
 export type NotionDatabaseNames =
   | "Category1"
   | "Category2"
+  | "MenuCategory"
   | "ConferenceData"
   | "ConferenceHistory"
   | "LectureData"
@@ -25,6 +27,8 @@ export interface getNotionCategory1DataArgs
 export interface getNotionCategory2DataArgs
   extends getNotionDBDatasCommonArgs {}
 
+export interface getNotionMenuCategoryDataArgs
+  extends getNotionDBDatasCommonArgs {}
 export interface getNotionConferenceDataArgs
   extends getNotionDBDatasCommonArgs {}
 
@@ -46,6 +50,11 @@ export type getNotionCategory1DataFuncType = getNotionDataByDBCommonFuncType<
 export type getNotionCategory2DataFuncType = getNotionDataByDBCommonFuncType<
   getNotionCategory2DataArgs,
   Category2[]
+>;
+
+export type getNotionMenuCategoryDataFuncType = getNotionDataByDBCommonFuncType<
+  getNotionMenuCategoryDataArgs,
+  MenuCategory[]
 >;
 
 export type getNotionConferenceDataFuncType = getNotionDataByDBCommonFuncType<

@@ -13,6 +13,9 @@ import {
 
 export const extractRichText = (args: extractRichTextArgs) => {
   const { property } = args;
+  if (property.rich_text.length === 0) {
+    return "";
+  }
   const item = property.rich_text[0];
   if (item.type !== "text") {
     return "";
@@ -68,5 +71,5 @@ export const extractUniqueIdForStr = (args: extractUniqueIdArgs) => {
 
 export const extractNumber = (args: extractNumberArgs) => {
   const { property, defaultValue = 0 } = args;
-  return property.number ?? defaultValue;
+  return property.number;
 };

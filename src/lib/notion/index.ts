@@ -4,6 +4,7 @@ import {
   getNotionDBConferenceDataTable,
   getNotionDBConferenceHistoryTable,
   getNotionDBLectureDataTable,
+  getNotionDBMenuCategoryTable,
   getNotionDBYoutubeVideoDataTable,
 } from "./API/database";
 
@@ -11,6 +12,7 @@ const Notion = {
   DataBase: {
     Category1: getNotionDBCategory1Table,
     Category2: getNotionDBCategory2Table,
+    MenuCategory: getNotionDBMenuCategoryTable,
     ConferenceData: getNotionDBConferenceDataTable,
     ConferenceHistory: getNotionDBConferenceHistoryTable,
     LectureData: getNotionDBLectureDataTable,

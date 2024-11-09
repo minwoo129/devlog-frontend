@@ -39,6 +39,13 @@ namespace NodeJS {
     NEXT_PUBLIC_NOTION_DATABASE_ID_CATEGORY2: string;
     /**
      * ==================== 노션 데이터베이스 ID ====================
+     * 1. DB명: MenuCategory
+     * 2. DB설명: 메뉴 카테고리 데이터 저장
+     * 3. 키 정보: 실행환경에 따라서 API 키가 자동으로 바뀌게 됨(연결되는 DB가 바뀐다는 의미!!!)
+     */
+    NEXT_PUBLIC_NOTION_DATABASE_ID_MENUCATEGORY: string;
+    /**
+     * ==================== 노션 데이터베이스 ID ====================
      * 1. DB명: ConferenceData
      * 2. DB설명: 컨퍼런스 데이터(구글IO, 토스 SLASH 등) 저장
      * 3. DB간 관계

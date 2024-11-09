@@ -3,9 +3,12 @@ import {
   Category2,
   ConferenceData,
   ConferenceHistory,
+  MenuCategory,
+  MenuCategoryNotionOriginal,
   YoutubeVideoData,
 } from "../../dataObjects";
 import { convertDBData } from "../../functions/convertDatabaseData";
+import { extractUpperData } from "../../functions/extractUppperData";
 import { requestNotionAPI } from "../request";
 import {
   getNotionCategory1DataFuncType,
@@ -14,6 +17,7 @@ import {
   getNotionConferenceHistoryDataFuncType,
   getNotionDBDataSort,
   getNotionLectureDataFuncType,
+  getNotionMenuCategoryDataFuncType,
   getNotionYoutubeVideoDataFuncType,
 } from "./types";
 
@@ -85,6 +89,58 @@ export const getNotionDBCategory2Table: getNotionCategory2DataFuncType = async (
     throw e;
   }
 };
+
+export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
+  async (args) => {
+    const { sorts = [] } = args;
+
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "categoryId",
+        direction: "ascending",
+      },
+      ...sorts,
+    ];
+
+    try {
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "MenuCategory",
+        sorts: _sorts,
+      });
+
+      const results = convertDBData<MenuCategoryNotionOriginal>({
+        result,
+        initResult: {
+          categoryId: -1,
+          key: "",
+          title: "",
+          description: "",
+          href: "",
+          upperCategoryId: null,
+          visible: false,
+        },
+      });
+      return extractUpperData<MenuCategoryNotionOriginal, MenuCategory>({
+        primaryKey: "categoryId",
+        foreignKey: "upperCategoryId",
+        key_삽입_데이터: "upperCategory",
+        originalDatas: results,
+        defaultConvertedData: {
+          categoryId: -1,
+          key: "",
+          title: "",
+          description: "",
+          href: "",
+          upperCategoryId: null,
+          visible: false,
+          upperCategory: null,
+        },
+      });
+    } catch (e) {
+      throw e;
+    }
+  };
 
 export const getNotionDBConferenceDataTable: getNotionConferenceDataFuncType =
   async (args) => {

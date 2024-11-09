@@ -22,7 +22,6 @@ export const convertDBData = <T>(args: convertDBDataArgs<T>) => {
   for (const resultItem of results) {
     if (!isFullPage(resultItem)) continue;
     const { properties } = resultItem;
-
     let result = { ...initResult };
     result = flatProperties<T>({ properties, curResult: result });
     newDatas.push(result);
