@@ -4,6 +4,7 @@ import Navigation from "@/components/common/navigation";
 import "dayjs/locale/ko";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
+import UnifiedProvider from "./unifiedProvider";
 
 dayjs.locale("ko");
 dayjs.extend(isBetween);
@@ -25,17 +26,19 @@ export default function RootLayout({
   modal: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-      //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="flex flex-col w-screen h-screen overflow-hidden">
-          <Navigation />
-          {children}
-          {modal}
-          <div id="modal-root" />
-        </div>
-      </body>
-    </html>
+    <UnifiedProvider>
+      <html lang="en">
+        <body
+        //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <div className="flex flex-col w-screen h-screen overflow-hidden">
+            <Navigation />
+            {children}
+            {modal}
+            <div id="modal-root" />
+          </div>
+        </body>
+      </html>
+    </UnifiedProvider>
   );
 }
