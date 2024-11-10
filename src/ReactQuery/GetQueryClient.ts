@@ -17,7 +17,7 @@ interface QueryProps<ResponseType = unknown> {
   queryFn: () => Promise<ResponseType>;
 }
 
-interface DehydratedQueryExtended<TData = unknown, TError = unknown> {
+export interface DehydratedQueryExtended<TData = unknown, TError = unknown> {
   state: QueryState<TData, TError>;
 }
 
