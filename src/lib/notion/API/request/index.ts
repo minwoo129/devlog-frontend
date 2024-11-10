@@ -31,5 +31,6 @@ export const requestNotionAPI = (args: requestNotionApiArgs) => {
       },
     };
   }
+  console.log("asked Notion API");
   return NotionAPI.getFromOneDB(apiArgs);
 };

@@ -92,7 +92,7 @@ export const getNotionDBCategory2Table: getNotionCategory2DataFuncType = async (
 
 export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
   async (args) => {
-    const { sorts = [], upperCategoryId } = args;
+    const { sorts = [], upperCategoryId, upperCategoryKey } = args;
 
     const _sorts: getNotionDBDataSort[] = [
       {
@@ -145,6 +145,18 @@ export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
         convertedDatas = convertedDatas.filter(
           (data) => data.upperCategoryId === upperCategoryId
         );
+        return convertedDatas;
+      }
+      if (upperCategoryKey) {
+        const upperCategory = convertedDatas.find(
+          (item) => item.key === upperCategoryKey
+        );
+        if (upperCategory) {
+          convertedDatas = convertedDatas.filter(
+            (data) => data.upperCategoryId === upperCategory.categoryId
+          );
+        }
+        return convertedDatas;
       }
 
       return convertedDatas;

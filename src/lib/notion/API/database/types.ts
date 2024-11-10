@@ -30,6 +30,7 @@ export interface getNotionCategory2DataArgs
 export interface getNotionMenuCategoryDataArgs
   extends getNotionDBDatasCommonArgs {
   upperCategoryId?: number;
+  upperCategoryKey: "devlog" | "conferencelog";
 }
 export interface getNotionConferenceDataArgs
   extends getNotionDBDatasCommonArgs {}
