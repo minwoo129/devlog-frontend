@@ -3,8 +3,8 @@ import { getFilteredPosts } from "@/lib/post";
 import MainEmptyBody from "./mainEmptyBody";
 import MainContentBody from "./mainContentBody";
 import { Metadata } from "next";
-import { getDehydratedQuery, Hydrate } from "@/ReactQuery";
-import queryOptions from "./queryOptions";
+//import { getDehydratedQuery, Hydrate } from "@/ReactQuery";
+//import queryOptions from "./queryOptions";
 
 export const metadata: Metadata = {
   title: "DevLog",
@@ -12,20 +12,24 @@ export const metadata: Metadata = {
 
 export default async function Devlog() {
   const posts = getFilteredPosts({ section: "devlog", category: "all" });
-  const { queryKey, queryFn } = queryOptions.categorys();
+  /* const { queryKey, queryFn } = queryOptions.categorys();
 
   const query = await getDehydratedQuery({ queryKey, queryFn });
-  const categorys = query.state.data ?? [];
-  console.log("categorys:", categorys);
+  const categorys = query.state.data ?? []; */
   return (
     <PageLayer>
-      <Hydrate state={{ queries: [query] }}>
+      {/* <Hydrate state={{ queries: [query] }}>
         {posts.length === 0 ? (
           <MainEmptyBody />
         ) : (
           <MainContentBody posts={posts} />
         )}
-      </Hydrate>
+      </Hydrate> */}
+      {posts.length === 0 ? (
+        <MainEmptyBody />
+      ) : (
+        <MainContentBody posts={posts} />
+      )}
     </PageLayer>
   );
 }
