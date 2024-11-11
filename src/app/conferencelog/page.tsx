@@ -8,11 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Conferencelog(args: ConferencelogProps) {
-  //const user = await getGithubUserData({ username: "minwoo129" });
-  //const posts = getFilteredPosts({ section: "conferencelog", category: "all" });
   return (
     <PageLayer className="sm:px-10">
-      {/* {posts.length === 0 ? <EmptyBody /> : <ContentBody />} */}
       <ContentBody />
     </PageLayer>
   );

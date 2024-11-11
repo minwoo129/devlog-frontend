@@ -13,5 +13,3 @@ export type checkIntroBadgeVisibleFuncType = (
 type checkIntroBadgeVisibleArgs = {
   conferenceData: ConferenceDataType;
 };
-
-// ================================================================

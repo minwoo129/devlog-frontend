@@ -9,10 +9,8 @@ import {
   TotalConferenceLectures,
   TotalConferencesObj,
 } from "@/commonDatas/conferences";
-import { NavigationConferenceLogCategoryType } from "@/commonDatas/routes/types";
 import { getFilteredPosts } from "@/lib/post";
 import { serializeMdx } from "@/lib/mdx";
-import { title } from "process";
 import { Metadata } from "next";
 
 const getBlogPost = (args: getBlogPostArgs) => {

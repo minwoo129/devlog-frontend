@@ -28,9 +28,7 @@ export default function RootLayout({
   return (
     <UnifiedProvider>
       <html lang="en">
-        <body
-        //className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body>
           <div className="flex flex-col w-screen h-screen overflow-hidden">
             <Navigation />
             {children}

@@ -1,5 +1,4 @@
-import { clsx, ClassValue } from "clsx";
-import defaultTheme from "tailwindcss/defaultTheme";
+import { ClassValue } from "clsx";
 
 export type classMergeBySCFuncType = (classes: MergeClassType[]) => string;
 export type MergeClassType = MergeDefaultClassType | MergeBCClassType;

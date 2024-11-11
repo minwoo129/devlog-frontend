@@ -1,5 +1,4 @@
 import Title from "@/components/common/title";
-import { CategoryList } from "@/components/page/blog/main";
 import { MainContentBodyProps } from "./types";
 import CommonPostList from "@/components/common/CommonPostList";
 import CommonCategoryList from "@/components/common/CommonCategoryList";

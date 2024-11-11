@@ -1,4 +1,4 @@
-import { getNotionDBDataSort, NotionDatabaseNames } from "./API/database/types";
+import { NotionDatabaseNames } from "./API/database/types";
 
 export type NotionAPIInfoType = {
   APIKey: string;

@@ -11,7 +11,7 @@ import {
 import dayjs from "dayjs";
 import Tag from "@/components/common/Tag";
 import { TotalConferences } from "@/commonDatas/conferences";
-import { classMerge, classMergeBySC } from "@/commonFunctions/tailwinds";
+import { classMerge } from "@/commonFunctions/tailwinds";
 import Image from "next/image";
 import Link from "next/link";
 import YouTubeIcon from "@mui/icons-material/YouTube";

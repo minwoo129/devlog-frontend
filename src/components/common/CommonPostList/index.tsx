@@ -1,9 +1,5 @@
 "use client";
-import {
-  classMerge,
-  testBackground,
-  TestBackground3,
-} from "@/commonFunctions/tailwinds";
+import { classMerge } from "@/commonFunctions/tailwinds";
 import CommonPostListItem from "./CommonPostListItem";
 import { CommonPostListProps } from "./types";
 import { motion, Variants } from "framer-motion";

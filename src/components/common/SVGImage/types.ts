@@ -1,4 +1,3 @@
-import { ImageProps } from "next/image";
 import { SVGProps } from "react";
 export interface SVGImageProps extends SVGProps<SVGSVGElement> {
   name: SVGImageName;

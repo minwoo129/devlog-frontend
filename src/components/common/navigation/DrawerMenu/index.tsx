@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 import { DrawerMenuProps } from "./types";
-import { SxProps, Theme } from "@mui/material";
 import { PageNavDatas } from "@/commonDatas/routes";
 import DrawerMenuItem from "./DrawerMenuItem";
 import Box from "@mui/material/Box";

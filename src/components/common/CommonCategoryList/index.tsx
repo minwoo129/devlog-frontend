@@ -20,7 +20,6 @@ export default function CommonCategoryList(args: CommonCategoryListProps) {
   const { categorys, className } = args;
   const style = classMerge([
     "flex flex-row h-fit justify-start items-center flex-wrap scrollbar-hide last:mr-0",
-    //"mt-10 py-4",
     className,
   ]);
   return (

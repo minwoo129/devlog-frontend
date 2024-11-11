@@ -2,7 +2,6 @@ import { ContentBodyProps, getBlogPostArgs } from "./types";
 import { classMerge } from "@/commonFunctions/tailwinds";
 import EmptyBody from "./EmptyBody";
 import Content from "./Content";
-import ContentWithPost from "./ContentWithPost";
 
 export default async function ContentBody(args: ContentBodyProps) {
   const { lecture, data } = args;

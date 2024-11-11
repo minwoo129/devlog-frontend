@@ -1,7 +1,4 @@
-import { ConferenceObjDatas } from "@/commonDatas/conferences";
 import { YearConfDetailPageProps } from "./types";
-import { title } from "process";
-import { Metadata } from "next";
 
 export default function YearConfDetailPage(args: YearConfDetailPageProps) {
   const {

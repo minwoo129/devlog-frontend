@@ -4,7 +4,6 @@ import { getFilteredPosts } from "@/lib/post";
 import { serializeMdx } from "@/lib/mdx";
 import PostPage from "./PostPage";
 import { DetailTitleLayer } from "@/components/page/blog/detail";
-import Image from "next/image";
 import ThumbnailImg from "@/components/page/blog/detail/ThumbnailImg";
 import { NavigationDevLogCategoryType } from "@/commonDatas/routes/types";
 import { Metadata } from "next";

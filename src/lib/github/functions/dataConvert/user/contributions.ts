@@ -1,5 +1,4 @@
 import { User } from "@/lib/github/dataObjects/VO/GraphQL";
-import dayjs from "dayjs";
 import { GithubUserContributionStatus } from "./types";
 
 export const extractContributionStatus = (data: User) => {

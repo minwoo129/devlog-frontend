@@ -1,8 +1,5 @@
-import { getFilteredPosts } from "@/lib/post";
 import { ConferenceLogPostsPageProps } from "./types";
 import PageLayer from "@/components/common/pageLayer";
-import { IntroduceLayer } from "@/components/page/conference/conferenceDetail";
-import YearConfList from "@/components/page/conference/conferenceDetail/YearConfList";
 import ContentBody from "./ContentBody";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
 import { Metadata } from "next";

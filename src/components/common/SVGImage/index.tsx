@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SVGImageProps } from "./types";
 import ReactNativeLogo from "../../../../assets/svgImages/react-native.svg";
 import ReactLogo from "../../../../assets/svgImages/react.svg";
