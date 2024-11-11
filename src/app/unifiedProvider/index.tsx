@@ -14,9 +14,5 @@ export default function UnifiedProvider(args: UnifiedProviderProps) {
   const { children } = args;
   //return <ReactQueryProvider>{children}</ReactQueryProvider>;
   //return <>{children}</>;
-  return (
-    <GroupedProvider providers={[ReactQueryProvider, RecoilProvider]}>
-      {children}
-    </GroupedProvider>
-  );
+  return <GroupedProvider providers={[]}>{children}</GroupedProvider>;
 }
