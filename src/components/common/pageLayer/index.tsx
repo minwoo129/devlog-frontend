@@ -12,12 +12,12 @@ const PageLayerCommonGrid = (args: PageLayerCommonGridProps) => {
 
   const style = classMerge(["flex-1 flex-col overflow-y-scroll "]);
   const style1 = classMerge([
-    "flex-1 flex-col w-full max-w-[1000px] ",
+    "flex-1 flex-col w-full max-w-[1000px] px-[50px]",
     "items-center",
-    "lg2:w-[1000px]",
-    "xl1:w-[1000px]",
-    "xl2:w-[1000px]",
-    "vxl:w-[1000px]",
+    "lg2:w-[1000px] lg2:px-0",
+    "xl1:w-[1000px] xl1:px-0",
+    "xl2:w-[1000px] xl2:px-0",
+    "vxl:w-[1000px] vxl:px-0",
     "border-2 border-purple-400",
     className,
   ]);

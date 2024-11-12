@@ -7,6 +7,8 @@ export const DevLogCategorys: CommonCategoryItemType[] = [
     href: "/devlog/react-native",
     thumbnail: {
       thumbnailURL: "ReactNativeLogo",
+      width: 100,
+      height: 70,
     },
     testID: "react-native",
   },
@@ -15,6 +17,8 @@ export const DevLogCategorys: CommonCategoryItemType[] = [
     href: "/devlog/react",
     thumbnail: {
       thumbnailURL: "ReactLogo",
+      width: 100,
+      height: 70,
     },
     testID: "react",
   },
@@ -23,8 +27,8 @@ export const DevLogCategorys: CommonCategoryItemType[] = [
     href: "/devlog/firebase",
     thumbnail: {
       thumbnailURL: "FirebaseLogo",
-      width: 140,
-      height: 200,
+      width: 70,
+      height: 100,
     },
     testID: "firebase",
   },

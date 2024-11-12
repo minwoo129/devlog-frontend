@@ -15,7 +15,6 @@ export default function MainContentBody(args: MainContentBodyProps) {
       />
       <Title className="text-5xl mt-10 text-orange-600">All Posts</Title>
       <CommonPostList posts={posts} />
-      <div className="h-10" />
     </div>
   );
 }

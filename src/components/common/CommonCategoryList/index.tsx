@@ -19,7 +19,13 @@ const container: Variants = {
 export default function CommonCategoryList(args: CommonCategoryListProps) {
   const { categorys, className } = args;
   const style = classMerge([
-    "flex flex-row h-fit justify-start items-center flex-wrap scrollbar-hide last:mr-0",
+    "flex flex-row h-fit justify-start items-center overflow-x-scroll scrollbar-hide last:mr-0",
+    "md2:flex-wrap",
+    "lg1:flex-wrap",
+    "lg2:flex-wrap",
+    "xl1:flex-wrap",
+    "xl2:flex-wrap",
+    "vxl:flex-wrap",
     className,
   ]);
   return (

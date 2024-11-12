@@ -39,7 +39,7 @@ export default function CommonPostListItem(args: CommonPostListItemProps) {
   return (
     <motion.div variants={item}>
       <Link as={as} href={href}>
-        <div className=" flex flex-col justify-between items-center w-full min-w-[300px] rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
+        <div className=" flex flex-col justify-between items-center w-[320px] rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <CommonPostItemThumbnail thumbnailURL={post.thumbnailURL} />
           <div className="flex flex-col px-4 py-4 justify-between items-start w-full">
             <h1 className="text-gray-600 text-2xl truncate font-nanumneo-b">
@@ -78,16 +78,10 @@ const CommonPostItemThumbnail = (args: CommonPostItemThumbnailProps) => {
 };
 
 const CommonPostListItemFooter = (args: CommonPostListItemFooterProps) => {
-  const { tags, date } = args;
+  const { date } = args;
 
-  const visibleTags = tags.slice(0, 2);
   return (
-    <div className=" flex flex-row justify-between items-start w-full mt-8 flex-wrap ">
-      <div className="flex flex-row justify-start items-center w-[220px] overflow-x-scroll py-1">
-        {visibleTags.map((tag, idx) => {
-          return <Tag tag={tag} key={idx} />;
-        })}
-      </div>
+    <div className=" flex flex-row justify-between items-start w-full mt-2 flex-wrap ">
       <div className="flex flex-row justify-end items-center py-1">
         <CalendarTodayIcon className="mr-2" />
         <p className="text-gray-600 font-nanumneo-r text-sm">

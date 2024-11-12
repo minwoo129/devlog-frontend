@@ -18,17 +18,14 @@ const container: Variants = {
 export default function CommonPostList(args: CommonPostListProps) {
   const { posts, className, isCategoryDetailPage = false } = args;
   const containerStyle = classMerge([
-    "grid grid-cols-1 justify-center max-h-[400px] px-4 py-4 mt-10 overflow-y-scroll scrollbar-hide",
-    "vsm:grid-cols-1 vsm:gap-8 ",
-    "sm1:grid-cols-1 sm1:gap-8 sm1:px-8",
-    "sm2:grid-cols-1 sm2:gap-8 sm2:px-14",
-    "md1:grid-cols-2 md1:gap-6",
-    "md2:grid-cols-2 md2:gap-6",
-    "lg1:grid-cols-2 lg1:gap-10",
-    "lg2:grid-cols-3 lg2:gap-7",
-    "xl1:grid-cols-3 xl1:gap-7 ",
-    "xl2:grid-cols-3 xl2:gap-7 ",
-    "vxl:grid-cols-4 vxl:gap-10 ",
+    "grid grid-cols-1 justify-center h-fit mt-10 items-center place-items-center py-4 gap-y-8",
+    "md1:grid-cols-2 ",
+    "md2:grid-cols-2 ",
+    "lg1:grid-cols-2 ",
+    "lg2:grid-cols-2",
+    "xl1:grid-cols-2 ",
+    "xl2:grid-cols-2 ",
+    "vxl:grid-cols-2 ",
     className,
   ]);
 
@@ -44,6 +41,18 @@ export default function CommonPostList(args: CommonPostListProps) {
       </motion.div>
     );
   }
+
+  const tests = [
+    ...posts,
+    ...posts,
+    ...posts,
+    ...posts,
+    ...posts,
+    ...posts,
+    ...posts,
+    ...posts,
+    ...posts,
+  ];
   return (
     <motion.div
       className={containerStyle}
@@ -51,7 +60,7 @@ export default function CommonPostList(args: CommonPostListProps) {
       initial="hidden"
       animate="show"
     >
-      {posts.map((post, idx) => {
+      {tests.map((post, idx) => {
         return (
           <CommonPostListItem
             post={post}
