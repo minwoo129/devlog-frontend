@@ -12,7 +12,6 @@ export default function ContentBody(args: ContentBodyProps) {
     <div className=" size-full ">
       <IntroduceLayer conference={category} />
       <YearConfList conference={category} />
-      <div className="h-10" />
     </div>
   );
 }

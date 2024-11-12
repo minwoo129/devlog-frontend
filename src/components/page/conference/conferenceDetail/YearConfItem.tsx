@@ -31,7 +31,7 @@ export default function YearConfItem(args: YearConfItemProps) {
   return (
     <motion.div variants={item}>
       <Link href={`/conferencelog/${conferenceType}/${id}`}>
-        <div className=" flex flex-col rounded-2xl w-full overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
+        <div className=" flex flex-col rounded-2xl w-[320px] overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <YearConfItemThumbnail thumbnailURL={thumbnailURL} />
           <YearConfItemDetail
             title={title}

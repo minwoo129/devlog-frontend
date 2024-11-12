@@ -37,13 +37,16 @@ export default function YearConfList(args: YearConfListProps) {
   }
 
   const styles = classMerge([
-    "grid grid-cols-1 gap-8 justify-center mt-10",
-    "sm2:grid-cols-1 sm2:gap-8",
-    "md1:grid-cols-2 md1:gap-8",
-    "md2:grid-cols-2 md2:gap-8",
-    "lg:grid-cols-3 lg:gap-7",
-    "xl:grid-cols-4 xl:gap-6",
+    "grid grid-cols-1 mt-10 place-items-center py-4 gap-y-8",
+    "md1:grid-cols-2 ",
+    "md2:grid-cols-2 ",
+    "lg1:grid-cols-2 ",
+    "lg2:grid-cols-2",
+    "xl1:grid-cols-2 ",
+    "xl2:grid-cols-2 ",
+    "vxl:grid-cols-2 ",
   ]);
+
   return (
     <motion.div
       variants={container}

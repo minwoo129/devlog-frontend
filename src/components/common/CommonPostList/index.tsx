@@ -42,17 +42,6 @@ export default function CommonPostList(args: CommonPostListProps) {
     );
   }
 
-  const tests = [
-    ...posts,
-    ...posts,
-    ...posts,
-    ...posts,
-    ...posts,
-    ...posts,
-    ...posts,
-    ...posts,
-    ...posts,
-  ];
   return (
     <motion.div
       className={containerStyle}
@@ -60,7 +49,7 @@ export default function CommonPostList(args: CommonPostListProps) {
       initial="hidden"
       animate="show"
     >
-      {tests.map((post, idx) => {
+      {posts.map((post, idx) => {
         return (
           <CommonPostListItem
             post={post}
