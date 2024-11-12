@@ -1,8 +1,11 @@
 import { DehydratedQueryExtended } from "@/ReactQuery/GetQueryClient";
 import { SVGImageName } from "../SVGImage/types";
+import React from "react";
 
 export interface PageLayerCommonGridProps {
   className?: string;
+  left?: React.ReactNode;
+  right?: React.ReactNode;
   children: React.ReactNode;
 }
 

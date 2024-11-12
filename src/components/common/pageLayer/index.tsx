@@ -8,12 +8,9 @@ import Footer from "./Footer";
 import { Hydrate } from "@/ReactQuery";
 
 const PageLayerCommonGrid = (args: PageLayerCommonGridProps) => {
-  const { children, className } = args;
+  const { children, className, left, right } = args;
 
-  const style = classMerge([
-    "flex-1 flex-col overflow-y-scroll ",
-    "border-2 border-red-500",
-  ]);
+  const style = classMerge(["flex-1 flex-col overflow-y-scroll "]);
   const style1 = classMerge([
     "flex-1 flex-col w-full max-w-[1000px] ",
     "items-center",
@@ -28,9 +25,13 @@ const PageLayerCommonGrid = (args: PageLayerCommonGridProps) => {
     <div className={style}>
       <div className="flex flex-col min-h-screen justify-between border-2 border-green-400">
         <div className="flex flex-row justify-center ">
-          <div className="flex-[0.3] w-full h-[500px] hidden lg2:flex xl1:flex xl2:flex vxl:flex border-2 border-zinc-600" />
+          <div className="flex-[0.3] w-full h-[500px] hidden lg2:flex xl1:flex xl2:flex vxl:flex border-2 border-zinc-600">
+            {left}
+          </div>
           <div className={style1}>{children}</div>
-          <div className="flex-[0.3] w-full h-[500px] hidden lg2:flex xl1:flex xl2:flex vxl:flex border-2 border-zinc-600" />
+          <div className="flex-[0.3] w-full h-[500px] hidden lg2:flex xl1:flex xl2:flex vxl:flex border-2 border-zinc-600">
+            {right}
+          </div>
         </div>
         <Footer />
       </div>
@@ -39,21 +40,11 @@ const PageLayerCommonGrid = (args: PageLayerCommonGridProps) => {
 };
 
 const PageLayer = (args: PageLayerProps) => {
-  const { className, children } = args;
-
-  /* const style = classMerge(["flex-1 flex-col overflow-y-scroll "]);
-  const style1 = classMerge([
-    "w-full flex flex-col px-16 min-h-full",
-    className,
-  ]);
+  const { className, children, left, right } = args;
   return (
-    <div className={style}>
-      <div className={style1}>{children}</div>
-      <Footer />
-    </div>
-  ); */
-  return (
-    <PageLayerCommonGrid className={className}>{children}</PageLayerCommonGrid>
+    <PageLayerCommonGrid className={className} left={left} right={right}>
+      {children}
+    </PageLayerCommonGrid>
   );
 };
 
