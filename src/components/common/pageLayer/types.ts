@@ -17,6 +17,11 @@ export interface PageLayerRQProps<TData> extends PageLayerCommonGridProps {
   query: DehydratedQueryExtended<TData>;
 }
 
+export interface PageLayerSideGridProps {
+  direction: "left" | "right";
+  childComp?: React.ReactNode;
+}
+
 export interface FooterProps {}
 
 export interface FooterLinkGridProps {}

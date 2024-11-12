@@ -109,6 +109,8 @@ export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
         sorts: _sorts,
       });
 
+      console.log("Notion MenuCategory Request complete");
+
       const results = convertDBData<MenuCategoryNotionOriginal>({
         result,
         initResult: {

@@ -3,6 +3,7 @@ import {
   PageLayerCommonGridProps,
   PageLayerProps,
   PageLayerRQProps,
+  PageLayerSideGridProps,
 } from "./types";
 import Footer from "./Footer";
 import { Hydrate } from "@/ReactQuery";
@@ -18,20 +19,15 @@ const PageLayerCommonGrid = (args: PageLayerCommonGridProps) => {
     "xl1:w-[1000px] xl1:px-0",
     "xl2:w-[1000px] xl2:px-0",
     "vxl:w-[1000px] vxl:px-0",
-    "border-2 border-purple-400",
     className,
   ]);
   return (
     <div className={style}>
-      <div className="flex flex-col min-h-screen justify-between border-2 border-green-400">
-        <div className="flex flex-row justify-center ">
-          <div className="flex-[0.3] w-full h-[500px] hidden lg2:flex xl1:flex xl2:flex vxl:flex border-2 border-zinc-600">
-            {left}
-          </div>
+      <div className="flex flex-col min-h-screen justify-between ">
+        <div className="flex flex-row justify-center">
+          <PageLayerSideView direction="left" childComp={left} />
           <div className={style1}>{children}</div>
-          <div className="flex-[0.3] w-full h-[500px] hidden lg2:flex xl1:flex xl2:flex vxl:flex border-2 border-zinc-600">
-            {right}
-          </div>
+          <PageLayerSideView direction="right" childComp={right} />
         </div>
         <Footer />
       </div>
@@ -45,6 +41,15 @@ const PageLayer = (args: PageLayerProps) => {
     <PageLayerCommonGrid className={className} left={left} right={right}>
       {children}
     </PageLayerCommonGrid>
+  );
+};
+
+const PageLayerSideView = (args: PageLayerSideGridProps) => {
+  const { childComp, direction } = args;
+  return (
+    <div className="flex-[0.3] w-full h-auto hidden lg2:flex xl1:flex xl2:flex vxl:flex">
+      {childComp}
+    </div>
   );
 };
 
