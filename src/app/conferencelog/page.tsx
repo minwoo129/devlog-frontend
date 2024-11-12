@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async function Conferencelog(args: ConferencelogProps) {
   return (
-    <PageLayer className="sm:px-10">
+    <PageLayer>
       <ContentBody />
     </PageLayer>
   );
