@@ -66,7 +66,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex flex-row justify-start items-center w-full h-fit mt-10 sm:flex-col md:flex-col sm:items-start md:items-start"
+      className="flex flex-row justify-start items-start w-full h-fit mt-10 sm:flex-col md:flex-col sm:items-start md:items-start"
     >
       <IntroduceLayerLogoLayout image={image} />
       <IntroduceLayerContentLayout
