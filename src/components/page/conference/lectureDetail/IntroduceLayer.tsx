@@ -59,9 +59,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       variants={container}
       initial="hidden"
       animate="show"
-      className={
-        "flex flex-col h-fit items-start justify-start w-full p-8 xl2:flex-row vxl:flex-row "
-      }
+      className={"flex flex-col h-fit items-start justify-start w-full p-8  "}
     >
       <IntroduceLayerInfo lecture={lecture} />
       <IntroduceLayerSecondInfoGrid
@@ -138,10 +136,6 @@ const IntroduceLayerSecondInfoGrid = (
   const { conferenceName, lecture, conferenceData } = args;
   return (
     <motion.div className="flex flex-row justify-center items-start mt-4 xl2:flex-col xl2:mt-0 vxl:flex-col vxl:mt-0 xl2:max-w-[400px] vxl:max-w-[400px] vsm:flex-col sm1:flex-col ">
-      <IntroduceLayerSecondInfo
-        conferenceName={conferenceName}
-        lecture={lecture}
-      />
       <IntroduceLayerButtonsGroup
         lecture={lecture}
         conferenceData={conferenceData}
@@ -150,7 +144,7 @@ const IntroduceLayerSecondInfoGrid = (
   );
 };
 
-const IntroduceLayerSecondInfo = (args: IntroduceLayerSecondInfoProps) => {
+/* const IntroduceLayerSecondInfo = (args: IntroduceLayerSecondInfoProps) => {
   const { lecture, conferenceName } = args;
   const { title, description, createdAt, keyTags } = lecture;
   return (
@@ -179,7 +173,7 @@ const IntroduceLayerSecondInfo = (args: IntroduceLayerSecondInfoProps) => {
       </div>
     </div>
   );
-};
+}; */
 
 const IntroduceLayerButtonsGroup = (args: IntroduceLayerButtonsGroupProps) => {
   const { lecture, conferenceData } = args;
