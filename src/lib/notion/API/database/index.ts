@@ -1,3 +1,4 @@
+import { cache } from "react";
 import {
   Category1,
   Category2,
@@ -21,77 +22,77 @@ import {
   getNotionYoutubeVideoDataFuncType,
 } from "./types";
 
-export const getNotionDBCategory1Table: getNotionCategory1DataFuncType = async (
-  args
-) => {
-  const { sorts = [] } = args;
+export const getNotionDBCategory1Table: getNotionCategory1DataFuncType = cache(
+  async (args) => {
+    const { sorts = [] } = args;
 
-  const _sorts: getNotionDBDataSort[] = [
-    {
-      property: "categoryId",
-      direction: "ascending",
-    },
-    ...sorts,
-  ];
-  try {
-    const result = await requestNotionAPI({
-      type: "database",
-      databaseName: "Category1",
-      sorts: _sorts,
-    });
-
-    return convertDBData<Category1>({
-      result,
-      initResult: {
-        categoryId: -1,
-        href: "",
-        key: "",
-        title: "",
-        visible: false,
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "categoryId",
+        direction: "ascending",
       },
-    });
-  } catch (e) {
-    throw e;
+      ...sorts,
+    ];
+    try {
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "Category1",
+        sorts: _sorts,
+      });
+
+      return convertDBData<Category1>({
+        result,
+        initResult: {
+          categoryId: -1,
+          href: "",
+          key: "",
+          title: "",
+          visible: false,
+        },
+      });
+    } catch (e) {
+      throw e;
+    }
   }
-};
+);
 
-export const getNotionDBCategory2Table: getNotionCategory2DataFuncType = async (
-  args
-) => {
-  const { sorts = [] } = args;
+export const getNotionDBCategory2Table: getNotionCategory2DataFuncType = cache(
+  async (args) => {
+    const { sorts = [] } = args;
 
-  const _sorts: getNotionDBDataSort[] = [
-    {
-      property: "categoryId",
-      direction: "ascending",
-    },
-    ...sorts,
-  ];
-  try {
-    const result = await requestNotionAPI({
-      type: "database",
-      databaseName: "Category2",
-      sorts: _sorts,
-    });
-    return convertDBData<Category2>({
-      result,
-      initResult: {
-        categoryId: -1,
-        key: "",
-        title: "",
-        description: "",
-        href: "",
-        upperCategoryId: -1,
-        visible: false,
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "categoryId",
+        direction: "ascending",
       },
-    });
-  } catch (e) {
-    throw e;
+      ...sorts,
+    ];
+    try {
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "Category2",
+        sorts: _sorts,
+      });
+      return convertDBData<Category2>({
+        result,
+        initResult: {
+          categoryId: -1,
+          key: "",
+          title: "",
+          description: "",
+          href: "",
+          upperCategoryId: -1,
+          visible: false,
+        },
+      });
+    } catch (e) {
+      throw e;
+    }
   }
-};
+);
 
 export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
-  async (args) => {
+  cache(async (args) => {
     const { sorts = [], upperCategoryId, upperCategoryKey } = args;
 
     const _sorts: getNotionDBDataSort[] = [
@@ -165,10 +166,10 @@ export const getNotionDBMenuCategoryTable: getNotionMenuCategoryDataFuncType =
     } catch (e) {
       throw e;
     }
-  };
+  });
 
 export const getNotionDBConferenceDataTable: getNotionConferenceDataFuncType =
-  async (args) => {
+  cache(async (args) => {
     const { sorts = [] } = args;
 
     const _sorts: getNotionDBDataSort[] = [
@@ -201,10 +202,10 @@ export const getNotionDBConferenceDataTable: getNotionConferenceDataFuncType =
     } catch (e) {
       throw e;
     }
-  };
+  });
 
 export const getNotionDBConferenceHistoryTable: getNotionConferenceHistoryDataFuncType =
-  async (args) => {
+  cache(async (args) => {
     const { sorts = [] } = args;
 
     const _sorts: getNotionDBDataSort[] = [
@@ -239,50 +240,50 @@ export const getNotionDBConferenceHistoryTable: getNotionConferenceHistoryDataFu
     } catch (e) {
       throw e;
     }
-  };
+  });
 
-export const getNotionDBLectureDataTable: getNotionLectureDataFuncType = async (
-  args
-) => {
-  const { sorts = [] } = args;
+export const getNotionDBLectureDataTable: getNotionLectureDataFuncType = cache(
+  async (args) => {
+    const { sorts = [] } = args;
 
-  const _sorts: getNotionDBDataSort[] = [
-    {
-      property: "lectureId",
-      direction: "ascending",
-    },
-    ...sorts,
-  ];
-  try {
-    const result = await requestNotionAPI({
-      type: "database",
-      databaseName: "LectureData",
-      sorts: _sorts,
-    });
-    return convertDBData({
-      result,
-      initResult: {
-        lectureId: -1,
-        key: "",
-        title: "",
-        description: "",
-        conferenceId: -1,
-        upperConferenceId: -1,
-        originalLectureURL: "",
-        createdAt: "",
-        videoId: "",
-        href: "",
-        keyTags: [],
-        visible: false,
+    const _sorts: getNotionDBDataSort[] = [
+      {
+        property: "lectureId",
+        direction: "ascending",
       },
-    });
-  } catch (e) {
-    throw e;
+      ...sorts,
+    ];
+    try {
+      const result = await requestNotionAPI({
+        type: "database",
+        databaseName: "LectureData",
+        sorts: _sorts,
+      });
+      return convertDBData({
+        result,
+        initResult: {
+          lectureId: -1,
+          key: "",
+          title: "",
+          description: "",
+          conferenceId: -1,
+          upperConferenceId: -1,
+          originalLectureURL: "",
+          createdAt: "",
+          videoId: "",
+          href: "",
+          keyTags: [],
+          visible: false,
+        },
+      });
+    } catch (e) {
+      throw e;
+    }
   }
-};
+);
 
 export const getNotionDBYoutubeVideoDataTable: getNotionYoutubeVideoDataFuncType =
-  async (args) => {
+  cache(async (args) => {
     const { sorts = [] } = args;
 
     const _sorts: getNotionDBDataSort[] = [
@@ -317,4 +318,4 @@ export const getNotionDBYoutubeVideoDataTable: getNotionYoutubeVideoDataFuncType
     } catch (e) {
       throw e;
     }
-  };
+  });
