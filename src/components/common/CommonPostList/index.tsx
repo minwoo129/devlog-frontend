@@ -21,11 +21,11 @@ export default function CommonPostList(args: CommonPostListProps) {
     "grid grid-cols-1 justify-center h-fit mt-10 items-center place-items-center py-4 gap-y-8",
     "md1:grid-cols-2 ",
     "md2:grid-cols-2 ",
-    "lg1:grid-cols-2 ",
+    "lg1:grid-cols-3 ",
     "lg2:grid-cols-2",
     "xl1:grid-cols-2 ",
     "xl2:grid-cols-2 ",
-    "vxl:grid-cols-2 ",
+    "vxl:grid-cols-3 ",
     className,
   ]);
 
