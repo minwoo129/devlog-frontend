@@ -2,19 +2,9 @@
 import { classMerge } from "@/commonFunctions/tailwinds";
 import CommonPostListItem from "./CommonPostListItem";
 import { CommonPostListProps } from "./types";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { FadeInWithChildren } from "@/themes/framerMotionVariants";
 
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
 export default function CommonPostList(args: CommonPostListProps) {
   const { posts, className, isCategoryDetailPage = false } = args;
   const containerStyle = classMerge([
@@ -32,7 +22,7 @@ export default function CommonPostList(args: CommonPostListProps) {
   if (posts.length === 0) {
     return (
       <motion.div
-        variants={container}
+        variants={FadeInWithChildren["sc_0.1"]}
         className="w-full flex flex-row justify-center items-center py-[80px] mt-20 sm:mt-0 md:mt-10"
       >
         <h1 className="text-5xl font-nanumneo-eb text-slate-700 sm:text-2xl md:text-3xl">
@@ -45,7 +35,7 @@ export default function CommonPostList(args: CommonPostListProps) {
   return (
     <motion.div
       className={containerStyle}
-      variants={container}
+      variants={FadeInWithChildren["sc_0.1"]}
       initial="hidden"
       animate="show"
     >

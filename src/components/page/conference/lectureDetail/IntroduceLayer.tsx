@@ -1,5 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   IntroduceLayerButtonsGroupProps,
   IntroduceLayerInfoProps,
@@ -19,29 +19,7 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import { useState } from "react";
 import { common, red, green, blue } from "@mui/material/colors";
-
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const info: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 30,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-};
+import { FadeInWithChildren, SlideToLeft } from "@/themes/framerMotionVariants";
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { lecture } = args;
@@ -56,7 +34,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
 
   return (
     <motion.div
-      variants={container}
+      variants={FadeInWithChildren["sc_0.1"]}
       initial="hidden"
       animate="show"
       className={"flex flex-col h-fit items-start justify-start w-full p-8  "}
@@ -92,7 +70,7 @@ const IntroduceLayerInfo = (args: IntroduceLayerInfoProps) => {
 
   return (
     <motion.div
-      variants={info}
+      variants={SlideToLeft["x_30"]}
       className={
         "flex flex-col p-6 w-full rounded-2xl bg-white aspect-video max-w-[900px] shadow-xl mr-4"
       }

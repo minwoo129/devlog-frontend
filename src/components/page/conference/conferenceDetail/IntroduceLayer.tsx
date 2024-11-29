@@ -9,7 +9,7 @@ import {
   IntroduceLayerProps,
   YoutubeLiveButtonProps,
 } from "./types";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { ConferenceObjDatas } from "@/commonDatas/conferences";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import CelebrationIcon from "@mui/icons-material/Celebration";
@@ -19,69 +19,12 @@ import Link from "next/link";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { classMerge } from "@/commonFunctions/tailwinds";
 import { useState } from "react";
-
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-const logo: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
-const detail: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 50,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-};
-const icon: Variants = {
-  hidden: {
-    opacity: 0,
-    y: -100,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
-const moreInfo: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-const youtubelive: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 50,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-};
+import {
+  FadeInWithChildren,
+  SlideToBottom,
+  SlideToLeft,
+  SlideToTop,
+} from "@/themes/framerMotionVariants";
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { conference } = args;
@@ -91,7 +34,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
   });
   return (
     <motion.div
-      variants={container}
+      variants={FadeInWithChildren["sc_0.1"]}
       initial="hidden"
       animate="show"
       className="flex flex-row flex-wrap w-full h-fit mt-10 "
@@ -100,7 +43,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
       <IntroduceDetailLayer
         confData={confData}
         className={detailClassName}
-        variants={detail}
+        variants={SlideToLeft["x_50"]}
       />
 
       <IntroduceDetailMoreInfoLayer type={conference} />
@@ -118,7 +61,7 @@ const IntroduceLayerLogo = (args: IntroduceLayerLogoProps) => {
   });
   return (
     <motion.div
-      variants={logo}
+      variants={SlideToTop["y_50"]}
       className="flex justify-center items-center w-full max-w-[400px] h-[260px] rounded-2xl shadow-xl bg-slate-200 mx-2 my-3  relative"
       onClick={() => setDimVisible(!dimVisible)}
       aria-disabled={width >= 880}
@@ -207,7 +150,7 @@ const HeldBadge = (args: HeldProps) => {
 
   return (
     <motion.div
-      variants={icon}
+      variants={SlideToBottom["y_100"]}
       className="flex flex-row justify-center items-center mt-3 border-2 border-red-400"
     >
       <CelebrationIcon color="warning" className=" w-10 h-10 mr-2" />
@@ -224,7 +167,7 @@ const IntroduceDetailMoreInfoLayer = (
 
   return (
     <motion.div
-      variants={moreInfo}
+      variants={FadeInWithChildren["sc_0.1"]}
       className="flex flex-col justify-between items-start w-fit h-fit mx-2 my-3 "
     >
       <YoutubeLiveButton liveData={liveData} />
@@ -238,7 +181,7 @@ const YoutubeLiveButton = (args: YoutubeLiveButtonProps) => {
   if (!liveData) return null;
 
   return (
-    <motion.div variants={youtubelive}>
+    <motion.div variants={SlideToLeft["x_50"]}>
       <Link href={`/youtubeLive?id=${liveData.videoId}`}>
         <div className="px-3 py-1 border-2 border-[#ff0000] rounded-full flex flex-row justify-center items-center transition ease-in-out duration-300 hover:-translate-y-2">
           <YouTubeIcon sx={{ color: "#ff0000", width: 30, height: 30 }} />

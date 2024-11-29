@@ -6,25 +6,16 @@ import {
   CommonCategoryListItemProps,
   CommonCategoryListItemThumbnailProps,
 } from "./types";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { SlideToTop } from "@/themes/framerMotionVariants";
 
-const item: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
 export default function CommonCategoryListItem(
   args: CommonCategoryListItemProps
 ) {
   const { category } = args;
   const { href, testID, thumbnail } = category;
   return (
-    <motion.div variants={item}>
+    <motion.div variants={SlideToTop["y_30"]}>
       <Link href={href} data-testid={testID}>
         <div className="flex flex-col w-[250px] max-h-[200px] rounded-lg mr-4 mt-4 border-2 border-zinc-300 transition ease-in-out duration-300 hover:-translate-y-2">
           <CommonCategoryListItemThumbnail thumbnail={thumbnail} />

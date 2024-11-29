@@ -1,20 +1,9 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import CategoryListItem from "./categoryListItem";
 import { CategoryListProps } from "./types";
 import { ConferenceLogNavDatas, DevLogNavDatas } from "@/commonDatas/routes";
-
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
+import { FadeInWithChildren } from "@/themes/framerMotionVariants";
 
 export default function CategoryList(args: CategoryListProps) {
   const { posts, categoryType } = args;
@@ -23,7 +12,7 @@ export default function CategoryList(args: CategoryListProps) {
   return (
     <motion.div
       className="flex flex-row h-fit justify-start items-center mt-10 py-4 flex-wrap scrollbar-hide last:mr-0"
-      variants={container}
+      variants={FadeInWithChildren["sc_0.1"]}
       initial="hidden"
       animate="show"
     >

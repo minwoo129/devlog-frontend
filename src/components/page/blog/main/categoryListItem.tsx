@@ -1,5 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   CategoryListItemDetailProps,
   CategoryListItemProps,
@@ -8,23 +8,13 @@ import {
 import Link from "next/link";
 import SVGImage from "@/components/common/SVGImage";
 import { SVGImageName } from "@/components/common/SVGImage/types";
-
-const item: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 30,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-};
+import { SlideToLeft } from "@/themes/framerMotionVariants";
 
 export default function CategoryListItem(args: CategoryListItemProps) {
   const { categoryData, categoryType } = args;
   const { title, href, testID, linkKey } = categoryData;
   return (
-    <motion.div variants={item}>
+    <motion.div variants={SlideToLeft["x_30"]}>
       <Link href={href}>
         <div
           data-testid={testID}

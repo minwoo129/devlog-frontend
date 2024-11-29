@@ -1,20 +1,9 @@
 "use client";
 import { classMerge } from "@/commonFunctions/tailwinds";
 import { CommonCategoryListProps } from "./types";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import CommonCategoryListItem from "./CommonCategoryListItem";
-
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
+import { FadeInWithChildren } from "@/themes/framerMotionVariants";
 
 export default function CommonCategoryList(args: CommonCategoryListProps) {
   const { categorys, className } = args;
@@ -30,7 +19,7 @@ export default function CommonCategoryList(args: CommonCategoryListProps) {
   ]);
   return (
     <motion.div
-      variants={container}
+      variants={FadeInWithChildren["sc_0.1"]}
       className={style}
       initial="hidden"
       animate="show"

@@ -1,5 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   CommonPostItemThumbnailProps,
   CommonPostListItemFooterProps,
@@ -12,17 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { DevLogNavDatas } from "@/commonDatas/routes";
 import { useRouter } from "next/navigation";
-
-const item: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
+import { SlideToTop } from "@/themes/framerMotionVariants";
 
 export default function CommonPostListItem(args: CommonPostListItemProps) {
   const { post, isCategoryDetailPage } = args;
@@ -37,7 +27,7 @@ export default function CommonPostListItem(args: CommonPostListItemProps) {
 
   const as = isCategoryDetailPage ? `${slugn1}/${slugn2}` : post.slug1;
   return (
-    <motion.div variants={item}>
+    <motion.div variants={SlideToTop["y_30"]}>
       <Link as={as} href={href}>
         <div className=" flex flex-col justify-between items-center w-[270px] sm2:w-[300px] sm1:w-[300px] vsm:w-[300px] rounded-2xl shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <CommonPostItemThumbnail thumbnailURL={post.thumbnailURL} />

@@ -6,30 +6,20 @@ import {
   YearConfItemProps,
   YearConfItemThumbnailProps,
 } from "./types";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Tag from "@/components/common/Tag";
 import dayjs from "dayjs";
 import StarsIcon from "@mui/icons-material/Stars";
 import { calculateDateDiff } from "@/commonFunctions/dates";
 import Link from "next/link";
-
-const item: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
+import { SlideToTop } from "@/themes/framerMotionVariants";
 
 export default function YearConfItem(args: YearConfItemProps) {
   const { conf } = args;
   const { thumbnailURL, title, keyTags, openedAt, id, conferenceType } = conf;
 
   return (
-    <motion.div variants={item}>
+    <motion.div variants={SlideToTop["y_50"]}>
       <Link href={`/conferencelog/${conferenceType}/${id}`}>
         <div className=" flex flex-col rounded-2xl w-[320px] overflow-hidden shadow-xl transition ease-in-out duration-300 hover:-translate-y-2">
           <YearConfItemThumbnail thumbnailURL={thumbnailURL} />

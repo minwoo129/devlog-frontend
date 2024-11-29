@@ -7,50 +7,12 @@ import {
   IntroduceLayerTagLayoutProps,
 } from "./types";
 import SVGImage from "@/components/common/SVGImage";
-import { motion, Variants } from "framer-motion";
-
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-const logo: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
-const contentLayout: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-const contentItem: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 30,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-};
+import { motion } from "framer-motion";
+import {
+  FadeInWithChildren,
+  SlideToLeft,
+  SlideToTop,
+} from "@/themes/framerMotionVariants";
 
 export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { category, tags } = args;
@@ -63,7 +25,7 @@ export default function IntroduceLayer(args: IntroduceLayerProps) {
   const { image, title, description } = introduceData;
   return (
     <motion.div
-      variants={container}
+      variants={FadeInWithChildren["sc_0.1"]}
       initial="hidden"
       animate="show"
       className="flex flex-row justify-start items-start w-full h-fit mt-10 sm:flex-col md:flex-col sm:items-start md:items-start"
@@ -82,7 +44,7 @@ const IntroduceLayerLogoLayout = (args: IntroduceLayerLogoLayoutProps) => {
   const { image } = args;
   return (
     <motion.div
-      variants={logo}
+      variants={SlideToTop["y_30"]}
       initial="hidden"
       animate="show"
       className="flex justify-center items-center w-[250px] h-[250px] p-10 shadow-xl rounded-3xl bg-white mr-3"
@@ -98,13 +60,13 @@ const IntroduceLayerContentLayout = (
   const { title, description, tags } = args;
   return (
     <motion.div
-      variants={contentLayout}
+      variants={FadeInWithChildren["sc_0.2"]}
       initial="hidden"
       animate="show"
       className="flex flex-col w-fill min-h-[250px] max-w-[700px] rounded-3xl p-10 shadow-xl bg-green-100 sm:mt-5 md:mt-5"
     >
       <motion.h1
-        variants={contentItem}
+        variants={SlideToLeft["x_30"]}
         initial="hidden"
         animate="show"
         className={`text-4xl font-bold `}
@@ -112,7 +74,7 @@ const IntroduceLayerContentLayout = (
         {title}
       </motion.h1>
       <motion.p
-        variants={contentItem}
+        variants={SlideToLeft["x_30"]}
         initial="hidden"
         animate="show"
         className="mt-4"
@@ -129,7 +91,7 @@ const IntroduceLayerTagLayout = (args: IntroduceLayerTagLayoutProps) => {
   const { tags } = args;
   return (
     <motion.div
-      variants={contentItem}
+      variants={SlideToLeft["x_30"]}
       initial="hidden"
       animate="show"
       className="flex flex-row flex-wrap mt-2"

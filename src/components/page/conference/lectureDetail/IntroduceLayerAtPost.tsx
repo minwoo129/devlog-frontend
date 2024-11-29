@@ -1,5 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   IntroduceLayerAtPostProps,
   LayerAtPostDetailProps,
@@ -9,53 +9,7 @@ import { classMerge } from "@/commonFunctions/tailwinds";
 import { TotalConferences } from "@/commonDatas/conferences";
 import dayjs from "dayjs";
 import Tag from "@/components/common/Tag";
-
-const container: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-const detailLayer: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const thumbnail: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
-
-const infoItem: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-  },
-};
+import { FadeInWithChildren, SlideToTop } from "@/themes/framerMotionVariants";
 
 export const IntroduceLayerAtPost = (args: IntroduceLayerAtPostProps) => {
   const {
@@ -81,7 +35,10 @@ export const IntroduceLayerAtPost = (args: IntroduceLayerAtPostProps) => {
     conferenceName = conferenceData.title;
   }
   return (
-    <motion.div variants={container} className={containerStyle}>
+    <motion.div
+      variants={FadeInWithChildren["sc_0.1"]}
+      className={containerStyle}
+    >
       <LayerAtPostVideo youtubeEmbedLink={youtubeEmbedLink} />
       <LayerAtPostDetail
         conferenceName={conferenceName}
@@ -107,7 +64,7 @@ const LayerAtPostVideo = (args: LayerAtPostVideoProps) => {
     "vxl:w-full",
   ]);
   return (
-    <motion.div variants={thumbnail} className={style}>
+    <motion.div variants={SlideToTop["y_30"]} className={style}>
       <iframe src={youtubeEmbedLink} width={"100%"} height={"100%"} />
     </motion.div>
   );
@@ -123,38 +80,38 @@ const LayerAtPostDetail = (args: LayerAtPostDetailProps) => {
   ]);
   return (
     <motion.div
-      variants={detailLayer}
+      variants={FadeInWithChildren["sc_0.2"]}
       className={style}
       initial="hidden"
       animate="show"
     >
       <motion.h1
-        variants={infoItem}
+        variants={SlideToTop["y_30"]}
         className="text-4xl text-slate-800 font-nanumneo-eb"
       >
         {title}
       </motion.h1>
       <motion.p
-        variants={infoItem}
+        variants={SlideToTop["y_30"]}
         className="text-lg text-slate-500 font-nanumneo-r mt-2"
       >
         {conferenceName}
       </motion.p>
       <motion.p
-        variants={infoItem}
+        variants={SlideToTop["y_30"]}
         className="text-lg text-slate-500 font-nanumneo-r mt-6 mobile:hidden tablet:hidden"
       >
         {description}
       </motion.p>
       <motion.p
-        variants={infoItem}
+        variants={SlideToTop["y_30"]}
         className="text-lg text-slate-500 font-nanumneo-r mt-5"
       >
         {dayjs(createdAt).format("YY.MM.DD")}
       </motion.p>
 
       <motion.div
-        variants={infoItem}
+        variants={SlideToTop["y_30"]}
         className="flex flex-row flex-wrap w-full mt-4"
       >
         {keyTags?.map((tag, idx) => {
