@@ -11,13 +11,10 @@ export default function Navigation({}) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <div className="flex flex-row w-full min-h-16 justify-between items-center bg-zinc-800 px-4">
+    <div className="navigation">
       <Logo navigationType="large" />
 
-      <Button
-        onClick={() => setDrawerOpen(true)}
-        className=" rounded-xl p-2 transition ease-in-out duration-300 hover:bg-gray-600 "
-      >
+      <Button onClick={() => setDrawerOpen(true)} className="navigationBtn">
         <MenuIcon sx={{ color: common["white"] }} />
       </Button>
 

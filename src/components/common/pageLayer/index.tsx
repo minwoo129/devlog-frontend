@@ -11,20 +11,11 @@ import { Hydrate } from "@/ReactQuery";
 const PageLayerCommonGrid = (args: PageLayerCommonGridProps) => {
   const { children, className, left, right } = args;
 
-  const style = classMerge(["flex-1 flex-col overflow-y-scroll "]);
-  const style1 = classMerge([
-    "flex-1 flex-col w-full max-w-[1000px] px-[50px]",
-    "items-center",
-    "lg2:w-[1000px] lg2:px-0",
-    "xl1:w-[1000px] xl1:px-0",
-    "xl2:w-[1000px] xl2:px-0",
-    "vxl:w-[1000px] vxl:px-0",
-    className,
-  ]);
+  const style1 = classMerge(["pageLayerGrid4", className]);
   return (
-    <div className={style}>
-      <div className="flex flex-col min-h-screen justify-between ">
-        <div className="flex flex-row justify-center">
+    <div className="pageLayerGrid1">
+      <div className="pageLayerGrid2">
+        <div className="pageLayerGrid3">
           <PageLayerSideView direction="left" childComp={left} />
           <div className={style1}>{children}</div>
           <PageLayerSideView direction="right" childComp={right} />
@@ -46,11 +37,7 @@ const PageLayer = (args: PageLayerProps) => {
 
 const PageLayerSideView = (args: PageLayerSideGridProps) => {
   const { childComp, direction } = args;
-  return (
-    <div className="flex-[0.3] w-full h-auto hidden lg2:flex xl1:flex xl2:flex vxl:flex">
-      {childComp}
-    </div>
-  );
+  return <div className="pageLayerSideView">{childComp}</div>;
 };
 
 // eslint-disable-next-line react/display-name

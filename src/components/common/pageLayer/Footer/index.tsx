@@ -1,14 +1,22 @@
-import { FooterProps } from "../types";
+import { FooterDirGridProps, FooterProps } from "../types";
 import FooterLinkGrid from "./FooterLinkGrid";
 
 export default function Footer(args: FooterProps) {
   const {} = args;
   return (
-    <div className="w-full h-[150px] bg-zinc-800 grid grid-cols-2">
-      <div className="w-full h-full  "></div>
-      <div className="w-full h-full flex flex-row justify-end items-center pr-6">
+    <div className="footer">
+      <FooterDirGrid dir="left" />
+      <FooterDirGrid dir="right">
         <FooterLinkGrid />
-      </div>
+      </FooterDirGrid>
     </div>
   );
 }
+
+const FooterDirGrid = (props: FooterDirGridProps) => {
+  const { dir, children } = props;
+  if (dir === "left") {
+    return <div className="footerDirGridLeft">{children}</div>;
+  }
+  return <div className="footerDirGridRight">{children}</div>;
+};

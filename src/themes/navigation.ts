@@ -6,7 +6,7 @@ export const navigationTheme = createTheme({
       main: "#212121",
     },
     secondary: {
-      main: "#757575",
+      main: "#424242",
     },
   },
 });

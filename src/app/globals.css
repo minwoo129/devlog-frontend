@@ -5,6 +5,7 @@
 /* @import "./css/conference.css"; */
 @import "./css/main.css";
 @import "./css/pageModal.css";
+@import "./css/root.css";
 /* @import "./css/prism-vsc-dark-plus.css"; */
 @tailwind base;
 @tailwind components;

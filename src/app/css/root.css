@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navBackground: #27272a;
+  --navBackgroundHover: #52525b;
+}
+
+@layer components {
+  .navigation {
+    @apply flex flex-row;
+    @apply w-full min-h-16;
+    @apply justify-between items-center;
+    @apply bg-[--navBackground];
+    @apply px-4 py-2;
+  }
+  .navigationBtn {
+    @apply rounded-xl;
+    @apply p-2;
+    @apply transition ease-in-out duration-300 hover:bg-[--navBackgroundHover];
+  }
+  .navigationLogo {
+    @apply flex;
+    @apply justify-center items-center;
+    @apply rounded-lg;
+    @apply w-fit h-full;
+    @apply px-5 py-2;
+    @apply text-3xl text-white;
+    @apply transition ease-in-out duration-300 hover:bg-[--navBackgroundHover];
+  }
+
+  /* PageLayer */
+  .pageLayerGrid1 {
+    @apply flex-1 flex-col overflow-y-scroll;
+  }
+  .pageLayerGrid2 {
+    @apply flex flex-col min-h-screen justify-between;
+  }
+  .pageLayerGrid3 {
+    @apply flex flex-row justify-center;
+  }
+  .pageLayerGrid4 {
+    @apply flex-1 flex-col w-full max-w-[1000px] px-[50px];
+    @apply items-center;
+    @apply lg2:w-[1000px] lg2:px-0;
+    @apply xl1:w-[1000px] xl1:px-0;
+    @apply xl2:w-[1000px] xl2:px-0;
+    @apply vxl:w-[1000px] vxl:px-0;
+  }
+  .pageLayerSideView {
+    @apply flex-[0.3];
+    @apply w-full h-auto;
+    @apply hidden;
+    @apply lg2:flex;
+    @apply xl1:flex;
+    @apply xl2:flex;
+    @apply vxl:flex;
+  }
+
+  .footer {
+    @apply w-full h-[150px];
+    @apply bg-[--navBackground];
+    @apply grid grid-cols-2;
+  }
+
+  .footerDirGridLeft {
+    @apply w-full h-full;
+  }
+
+  .footerDirGridRight {
+    @apply w-full h-full;
+    @apply flex flex-row justify-end items-center;
+    @apply pr-6;
+  }
+}

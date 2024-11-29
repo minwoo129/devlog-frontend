@@ -24,6 +24,11 @@ export interface PageLayerSideGridProps {
 
 export interface FooterProps {}
 
+export interface FooterDirGridProps {
+  dir: "left" | "right";
+  children?: React.ReactNode;
+}
+
 export interface FooterLinkGridProps {}
 
 export interface FooterLinkIconBtnProps {
