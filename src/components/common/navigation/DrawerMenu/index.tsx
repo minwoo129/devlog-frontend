@@ -7,7 +7,9 @@ import DrawerMenuItem from "./DrawerMenuItem";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import { grey } from "@mui/material/colors";
+import { grey, red } from "@mui/material/colors";
+import { ThemeProvider } from "@mui/material";
+import { navigationTheme } from "@/themes/navigation";
 
 export default function DrawerMenu(args: DrawerMenuProps) {
   const { isDrawerOpen, setDrawerOpen } = args;
@@ -18,7 +20,7 @@ export default function DrawerMenu(args: DrawerMenuProps) {
     router.push(href);
   };
 
-  return (
+  /* return (
     <React.Fragment>
       <Drawer
         anchor="top"
@@ -44,6 +46,36 @@ export default function DrawerMenu(args: DrawerMenuProps) {
           </List>
         </Box>
       </Drawer>
+    </React.Fragment>
+  ); */
+  return (
+    <React.Fragment>
+      <ThemeProvider theme={navigationTheme}>
+        <Drawer
+          anchor="right"
+          open={isDrawerOpen}
+          onClose={() => setDrawerOpen(false)}
+        >
+          <Box
+            sx={{ width: 250, height: "100%", bgcolor: "primary.main" }}
+            role="presentation"
+            onClick={() => setDrawerOpen(false)}
+            onKeyDown={() => setDrawerOpen(false)}
+          >
+            <List>
+              {PageNavDatas.map((data, idx) => {
+                return (
+                  <DrawerMenuItem
+                    data={data}
+                    onPressMenu={onPressMenu}
+                    key={idx}
+                  />
+                );
+              })}
+            </List>
+          </Box>
+        </Drawer>
+      </ThemeProvider>
     </React.Fragment>
   );
 }
